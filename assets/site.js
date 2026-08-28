@@ -145,13 +145,39 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   }
 
+  var jagaTimer = null;
+
   function watchReveal() {
     var els = document.querySelectorAll('.reveal:not(.in)');
+    var tinggi = window.innerHeight || 800;
     Array.prototype.forEach.call(els, function (el, i) {
       if (!io) { el.classList.add('in'); return; }
+
+      /* Yang sudah berada di dalam layar waktu digambar langsung
+         ditampilkan tanpa menunggu pengamat. Ini bikin kartu yang
+         muncul belakangan, misalnya waktu pengguna pindah katalog,
+         tidak pernah tertinggal dalam keadaan tembus pandang. */
+      var kotak = el.getBoundingClientRect();
+      if (kotak.top < tinggi && kotak.bottom > -80) {
+        el.style.transitionDelay = (Math.min(i, 6) * 55) + 'ms';
+        el.classList.add('in');
+        return;
+      }
+
       if (!el.hasAttribute('data-delay')) el.setAttribute('data-delay', String(Math.min(i, 6) * 55));
       io.observe(el);
     });
+
+    /* Kartu yang digambar belakangan, misalnya waktu pengguna pindah
+       antara katalog Orange dan Tableau, kadang tidak pernah dianggap
+       masuk layar. Pengaman ini menampilkannya kalau dalam dua detik
+       masih tersembunyi, jadi halaman tidak pernah kelihatan kosong. */
+    if (jagaTimer) clearTimeout(jagaTimer);
+    jagaTimer = setTimeout(function () {
+      Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'), function (el) {
+        el.classList.add('in');
+      });
+    }, 2000);
   }
   watchReveal();
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Katalog Project · Kelas Data Analitik</title>
-<meta name="description" content="Dua puluh project kakak tingkat dikelompokkan jadi sembilan tema. Bisa dicari, disaring, dibaca online, dan diunduh.">
+<meta name="description" content="Project kakak tingkat dari dua ujian: analisis Orange dan dashboard Tableau. Bisa dicari, disaring, dibaca online, dan diunduh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=8915f1cc">
+<link rel="stylesheet" href="assets/site.css?v=e3d5863c">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -27,12 +27,13 @@
       <span class="sticker"><span class="live"></span> Bahan Terbuka · Angkatan Sebelumnya</span>
       <h1>Contoh project dari <span class="grad">angkatan sebelumnya</span></h1>
       <p class="lead">
-        Ini presentasi UTS kakak tingkat. Cari yang temanya kalian minati, baca langsung di browser,
-        atau unduh PDF-nya. Berguna buat melihat sedalam apa analisis yang diharapkan.
+        Dua kumpulan sekaligus. Project Orange dari UTS, dan project Tableau dari UAS
+        lengkap dengan dashboard yang masih bisa diklik. Cari yang temanya kalian minati,
+        baca di browser, atau unduh PDF-nya.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#sorotan">Tiga contoh pilihan</a>
-        <a class="btn btn-ghost" href="#katalog">Lihat semua</a>
+        <a class="btn btn-primary" href="#katalog">Buka katalog</a>
+        <a class="btn btn-ghost" href="#sorotan">Contoh pilihan</a>
       </div>
     </div>
 
@@ -48,15 +49,13 @@
   </div>
 </header>
 
-<div id="pita"></div>
-
 <!-- ===================== SOROTAN ===================== -->
 <section id="sorotan">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Sorotan</span>
-      <h2>Kalau cuma sempat baca tiga</h2>
-      <p>Tiga ini dipilih karena masing-masing menunjukkan hal yang berbeda.</p>
+      <h2 id="sorotJudul">Kalau cuma sempat baca tiga</h2>
+      <p id="sorotSub">Tiga ini dipilih karena masing-masing menunjukkan hal yang berbeda.</p>
     </div>
     <div class="sorot-grid" id="sorotIsi"></div>
   </div>
@@ -67,13 +66,32 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Katalog Lengkap</span>
-      <h2>Cari sesuai tema</h2>
-      <p id="subKatalog">Ada 20 project dari 9 tema.</p>
+      <h2>Pilih dulu jenis projectnya</h2>
+      <p id="subKatalog"></p>
+    </div>
+
+    <div class="alat-pilih reveal" id="alatPilih">
+      <button class="alat-tombol on" data-alat="orange">
+        <img src="assets/img/lambang-orange.png" alt="Orange">
+        <span class="alat-teks">
+          <b>Project Orange</b>
+          <i>Analisis data waktu UTS</i>
+        </span>
+        <span class="alat-jml" id="jmlOrange"></span>
+      </button>
+      <button class="alat-tombol" data-alat="tableau">
+        <img src="assets/img/lambang-tableau.png" alt="Tableau">
+        <span class="alat-teks">
+          <b>Project Tableau</b>
+          <i>Dashboard dan story waktu UAS</i>
+        </span>
+        <span class="alat-jml" id="jmlTableau"></span>
+      </button>
     </div>
 
     <div class="kendali reveal">
       <div class="cari-wrap" style="margin-top:0">
-        <input type="search" id="cariProject" placeholder="Ketik misalnya: fraud, churn, properti, karyawan" autocomplete="off">
+        <input type="search" id="cariProject" placeholder="Ketik misalnya: profit, pengiriman, fraud, pelanggan" autocomplete="off">
       </div>
       <div class="filter-row" id="temaFilter" style="margin-bottom:0"></div>
       <div class="urut-baris">
@@ -103,7 +121,7 @@
       <div class="tile tile-third reveal">
         <div class="proj-ikon p1" style="margin-bottom:14px">🔍</div>
         <h3 style="font-size:17px;margin-bottom:8px">Cari tema yang kalian minati</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Minat audit, buka tema Fraud. Minat perbankan, buka Kredit. Dari situ kelihatan bentuk datanya seperti apa.</p>
+        <p style="font-size:13.5px;color:var(--ink-2)">Minat audit, buka tema Fraud atau Risiko. Minat perbankan, buka Kredit. Dari situ kelihatan bentuk datanya seperti apa.</p>
       </div>
       <div class="tile tile-third reveal">
         <div class="proj-ikon p2" style="margin-bottom:14px">📐</div>
@@ -117,8 +135,8 @@
       </div>
       <div class="tile tile-third reveal">
         <div class="proj-ikon p2" style="margin-bottom:14px"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></div>
-        <h3 style="font-size:17px;margin-bottom:8px">Ukur target kalian</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Lihat sedalam apa analisis mereka, lalu pastikan project kalian minimal sedalam itu.</p>
+        <h3 style="font-size:17px;margin-bottom:8px">Buka dashboardnya, jangan cuma lihat gambar</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Project Tableau punya tautan ke Tableau Public. Klik, lalu saring sendiri isinya biar kelihatan cara kerjanya.</p>
       </div>
       <div class="tile tile-wide note info-inline reveal">
         <span style="font-size:20px">⚠️</span>
@@ -131,11 +149,11 @@
 <div id="foot"></div>
 
 <script src="assets/course.js?v=7cc7d72a"></script>
-<script src="assets/showcase.js?v=f9e3ca0f"></script>
-<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/showcase.js?v=107c660e"></script>
+<script src="assets/ikon.js?v=56710d72"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
-<script src="assets/shell.js?v=5b2e50b5"></script>
-<script src="assets/site.js?v=6d9ef1ac"></script>
+<script src="assets/shell.js?v=9e160126"></script>
+<script src="assets/site.js?v=f7b2e8dc"></script>
 <script>
 (function () {
   'use strict';
@@ -143,75 +161,133 @@
   var filterTema = '';
   var kataCari = '';
   var urutan = 'tema';
-
-  function tema(id) {
-    for (var i = 0; i < SHOWCASE_TEMA.length; i++) {
-      if (SHOWCASE_TEMA[i].id === id) return SHOWCASE_TEMA[i];
-    }
-    return SHOWCASE_TEMA[0];
-  }
+  var alat = 'orange';
 
   function aman(t) {
     return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  /* katalog hanya menampilkan project yang berkasnya tersedia */
-  var DAFTAR = SHOWCASE.filter(function (p) { return !!p.berkas; });
-  var temaAda = SHOWCASE_TEMA.filter(function (t) {
-    return DAFTAR.some(function (p) { return p.tema === t.id; });
-  });
+  /* ---------------- dua kumpulan ---------------- */
+  var KUMPULAN = {
+    orange: {
+      nama: 'Project Orange',
+      ujian: 'UTS',
+      semua: SHOWCASE,
+      tema: SHOWCASE_TEMA,
+      cari: 'Ketik misalnya: fraud, churn, properti, karyawan',
+      sorotJudul: 'Kalau cuma sempat baca tiga',
+      sorotSub: 'Tiga ini dipilih karena masing-masing menunjukkan hal yang berbeda.',
+      sorot: [
+        { kode: 'A-KLP02', label: 'Paling lengkap', alasan: 'Paling tebal, 23 slide. Contoh kalau satu dataset digali sampai dalam.' },
+        { kode: 'A-KLP03', label: 'Paling padat', alasan: 'Cuma 11 slide, tapi klasifikasi, regresi, dan klasternya lengkap semua.' },
+        { kode: 'A-KLP09', label: 'Paling dekat ke audit', alasan: 'Temanya deteksi kecurangan. Buka ini kalau kalian mengincar kantor akuntan publik.' }
+      ]
+    },
+    tableau: {
+      nama: 'Project Tableau',
+      ujian: 'UAS',
+      semua: TABLEAU_SHOWCASE,
+      tema: TABLEAU_TEMA,
+      cari: 'Ketik misalnya: profit, pengiriman, diskon, pelanggan',
+      sorotJudul: 'Tiga dashboard yang layak dibuka duluan',
+      sorotSub: 'Datanya sama, yang beda pertanyaannya. Di situ letak nilainya.',
+      sorot: [
+        { kode: 'T-A-KLP04', label: 'Dashboard paling lengkap', alasan: 'Tiga papan sekaligus: dua dashboard dan satu story, semuanya masih bisa diklik.' },
+        { kode: 'T-A-KLP01', label: 'Pertanyaan paling tajam', alasan: 'Tidak berhenti di penjualan tertinggi, tapi menunjuk sub kategori yang bikin rugi.' },
+        { kode: 'T-A-KLP10', label: 'Paling enak dibaca pimpinan', alasan: 'Satu layar, dan pembacanya langsung tahu kondisi bisnisnya.' }
+      ]
+    }
+  };
 
-  /* ---------------- ringkasan ---------------- */
+  function K() { return KUMPULAN[alat]; }
+
+  function tema(id) {
+    var d = K().tema;
+    for (var i = 0; i < d.length; i++) { if (d[i].id === id) return d[i]; }
+    return d[0];
+  }
+
+  function tampil() {
+    return K().semua.filter(function (p) { return !!p.berkas; });
+  }
+
+  function temaTampil() {
+    var d = tampil();
+    return K().tema.filter(function (t) {
+      return d.some(function (p) { return p.tema === t.id; });
+    });
+  }
+
+  /* ---------------- ringkasan di hero ---------------- */
+  var nOrange = SHOWCASE.filter(function (p) { return !!p.berkas; }).length;
+  var nTableau = TABLEAU_SHOWCASE.filter(function (p) { return !!p.berkas; }).length;
+
+  document.getElementById('jmlOrange').textContent = nOrange;
+  document.getElementById('jmlTableau').textContent = nTableau;
+
   document.getElementById('ringkasKatalog').innerHTML =
-    '<div><span>Project</span><span>' + DAFTAR.length + '</span></div>' +
-    '<div><span>Tema</span><span>' + temaAda.length + '</span></div>' +
-    '<div><span>Total slide</span><span>' + DAFTAR.reduce(function (a, b) { return a + b.slide; }, 0) + '</span></div>' +
+    '<div><span>Project Orange</span><span>' + nOrange + '</span></div>' +
+    '<div><span>Project Tableau</span><span>' + nTableau + '</span></div>' +
+    '<div><span>Dashboard bisa diklik</span><span>' +
+      TABLEAU_SHOWCASE.reduce(function (a, p) { return a + ((p.berkas && p.papan) ? p.papan.length : 0); }, 0) + '</span></div>' +
     '<div><span>Semuanya</span><span>bisa diunduh</span></div>';
 
   /* ---------------- sorotan ---------------- */
-  var SOROT = [
-    { kode: 'A-KLP02', alasan: 'Paling tebal, 23 slide. Contoh kalau satu dataset digali sampai dalam.', label: 'Paling lengkap' },
-    { kode: 'A-KLP03', alasan: 'Cuma 11 slide, tapi klasifikasi, regresi, dan klasternya lengkap semua.', label: 'Paling padat' },
-    { kode: 'A-KLP09', alasan: 'Temanya deteksi kecurangan. Buka ini kalau kalian mengincar kantor akuntan publik.', label: 'Paling relevan ke audit' }
-  ];
-
   function cari(kode) {
-    for (var i = 0; i < SHOWCASE.length; i++) { if (SHOWCASE[i].kode === kode) return SHOWCASE[i]; }
+    var d = K().semua;
+    for (var i = 0; i < d.length; i++) { if (d[i].kode === kode) return d[i]; }
     return null;
   }
 
-  document.getElementById('sorotIsi').innerHTML = SOROT.map(function (s, i) {
-    var p = cari(s.kode);
-    if (!p) return '';
-    var t = tema(p.tema);
-    return '<article class="tile sorot reveal" style="--c:' + t.warna + '">' +
-      '<a class="sorot-gambar" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">' +
-        '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + '" loading="lazy">' +
-        '<span class="sorot-pita">' + (i + 1) + '</span>' +
-      '</a>' +
-      '<div class="sorot-isi">' +
-        '<span class="sorot-label">' + s.label + '</span>' +
-        '<h3>' + aman(p.judul) + '</h3>' +
-        '<p>' + aman(s.alasan) + '</p>' +
-        '<div class="sorot-kaki">' +
-          '<span class="sc-kode">' + p.klp + ' · Kelas ' + p.kelas + '</span>' +
-          '<span class="sc-slide">' + p.slide + ' slide</span>' +
-          '<a class="sorot-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca →</a>' +
-        '</div>' +
-      '</div></article>';
-  }).join('');
+  function gambarSorotan() {
+    document.getElementById('sorotJudul').textContent = K().sorotJudul;
+    document.getElementById('sorotSub').textContent = K().sorotSub;
+    document.getElementById('sorotIsi').innerHTML = K().sorot.map(function (s, i) {
+      var p = cari(s.kode);
+      if (!p || !p.berkas) return '';
+      var t = tema(p.tema);
+      return '<article class="tile sorot reveal" style="--c:' + t.warna + '">' +
+        '<a class="sorot-gambar" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">' +
+          '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + '" loading="lazy">' +
+          '<span class="sorot-pita">' + (i + 1) + '</span>' +
+        '</a>' +
+        '<div class="sorot-isi">' +
+          '<span class="sorot-label">' + s.label + '</span>' +
+          '<h3>' + aman(p.judul) + '</h3>' +
+          '<p>' + aman(s.alasan) + '</p>' +
+          '<div class="sorot-kaki">' +
+            '<span class="sc-kode">' + p.klp + ' · Kelas ' + p.kelas + '</span>' +
+            '<span class="sc-slide">' + p.slide + ' slide</span>' +
+            '<a class="sorot-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca →</a>' +
+          '</div>' +
+        '</div></article>';
+    }).join('');
+  }
 
   /* ---------------- tombol saring ---------------- */
   var f = document.getElementById('temaFilter');
-  f.innerHTML = '<button class="chip on" data-tema="">Semua tema <b>' + DAFTAR.length + '</b></button>' +
-    temaAda.map(function (t) {
-      var n = DAFTAR.filter(function (p) { return p.tema === t.id; }).length;
-      return '<button class="chip" data-tema="' + t.id + '">' + t.ikon + ' ' + t.nama + ' <b>' + n + '</b></button>';
-    }).join('');
+
+  function gambarSaringan() {
+    var d = tampil();
+    f.innerHTML = '<button class="chip' + (filterTema ? '' : ' on') + '" data-tema="">Semua tema <b>' + d.length + '</b></button>' +
+      temaTampil().map(function (t) {
+        var n = d.filter(function (p) { return p.tema === t.id; }).length;
+        return '<button class="chip' + (filterTema === t.id ? ' on' : '') + '" data-tema="' + t.id + '">' +
+          t.ikon + ' ' + t.nama + ' <b>' + n + '</b></button>';
+      }).join('');
+  }
 
   /* ---------------- kartu ---------------- */
   function kartu(p) {
     var t = tema(p.tema);
+    var papan = '';
+    if (p.papan && p.papan.length) {
+      papan = '<div class="sc-papan">' +
+        '<span class="sc-papan-judul"><img src="assets/img/lambang-tableau.png" alt="Tableau"> Dashboard hidup</span>' +
+        p.papan.map(function (b) {
+          return '<a class="sc-papan-tautan" href="' + b.url + '" target="_blank" rel="noopener">' + aman(b.label) + ' ↗</a>';
+        }).join('') + '</div>';
+    }
     return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
       '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener" title="Buka presentasi ' + p.klp + '">' +
         '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
@@ -222,6 +298,7 @@
       '<div class="sc-isi">' +
         '<h3>' + aman(p.judul) + '</h3>' +
         '<p>' + aman(p.catatan) + '</p>' +
+        papan +
         '<div class="sc-aksi">' +
           '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
           '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh PDF</a>' +
@@ -231,7 +308,7 @@
 
   /* ---------------- penyusunan ---------------- */
   function saring() {
-    return DAFTAR.filter(function (p) {
+    return tampil().filter(function (p) {
       if (filterTema && p.tema !== filterTema) return false;
       if (!kataCari) return true;
       var t = tema(p.tema);
@@ -241,20 +318,22 @@
   }
 
   function gambar() {
+    var d = tampil();
     var hasil = saring();
     var wadah = document.getElementById('isiKatalog');
     var kosong = document.getElementById('kosongPesan');
+    var nt = temaTampil().length;
 
     document.getElementById('subKatalog').textContent =
-      hasil.length === DAFTAR.length
-        ? 'Ada ' + DAFTAR.length + ' project dari ' + temaAda.length + ' tema, semuanya bisa dibaca dan diunduh.'
-        : 'Menampilkan ' + hasil.length + ' dari ' + DAFTAR.length + ' project.';
+      hasil.length === d.length
+        ? K().nama + ': ' + d.length + ' project dari ' + nt + ' tema, hasil ' + K().ujian + ' angkatan sebelumnya.'
+        : 'Menampilkan ' + hasil.length + ' dari ' + d.length + ' ' + K().nama.toLowerCase() + '.';
 
     if (!hasil.length) { wadah.innerHTML = ''; kosong.style.display = ''; return; }
     kosong.style.display = 'none';
 
     if (urutan === 'tema') {
-      var daftar = temaAda.filter(function (t) {
+      var daftar = temaTampil().filter(function (t) {
         return hasil.some(function (p) { return p.tema === t.id; });
       });
       wadah.innerHTML = daftar.map(function (t, i) {
@@ -284,6 +363,23 @@
   }
 
   /* ---------------- kendali ---------------- */
+  document.getElementById('alatPilih').addEventListener('click', function (e) {
+    var b = e.target.closest('.alat-tombol');
+    if (!b || b.classList.contains('on')) return;
+    Array.prototype.forEach.call(this.querySelectorAll('.alat-tombol'), function (c) { c.classList.remove('on'); });
+    b.classList.add('on');
+    alat = b.getAttribute('data-alat');
+    filterTema = '';
+    kataCari = '';
+    var kotak = document.getElementById('cariProject');
+    kotak.value = '';
+    kotak.placeholder = K().cari;
+    gambarSaringan();
+    gambarSorotan();
+    gambar();
+    if (window.bdaWatchReveal) window.bdaWatchReveal();
+  });
+
   f.addEventListener('click', function (e) {
     var b = e.target.closest('.chip');
     if (!b) return;
@@ -308,6 +404,15 @@
     gambar();
   });
 
+  /* halaman bisa dibuka langsung ke katalog Tableau lewat #tableau */
+  if (location.hash === '#tableau') {
+    var tb = document.querySelector('.alat-tombol[data-alat="tableau"]');
+    if (tb) tb.click();
+  }
+
+  document.getElementById('cariProject').placeholder = K().cari;
+  gambarSaringan();
+  gambarSorotan();
   gambar();
 })();
 </script>

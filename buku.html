@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Referensi · Kelas Data Analitik</title>
+<meta name="description" content="Dua buku pegangan kelas, lengkap dengan bab mana yang dibaca di pertemuan berapa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=e3d5863c">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Bacaan Pendukung</span>
+      <h1>Dua buku, <span class="grad">bukan buat dibaca habis</span></h1>
+      <p class="lead">
+        Nggak ada yang menyuruh kalian menamatkan 1.100 halaman. Yang berguna itu tahu
+        bab mana yang menjawab materi minggu ini. Daftar di bawah sudah dipetakan
+        per pertemuan, tinggal buka yang dibutuhkan.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#daftar">Lihat dua bukunya</a>
+        <a class="btn btn-ghost" href="#cara">Cara pakainya</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Ringkasan</span>
+        <div class="mini-list" style="margin-top:16px" id="ringkasBuku"></div>
+      </div>
+      <blockquote class="quote">
+        Baca satu bab yang tepat lebih berguna daripada membuka seluruh buku tanpa arah.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<section id="daftar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Buku Pegangan</span>
+      <h2>Satu buat praktik, satu buat pendalaman</h2>
+      <p>Yang pertama dipakai paling sering karena isinya langkah kerja. Yang kedua dibuka kalau kalian mau tahu alasan di balik metodenya.</p>
+    </div>
+    <div class="buku-grid" id="isiBuku"></div>
+
+    <div class="tile note info-inline reveal" style="margin-top:16px">
+      <span data-ikon="lampu"></span>
+      <span><b>Berkas PDF-nya dibagikan lewat kanal kelas, bukan diunduh dari halaman ini.</b>
+      Keduanya buku terbitan Springer yang masih dilindungi hak cipta, jadi tautan di kartu
+      mengarah ke halaman resmi penerbitnya. Kalau kampus berlangganan Springer, kalian bisa
+      buka versi lengkapnya dari sana pakai akun kampus.</span>
+    </div>
+  </div>
+</section>
+
+<section id="peta">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Peta Bacaan</span>
+      <h2>Pertemuan ini, baca bab yang mana</h2>
+      <p>Urut dari pertemuan pertama sampai terakhir. Cari nomor pertemuannya, baca bab yang tertera.</p>
+    </div>
+    <div class="tile reveal">
+      <div id="petaBaca"></div>
+    </div>
+  </div>
+</section>
+
+<section id="cara">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Cara Pakai</span>
+      <h2>Empat cara supaya bukunya kepakai</h2>
+    </div>
+    <div class="bento">
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p1" style="margin-bottom:14px"><span data-ikon="target"></span></div>
+        <h3 style="font-size:17px;margin-bottom:8px">Buka setelah kelas, bukan sebelum</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Dengar dulu penjelasan di kelas, baru buka babnya. Istilah yang tadi cuma lewat jadi lebih nyantol.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p2" style="margin-bottom:14px"><span data-ikon="grafik"></span></div>
+        <h3 style="font-size:17px;margin-bottom:8px">Contek cara mereka menyusun bab</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Masalah, data, metode, hasil, lalu arti hasilnya. Susunan laporan project kalian sama persis.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p1" style="margin-bottom:14px"><span data-ikon="kutip"></span></div>
+        <h3 style="font-size:17px;margin-bottom:8px">Pakai buat kutipan laporan</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Laporan project butuh rujukan. Dua buku ini sudah cukup buat bagian dasar teori, tulis pakai APA edisi ketujuh.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p2" style="margin-bottom:14px"><span data-ikon="putar"></span></div>
+        <h3 style="font-size:17px;margin-bottom:8px">Cocokkan dengan latihannya</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Baca satu bab, lalu langsung coba di <a href="simulasi.html" style="color:var(--iris);font-weight:700">halaman simulasi</a> atau di Orange. Teori tanpa dicoba cepat hilang.</p>
+      </div>
+      <div class="tile tile-wide note info-inline reveal">
+        <span data-ikon="perisai"></span>
+        <span><b>Kutip, jangan salin.</b> Menyalin paragraf buku ke laporan tanpa menyebut sumbernya masuk kategori plagiarisme di <a href="aturan.html#jujur" style="color:var(--iris);font-weight:700">Rule Perkuliahan</a>. Tulis ulang pakai kalimat sendiri, lalu sebutkan sumbernya.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js?v=7cc7d72a"></script>
+<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/kelas-daring.js?v=fe8948ba"></script>
+<script src="assets/shell.js?v=9e160126"></script>
+<script src="assets/site.js?v=f7b2e8dc"></script>
+<script>
+(function () {
+  'use strict';
+
+  function aman(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ============================================================
+     Dua buku pegangan kelas.
+     Nomor bab dan halaman diambil dari daftar isi bukunya
+     masing masing, jadi angkanya bisa dicocokkan langsung.
+     ============================================================ */
+  var BUKU = [
+    {
+      inisial: 'BA',
+      warna: 'var(--mint)',
+      judul: 'Business Analytics: Data Science for Business Problems',
+      penulis: 'Walter R. Paczkowski',
+      terbit: 'Springer, 2022 · 416 halaman',
+      resmi: 'https://link.springer.com/book/10.1007/978-3-030-87023-2',
+      untuk: 'Buku utama kelas ini. Bahasanya praktis dan urutannya mengikuti cara kerja sehari hari: ambil data, rapikan, gambarkan, baru dianalisis. Hampir semua materi sampai pertemuan 14 ada padanannya di sini.',
+      bab: [
+        { no: 'Bab 1', teks: 'Introduction to Business Data Analytics', kapan: 'TM 1 dan 2' },
+        { no: 'Bab 2', teks: 'Data Sources, Organization, and Structures', kapan: 'TM 2' },
+        { no: 'Bab 3', teks: 'Basic Data Handling', kapan: 'TM 3 dan 4' },
+        { no: 'Bab 4', teks: 'Data Visualization: The Basics', kapan: 'TM 4 dan 11' },
+        { no: 'Bab 5', teks: 'Advanced Data Handling: Preprocessing Methods', kapan: 'TM 4 dan 10' },
+        { no: 'Bab 6', teks: 'OLS Regression: The Basics', kapan: 'TM 6' },
+        { no: 'Bab 7', teks: 'Time Series Analysis', kapan: 'TM 14' },
+        { no: 'Bab 9', teks: 'Advanced Data Handling for Business Data Analytics', kapan: 'TM 10' },
+        { no: 'Bab 10', teks: 'Advanced OLS for Business Data Analytics', kapan: 'TM 6' },
+        { no: 'Bab 11', teks: 'Classification with Supervised Learning Methods', kapan: 'TM 5' },
+        { no: 'Bab 12', teks: 'Grouping with Unsupervised Learning Methods', kapan: 'TM 6' }
+      ]
+    },
+    {
+      inisial: 'BD',
+      warna: 'var(--iris)',
+      judul: 'Advances in Big Data Analytics: Theory, Algorithms and Practices',
+      penulis: 'Yong Shi',
+      terbit: 'Springer, 2022 · 723 halaman',
+      resmi: 'https://link.springer.com/book/10.1007/978-981-16-3607-3',
+      untuk: 'Buku pendalaman. Isinya lebih matematis dan tidak wajib dibaca semua. Buka kalau kalian penasaran kenapa satu metode dipilih, atau kalau mau bagian dasar teori laporan project terasa lebih berisi.',
+      bab: [
+        { no: 'Bab 2', teks: 'Multiple Criteria Optimization Classification', kapan: 'TM 5' },
+        { no: 'Bab 3', teks: 'Support Vector Machine Classification', kapan: 'TM 5' },
+        { no: 'Bab 4', teks: 'Feature Selection', kapan: 'TM 4' },
+        { no: 'Bab 5', teks: 'Data Stream Analysis', kapan: 'TM 2' },
+        { no: 'Bab 6', teks: 'Learning Analysis', kapan: 'TM 5 dan 6' },
+        { no: 'Bab 8', teks: 'Link Analysis', kapan: 'TM 7' },
+        { no: 'Bab 9', teks: 'Evaluation Analysis', kapan: 'TM 5' },
+        { no: 'Bab 10', teks: 'Business and Engineering Applications', kapan: 'TM 14' },
+        { no: 'Bab 11', teks: 'Healthcare Applications', kapan: 'Pengayaan' },
+        { no: 'Bab 7', teks: 'Sentiment Analysis', kapan: 'Pengayaan' }
+      ]
+    }
+  ];
+
+  /* ---------------- ringkasan ---------------- */
+  var totalBab = BUKU.reduce(function (a, b) { return a + b.bab.length; }, 0);
+  document.getElementById('ringkasBuku').innerHTML =
+    '<div><span>Jumlah buku</span><span>' + BUKU.length + '</span></div>' +
+    '<div><span>Bab yang dipetakan</span><span>' + totalBab + '</span></div>' +
+    '<div><span>Penerbit</span><span>Springer</span></div>' +
+    '<div><span>Gaya rujukan</span><span>APA edisi 7</span></div>';
+
+  /* ---------------- kartu buku ---------------- */
+  document.getElementById('isiBuku').innerHTML = BUKU.map(function (b) {
+    return '<article class="tile buku reveal" style="--c:' + b.warna + '">' +
+      '<div class="buku-kepala">' +
+        '<div class="buku-sampul">' + b.inisial + '</div>' +
+        '<div class="buku-judul">' +
+          '<h3>' + aman(b.judul) + '</h3>' +
+          '<div class="buku-penulis">' + aman(b.penulis) + '</div>' +
+          '<div class="buku-terbit">' + aman(b.terbit) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="buku-untuk"><b>Dipakai buat apa</b>' + aman(b.untuk) + '</div>' +
+      '<div class="buku-bab">' +
+        b.bab.map(function (x) {
+          return '<div class="buku-bab-baris">' +
+            '<span class="buku-bab-no">' + x.no + '</span>' +
+            '<span class="buku-bab-teks">' + aman(x.teks) + '</span>' +
+            '<span class="buku-bab-kapan">' + x.kapan + '</span>' +
+            '</div>';
+        }).join('') +
+      '</div>' +
+      '<div class="uc-links" style="--c:' + b.warna + '">' +
+        '<a href="' + b.resmi + '" target="_blank" rel="noopener">Halaman resmi penerbit ↗</a>' +
+      '</div>' +
+      '</article>';
+  }).join('');
+
+  /* ---------------- peta bacaan per pertemuan ---------------- */
+  var peta = {};
+  BUKU.forEach(function (b) {
+    b.bab.forEach(function (x) {
+      var nomor = String(x.kapan).match(/\d+/g);
+      if (!nomor) {
+        (peta['pengayaan'] = peta['pengayaan'] || []).push({ buku: b, bab: x });
+        return;
+      }
+      nomor.forEach(function (n) {
+        (peta[n] = peta[n] || []).push({ buku: b, bab: x });
+      });
+    });
+  });
+
+  var urutTM = Object.keys(peta).filter(function (k) { return k !== 'pengayaan'; })
+    .sort(function (a, c) { return Number(a) - Number(c); });
+
+  function judulTM(n) {
+    if (typeof COURSE === 'undefined') return '';
+    for (var i = 0; i < COURSE.length; i++) {
+      if (COURSE[i].tm === Number(n)) return COURSE[i].judul;
+    }
+    return '';
+  }
+
+  var isiPeta = urutTM.map(function (n) {
+    var judul = judulTM(n);
+    return '<div class="target-baris">' +
+      '<span class="target-tanda">' + (window.IKON ? IKON('buku') : '') + '</span>' +
+      '<span class="target-teks"><b>Pertemuan ' + n + (judul ? ' · ' + aman(judul) : '') + '</b>' +
+        '<i>' + peta[n].map(function (p) { return p.bab.no + ' ' + p.buku.inisial + ' · ' + aman(p.bab.teks); }).join(' &nbsp;|&nbsp; ') + '</i></span>' +
+      '<span class="target-status">' + peta[n].length + ' bab</span>' +
+      '</div>';
+  }).join('');
+
+  if (peta['pengayaan']) {
+    isiPeta += '<div class="target-baris">' +
+      '<span class="target-tanda">' + (window.IKON ? IKON('bintang') : '') + '</span>' +
+      '<span class="target-teks"><b>Bacaan tambahan</b>' +
+        '<i>' + peta['pengayaan'].map(function (p) { return p.bab.no + ' ' + p.buku.inisial + ' · ' + aman(p.bab.teks); }).join(' &nbsp;|&nbsp; ') + '</i></span>' +
+      '<span class="target-status">Opsional</span>' +
+      '</div>';
+  }
+
+  isiPeta += '<p style="font-size:12px;color:var(--muted);margin-top:14px">' +
+    'BA = buku Paczkowski, BD = buku Shi.</p>';
+
+  document.getElementById('petaBaca').innerHTML = isiPeta;
+
+  if (window.IKON_PASANG) IKON_PASANG();
+  if (window.bdaWatchReveal) window.bdaWatchReveal();
+})();
+</script>
+</body>
+</html>

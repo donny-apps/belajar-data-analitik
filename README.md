@@ -12,10 +12,16 @@ Pengampu: Dr. Donny Maha Putra, S.Kom., M.Ak
 | `tableau.html` | Tableau: cara install, cara publish, materi pertemuan 9-15, Karya 2 |
 | `project.html` | Ketentuan dua karya, cara nyari topik, cara dinilai |
 | `aturan.html` | Aturan main kelas |
-| `masuk.html` | Catatan nama dan ceklis persiapan mahasiswa |
+| `bahan.html` | Daftar slide, modul, dan data latihan tiap pertemuan |
+| `buku.html` | Dua buku pegangan dan peta bab per pertemuan |
+| `showcase.html` | Katalog project kakak tingkat, Orange dan Tableau |
+| `sumber-data.html` | Tempat mencari dataset untuk project |
+| `belajar.html` | Video dan situs untuk belajar sendiri |
+| `masuk.html` | Ruang mahasiswa: data diri, pengumpulan, dan kemajuan |
 | `simulasi.html` | Empat latihan interaktif |
 | `tm1.html` | Rincian pertemuan 1 |
 | `materi/` | Modul, slide, workflow Orange, dan dataset |
+| `project-kakak-tingkat/` | Presentasi angkatan sebelumnya dalam bentuk PDF |
 
 ## Cara buka
 

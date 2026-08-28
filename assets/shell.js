@@ -13,6 +13,7 @@
     { label: 'Project', href: 'project.html' },
     { label: 'Bahan Belajar', anak: [
       { label: 'Bahan Kuliah', href: 'bahan.html', ket: 'Slide, modul, dan data latihan' },
+      { label: 'Buku Referensi', href: 'buku.html', ket: 'Dua buku pegangan dan bab mana dibaca kapan' },
       { label: 'Sumber Data', href: 'sumber-data.html', ket: 'Tempat mencari dataset project' },
       { label: 'Belajar Mandiri', href: 'belajar.html', ket: 'Video dan situs buat belajar sendiri' },
       { label: 'Katalog Project', href: 'showcase.html', ket: 'Karya kakak tingkat, bisa diunduh' },
@@ -83,42 +84,70 @@
   }
 
 
-  /* ---------------- pita jalan pintas ---------------- */
+  /* ---------------- pita jalan pintas di kaki halaman ----------------
+     Menempel di bawah layar seperti navigasi menempel di atas. Isinya
+     jalan pelan ke kiri supaya semua tautan kebagian giliran tampil,
+     dan berhenti begitu kursor masuk atau salah satu tautan disorot
+     lewat papan ketik, jadi tetap gampang diklik. */
   var PITA = [
-    { label: 'Materi Pertemuan 1', href: 'screens/tm1/TM1_Deck.html', ikon: 'buku', luar: true },
+    { label: 'Materi Pertemuan 1', href: 'screens/tm1/TM1_Deck.html', ikon: 'buku' },
     { label: 'Bahan Kuliah', href: 'bahan.html', ikon: 'rak' },
+    { label: 'Buku Referensi', href: 'buku.html', ikon: 'buku' },
     { label: 'Coba Simulasi', href: 'simulasi.html', ikon: 'putar' },
     { label: 'Katalog Project', href: 'showcase.html', ikon: 'grafik' },
+    { label: 'Project Tableau', href: 'showcase.html#tableau', ikon: 'papan' },
     { label: 'Sumber Dataset', href: 'sumber-data.html', ikon: 'data' },
     { label: 'Video Belajar', href: 'belajar.html', ikon: 'layar' },
     { label: 'Rule Perkuliahan', href: 'aturan.html', ikon: 'perisai' },
     { label: 'Kumpulkan Tugas', href: 'masuk.html', ikon: 'unduhan' }
   ];
 
-  var pslot = document.getElementById('pita');
-  if (pslot) {
+  (function pasangPita() {
+    var slot = document.getElementById('pita');
+    if (slot && slot.parentNode) slot.parentNode.removeChild(slot);
+
     var ik = function (n) { return window.IKON ? IKON(n) : ''; };
-    var isiPita = PITA
-      .filter(function (m) { return m.href !== halaman; })
+    var isi = PITA
+      .filter(function (m) { return m.href.split('#')[0] !== halaman; })
       .map(function (m) {
-        var alamat = m.luar ? akar + m.href : akar + m.href;
-        return '<a class="pita-tautan" href="' + alamat + '">' + ik(m.ikon) +
+        return '<a class="pita-tautan" href="' + akar + m.href + '">' + ik(m.ikon) +
           '<span>' + m.label + '</span></a>';
       }).join('');
 
-    var kelasDaring = '';
+    /* isinya dipasang dua kali supaya perputarannya tidak kelihatan
+       patah waktu kembali ke awal */
+    var lintas = '<div class="pita-lintas">' + isi + isi + '</div>';
+
+    var kelas = '';
     if (typeof KELAS_DARING !== 'undefined' && KELAS_DARING.aktif) {
-      kelasDaring = '<a class="pita-tautan utama" href="' +
+      kelas = '<a class="pita-kelas" href="' +
         (KELAS_DARING.TAUTAN_LANGSUNG || KELAS_DARING.tautan) + '" target="_blank" rel="noopener">' +
-        '<span class="pita-titik"></span><span>Kelas ' + KELAS_DARING.jadwal + '</span></a>';
+        '<span class="pita-titik"></span>' +
+        '<span class="pita-kelas-teks">Kelas ' + KELAS_DARING.jadwal + '</span>' +
+        '<span class="pita-kelas-pendek">Masuk Kelas</span></a>';
     }
 
-    pslot.outerHTML =
-      '<div class="pita"><div class="pita-dalam">' +
-        '<span class="pita-judul">Cepat ke</span>' +
-        kelasDaring + isiPita +
-      '</div></div>';
-  }
+    var bar = document.createElement('div');
+    bar.className = 'pita-kaki';
+    bar.innerHTML = kelas + '<div class="pita-jalan">' + lintas + '</div>';
+    document.body.appendChild(bar);
+    document.body.classList.add('ada-pita');
+
+    /* Kecepatan disesuaikan panjang isinya supaya lajunya terasa sama
+       di halaman yang tautannya lebih sedikit. Diukur beberapa kali
+       karena ikon baru menyusul setelah ikon.js selesai memasang. */
+    var jalur = bar.querySelector('.pita-lintas');
+    function aturLaju() {
+      var lebar = jalur.scrollWidth / 2;
+      if (lebar > 0) {
+        jalur.style.animationDuration = Math.max(20, Math.round(lebar / 32)) + 's';
+      }
+    }
+    setTimeout(aturLaju, 60);
+    setTimeout(aturLaju, 600);
+    window.addEventListener('load', aturLaju);
+    window.addEventListener('resize', aturLaju);
+  })();
 
   /* ---------------- laci menu ---------------- */
   var tombolLaci = document.querySelectorAll('.nav-tombol');

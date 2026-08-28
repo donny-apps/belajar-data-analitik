@@ -152,3 +152,129 @@ var SHOWCASE = [
     catatan: 'Memperkirakan pendapatan periode berikutnya.',
     berkas: null, adaFoto: true }
 ];
+
+/* ============================================================
+   Katalog project Tableau, hasil UAS Project Kuliah 2.
+
+   Sepuluh presentasi masuk, delapan ditampilkan. Semuanya
+   memakai dataset Global Superstore, jadi yang membedakan
+   bukan datanya melainkan pertanyaan yang dipilih tiap kelompok.
+
+   Dua presentasi tidak ikut dibagikan karena memuat foto
+   anggota kelompok di dalamnya. Entrinya tetap dicatat di bawah
+   supaya jelas apa yang ada dan apa yang tidak, tapi tidak
+   ditampilkan di halaman.
+
+   Tautan dashboard mengarah ke Tableau Public masing masing
+   kelompok, jadi dashboardnya bisa diklik dan disaring langsung
+   di browser, bukan cuma dilihat sebagai gambar.
+   ============================================================ */
+
+var TABLEAU_TEMA = [
+  {
+    id: 'profit', nama: 'Profit dan Margin', ikon: '💰', warna: 'var(--mint)',
+    ringkas: 'Menelusuri dari mana profit datang dan bagian mana yang justru menggerus margin.',
+    dipakai: 'Tim keuangan dan pengendalian biaya di perusahaan ritel.'
+  },
+  {
+    id: 'operasi', nama: 'Operasi dan Pengiriman', ikon: '🚚', warna: 'var(--cyan)',
+    ringkas: 'Membaca mode pengiriman, keterlambatan, dan ongkos kirim sebagai satu rantai.',
+    dipakai: 'Bagian logistik, rantai pasok, dan operasi gudang.'
+  },
+  {
+    id: 'pertumbuhan', nama: 'Pertumbuhan Kategori', ikon: '📈', warna: 'var(--amber)',
+    ringkas: 'Menguji kategori produk mana yang benar benar jadi mesin pertumbuhan.',
+    dipakai: 'Manajer kategori dan tim perencanaan produk.'
+  },
+  {
+    id: 'risiko', nama: 'Risiko dan Kerugian', ikon: '⚠️', warna: 'var(--pink)',
+    ringkas: 'Mencari transaksi yang merugi dan sebab yang paling sering ada di baliknya.',
+    dipakai: 'Audit internal, pengendalian risiko, dan kantor akuntan publik.'
+  },
+  {
+    id: 'eksekutif', nama: 'Ringkasan Eksekutif', ikon: '🧭', warna: 'var(--iris)',
+    ringkas: 'Satu layar yang harus terbaca sekali lihat oleh pembaca tingkat pimpinan.',
+    dipakai: 'Rapat direksi dan laporan kinerja bulanan.'
+  },
+  {
+    id: 'pelanggan', nama: 'Segmen Pelanggan', ikon: '🛍️', warna: 'var(--violet)',
+    ringkas: 'Membaca tiap segmen pelanggan dari sisi profit dan pertumbuhannya sekaligus.',
+    dipakai: 'Tim pemasaran dan pengelola hubungan pelanggan.'
+  }
+];
+
+var TABLEAU_SHOWCASE = [
+  { kode: 'T-A-KLP01', kelas: 'A', klp: 'KLP01', tema: 'profit', slide: 12,
+    judul: 'Analisis Profit pada Global Superstore',
+    catatan: 'Membedah dari mana profit datang, lalu menunjuk sub kategori yang justru bikin rugi.',
+    berkas: 'project-kakak-tingkat/T_A_KLP01_Presentasi.pdf',
+    papan: [
+      { label: 'Dashboard dan Story', url: 'https://public.tableau.com/views/KLP01_KelasA_UASBDA/1_1' }
+    ] },
+
+  { kode: 'T-A-KLP06', kelas: 'A', klp: 'KLP06', tema: 'profit', slide: 15,
+    judul: 'Kinerja Kategori Furniture',
+    catatan: 'Menggali satu kategori sampai dalam, lalu menutupnya dengan rekomendasi yang konkret.',
+    berkas: 'project-kakak-tingkat/T_A_KLP06_Presentasi.pdf',
+    papan: [
+      { label: 'Dashboard 1', url: 'https://public.tableau.com/views/Dashboard1_17824715436550/SubCatProfit' },
+      { label: 'Story', url: 'https://public.tableau.com/views/UASBDAKelompok6_17824773517740/Story1' }
+    ] },
+
+  { kode: 'T-A-KLP04', kelas: 'A', klp: 'KLP04', tema: 'operasi', slide: 12,
+    judul: 'Efisiensi Pengiriman dan Kinerja Operasional',
+    catatan: 'Mode pengiriman, keterlambatan, dan ongkos kirim dibaca sebagai satu rantai, bukan angka terpisah.',
+    berkas: 'project-kakak-tingkat/T_A_KLP04_Presentasi.pdf',
+    papan: [
+      { label: 'Dashboard 1', url: 'https://public.tableau.com/views/KLP04_KelasA_Dashboard1_17825808644540/ShippingOperationalEfficiencyDashboard' },
+      { label: 'Dashboard 2', url: 'https://public.tableau.com/views/KLP04_KelasA_Dashboard2_17825812723220/ShippingDelayShipModevsCustomerSegmentFreightCostShipModePriority' },
+      { label: 'Story', url: 'https://public.tableau.com/shared/DBGDPR44F' }
+    ] },
+
+  { kode: 'T-A-KLP07', kelas: 'A', klp: 'KLP07', tema: 'pertumbuhan', slide: 14,
+    judul: 'Technology Category Growth Engine',
+    catatan: 'Menguji apakah kategori Technology memang layak disebut mesin pertumbuhan utama.',
+    berkas: 'project-kakak-tingkat/T_A_KLP07_Presentasi.pdf',
+    papan: [
+      { label: 'Dashboard dan Story', url: 'https://public.tableau.com/views/KLP07_KelasA_DashboardStory/Vis1' }
+    ] },
+
+  { kode: 'T-A-KLP09', kelas: 'A', klp: 'KLP09', tema: 'risiko', slide: 11,
+    judul: 'Financial Risk and Loss Detection',
+    catatan: 'Menelusuri transaksi yang merugi, lalu mencari sebab yang paling sering muncul di baliknya.',
+    berkas: 'project-kakak-tingkat/T_A_KLP09_Presentasi.pdf',
+    papan: [] },
+
+  { kode: 'T-A-KLP10', kelas: 'A', klp: 'KLP10', tema: 'eksekutif', slide: 15,
+    judul: 'Executive Business Health Dashboard',
+    catatan: 'Satu layar ringkasan kesehatan bisnis yang dirancang buat pembaca tingkat pimpinan.',
+    berkas: 'project-kakak-tingkat/T_A_KLP10_Presentasi.pdf',
+    papan: [] },
+
+  { kode: 'T-B-KLP10', kelas: 'B', klp: 'KLP10', tema: 'eksekutif', slide: 12,
+    judul: 'Executive Performance Dashboard',
+    catatan: 'Ringkasan kinerja penjualan yang disusun supaya terbaca sekali lihat.',
+    berkas: 'project-kakak-tingkat/T_B_KLP10_Presentasi.pdf',
+    papan: [] },
+
+  { kode: 'T-B-KLP04', kelas: 'B', klp: 'KLP04', tema: 'pelanggan', slide: 14,
+    judul: 'Segmen Pelanggan lewat Dashboard dan Story',
+    catatan: 'Tiap segmen pelanggan dibaca dari sisi profit dan pertumbuhannya sekaligus.',
+    berkas: 'project-kakak-tingkat/T_B_KLP04_Presentasi.pdf',
+    papan: [
+      { label: 'Dashboard 1', url: 'https://public.tableau.com/views/KLP04_KelasB_Dashboard1/Dashboard1' },
+      { label: 'Dashboard 2', url: 'https://public.tableau.com/views/KLP04_KelasB_Dashboard2/Dashboard2' },
+      { label: 'Story', url: 'https://public.tableau.com/views/KLP04_KelasB_Story/storyArc' }
+    ] },
+
+  /* dua di bawah tidak ditampilkan karena memuat foto anggota kelompok */
+  { kode: 'T-B-KLP05', kelas: 'B', klp: 'KLP05', tema: 'profit', slide: 15,
+    judul: 'Discount Impact dan Pricing Strategy',
+    catatan: 'Menguji sampai mana diskon menggerus margin tanpa menaikkan volume.',
+    berkas: null, adaFoto: true, papan: [] },
+
+  { kode: 'T-B-KLP09', kelas: 'B', klp: 'KLP09', tema: 'risiko', slide: 15,
+    judul: 'Profitability Leakage Detection',
+    catatan: 'Mencari titik bocor profit menurut kategori produk dan wilayah.',
+    berkas: null, adaFoto: true, papan: [] }
+];
