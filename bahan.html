@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahan Kuliah · Kelas Data Analitik</title>
+<meta name="description" content="Daftar lengkap bahan kuliah: slide PPT, modul PDF, file latihan Orange, dan data latihan. Bisa dicari dan disaring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Semua Bahan Satu Tempat</span>
+      <h1>Cari <span class="grad">bahan kuliah</span> tanpa <span class="mark">scroll grup</span></h1>
+      <p class="lead">
+        Semua slide, modul, file latihan, dan data ada di sini. Ketik yang kalian cari,
+        atau saring berdasarkan jenisnya.
+      </p>
+      <div class="cari-wrap">
+        <input type="search" id="cari" placeholder="Ketik misalnya: orange, tableau, dataset, TM5" autocomplete="off">
+      </div>
+      <div class="filter-row" id="tipeFilter" style="margin-top:16px;margin-bottom:0">
+        <button class="chip on" data-tipe="">Semua</button>
+        <button class="chip" data-tipe="pptx">📑 Slide PPT</button>
+        <button class="chip" data-tipe="pdf">📄 Modul PDF</button>
+        <button class="chip" data-tipe="ows">🍊 File Orange</button>
+        <button class="chip" data-tipe="data">📈 Data Latihan</button>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Isi Rak</span>
+        <div class="mini-list" style="margin-top:16px" id="ringkas"></div>
+      </div>
+      <blockquote class="quote">
+        Kalau bahannya susah dicari, biasanya ujungnya nggak dibaca.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>SLIDE <i>✦</i> MODUL <i>✦</i> FILE LATIHAN <i>✦</i> DATA <i>✦</i> SEMUA GRATIS <i>✦</i> SEMUA DI SINI <i>✦</i></span>
+    <span>SLIDE <i>✦</i> MODUL <i>✦</i> FILE LATIHAN <i>✦</i> DATA <i>✦</i> SEMUA GRATIS <i>✦</i> SEMUA DI SINI <i>✦</i></span>
+  </div>
+</div>
+
+<section id="rak">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Rak Bahan</span>
+      <h2>Diurutkan per pertemuan</h2>
+      <p id="hitungHasil">Menampilkan semua bahan.</p>
+    </div>
+    <div id="rakIsi"></div>
+  </div>
+</section>
+
+<section id="lanjut">
+  <div class="wrap">
+    <div class="bento">
+      <a class="tile tile-half pintas reveal" href="orange.html" style="--c:var(--amber)">
+        <span class="pintas-ikon">🍊</span>
+        <div><h3>Halaman Orange</h3><p>Cara install, contoh tampilan, dan ketentuan Project Kuliah 1.</p></div>
+        <span class="pintas-panah">→</span>
+      </a>
+      <a class="tile tile-half pintas reveal" href="tableau.html" style="--c:var(--mint)">
+        <span class="pintas-ikon">📊</span>
+        <div><h3>Halaman Tableau</h3><p>Cara install, cara publish, dan ketentuan Project Kuliah 2.</p></div>
+        <span class="pintas-panah">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var NAMA_TIPE = { pptx: 'Slide PPT', pdf: 'Modul PDF', ows: 'File Orange', data: 'Data Latihan', docx: 'Dokumen' };
+  var filterTipe = '';
+  var kataCari = '';
+
+  var semua = [];
+  COURSE.forEach(function (c) {
+    (c.tautan || []).forEach(function (t) {
+      semua.push({ tm: c.tm, judul: c.judul, label: t.label, path: t.path, tipe: t.tipe });
+    });
+  });
+  (typeof TUGAS !== 'undefined' ? TUGAS : []).forEach(function (t) {
+    semua.push({ tm: 0, judul: 'Tugas kursus mandiri', label: t.label, path: t.path, tipe: t.tipe });
+  });
+
+  /* ringkasan jumlah per jenis */
+  var jml = {};
+  semua.forEach(function (b) { jml[b.tipe] = (jml[b.tipe] || 0) + 1; });
+  document.getElementById('ringkas').innerHTML =
+    Object.keys(NAMA_TIPE).filter(function (k) { return jml[k]; }).map(function (k) {
+      return '<div><span>' + NAMA_TIPE[k] + '</span><span>' + jml[k] + ' berkas</span></div>';
+    }).join('') + '<div><span>Total</span><span>' + semua.length + ' berkas</span></div>';
+
+  function gambar() {
+    var hasil = semua.filter(function (b) {
+      if (filterTipe && b.tipe !== filterTipe) return false;
+      if (!kataCari) return true;
+      var teks = (b.label + ' ' + b.judul + ' ' + b.path + ' TM' + b.tm).toLowerCase();
+      return teks.indexOf(kataCari) >= 0;
+    });
+
+    document.getElementById('hitungHasil').textContent =
+      hasil.length ? 'Ketemu ' + hasil.length + ' berkas.' : 'Nggak ada yang cocok. Coba kata lain.';
+
+    var perTm = {};
+    hasil.forEach(function (b) { (perTm[b.tm] = perTm[b.tm] || []).push(b); });
+
+    var urut = Object.keys(perTm).map(Number).sort(function (a, b) { return a - b; });
+    document.getElementById('rakIsi').innerHTML = urut.map(function (tm) {
+      var judul = tm === 0 ? 'Tambahan' : 'Pertemuan ' + tm;
+      var sub = tm === 0 ? 'Latihan mandiri' : perTm[tm][0].judul;
+      return '<div class="rak-blok">' +
+        '<div class="rak-kepala"><span class="rak-tm">' + judul + '</span><span class="rak-judul">' + sub + '</span></div>' +
+        '<div class="tm-links">' + perTm[tm].map(function (b) {
+          var ic = IKON_TIPE[b.tipe] || '📎';
+          return '<a class="file" href="' + encodeURI(BASE + b.path) + '" target="_blank" rel="noopener">' +
+            '<span class="ic">' + ic + '</span><span>' + b.label + '</span>' +
+            '<span class="ext">' + b.path.split('.').pop() + '</span></a>';
+        }).join('') + '</div></div>';
+    }).join('');
+  }
+
+  document.getElementById('cari').addEventListener('input', function (e) {
+    kataCari = e.target.value.trim().toLowerCase();
+    gambar();
+  });
+
+  var chips = document.querySelectorAll('#tipeFilter .chip');
+  Array.prototype.forEach.call(chips, function (ch) {
+    ch.addEventListener('click', function () {
+      Array.prototype.forEach.call(chips, function (c) { c.classList.remove('on'); });
+      ch.classList.add('on');
+      filterTipe = ch.getAttribute('data-tipe') || '';
+      gambar();
+    });
+  });
+
+  gambar();
+})();
+</script>
+</body>
+</html>

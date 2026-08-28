@@ -746,3 +746,70 @@ html[data-theme="dark"] .cerita.hi .cerita-no { -webkit-text-stroke-color: var(-
   .ceklis-item { grid-template-columns: 26px 1fr; }
   .ceklis-item .panduan { grid-column: 2; }
 }
+
+/* ============================================================
+   Tambahan v3: tangkapan layar, daftar kelompok, rak bahan
+   ============================================================ */
+
+/* ---------- tangkapan layar aplikasi ---------- */
+.tangkapan { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.tangkapan img {
+  width: 100%; height: auto; display: block;
+  background: #fff; border-bottom: 1px solid var(--line);
+}
+.tangkapan figcaption { padding: 20px 22px; }
+.tangkapan figcaption b { display: block; font-size: 16px; letter-spacing: -.025em; margin-bottom: 7px; }
+.tangkapan figcaption span { font-size: 13px; color: var(--ink-2); line-height: 1.6; display: block; }
+.tangkapan figcaption i { font-style: normal; font-weight: 700; color: var(--iris); }
+.tangkapan.lebar img { max-height: 520px; object-fit: contain; object-position: top; }
+
+/* ---------- daftar kelompok ---------- */
+.klp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.klp { padding: 22px; }
+.klp::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(180deg, var(--iris), var(--pink));
+}
+.klp-kepala { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.klp-no {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+  padding: 6px 12px; border-radius: 8px;
+  background: color-mix(in srgb, var(--iris) 14%, transparent); color: var(--iris);
+  border: 1px solid color-mix(in srgb, var(--iris) 28%, transparent);
+}
+.klp-kepala h3 { font-size: 16px; letter-spacing: -.025em; line-height: 1.25; }
+.klp > h3 { font-size: 17px; letter-spacing: -.03em; line-height: 1.25; margin-bottom: 14px; }
+.klp-tanya { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.klp-tanya > div { display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: start; }
+.klp-tanya dt {
+  font-size: 9.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted); padding-top: 3px;
+}
+.klp-tanya dd { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+/* ---------- kolom cari ---------- */
+.cari-wrap { margin-top: 26px; }
+.cari-wrap input {
+  width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+  background: var(--surface-2); border: 1px solid var(--line-strong);
+  border-radius: 999px; padding: 15px 22px; outline: none;
+  transition: border-color .2s ease;
+}
+.cari-wrap input:focus { border-color: var(--iris); }
+.cari-wrap input::placeholder { color: var(--muted); }
+
+/* ---------- rak bahan ---------- */
+.rak-blok { margin-bottom: 26px; }
+.rak-kepala { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.rak-tm {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  padding: 6px 12px; border-radius: 999px;
+  background: color-mix(in srgb, var(--mint) 12%, transparent); color: var(--mint);
+  border: 1px solid color-mix(in srgb, var(--mint) 28%, transparent);
+}
+.rak-judul { font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+
+@media (max-width: 700px) {
+  .klp-tanya > div { grid-template-columns: 1fr; gap: 2px; }
+  .tangkapan.lebar img { max-height: 300px; }
+}

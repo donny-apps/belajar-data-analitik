@@ -1,12 +1,12 @@
 /* ============================================================
-   Ruang Simulasi — empat latihan interaktif untuk kelas.
+   Ruang Simulasi empat latihan interaktif untuk kelas.
    Semua data ada di berkas ini, tidak perlu server.
    ============================================================ */
 (function () {
   'use strict';
 
   /* ============================================================
-     SIM 1 — Detektif Transaksi
+     SIM 1 Detektif Transaksi
      Mahasiswa mengklik baris yang menurutnya janggal.
      ============================================================ */
   var TRX = [
@@ -83,7 +83,7 @@
   }
 
   /* ============================================================
-     SIM 2 — Mulai dari mana
+     SIM 2 Mulai dari mana
      ============================================================ */
   var PILIHAN = {
     grafik: {
@@ -130,7 +130,7 @@
   }
 
   /* ============================================================
-     SIM 3 — Dashboard mini
+     SIM 3 Dashboard mini
      ============================================================ */
   var DATA = [
     { kat: 'Elektronik', wil: 'Jakarta', jual: 420, untung: 58 },
@@ -209,7 +209,7 @@
   }
 
   /* ============================================================
-     SIM 4 — Kelompokkan pelanggan
+     SIM 4 Kelompokkan pelanggan
      ============================================================ */
   var TITIK = [
     [12, 18, 0], [16, 22, 0], [9, 14, 0], [14, 26, 0], [20, 20, 0], [11, 28, 0], [17, 15, 0], [22, 25, 0],

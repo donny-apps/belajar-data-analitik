@@ -1,5 +1,5 @@
 /* ============================================================
-   BDA Studio — renderer dan interaksi website mata kuliah.
+   BDA Studio renderer dan interaksi website mata kuliah.
    Membaca data dari assets/course.js lalu menyusun katalog materi,
    daftar materi, dan galeri karya mahasiswa. Ditambah tema
    terang atau gelap, animasi angka, dan animasi masuk.

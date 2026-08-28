@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Orange Data Mining — Kelas Data Analitik</title>
+<title>Orange Data Mining · Kelas Data Analitik</title>
 <meta name="description" content="Cara install Orange Data Mining, contoh pemakaian di dunia kerja, materi pertemuan 3 sampai 8, dan ketentuan Project 1.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +22,13 @@
       <h1>🍊 <span class="grad">Orange</span><br>buat <span class="mark">nyari pola</span> di data</h1>
       <p class="lead">
         Gratis, nggak perlu ngoding. Tinggal seret kotak, sambungin pakai garis, hasilnya keluar.
-        Di sinilah kalian ngerjain Karya 1.
+        Di sinilah kalian ngerjain Project Kuliah 1.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#install">⬇️ Cara Install</a>
+        <a class="btn btn-ghost" href="#kelompok">👥 Pembagian Kelompok</a>
         <a class="btn btn-ghost" href="#kepake">💼 Kepake Buat Apa</a>
-        <a class="btn btn-lime" href="#project1">🎯 Ketentuan Karya 1</a>
+        <a class="btn btn-lime" href="#project1">🎯 Ketentuan Project 1</a>
       </div>
     </div>
 
@@ -71,6 +72,45 @@
       <div class="tile alur reveal"><span class="alur-no">3</span><b>Kotak Model</b><span>Cari polanya</span></div>
       <div class="alur-arrow">›</div>
       <div class="tile alur reveal"><span class="alur-no">4</span><b>Kotak Hasil</b><span>Lihat temuannya</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ CONTOH TAMPILAN ============ -->
+<section id="tampilan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Contoh Tampilan</span>
+      <h2>Beginilah bentuk kerjaannya</h2>
+      <p>Dua contoh alur kerja yang bakal kalian bikin sendiri. Tiap bulatan itu satu tugas, garisnya jalur data.</p>
+    </div>
+
+    <div class="bento">
+      <figure class="tile tile-half tangkapan reveal">
+        <img src="assets/img/orange-alur-klasifikasi.jpg" alt="Alur kerja klasifikasi di Orange" loading="lazy">
+        <figcaption>
+          <b>Alur nebak kategori</b>
+          <span>File masuk, dirapikan lewat Edit Domain, lalu diadu tiga model sekaligus:
+          Tree, Random Forest, dan AdaBoost. Test and Score yang ngasih nilai, Confusion Matrix
+          yang nunjukin di mana modelnya salah tebak.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="tile tile-half tangkapan reveal">
+        <img src="assets/img/orange-alur-regresi.png" alt="Alur kerja regresi di Orange" loading="lazy">
+        <figcaption>
+          <b>Alur nebak angka</b>
+          <span>Dari satu file, datanya dicek dulu lewat Rank dan Correlations biar ketahuan
+          kolom mana yang berpengaruh. Baru masuk Linear Regression, dinilai di Test and Score,
+          hasilnya dilihat di Scatter Plot.</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="tile note info-inline reveal" style="margin-top:18px">
+      <span style="font-size:20px">🖱️</span>
+      <span><b>Nggak ada satu baris kode pun di dua gambar itu.</b> Semuanya hasil seret bulatan dari panel kiri, terus disambungin pakai garis. Contoh ini diambil dari modul kelas kita sendiri.</span>
     </div>
   </div>
 </section>
@@ -220,11 +260,30 @@
   </div>
 </section>
 
+
+<!-- ============ DAFTAR KELOMPOK ============ -->
+<section id="kelompok">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Pembagian Kelompok</span>
+      <h2>14 kelompok, 14 tema berbeda</h2>
+      <p id="infoKlpOrange">56 mahasiswa dibagi 4 orang per kelompok.</p>
+    </div>
+
+    <div class="tile note info-inline reveal" style="margin-bottom:18px">
+      <span style="font-size:20px">📌</span>
+      <span><b>Tema ini cuma pengarah biar dataset antar kelompok nggak nabrak.</b> Datasetnya tetap kalian pilih sendiri dari Kaggle, dan wajib memenuhi syarat teknis di soal UTS. Tiga pertanyaan di bawah cuma contoh, boleh diganti asal tetap satu klasifikasi, satu regresi, dan satu klaster.</span>
+    </div>
+
+    <div class="klp-grid" id="klpOrange"></div>
+  </div>
+</section>
+
 <!-- ============ PROJECT 1 ============ -->
 <section id="project1">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Karya 1</span>
+      <span class="sec-label">Project Kuliah 1</span>
       <h2>Laporan analisis pakai Orange</h2>
       <p>Dikerjain berkelompok, dikumpulin dan dipresentasiin pas UTS. Bobotnya 35 persen dari nilai akhir.</p>
     </div>
@@ -293,9 +352,28 @@
 <div id="foot"></div>
 
 <script src="assets/course.js"></script>
+<script src="assets/kelompok.js"></script>
 <script src="assets/shell.js"></script>
 <script src="assets/site.js"></script>
 <script>
+/* daftar kelompok */
+(function () {
+  var wrap = document.getElementById('klpOrange');
+  if (!wrap || typeof KLP_ORANGE === 'undefined') return;
+  document.getElementById('infoKlpOrange').textContent =
+    JUMLAH_MAHASISWA + ' mahasiswa dibagi ' + PER_KELOMPOK + ' orang per kelompok, jadi ' + KLP_ORANGE.length + ' kelompok.';
+  wrap.innerHTML = KLP_ORANGE.map(function (k) {
+    return '<article class="tile klp reveal">' +
+      '<div class="klp-kepala"><span class="klp-no">' + k.klp + '</span>' +
+      '<h3>' + k.tema + '</h3></div>' +
+      '<dl class="klp-tanya">' +
+        '<div><dt>Klasifikasi</dt><dd>' + k.klasifikasi + '</dd></div>' +
+        '<div><dt>Regresi</dt><dd>' + k.regresi + '</dd></div>' +
+        '<div><dt>Klaster</dt><dd>' + k.klaster + '</dd></div>' +
+      '</dl></article>';
+  }).join('');
+})();
+
 /* daftar file latihan Orange, diambil dari data pertemuan 4 sampai 7 */
 (function () {
   var wrap = document.getElementById('bahanOrange');

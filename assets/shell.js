@@ -10,8 +10,9 @@
     { label: 'Beranda', href: 'index.html' },
     { label: 'Orange', href: 'orange.html' },
     { label: 'Tableau', href: 'tableau.html' },
+    { label: 'Bahan Kuliah', href: 'bahan.html' },
     { label: 'Project', href: 'project.html' },
-    { label: 'Aturan Main', href: 'aturan.html' }
+    { label: 'Rule Perkuliahan', href: 'aturan.html' }
   ];
 
   var halaman = location.pathname.split('/').pop() || 'index.html';
