@@ -8,14 +8,6 @@
   'use strict';
 
   /* ---------------- util ---------------- */
-  function mix(hex, a) {
-    var h = hex.replace('#', '');
-    var r = parseInt(h.substring(0, 2), 16);
-    var g = parseInt(h.substring(2, 4), 16);
-    var b = parseInt(h.substring(4, 6), 16);
-    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-  }
-
   function faseOf(id) {
     for (var i = 0; i < FASE.length; i++) { if (FASE[i].id === id) return FASE[i]; }
     return FASE[0];
@@ -80,7 +72,7 @@
 
       return '<article class="tile tm-card reveal" style="--c:' + f.warna + '">' +
         '<div class="tm-top">' +
-          '<span class="tm-no" style="color:' + f.warna + ';background:' + mix(f.warna, .10) + ';border-color:' + mix(f.warna, .26) + '">TM ' + c.tm + '</span>' +
+          '<span class="tm-no">TM ' + c.tm + '</span>' +
           tag +
         '</div>' +
         '<h3>' + c.judul + '</h3>' +

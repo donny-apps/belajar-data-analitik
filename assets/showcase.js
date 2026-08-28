@@ -46,17 +46,17 @@ var SHOWCASE_TEMA = [
     dipakai: 'Tim pemasaran bank dan ritel.'
   },
   {
-    id: 'fraud', nama: 'Fraud dan Anomali', ikon: '🔎', warna: '#ff7a2f',
+    id: 'fraud', nama: 'Fraud dan Anomali', ikon: '🔎', warna: 'var(--fase-2)',
     ringkas: 'Mencari transaksi janggal di tengah tumpukan data yang kelihatan normal.',
     dipakai: 'Audit internal, kantor akuntan publik, dan tim antifraud.'
   },
   {
-    id: 'pendidikan', nama: 'Pendidikan', ikon: '🎓', warna: '#4c8dff',
+    id: 'pendidikan', nama: 'Pendidikan', ikon: '🎓', warna: 'var(--fase-1)',
     ringkas: 'Menebak mahasiswa yang berisiko nilainya jatuh dan mengelompokkan pola belajar.',
     dipakai: 'Sekolah, kampus, dan lembaga bimbingan belajar.'
   },
   {
-    id: 'penjualan', nama: 'Penjualan dan Pendapatan', ikon: '📈', warna: '#12b981',
+    id: 'penjualan', nama: 'Penjualan dan Pendapatan', ikon: '📈', warna: 'var(--mint)',
     ringkas: 'Memperkirakan penjualan periode berikutnya dan membaca pola pendapatan.',
     dipakai: 'Ritel, supermarket, dan distributor.'
   }

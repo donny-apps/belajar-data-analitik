@@ -18,10 +18,10 @@
 var BASE = 'materi/';
 
 var FASE = [
-  { id: 1, nama: 'Dasar', ikon: '🧱', warna: '#0284c7', rentang: 'TM1 - TM2', output: 'Cara mikir sebelum sentuh data' },
-  { id: 2, nama: 'Project 1 - Cari Pola', ikon: '<img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange">', warna: '#d97706', rentang: 'TM3 - TM8', output: 'Laporan analisis pakai Orange' },
-  { id: 3, nama: 'Project 2 - Dashboard', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">', warna: '#059669', rentang: 'TM9 - TM15', output: 'Dashboard yang bisa diklik' },
-  { id: 4, nama: 'Tampil di Depan', ikon: '🏆', warna: '#7c3aed', rentang: 'TM16', output: 'Presentasi final dan portofolio' }
+  { id: 1, nama: 'Dasar', ikon: '🧱', warna: 'var(--fase-1)', rentang: 'TM1 - TM2', output: 'Cara mikir sebelum sentuh data' },
+  { id: 2, nama: 'Project 1 - Cari Pola', ikon: '<img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange">', warna: 'var(--fase-2)', rentang: 'TM3 - TM8', output: 'Laporan analisis pakai Orange' },
+  { id: 3, nama: 'Project 2 - Dashboard', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">', warna: 'var(--fase-3)', rentang: 'TM9 - TM15', output: 'Dashboard yang bisa diklik' },
+  { id: 4, nama: 'Tampil di Depan', ikon: '🏆', warna: 'var(--fase-4)', rentang: 'TM16', output: 'Presentasi final dan portofolio' }
 ];
 
 var COURSE = [
