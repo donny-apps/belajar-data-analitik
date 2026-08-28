@@ -76,6 +76,9 @@
             '<span>Akuntansi · Dr. Donny</span></div>' +
           '</a>' +
           '<div class="nav-links">' + tautan +
+            '<button class="theme-btn cari-btn" id="cariBtn" type="button" ' +
+              'aria-label="Cari isi situs" title="Cari isi situs, tekan garis miring">' +
+              (window.IKON ? IKON('cari') : '🔍') + '</button>' +
             '<button class="theme-btn" id="themeBtn" aria-label="Ganti tema">🌙</button>' +
             tombolMasuk +
           '</div>' +
@@ -219,6 +222,14 @@
         '<span>Bahan kuliah terbuka. Slide, modul, dan data latihan boleh diunduh dan dipelajari kapan saja.</span>' +
         '<span class="foot-tahun">Semester Genap 2025/2026</span>' +
       '</div></footer>';
+  }
+
+  /* ---------------- tombol pencarian ---------------- */
+  var tombolCari = document.getElementById('cariBtn');
+  if (tombolCari) {
+    tombolCari.addEventListener('click', function () {
+      if (window.bdaBukaCari) window.bdaBukaCari();
+    });
   }
 
   /* ---------------- tema ---------------- */

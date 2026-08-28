@@ -131,6 +131,29 @@
   var tugasWrap = document.getElementById('tugasWrap');
   if (tugasWrap) tugasWrap.innerHTML = TUGAS.map(tautanHtml).join('');
 
+
+  /* ---------------- mendarat di penanda yang benar ----------------
+     Sebagian halaman menggambar isinya lewat skrip, jadi waktu
+     alamat bertanda #tm5 dibuka, bagian itu belum ada di halaman
+     dan peramban tidak bisa menggulir ke sana. Percobaan berulang
+     berikut menunggu sampai bagiannya muncul, lalu menggulir. */
+  (function gulirKePenanda() {
+    var tanda = (location.hash || '').slice(1);
+    if (!tanda) return;
+    var sisa = 12;
+    function coba() {
+      var el = document.getElementById(tanda);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.classList.add('disorot');
+        setTimeout(function () { el.classList.remove('disorot'); }, 2200);
+        return;
+      }
+      if (--sisa > 0) setTimeout(coba, 220);
+    }
+    setTimeout(coba, 260);
+  })();
+
   /* ---------------- animasi masuk ---------------- */
   var io = null;
   if ('IntersectionObserver' in window) {

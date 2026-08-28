@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=593ecaf0">
+<link rel="stylesheet" href="assets/site.css?v=1d4351ab">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -87,8 +87,10 @@
 <script src="assets/course.js?v=7cc7d72a"></script>
 <script src="assets/ikon.js?v=56710d72"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
-<script src="assets/shell.js?v=9e160126"></script>
-<script src="assets/site.js?v=f7b2e8dc"></script>
+<script src="assets/indeks-cari.js?v=31448d27"></script>
+<script src="assets/cari.js?v=d5a9569b"></script>
+<script src="assets/shell.js?v=b04c6d33"></script>
+<script src="assets/site.js?v=5b7dcf74"></script>
 <script>
 (function () {
   'use strict';
@@ -133,7 +135,9 @@
     document.getElementById('rakIsi').innerHTML = urut.map(function (tm) {
       var judul = tm === 0 ? 'Tambahan' : 'Pertemuan ' + tm;
       var sub = tm === 0 ? 'Latihan mandiri' : perTm[tm][0].judul;
-      return '<div class="rak-blok">' +
+      /* penanda tm1, tm2, dan seterusnya dipakai kotak pencarian
+         supaya hasil pencarian mendarat tepat di pertemuannya */
+      return '<div class="rak-blok" id="tm' + tm + '">' +
         '<div class="rak-kepala"><span class="rak-tm">' + judul + '</span><span class="rak-judul">' + sub + '</span></div>' +
         '<div class="tm-links">' + perTm[tm].map(function (b) {
           var ic = IKON_TIPE[b.tipe] || '📎';

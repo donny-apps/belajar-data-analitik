@@ -94,84 +94,148 @@ var VIDEO_TABLEAU = [
 
 /* ---------------- situs dan kursus ---------------- */
 var SITUS_BELAJAR = [
-  { nama: 'Getting Started Orange', url: 'https://orangedatamining.com/getting-started/', ikon: '<img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange">',
+  { nama: 'Getting Started Orange', url: 'https://orangedatamining.com/getting-started/',
+    lambang: 'assets/img/sumber/orange.png', ikon: '<img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange">',
     jenis: 'Panduan resmi', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Panduan resmi dari pembuat Orange, lengkap dengan contoh alur kerja yang bisa langsung ditiru.' },
-  { nama: 'Perpustakaan Alur Kerja Orange', url: 'https://orangedatamining.com/workflows/', ikon: '🔗',
+  { nama: 'Perpustakaan Alur Kerja Orange', url: 'https://orangedatamining.com/workflows/',
+    lambang: 'assets/img/sumber/orange.png', ikon: '🔗',
     jenis: 'Contoh siap pakai', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Kumpulan alur kerja jadi yang bisa diunduh dan dibuka di Orange. Cara tercepat memahami bentuk alur yang benar.' },
-  { nama: 'Tableau Learn', url: 'https://www.tableau.com/learn', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
+  { nama: 'Tableau Learn', url: 'https://www.tableau.com/learn',
+    lambang: 'assets/img/sumber/tableaupublic.png', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
     jenis: 'Pusat belajar resmi', bahasa: 'Inggris', harga: 'Gratis, perlu akun',
     guna: 'Video pelatihan resmi dari Tableau, disusun bertahap dari pemula sampai mahir.' },
-  { nama: 'Tableau Public Gallery', url: 'https://public.tableau.com/app/discover', ikon: '🖼️',
+  { nama: 'Tableau Public Gallery', url: 'https://public.tableau.com/app/discover',
+    lambang: 'assets/img/sumber/tableaupublic.png', ikon: '🖼️',
     jenis: 'Galeri karya', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Ribuan dashboard buatan orang seluruh dunia. Bagus buat cari ide tampilan sebelum menyusun Project Kuliah 2.' },
-  { nama: 'Kaggle Learn', url: 'https://www.kaggle.com/learn', ikon: '🎓',
+  { nama: 'Kaggle Learn', url: 'https://www.kaggle.com/learn',
+    lambang: 'assets/img/sumber/kaggle.png', ikon: '🎓',
     jenis: 'Kursus singkat', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Kursus pendek soal data, masing-masing bisa selesai dalam beberapa jam.' },
-  { nama: 'Dicoding', url: 'https://www.dicoding.com', ikon: '🇮🇩',
+  { nama: 'Dicoding', url: 'https://www.dicoding.com',
+    lambang: 'assets/img/sumber/dicoding.png', ikon: '🇮🇩',
     jenis: 'Kelas daring', bahasa: 'Indonesia', harga: 'Ada yang gratis',
     guna: 'Kelas berbahasa Indonesia, beberapa di antaranya membahas dasar analisis data.' },
-  { nama: 'Makeover Monday', url: 'https://www.makeovermonday.co.uk', ikon: '🗓️',
+  { nama: 'Makeover Monday', url: 'https://www.makeovermonday.co.uk',
+    lambang: 'assets/img/sumber/makeovermonday.png', ikon: '🗓️',
     jenis: 'Latihan mingguan', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Tiap minggu ada satu dataset dan satu grafik untuk diperbaiki. Latihan paling ampuh buat mengasah rasa visual.' },
-  { nama: 'From Data to Viz', url: 'https://www.data-to-viz.com', ikon: '🧭',
+  { nama: 'From Data to Viz', url: 'https://www.data-to-viz.com',
+    lambang: 'assets/img/sumber/datatoviz.png', ikon: '🧭',
     jenis: 'Panduan memilih grafik', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Bingung pilih grafik apa? Situs ini menuntun dari bentuk data kalian ke jenis grafik yang cocok.' },
-  { nama: 'Storytelling with Data', url: 'https://www.storytellingwithdata.com', ikon: '💬',
+  { nama: 'Storytelling with Data', url: 'https://www.storytellingwithdata.com',
+    lambang: 'assets/img/sumber/swd.png', ikon: '💬',
     jenis: 'Blog dan latihan', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Fokus ke cara bercerita dengan data. Cocok dibaca menjelang penyusunan rekomendasi.' }
 ];
 
-/* ---------------- sumber dataset ---------------- */
+/* ---------------- sumber dataset ----------------
+   Tiap sumber dilengkapi lambang resminya supaya cepat dikenali.
+   Berkas lambangnya ada di assets/img/sumber, diambil dari situs
+   resmi masing-masing lembaga. */
 var SUMBER_DATA = [
   {
     kelompok: 'Wajib untuk Project Kuliah 1', warna: 'var(--amber)', ikon: '⭐',
     catatan: 'Soal UTS mewajibkan dataset diambil dari Kaggle. Sumber lain boleh dipakai untuk latihan, tapi bukan untuk project yang dinilai.',
     isi: [
-      { nama: 'Kaggle Datasets', url: 'https://www.kaggle.com/datasets', wilayah: 'Global', bayar: 'Gratis, perlu akun',
+      { nama: 'Kaggle Datasets', url: 'https://www.kaggle.com/datasets',
+        lambang: 'assets/img/sumber/kaggle.png',
+        wilayah: 'Global', bayar: 'Gratis, perlu akun',
         guna: 'Ratusan ribu dataset dengan penjelasan kolom, lisensi jelas, dan sudah rapi. Pakai penyaring di kiri untuk memilih format CSV dan ukuran yang sesuai syarat.' }
+    ]
+  },
+  {
+    kelompok: 'Keuangan dan Akuntansi', warna: 'var(--mint)', ikon: '💼',
+    catatan: 'Paling nyambung dengan jurusan kalian. Angkanya angka beneran yang dipakai analis dan auditor, jadi rekomendasi yang kalian tulis punya bobot.',
+    isi: [
+      { nama: 'Bursa Efek Indonesia', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/',
+        lambang: 'assets/img/sumber/idx.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Laporan keuangan dan laporan tahunan seluruh perusahaan tercatat, bisa disaring per tahun dan per triwulan. Sumber terbaik untuk analisis rasio, tren laba, dan perbandingan antarperusahaan sejenis.' },
+      { nama: 'Data Perdagangan Saham IDX', url: 'https://www.idx.co.id/id/data-pasar/ringkasan-perdagangan/ringkasan-saham/',
+        lambang: 'assets/img/sumber/idx.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Ringkasan perdagangan harian: harga, volume, nilai transaksi, dan kapitalisasi pasar. Bisa diunduh per tanggal, cocok untuk analisis deret waktu.' },
+      { nama: 'Otoritas Jasa Keuangan', url: 'https://www.ojk.go.id',
+        lambang: 'assets/img/sumber/ojk.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Statistik perbankan, asuransi, pasar modal, dan fintech. Paling pas untuk tema kredit, risiko gagal bayar, dan kesehatan lembaga keuangan.' },
+      { nama: 'Bank Indonesia', url: 'https://www.bi.go.id/id/statistik/ekonomi-keuangan/seki/Default.aspx',
+        lambang: 'assets/img/sumber/bi.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Statistik Ekonomi dan Keuangan Indonesia: inflasi, kurs, suku bunga, uang beredar, dan neraca pembayaran. Berguna sebagai pembanding kondisi makro.' },
+      { nama: 'Satu Data Kemenkeu', url: 'https://satudata.kemenkeu.go.id',
+        lambang: 'assets/img/sumber/kemenkeu.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Data terbuka Kementerian Keuangan: APBN, belanja negara, transfer ke daerah, dan penerimaan. Pas untuk tema keuangan sektor publik.' },
+      { nama: 'Direktorat Jenderal Pajak', url: 'https://pajak.go.id',
+        lambang: 'assets/img/sumber/pajak.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Data dan laporan tahunan penerimaan pajak. Berguna kalau kalian mengambil tema kepatuhan pajak atau penerimaan negara.' }
     ]
   },
   {
     kelompok: 'Data Indonesia', warna: 'var(--pink)', ikon: '🇮🇩',
     catatan: 'Enak dipakai karena konteksnya dekat, jadi rekomendasi kalian lebih masuk akal. Cocok untuk latihan dan untuk Project Kuliah 2.',
     isi: [
-      { nama: 'Satu Data Indonesia', url: 'https://data.go.id', wilayah: 'Nasional', bayar: 'Gratis',
+      { nama: 'Satu Data Indonesia', url: 'https://data.go.id',
+        lambang: 'assets/img/sumber/satudata.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
         guna: 'Portal data terbuka pemerintah. Isinya lintas kementerian dan lembaga, dari anggaran sampai layanan publik.' },
-      { nama: 'Badan Pusat Statistik', url: 'https://www.bps.go.id', wilayah: 'Nasional', bayar: 'Gratis',
-        guna: 'Sumber resmi statistik Indonesia: kependudukan, ekonomi, ketenagakerjaan, sampai tingkat kabupaten.' },
-      { nama: 'Otoritas Jasa Keuangan', url: 'https://www.ojk.go.id', wilayah: 'Nasional', bayar: 'Gratis',
-        guna: 'Statistik perbankan, asuransi, dan fintech. Paling nyambung untuk tema kredit dan risiko.' }
+      { nama: 'Badan Pusat Statistik', url: 'https://www.bps.go.id',
+        lambang: 'assets/img/sumber/bps.png',
+        wilayah: 'Nasional', bayar: 'Gratis',
+        guna: 'Sumber resmi statistik Indonesia: kependudukan, ekonomi, ketenagakerjaan, sampai tingkat kabupaten.' }
     ]
   },
   {
     kelompok: 'Data Internasional', warna: 'var(--iris)', ikon: '🌍',
     catatan: 'Ukurannya besar dan dokumentasinya rapi. Bagus untuk latihan sebelum menggarap dataset project.',
     isi: [
-      { nama: 'UCI Machine Learning Repository', url: 'https://archive.ics.uci.edu', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'UCI Machine Learning Repository', url: 'https://archive.ics.uci.edu',
+        lambang: 'assets/img/sumber/uci.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Kumpulan dataset klasik untuk latihan klasifikasi, regresi, dan klaster. Perhatikan bahwa beberapa di antaranya termasuk yang dilarang di soal.' },
-      { nama: 'World Bank Open Data', url: 'https://data.worldbank.org', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'World Bank Open Data', url: 'https://data.worldbank.org',
+        lambang: 'assets/img/sumber/worldbank.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Indikator pembangunan seluruh negara dari tahun ke tahun. Cocok untuk dashboard perbandingan antarnegara.' },
-      { nama: 'Our World in Data', url: 'https://ourworldindata.org', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Our World in Data', url: 'https://ourworldindata.org',
+        lambang: 'assets/img/sumber/owid.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Data beserta penjelasan naratifnya. Berguna untuk belajar cara menjelaskan angka, bukan cuma menampilkannya.' },
-      { nama: 'Google Dataset Search', url: 'https://datasetsearch.research.google.com', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Google Dataset Search', url: 'https://datasetsearch.research.google.com',
+        lambang: 'assets/img/sumber/googledataset.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Mesin pencari khusus dataset. Pakai kalau tema kalian tidak ketemu di tempat lain.' },
-      { nama: 'Humanitarian Data Exchange', url: 'https://data.humdata.org', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Humanitarian Data Exchange', url: 'https://data.humdata.org',
+        lambang: 'assets/img/sumber/humdata.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Data kebencanaan, kesehatan, dan kemanusiaan, termasuk untuk wilayah Indonesia.' },
-      { nama: 'data.world', url: 'https://data.world', wilayah: 'Global', bayar: 'Gratis, perlu akun',
+      { nama: 'data.world', url: 'https://data.world',
+        lambang: 'assets/img/sumber/dataworld.png',
+        wilayah: 'Global', bayar: 'Gratis, perlu akun',
         guna: 'Dataset dari komunitas dengan dokumentasi yang biasanya rapi.' }
     ]
   },
   {
-    kelompok: 'Khusus latihan Tableau', warna: 'var(--mint)', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
+    kelompok: 'Khusus latihan Tableau', warna: 'var(--cyan)', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
     catatan: 'Sudah dirancang untuk latihan visualisasi, jadi kolomnya bersih dan siap dipakai.',
     isi: [
-      { nama: 'Tableau Sample Data', url: 'https://public.tableau.com/app/resources/sample-data', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Tableau Sample Data', url: 'https://public.tableau.com/app/resources/sample-data',
+        lambang: 'assets/img/sumber/tableaupublic.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Data contoh resmi dari Tableau, termasuk Superstore yang sering dipakai di kelas.' },
-      { nama: 'Maven Analytics Data Playground', url: 'https://mavenanalytics.io/data-playground', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Maven Analytics Data Playground', url: 'https://mavenanalytics.io/data-playground',
+        lambang: 'assets/img/sumber/maven.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Dataset latihan yang sudah dikurasi dan diberi tingkat kesulitan.' },
-      { nama: 'Makeover Monday', url: 'https://www.makeovermonday.co.uk', wilayah: 'Global', bayar: 'Gratis',
+      { nama: 'Makeover Monday', url: 'https://www.makeovermonday.co.uk',
+        lambang: 'assets/img/sumber/makeovermonday.png',
+        wilayah: 'Global', bayar: 'Gratis',
         guna: 'Tiap minggu satu dataset baru beserta contoh grafik yang perlu diperbaiki.' }
     ]
   }

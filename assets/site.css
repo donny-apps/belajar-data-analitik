@@ -1733,3 +1733,166 @@ html[data-theme="light"] .pita-kaki {
   .buku-bab-baris { grid-template-columns: auto 1fr; }
   .buku-bab-kapan { grid-column: 2; }
 }
+
+
+/* ------------------------------------------------------------
+   Perbaikan dari pemeriksaan menyeluruh
+   ------------------------------------------------------------ */
+
+/* Kata panjang seperti "Mempertanggungjawabkan" tidak muat di layar
+   kecil karena kotaknya tidak boleh menyusut. Dua baris ini yang
+   membuatnya ikut melipat. */
+.jalan-kepala > div { min-width: 0; }
+.jalan-item h3 { overflow-wrap: anywhere; }
+
+@media (max-width: 420px) {
+  .jalan-item h3 { font-size: 18px; }
+  .jalan-item { padding: 22px 18px; }
+}
+
+/* Penanda tak terlihat, dipakai supaya tautan bertanda #tableau
+   tetap menggulir ke tempat yang benar. */
+.jangkar { display: block; height: 0; scroll-margin-top: 90px; }
+
+/* ---------- lambang resmi tiap sumber dataset ----------
+   Lambangnya diletakkan di atas kotak terang supaya lambang yang
+   warnanya gelap atau hitam polos tetap kebaca waktu tema gelap. */
+.sumber-lambang {
+  flex: none; width: 40px; height: 40px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff; padding: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12), inset 0 0 0 1px rgba(0, 0, 0, .05);
+  transition: transform .24s cubic-bezier(.34, 1.4, .64, 1);
+}
+.sumber-lambang img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  object-fit: contain; display: block;
+}
+.sumber:hover .sumber-lambang { transform: scale(1.08) rotate(-3deg); }
+.sumber-atas h3 { font-size: 15.5px; }
+
+/* ---------- lambang resmi di kartu situs belajar ---------- */
+.situs-ikon.punya-lambang {
+  background: #fff; padding: 7px; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12), inset 0 0 0 1px rgba(0, 0, 0, .05);
+  transition: transform .24s cubic-bezier(.34, 1.4, .64, 1);
+}
+.situs-ikon.punya-lambang img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  object-fit: contain; display: block;
+}
+.situs:hover .situs-ikon.punya-lambang { transform: scale(1.07) rotate(-3deg); }
+
+/* ============================================================
+   Kotak pencarian seluruh isi situs
+   ============================================================ */
+.cari-btn .ikon { width: 17px; height: 17px; }
+
+.cari-lapis {
+  position: fixed; inset: 0; z-index: 200;
+  display: none; align-items: flex-start; justify-content: center;
+  padding: 12vh 20px 20px;
+  background: rgba(8, 8, 12, .55);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+.cari-lapis.tampil { display: flex; animation: cariMasuk .18s ease both; }
+@keyframes cariMasuk { from { opacity: 0; } to { opacity: 1; } }
+body.cari-terbuka { overflow: hidden; }
+
+.cari-kotak {
+  width: 100%; max-width: 660px; max-height: 74vh;
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface); border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .45), 0 0 0 1px var(--line);
+  animation: cariNaik .22s cubic-bezier(.34, 1.3, .64, 1) both;
+}
+@keyframes cariNaik { from { transform: translateY(14px) scale(.98); } to { transform: none; } }
+
+.cari-baris { display: flex; align-items: center; gap: 12px; padding: 16px 20px; }
+.cari-ikon { display: flex; color: var(--muted); }
+.cari-ikon .ikon { width: 19px; height: 19px; }
+.cari-baris input {
+  flex: 1; min-width: 0; border: 0; background: none; outline: none;
+  font-family: inherit; font-size: 16px; font-weight: 500; color: var(--ink);
+}
+.cari-baris input::placeholder { color: var(--muted); font-weight: 400; }
+.cari-esc {
+  font-family: var(--fmono); font-size: 10.5px; color: var(--muted);
+  background: var(--surface-2); padding: 4px 8px; border-radius: 6px;
+}
+
+.cari-hasil { flex: 1; overflow-y: auto; padding: 0 10px 10px; }
+.cari-grup { margin-bottom: 6px; }
+.cari-grup-judul {
+  display: block; padding: 10px 12px 6px;
+  font-size: 10px; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.cari-grup-judul b { color: var(--iris); }
+
+.cari-butir {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 12px; border-radius: 12px; color: var(--ink);
+}
+.cari-butir.pilih { background: color-mix(in srgb, var(--iris) 14%, transparent); }
+.cari-butir:hover { background: color-mix(in srgb, var(--iris) 10%, transparent); }
+.cari-butir-ikon {
+  flex: none; width: 30px; height: 30px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); color: var(--iris);
+}
+.cari-butir-ikon .ikon { width: 15px; height: 15px; }
+.cari-butir-teks { min-width: 0; flex: 1; }
+.cari-butir-teks b {
+  display: block; font-size: 14px; font-weight: 600; line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.cari-butir-teks i {
+  display: block; font-style: normal; font-size: 12px; color: var(--muted);
+  margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.cari-butir mark {
+  background: color-mix(in srgb, var(--lime) 45%, transparent);
+  color: inherit; border-radius: 3px; padding: 0 1px;
+}
+
+.cari-kosong { padding: 26px 22px 30px; }
+.cari-kosong p { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; }
+.cari-saran { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.cari-saran button {
+  font-family: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  color: var(--ink-2); background: var(--surface-2);
+  border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px;
+  transition: all .18s ease;
+}
+.cari-saran button:hover { border-color: var(--iris); color: var(--iris); transform: translateY(-2px); }
+
+.cari-kaki {
+  display: flex; gap: 18px; flex-wrap: wrap;
+  padding: 11px 20px; background: var(--surface-2);
+  font-size: 11px; color: var(--muted);
+}
+.cari-kaki span { display: inline-flex; align-items: center; gap: 5px; }
+.cari-kaki kbd {
+  font-family: var(--fmono); font-size: 10px; color: var(--ink-2);
+  background: var(--surface); padding: 2px 6px; border-radius: 5px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+@media (max-width: 620px) {
+  .cari-lapis { padding: 8vh 12px 12px; }
+  .cari-kotak { max-height: 82vh; }
+  .cari-kaki span:last-child { display: none; }
+}
+
+/* Bagian yang baru saja dituju dari hasil pencarian disorot sebentar
+   supaya pembaca langsung tahu bagian mana yang dimaksud. */
+[id] { scroll-margin-top: 88px; }
+.disorot {
+  animation: sorotSebentar 2.2s ease;
+  border-radius: var(--r-md);
+}
+@keyframes sorotSebentar {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  15%, 60% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--iris) 55%, transparent); }
+}

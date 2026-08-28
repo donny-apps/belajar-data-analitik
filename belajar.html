@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=593ecaf0">
+<link rel="stylesheet" href="assets/site.css?v=1d4351ab">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -165,11 +165,13 @@
 <div id="foot"></div>
 
 <script src="assets/course.js?v=7cc7d72a"></script>
-<script src="assets/belajar.js?v=1073ffbc"></script>
+<script src="assets/belajar.js?v=4baefb4a"></script>
 <script src="assets/ikon.js?v=56710d72"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
-<script src="assets/shell.js?v=9e160126"></script>
-<script src="assets/site.js?v=f7b2e8dc"></script>
+<script src="assets/indeks-cari.js?v=31448d27"></script>
+<script src="assets/cari.js?v=d5a9569b"></script>
+<script src="assets/shell.js?v=b04c6d33"></script>
+<script src="assets/site.js?v=5b7dcf74"></script>
 <script>
 (function () {
   'use strict';
@@ -209,7 +211,9 @@
 
   document.getElementById('situsIsi').innerHTML = SITUS_BELAJAR.map(function (s) {
     return '<a class="tile situs reveal" href="' + s.url + '" target="_blank" rel="noopener">' +
-      '<span class="situs-ikon">' + s.ikon + '</span>' +
+      (s.lambang
+        ? '<span class="situs-ikon punya-lambang"><img src="' + s.lambang + '" alt="Lambang ' + aman(s.nama) + '" loading="lazy"></span>'
+        : '<span class="situs-ikon">' + s.ikon + '</span>') +
       '<div class="situs-teks">' +
         '<h3>' + aman(s.nama) + '</h3>' +
         '<p>' + aman(s.guna) + '</p>' +
