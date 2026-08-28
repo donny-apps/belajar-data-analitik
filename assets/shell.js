@@ -12,6 +12,7 @@
     { label: 'Tableau', href: 'tableau.html' },
     { label: 'Bahan Kuliah', href: 'bahan.html' },
     { label: 'Project', href: 'project.html' },
+    { label: 'Katalog Project', href: 'showcase.html' },
     { label: 'Rule Perkuliahan', href: 'aturan.html' }
   ];
 

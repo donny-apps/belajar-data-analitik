@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Project · Kelas Data Analitik</title>
+<meta name="description" content="Dua puluh project kakak tingkat, dikelompokkan jadi sembilan tema. Buat contoh dan bahan bandingan sebelum kalian mulai project sendiri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Angkatan Sebelumnya</span>
+      <h1>20 project, <span class="grad">9 tema</span>,<br>semuanya <span class="mark">pernah dikerjain</span></h1>
+      <p class="lead">
+        Ini hasil UTS kakak tingkat. Bukan buat ditiru mentah-mentah, tapi buat ngasih gambaran:
+        sejauh apa sih yang bisa dikerjain dalam satu semester.
+      </p>
+      <div class="filter-row" id="temaFilter" style="margin-bottom:0"></div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Isi Katalog</span>
+        <div class="mini-list" style="margin-top:16px" id="ringkasKatalog"></div>
+      </div>
+      <blockquote class="quote">
+        Lihat susunannya, ambil polanya, terus bikin yang lebih bagus.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>CHURN <i>✦</i> KREDIT <i>✦</i> SDM <i>✦</i> ASURANSI <i>✦</i> PROPERTI <i>✦</i> PEMASARAN <i>✦</i> FRAUD <i>✦</i> PENDIDIKAN <i>✦</i> PENJUALAN <i>✦</i></span>
+    <span>CHURN <i>✦</i> KREDIT <i>✦</i> SDM <i>✦</i> ASURANSI <i>✦</i> PROPERTI <i>✦</i> PEMASARAN <i>✦</i> FRAUD <i>✦</i> PENDIDIKAN <i>✦</i> PENJUALAN <i>✦</i></span>
+  </div>
+</div>
+
+<section id="privasi">
+  <div class="wrap">
+    <div class="tile note info-inline reveal">
+      <span style="font-size:20px">🔒</span>
+      <span><b>Nama dan foto kakak tingkat sengaja nggak ditampilkan.</b> Yang dipakai cuma kode kelompok.
+      Gambar di tiap kartu bukan sampul aslinya, cuma jejak warnanya, biar nggak ada identitas yang kebaca.</span>
+    </div>
+  </div>
+</section>
+
+<section id="katalog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Katalog Project</span>
+      <h2 id="judulKatalog">Semua tema</h2>
+      <p id="subKatalog">Klik tema di atas buat nyaring.</p>
+    </div>
+    <div id="isiKatalog"></div>
+  </div>
+</section>
+
+<section id="cara-pakai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Cara Pakai Katalog Ini</span>
+      <h2>Tiga cara memanfaatkannya</h2>
+    </div>
+    <div class="bento">
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p1" style="margin-bottom:14px">🔍</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Cari tema yang kalian minati</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Kalau minat audit, buka tema Fraud. Kalau minat perbankan, buka Kredit. Dari situ kelihatan datanya seperti apa.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p2" style="margin-bottom:14px">📐</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Pelajari susunannya</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Perhatikan urutan slide mereka: masalah, data, tiga analisis, sintesis, rekomendasi. Itu kerangka yang diminta di soal.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p1" style="margin-bottom:14px">🚀</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Ambil tema, ganti sudutnya</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Tema boleh mirip, tapi dataset wajib beda dan pertanyaannya harus punya kalian sendiri.</p>
+      </div>
+      <div class="tile tile-wide note info-inline reveal">
+        <span style="font-size:20px">⚠️</span>
+        <span><b>Jangan disalin.</b> Nyalin laporan angkatan sebelumnya terus ganti nama itu masuk kategori nilai nol, seperti tertulis di <a href="aturan.html#jujur" style="color:var(--iris);font-weight:700">Rule Perkuliahan</a>.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/showcase.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var LOKAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || location.protocol === 'file:';
+  var filterTema = '';
+
+  function tema(id) {
+    for (var i = 0; i < SHOWCASE_TEMA.length; i++) {
+      if (SHOWCASE_TEMA[i].id === id) return SHOWCASE_TEMA[i];
+    }
+    return SHOWCASE_TEMA[0];
+  }
+
+  /* ---------- tombol saring ---------- */
+  var f = document.getElementById('temaFilter');
+  f.innerHTML = '<button class="chip on" data-tema="">Semua</button>' +
+    SHOWCASE_TEMA.map(function (t) {
+      var n = SHOWCASE.filter(function (p) { return p.tema === t.id; }).length;
+      return '<button class="chip" data-tema="' + t.id + '">' + t.ikon + ' ' + t.nama + ' <b>' + n + '</b></button>';
+    }).join('');
+
+  /* ---------- ringkasan ---------- */
+  document.getElementById('ringkasKatalog').innerHTML =
+    '<div><span>Project</span><span>' + SHOWCASE.length + '</span></div>' +
+    '<div><span>Tema</span><span>' + SHOWCASE_TEMA.length + '</span></div>' +
+    '<div><span>Total slide</span><span>' + SHOWCASE.reduce(function (a, b) { return a + b.slide; }, 0) + '</span></div>' +
+    '<div><span>Sumber</span><span>UTS Project 1</span></div>';
+
+  /* ---------- gambar katalog ---------- */
+  function gambar() {
+    var daftar = SHOWCASE_TEMA.filter(function (t) { return !filterTema || t.id === filterTema; });
+
+    document.getElementById('judulKatalog').textContent =
+      filterTema ? tema(filterTema).nama : 'Semua tema';
+    document.getElementById('subKatalog').textContent =
+      filterTema ? tema(filterTema).ringkas : 'Klik tema di atas buat nyaring. Ada ' + SHOWCASE.length + ' project dari ' + SHOWCASE_TEMA.length + ' tema.';
+
+    document.getElementById('isiKatalog').innerHTML = daftar.map(function (t) {
+      var isi = SHOWCASE.filter(function (p) { return p.tema === t.id; });
+      if (!isi.length) return '';
+
+      var kartu = isi.map(function (p) {
+        var tautan = LOKAL
+          ? '<a class="sc-buka" href="' + encodeURI('../../Input/' + p.berkas) + '" target="_blank" rel="noopener">Buka presentasi →</a>'
+          : '<span class="sc-lokal">Dibuka di kelas</span>';
+        return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
+          '<div class="sc-sampul"><img src="assets/img/showcase/' + p.kode + '.png" alt="" aria-hidden="true">' +
+          '<span class="sc-ikon">' + t.ikon + '</span></div>' +
+          '<div class="sc-isi">' +
+            '<div class="sc-meta"><span class="sc-kode">' + p.klp + '</span>' +
+            '<span class="sc-kelas">Kelas ' + p.kelas + '</span>' +
+            '<span class="sc-slide">' + p.slide + ' slide</span></div>' +
+            '<h3>' + p.judul + '</h3>' +
+            '<p>' + p.catatan + '</p>' +
+            tautan +
+          '</div></article>';
+      }).join('');
+
+      return '<div class="sc-tema reveal">' +
+        '<div class="sc-tema-kepala" style="--c:' + t.warna + '">' +
+          '<span class="sc-tema-ikon">' + t.ikon + '</span>' +
+          '<div><h3>' + t.nama + '</h3>' +
+          '<span>' + t.ringkas + '</span></div>' +
+          '<span class="sc-tema-jml">' + isi.length + ' project</span>' +
+        '</div>' +
+        '<div class="sc-tema-pakai">Di dunia kerja: ' + t.dipakai + '</div>' +
+        '<div class="sc-grid">' + kartu + '</div>' +
+        '</div>';
+    }).join('');
+  }
+
+  f.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    Array.prototype.forEach.call(f.querySelectorAll('.chip'), function (c) { c.classList.remove('on'); });
+    b.classList.add('on');
+    filterTema = b.getAttribute('data-tema') || '';
+    gambar();
+    document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  gambar();
+})();
+</script>
+</body>
+</html>
