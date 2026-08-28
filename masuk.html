@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masuk Kelas — Kelas Data Analitik</title>
+<meta name="description" content="Catat nama dan kelas kamu supaya halaman ini bisa nyapa dan nyimpen progres belajar kamu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Ruang Kelas Digital</span>
+      <h1>Kenalan <span class="mark">dulu</span> yuk</h1>
+      <p class="lead">
+        Isi nama dan kelas kamu. Nanti halaman ini bakal nyapa kamu dan nyimpen centang persiapan
+        yang udah kamu kerjain.
+      </p>
+      <div class="tile note info-inline" style="margin-top:24px">
+        <span style="font-size:20px">🔓</span>
+        <span><b>Ini bukan login beneran.</b> Nggak ada password, nggak ada data yang dikirim ke mana-mana.
+        Semuanya cuma disimpan di browser kamu sendiri. Jadi jangan isi hal yang rahasia ya.</span>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen" id="kartuMasuk">
+      <div id="formArea">
+        <span class="sec-label">Isi Data Kamu</span>
+        <form id="formMasuk" style="margin-top:18px;display:flex;flex-direction:column;gap:14px">
+          <label class="field">
+            <span>Nama panggilan</span>
+            <input type="text" id="inNama" placeholder="misalnya Rani" maxlength="40" required autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Kelas</span>
+            <select id="inKelas">
+              <option value="Kelas A">Kelas A</option>
+              <option value="Kelas B">Kelas B</option>
+              <option value="Belum tahu">Belum tahu</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Nomor kelompok <i>(boleh dikosongin dulu)</i></span>
+            <input type="text" id="inKlp" placeholder="misalnya KLP03" maxlength="12" autocomplete="off">
+          </label>
+          <button class="btn btn-primary" type="submit" style="justify-content:center">Simpan &amp; Masuk</button>
+        </form>
+      </div>
+
+      <div id="sudahArea" style="display:none">
+        <span class="sec-label">Kamu Sudah Masuk</span>
+        <div class="dosen-row" style="margin-top:18px">
+          <div class="dosen-foto no-foto"><span class="inisial" id="avaHuruf">?</span></div>
+          <div>
+            <strong id="lblNama">-</strong>
+            <span id="lblKelas">-</span>
+          </div>
+        </div>
+        <div class="hero-actions" style="margin-top:20px">
+          <a class="btn btn-primary" href="index.html">🏠 Ke Beranda</a>
+          <button class="btn btn-ghost" id="btnKeluar" type="button">Ganti data</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="siap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Persiapan Kamu</span>
+      <h2>Ceklis biar nggak ketinggalan</h2>
+      <p>Centangnya kesimpan di browser kamu. Kalau ganti laptop, centangnya mulai dari nol lagi.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="ceklis" id="ceklis"></div>
+      <div class="progres-wrap">
+        <div class="bar"><i id="progresBar" style="background:linear-gradient(90deg,var(--iris),var(--mint))"></i></div>
+        <span class="progres-lbl" id="progresLbl">0 dari 0 beres</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGKAH BERIKUTNYA ============ -->
+<section id="lanjut">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Habis Ini Ngapain</span>
+      <h2>Tiga tempat yang paling sering dibuka</h2>
+    </div>
+    <div class="bento">
+      <a class="tile tile-third reveal" href="screens/tm1/TM1_Deck.html">
+        <div class="proj-ikon p1" style="margin-bottom:14px">📖</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Materi Hari Ini</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">8 slide pertemuan pertama, ditutup simulasi deteksi angka palsu.</p>
+      </a>
+      <a class="tile tile-third reveal" href="simulasi.html">
+        <div class="proj-ikon p2" style="margin-bottom:14px">🎮</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Coba Sendiri</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Empat latihan singkat. Nggak perlu install apa-apa, tinggal klik.</p>
+      </a>
+      <a class="tile tile-third reveal" href="aturan.html">
+        <div class="proj-ikon p1" style="margin-bottom:14px">📋</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Aturan Main</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Cara dinilai, kehadiran, kerja kelompok, dan batas waktu.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var form = document.getElementById('formMasuk');
+  var formArea = document.getElementById('formArea');
+  var sudahArea = document.getElementById('sudahArea');
+
+  function tampilkan(d) {
+    if (!d) { formArea.style.display = ''; sudahArea.style.display = 'none'; return; }
+    formArea.style.display = 'none';
+    sudahArea.style.display = '';
+    document.getElementById('avaHuruf').textContent = (d.nama || '?').charAt(0).toUpperCase();
+    document.getElementById('lblNama').textContent = d.nama;
+    document.getElementById('lblKelas').textContent = d.kelas + (d.klp ? ' · ' + d.klp : '');
+  }
+
+  tampilkan(window.bdaSiswa ? window.bdaSiswa() : null);
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nama = document.getElementById('inNama').value.trim();
+    if (!nama) return;
+    var data = {
+      nama: nama,
+      kelas: document.getElementById('inKelas').value,
+      klp: document.getElementById('inKlp').value.trim()
+    };
+    window.bdaSimpanSiswa(data);
+    tampilkan(data);
+    location.reload();
+  });
+
+  document.getElementById('btnKeluar').addEventListener('click', function () {
+    try { localStorage.removeItem('bda-siswa'); } catch (e) {}
+    location.reload();
+  });
+
+  /* ---------------- ceklis persiapan ---------------- */
+  var ITEM = [
+    { id: 'orange', teks: 'Orange udah keinstal di laptop', kapan: 'Sebelum pertemuan 3', link: 'orange.html#install' },
+    { id: 'assoc', teks: 'Add-on Associate udah ditambahin di Orange', kapan: 'Sebelum pertemuan 7', link: 'orange.html#install' },
+    { id: 'akun', teks: 'Akun Tableau Public udah jadi', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#install' },
+    { id: 'tableau', teks: 'Aplikasi Tableau Public udah keinstal', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#install' },
+    { id: 'data', teks: 'Data latihan udah didownload', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#latihan' },
+    { id: 'kelompok', teks: 'Udah punya kelompok', kapan: 'Pertemuan 2', link: 'aturan.html#kelompok' },
+    { id: 'topik', teks: 'Topik Karya 1 udah kepikiran', kapan: 'Pertemuan 4', link: 'project.html#mulai' },
+    { id: 'aturan', teks: 'Udah baca aturan main sampai habis', kapan: 'Minggu ini', link: 'aturan.html' }
+  ];
+  var KEY = 'bda-ceklis';
+
+  function baca() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; }
+  }
+  function simpan(o) {
+    try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+  }
+
+  var wrap = document.getElementById('ceklis');
+  var state = baca();
+
+  function gambar() {
+    wrap.innerHTML = ITEM.map(function (it) {
+      var on = state[it.id] ? ' on' : '';
+      return '<label class="ceklis-item' + on + '">' +
+        '<input type="checkbox" data-id="' + it.id + '"' + (state[it.id] ? ' checked' : '') + '>' +
+        '<span class="kotak">✓</span>' +
+        '<span class="isi"><b>' + it.teks + '</b><i>' + it.kapan + '</i></span>' +
+        '<a class="panduan" href="' + it.link + '">panduan →</a>' +
+        '</label>';
+    }).join('');
+    hitung();
+  }
+
+  function hitung() {
+    var beres = ITEM.filter(function (it) { return state[it.id]; }).length;
+    var pct = Math.round(beres / ITEM.length * 100);
+    document.getElementById('progresBar').style.width = pct + '%';
+    var lbl = document.getElementById('progresLbl');
+    lbl.textContent = beres + ' dari ' + ITEM.length + ' beres';
+    if (beres === ITEM.length) lbl.textContent = 'Mantap, semua beres 🎉';
+  }
+
+  wrap.addEventListener('change', function (e) {
+    var cb = e.target;
+    if (cb.tagName !== 'INPUT') return;
+    state[cb.getAttribute('data-id')] = cb.checked;
+    simpan(state);
+    cb.closest('.ceklis-item').classList.toggle('on', cb.checked);
+    hitung();
+  });
+
+  gambar();
+})();
+</script>
+</body>
+</html>

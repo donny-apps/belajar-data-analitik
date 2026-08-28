@@ -1,27 +1,11 @@
 /* ============================================================
    BDA Studio — renderer dan interaksi website mata kuliah.
-   Membaca data dari assets/course.js lalu menyusun roadmap,
+   Membaca data dari assets/course.js lalu menyusun katalog materi,
    daftar materi, dan galeri karya mahasiswa. Ditambah tema
    terang atau gelap, animasi angka, dan animasi masuk.
    ============================================================ */
 (function () {
   'use strict';
-
-  /* ---------------- tema ---------------- */
-  var root = document.documentElement;
-  var btn = document.getElementById('themeBtn');
-
-  function setTheme(t) {
-    root.setAttribute('data-theme', t);
-    try { localStorage.setItem('bda-theme', t); } catch (e) {}
-    if (btn) btn.textContent = t === 'dark' ? '☀️' : '🌙';
-  }
-  if (btn) {
-    btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
-    btn.addEventListener('click', function () {
-      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    });
-  }
 
   /* ---------------- util ---------------- */
   function mix(hex, a) {
@@ -49,16 +33,16 @@
       '<span class="ext">' + ext(t.path) + '</span></a>';
   }
 
-  /* ---------------- kartu fase ---------------- */
+  /* ---------------- kartu tahap ---------------- */
   var faseWrap = document.getElementById('faseGrid');
   if (faseWrap) {
     faseWrap.innerHTML = FASE.map(function (f) {
       var jml = COURSE.filter(function (c) { return c.fase === f.id; }).length;
-      return '<div class="tile fase reveal" style="--c:' + f.warna + '">' +
+      return '<div class="tile tahap reveal" style="--c:' + f.warna + '">' +
         '<div class="fase-ikon">' + f.ikon + '</div>' +
         '<h3>' + f.nama + '</h3>' +
         '<div class="rentang">' + f.rentang + ' &middot; ' + jml + ' pertemuan</div>' +
-        '<div class="out"><b>Output:</b> ' + f.output + '</div>' +
+        '<div class="out"><b>Output:</b> ' + f.hasil + '</div>' +
         '</div>';
     }).join('');
   }
@@ -66,8 +50,14 @@
   /* ---------------- kartu pertemuan ---------------- */
   var grid = document.getElementById('tmGrid');
 
+  var rentang = grid ? (grid.getAttribute('data-tm') || '') : '';
+  var batas = rentang ? rentang.split('-').map(Number) : null;
+
   function render(filter) {
-    var items = COURSE.filter(function (c) { return !filter || c.fase === filter; });
+    var items = COURSE.filter(function (c) {
+      if (batas && (c.tm < batas[0] || c.tm > batas[1])) return false;
+      return !filter || c.fase === filter;
+    });
     grid.innerHTML = items.map(function (c) {
       var f = faseOf(c.fase);
       var tag = c.milestone
@@ -79,7 +69,7 @@
       var links = '';
       if (c.internal) {
         links += '<a class="file" href="' + c.internal + '"><span class="ic">🖥️</span>' +
-          '<span>Buka deck interaktif TM' + c.tm + '</span><span class="ext">html</span></a>';
+          '<span>Buka materi kelas TM' + c.tm + '</span><span class="ext">html</span></a>';
       }
       if (c.tautan && c.tautan.length) links += c.tautan.map(tautanHtml).join('');
       if (c.nota) links += '<div class="file-empty">' + c.nota + '</div>';

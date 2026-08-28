@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau — Kelas Data Analitik</title>
+<meta name="description" content="Cara install Tableau Public, bikin dashboard pertama, publish ke internet, materi pertemuan 9 sampai 15, dan ketentuan Karya 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero tool-hero tableau">
+      <span class="sticker"><span class="live"></span> Dipakai pertemuan 9 sampai 15</span>
+      <h1>📊 <span class="grad">Tableau</span><br>biar temuan kalian <span class="mark">kelihatan</span></h1>
+      <p class="lead">
+        Orange nemuin polanya, Tableau bikin orang lain ngerti. Hasilnya bisa dipublish online,
+        linknya tinggal tempel di CV. Di sinilah kalian ngerjain Karya 2.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#install">⬇️ Cara Install</a>
+        <a class="btn btn-ghost" href="#kepake">💼 Kepake Buat Apa</a>
+        <a class="btn btn-lime" href="#project2">🎯 Ketentuan Karya 2</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Ringkasnya</span>
+        <div class="mini-list" style="margin-top:16px">
+          <div><span>Harga</span><span>Gratis</span></div>
+          <div><span>Syarat</span><span>Bikin akun dulu</span></div>
+          <div><span>Hasil karya</span><span>Terbuka untuk umum</span></div>
+          <div><span>Batas install</span><span>Sebelum pertemuan 9</span></div>
+          <div><span>Dinilai</span><span>Pas UAS</span></div>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://public.tableau.com/app/discover" target="_blank" rel="noopener" style="width:100%;justify-content:center">⬇️ Buka Tableau Public</a>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>TARIK KOLOM <i>✦</i> GRAFIK MUNCUL <i>✦</i> TAMBAH FILTER <i>✦</i> JADI DASHBOARD <i>✦</i> PUBLISH <i>✦</i> TEMPEL DI CV <i>✦</i></span>
+    <span>TARIK KOLOM <i>✦</i> GRAFIK MUNCUL <i>✦</i> TAMBAH FILTER <i>✦</i> JADI DASHBOARD <i>✦</i> PUBLISH <i>✦</i> TEMPEL DI CV <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ============ PENTING ============ -->
+<section id="penting">
+  <div class="wrap">
+    <div class="tile note info-inline reveal" style="border-color:color-mix(in srgb, var(--pink) 40%, transparent);background:color-mix(in srgb, var(--pink) 10%, var(--surface))">
+      <span style="font-size:22px">⚠️</span>
+      <span><b>Baca ini dulu sebelum mulai.</b> Namanya Tableau <i>Public</i>, jadi karya yang kalian publish bisa dilihat siapa saja di internet.
+      Jangan pernah pakai data asli yang ada nama orang, NIK, nomor rekening, atau nomor HP. Pakai data latihan dari kelas, atau samarkan dulu identitasnya.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALUR ============ -->
+<section id="apa">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Kenalan Dulu</span>
+      <h2>Dari file Excel jadi dashboard</h2>
+      <p>Alurnya selalu sama, mau datanya kecil atau gede.</p>
+    </div>
+
+    <div class="alur-grid">
+      <div class="tile alur reveal"><span class="alur-no">1</span><b>Sambungin data</b><span>Excel, CSV, atau Google Sheets</span></div>
+      <div class="alur-arrow">›</div>
+      <div class="tile alur reveal"><span class="alur-no">2</span><b>Bikin grafik</b><span>Tarik kolom ke kanvas</span></div>
+      <div class="alur-arrow">›</div>
+      <div class="tile alur reveal"><span class="alur-no">3</span><b>Gabung jadi dashboard</b><span>Beberapa grafik dalam satu layar</span></div>
+      <div class="alur-arrow">›</div>
+      <div class="tile alur reveal"><span class="alur-no">4</span><b>Publish</b><span>Dapat link buat dibagikan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTALL ============ -->
+<section id="install">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Langkah Install</span>
+      <h2>Bikin akun dulu, baru install</h2>
+      <p>Urutannya jangan dibalik. Tanpa akun, karya kalian nggak bisa disimpan.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="tile reveal">
+        <span class="step-no">1</span>
+        <div>
+          <b>Bikin akun Tableau Public</b>
+          <p>Pakai email yang aktif dan yang kalian inget, bukan email asal. Akun ini yang bakal nyimpen semua karya kalian sampai UAS.</p>
+          <a class="file" href="https://public.tableau.com/app/discover" target="_blank" rel="noopener"><span class="ic">🔗</span><span>public.tableau.com</span><span class="ext">web</span></a>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">2</span>
+        <div>
+          <b>Isi nama profil yang bener</b>
+          <p>Nama profil ini nanti kelihatan di link karya kalian. Pakai nama asli, jangan nama alay, soalnya bakal ditempel di CV.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">3</span>
+        <div>
+          <b>Download aplikasi desktop-nya</b>
+          <p>Di halaman yang sama ada tombol download. Pilih Windows atau macOS sesuai laptop kalian.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">4</span>
+        <div>
+          <b>Install dan masuk pakai akun tadi</b>
+          <p>Next-next sampai selesai, terus login pakai email yang barusan didaftarin.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">5</span>
+        <div>
+          <b>Tes sambungin satu file</b>
+          <p>Download data latihan di bawah, terus di Tableau pilih <i>Connect</i> lalu <i>Microsoft Excel</i>. Kalau nama kolomnya muncul, berarti aman.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">6</span>
+        <div>
+          <b>Coba bikin satu grafik</b>
+          <p>Tarik kolom <i>Sales</i> ke kotak Rows, tarik <i>Region</i> ke Columns. Grafik batang langsung muncul. Segampang itu.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PUBLISH ============ -->
+<section id="publish">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Nyimpen dan Publish</span>
+      <h2>Cara karya kalian dapat link</h2>
+      <p>Ini yang bikin Tableau beda dari Excel: hasilnya punya alamat sendiri di internet.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2">☁️</div>
+          <div><h3>Langkah publish</h3><span>Dari laptop ke internet</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">1</span><span>Menu <b>File</b> lalu <b>Save to Tableau Public As</b></span></li>
+          <li><span class="ck">2</span><span>Kasih nama yang jelas, misalnya <b>Dashboard Penjualan - KLP03</b></span></li>
+          <li><span class="ck">3</span><span>Tunggu proses upload sampai selesai</span></li>
+          <li><span class="ck">4</span><span>Browser kebuka sendiri, nampilin karya kalian</span></li>
+          <li><span class="ck">5</span><span>Salin alamat di address bar. <b>Itu link yang dikumpulin</b></span></li>
+        </ul>
+      </div>
+
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1">💼</div>
+          <div><h3>Habis itu dipakai buat apa</h3><span>Jangan berhenti di nilai</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Tempel di CV.</b> Tulis di bagian portofolio, lengkap sama linknya.</span></li>
+          <li><span class="ck">✓</span><span><b>Posting di LinkedIn.</b> Ceritain masalah apa yang kalian jawab, bukan cuma pamer grafik.</span></li>
+          <li><span class="ck">✓</span><span><b>Bawa pas interview.</b> Lebih meyakinkan daripada bilang "saya bisa Tableau".</span></li>
+          <li><span class="ck">✓</span><span><b>Simpan juga file .twbx-nya</b> di laptop sebagai cadangan.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATA LATIHAN ============ -->
+<section id="latihan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Bahan Latihan</span>
+      <h2>Data buat dipraktekin</h2>
+      <p>Data toko retail global, isinya ribuan transaksi penjualan dan retur. Ini yang dipakai di kelas.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="tm-links" id="bahanTableau"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USE CASE ============ -->
+<section id="kepake">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Kepake Buat Apa</span>
+      <h2>4 dashboard yang beneran dipakai orang</h2>
+      <p>Semua contoh ini bisa kalian tiru buat Karya 2.</p>
+    </div>
+
+    <div class="uc-grid">
+      <article class="tile uc reveal" style="--c:var(--amber)">
+        <div class="uc-top"><span class="uc-ikon">🏛️</span><span class="tag tag-siap">Pemerintah</span></div>
+        <h3>Mantau serapan anggaran</h3>
+        <dl class="uc-list">
+          <div><dt>Yang lihat</dt><dd>Pimpinan instansi, tiap Senin pagi.</dd></div>
+          <div><dt>Isinya</dt><dd>Persentase serapan per unit, sisa anggaran, tren per bulan.</dd></div>
+          <div><dt>Gunanya</dt><dd>Ketahuan unit mana yang seret sebelum keburu numpuk di Desember.</dd></div>
+        </dl>
+        <div class="uc-links"><a href="simulasi.html#sim3">Coba mainin →</a></div>
+      </article>
+
+      <article class="tile uc reveal" style="--c:var(--mint)">
+        <div class="uc-top"><span class="uc-ikon">💰</span><span class="tag tag-siap">Keuangan</span></div>
+        <h3>Ngintip untung rugi per produk</h3>
+        <dl class="uc-list">
+          <div><dt>Yang lihat</dt><dd>Manajer keuangan dan tim penjualan.</dd></div>
+          <div><dt>Isinya</dt><dd>Penjualan, untung, dan margin, bisa dipecah per produk dan per wilayah.</dd></div>
+          <div><dt>Gunanya</dt><dd>Ketahuan produk yang lakunya rame tapi ternyata rugi karena diskonnya kegedean.</dd></div>
+        </dl>
+        <div class="uc-links"><a href="#project2">Mirip Karya 2 →</a></div>
+      </article>
+
+      <article class="tile uc reveal" style="--c:var(--pink)">
+        <div class="uc-top"><span class="uc-ikon">🧾</span><span class="tag tag-ujian">Pajak</span></div>
+        <h3>Pantau kepatuhan wajib pajak</h3>
+        <dl class="uc-list">
+          <div><dt>Yang lihat</dt><dd>Petugas pengawasan di kantor pajak.</dd></div>
+          <div><dt>Isinya</dt><dd>Jumlah yang lapor tepat waktu, yang telat, dan yang belum lapor sama sekali.</dd></div>
+          <div><dt>Gunanya</dt><dd>Nentuin siapa yang perlu ditegur duluan, tanpa buka satu-satu.</dd></div>
+        </dl>
+        <div class="uc-links"><a href="screens/tm1/TM1_Deck.html#s3">Lihat di materi →</a></div>
+      </article>
+
+      <article class="tile uc reveal" style="--c:var(--iris)">
+        <div class="uc-top"><span class="uc-ikon">📦</span><span class="tag tag-siap">Operasional</span></div>
+        <h3>Jaga stok biar nggak kosong</h3>
+        <dl class="uc-list">
+          <div><dt>Yang lihat</dt><dd>Tim gudang dan pembelian, tiap hari.</dd></div>
+          <div><dt>Isinya</dt><dd>Sisa stok per barang, kecepatan keluar barang, dan perkiraan habisnya kapan.</dd></div>
+          <div><dt>Gunanya</dt><dd>Pesan barang sebelum kehabisan, bukan setelah pelanggan komplain.</dd></div>
+        </dl>
+        <div class="uc-links"><a href="#latihan">Datanya ada di sini →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATERI ============ -->
+<section id="materi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Etalase Materi</span>
+      <h2>Pertemuan 9 sampai 15</h2>
+      <p>Semua slide, modul, dan datanya. Yang bertanda Rencana masih bisa berubah.</p>
+    </div>
+    <div class="tm-grid" id="tmGrid" data-tm="9-15"></div>
+  </div>
+</section>
+
+<!-- ============ PROJECT 2 ============ -->
+<section id="project2">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Karya 2</span>
+      <h2>Dashboard interaktif</h2>
+      <p>Dikerjain berkelompok, dipresentasiin pas UAS ke simulasi jajaran direksi. Bobotnya 35 persen.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2">📊</div>
+          <div><h3>Isi dashboardnya</h3><span>4 hal wajib ada</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">1</span><span><b>Angka yang penting aja.</b> Maksimal 4 angka utama di bagian atas. Jangan semua ditumpahin.</span></li>
+          <li><span class="ck">2</span><span><b>Bisa diklik.</b> Minimal ada filter wilayah dan waktu, plus satu grafik yang bisa dipecah lebih detail.</span></li>
+          <li><span class="ck">3</span><span><b>Ada ceritanya.</b> Begitu dibuka, dalam 10 detik orang harus ngerti dashboard ini mau ngomong apa.</span></li>
+          <li><span class="ck">4</span><span><b>Ada sarannya.</b> Satu slide penutup: setelah lihat ini, manajemen sebaiknya ngapain.</span></li>
+        </ul>
+        <div class="bobot"><span>Bobot nilai</span><b style="color:var(--mint)">35%</b></div>
+      </div>
+
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1">📋</div>
+          <div><h3>Yang dikumpulin</h3><span>3 hal</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Link Tableau Public.</b> Pastikan bisa dibuka orang lain, jangan yang masih private.</span></li>
+          <li><span class="ck">✓</span><span><b>File .twbx.</b> Sebagai cadangan kalau linknya bermasalah.</span></li>
+          <li><span class="ck">✓</span><span><b>Slide presentasi PDF.</b> Nama file: KLP00_Presentasi.pdf</span></li>
+        </ul>
+        <div class="tile note info-inline" style="margin-top:18px;background:transparent;border-style:dashed">
+          <span>🎤</span>
+          <span>Presentasinya diperlakukan kayak rapat direksi beneran. Kalian bakal ditanya balik, jadi siapin jawabannya.</span>
+        </div>
+      </div>
+
+      <div class="tile tile-wide reveal">
+        <span class="sec-label" style="margin-bottom:18px">Cara dashboard kalian dinilai</span>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Yang dinilai</th><th>Porsi</th><th>Nilai bagus itu kayak gimana</th></tr></thead>
+            <tbody>
+              <tr><td><b>Pilihan angkanya</b></td><td>20%</td><td>Yang ditampilin memang yang dipakai buat ambil keputusan.</td></tr>
+              <tr><td><b>Grafiknya tepat</b></td><td>20%</td><td>Bentuk grafiknya cocok sama pertanyaannya, nggak asal keren.</td></tr>
+              <tr><td><b>Enak dipakai</b></td><td>20%</td><td>Filternya jelas, nggak bikin bingung, nggak berantakan.</td></tr>
+              <tr><td><b>Ceritanya nyambung</b></td><td>20%</td><td>Ada alur dari masalah, temuan, sampai saran.</td></tr>
+              <tr><td><b>Presentasinya</b></td><td>20%</td><td>Yakin, ngerti isi dashboardnya, bisa jawab pertanyaan dadakan.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  var wrap = document.getElementById('bahanTableau');
+  if (!wrap) return;
+  var pakai = [];
+  COURSE.forEach(function (c) {
+    if (c.tm !== 9) return;
+    (c.tautan || []).forEach(function (t) { if (t.tipe === 'data') pakai.push(t); });
+  });
+  wrap.innerHTML = pakai.map(function (t) {
+    return '<a class="file" href="' + encodeURI(BASE + t.path) + '" target="_blank" rel="noopener">' +
+      '<span class="ic">📈</span><span>' + t.label + '</span>' +
+      '<span class="ext">' + t.path.split('.').pop() + '</span></a>';
+  }).join('') || '<div class="file-empty">Data latihan dibagikan di kelas.</div>';
+})();
+</script>
+</body>
+</html>

@@ -2,12 +2,12 @@
    Data Perkuliahan - Big Data Analytics untuk Akuntansi
    Satu file ini adalah sumber data seluruh website.
    Untuk menambah materi baru: cukup edit array COURSE di bawah,
-   halaman roadmap dan daftar materi akan ikut ter-update sendiri.
+   halaman katalog materi dan daftar materi akan ikut ter-update sendiri.
 
    Keterangan field:
      tm       : nomor pertemuan
      judul    : judul pertemuan
-     fase     : 1..4 (Fondasi, Data Mining, Tableau, Showcase)
+     tahap     : 1..4 (Fondasi, Data Mining, Tableau, Showcase)
      status   : 'siap' | 'rencana'
      ringkas  : satu kalimat isi pertemuan
      tujuan   : capaian pembelajaran pertemuan
@@ -18,7 +18,7 @@
 var BASE = 'materi/';
 
 var FASE = [
-  { id: 1, nama: 'Fondasi', ikon: '🧱', warna: '#0284c7', rentang: 'TM1 - TM2', output: 'Cara mikir sebelum sentuh data' },
+  { id: 1, nama: 'Dasar', ikon: '🧱', warna: '#0284c7', rentang: 'TM1 - TM2', output: 'Cara mikir sebelum sentuh data' },
   { id: 2, nama: 'Project 1 - Cari Pola', ikon: '⛏️', warna: '#d97706', rentang: 'TM3 - TM8', output: 'Laporan analisis pakai Orange' },
   { id: 3, nama: 'Project 2 - Dashboard', ikon: '📊', warna: '#059669', rentang: 'TM9 - TM15', output: 'Dashboard yang bisa diklik' },
   { id: 4, nama: 'Tampil di Depan', ikon: '🏆', warna: '#7c3aed', rentang: 'TM16', output: 'Presentasi final dan portofolio' }
@@ -28,7 +28,7 @@ var COURSE = [
   {
     tm: 1, fase: 1, status: 'siap',
     judul: 'Overview Perkuliahan, Project dan Cara Belajar',
-    ringkas: 'Kenalan sama mata kuliah, cara penilaiannya, dan cara mikir yang dipakai sampai akhir semester.',
+    ringkas: 'Kenalan sama mata kuliah, konsep 5V, cara mikir dari data ke keputusan, plus simulasi deteksi angka palsu.',
     tujuan: 'Ngerti kelas ini mau bawa kalian ke mana.',
     internal: 'tm1.html',
     tautan: []
@@ -95,8 +95,7 @@ var COURSE = [
   },
   {
     tm: 8, fase: 2, status: 'siap', milestone: 'UTS',
-    judul: 'UTS - Milestone Project 1',
-    nota: 'Soal ujian dibagikan langsung saat pelaksanaan.',
+    judul: 'UTS - Dinilai pas Project 1',
     ringkas: 'Kumpulin laporan Project 1 dan presentasi kelompok.',
     tujuan: 'Nunjukin analisis lengkap: masalahnya apa, diolah gimana, hasilnya apa, sarannya apa.',
     tautan: [

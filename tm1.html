@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TM1 — Overview Perkuliahan · Big Data Analytics untuk Akuntansi</title>
+<title>Materi Pertemuan 1 — Kelas Data Analitik</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,14 +31,14 @@
   .open-link { margin-left: auto; font-size: 12.5px; font-weight: 800; color: var(--iris); }
   .screen-card:hover .open-link { text-decoration: underline; }
 
-  .rundown-row { display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px dashed var(--line); align-items: baseline; }
-  .rundown-row:last-child { border-bottom: none; }
-  .rundown-row .t {
+  .jadwal kelas-row { display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px dashed var(--line); align-items: baseline; }
+  .jadwal kelas-row:last-child { border-bottom: none; }
+  .jadwal kelas-row .t {
     font-family: 'JetBrains Mono', monospace; font-size: 12px; min-width: 80px; font-weight: 500;
     color: var(--iris);
   }
-  .rundown-row .a { font-size: 14px; font-weight: 700; min-width: 210px; letter-spacing: -.02em; }
-  .rundown-row .d { font-size: 13.5px; color: var(--ink-2); }
+  .jadwal kelas-row .a { font-size: 14px; font-weight: 700; min-width: 210px; letter-spacing: -.02em; }
+  .jadwal kelas-row .d { font-size: 13.5px; color: var(--ink-2); }
 
   .keys { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
   .key-row { display: flex; align-items: center; gap: 11px; font-size: 13.5px; color: var(--ink-2); }
@@ -47,44 +47,27 @@
     background: var(--surface-2); border: 1px solid var(--line-strong); border-bottom-width: 2px;
     border-radius: 8px; padding: 4px 10px; color: var(--ink); white-space: nowrap;
   }
-  @media (max-width: 780px) { .rundown-row { flex-direction: column; gap: 5px; } .rundown-row .a { min-width: 0; } }
+  @media (max-width: 780px) { .jadwal kelas-row { flex-direction: column; gap: 5px; } .jadwal kelas-row .a { min-width: 0; } }
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-in">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">📊</div>
-      <div class="brand-txt">
-        <strong>BDA Studio</strong>
-        <span>Big Data Analytics · Akuntansi</span>
-      </div>
-    </a>
-    <div class="nav-links">
-      <a href="index.html">Beranda</a>
-      <a href="simulasi.html">Simulasi</a>
-      <a href="index.html#roadmap">Roadmap</a>
-      <a href="#rundown">Rundown</a>
-      <button class="theme-btn" id="themeBtn" title="Ganti mode terang atau gelap" aria-label="Ganti tema">🌙</button>
-      <a class="nav-cta" href="screens/tm1/TM1_Screen1.html">▶ Mulai Presentasi</a>
-    </div>
-  </div>
-</nav>
+<div id="nav"></div>
 
 <header class="hero">
   <div class="wrap bento">
     <div class="tile tile-hero">
-      <span class="sticker"><span class="live"></span> Tatap Muka 1 · Fase Fondasi</span>
+      <span class="sticker"><span class="live"></span> Tatap Muka 1 · Tahap Fondasi</span>
       <h1>Overview Perkuliahan, <span class="grad">Project</span><br>dan <span class="mark">Cara Belajar</span></h1>
       <p class="lead">
-        Pertemuan pembuka, dibagi jadi enam layar. Isinya: aturan main kelas, kenapa ini penting
-        buat anak akuntansi, peta satu semester, dan cara mikir dari data sampai jadi keputusan.
+        Pertemuan pembuka, 8 slide. Isinya: aturan main kelas, kenapa ini penting buat anak
+        akuntansi, peta satu semester, konsep 5V, cara mikir dari data ke keputusan, ditutup
+        simulasi deteksi angka palsu yang bisa langsung dicoba di kelas.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="screens/tm1/TM1_Screen1.html">▶ Mulai dari Layar 1</a>
+        <a class="btn btn-primary" href="screens/tm1/TM1_Deck.html">▶ Buka Materi Pertemuan 1</a>
         <a class="btn btn-ghost" href="simulasi.html">🎮 Ruang Simulasi</a>
-        <a class="btn btn-ghost" href="#rundown">🕒 Rundown Kelas</a>
+        <a class="btn btn-ghost" href="#jadwal kelas">🕒 Jadwal Kelas Kelas</a>
       </div>
     </div>
 
@@ -92,30 +75,30 @@
       <div>
         <span class="sec-label">Mode Mengajar</span>
         <p style="font-size:13.5px;color:var(--ink-2);margin-top:14px">
-          Tiap layar punya bilah navigasi di bawah: pindah layar, timer sesi, layar penuh,
-          dan catatan pengajar. Tekan <span class="kbd">N</span> untuk catatan,
-          <span class="kbd">F</span> untuk layar penuh, <span class="kbd">B</span> untuk menyembunyikan bilah.
+          Deck-nya punya bilah navigasi sendiri di bawah: pindah slide, daftar slide, timer sesi,
+          dan layar penuh. Tekan <span class="kbd">N</span> untuk catatan pengajar,
+          <span class="kbd">O</span> untuk daftar slide, <span class="kbd">F</span> untuk layar penuh.
         </p>
       </div>
       <div class="mini-list">
-        <div><span>Layar materi</span><span>6 screen</span></div>
-        <div><span>Estimasi materi</span><span>58 menit</span></div>
-        <div><span>Polling kelas</span><span>4 sesi</span></div>
-        <div><span>Konsep inti</span><span>5V + Framework</span></div>
+        <div><span>Slide materi</span><span>8 slide</span></div>
+        <div><span>Estimasi materi</span><span>84 menit</span></div>
+        <div><span>Interaksi</span><span>2 polling + 1 simulasi</span></div>
+        <div><span>Konsep inti</span><span>5V, Framework, Benford</span></div>
       </div>
     </aside>
 
     <div class="tile tile-stat">
-      <div class="stat-num" data-count="6" style="color:var(--iris)">6</div>
-      <div class="stat-lbl">Layar Materi</div>
+      <div class="stat-num" data-count="8" style="color:var(--iris)">8</div>
+      <div class="stat-lbl">Slide Materi</div>
     </div>
     <div class="tile tile-stat">
-      <div class="stat-num" data-count="58" data-suffix="′" style="color:var(--pink)">58′</div>
+      <div class="stat-num" data-count="84" data-suffix="′" style="color:var(--pink)">84′</div>
       <div class="stat-lbl">Estimasi Durasi</div>
     </div>
     <div class="tile tile-stat">
-      <div class="stat-num" data-count="4" style="color:var(--mint)">4</div>
-      <div class="stat-lbl">Polling Kelas</div>
+      <div class="stat-num" data-count="1" style="color:var(--mint)">1</div>
+      <div class="stat-lbl">Simulasi Benford</div>
     </div>
     <div class="tile tile-stat">
       <div class="stat-num" style="color:var(--amber)">5V</div>
@@ -135,73 +118,87 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Isi Pertemuan</span>
-      <h2>Enam layar, satu alur cerita</h2>
-      <p>Urutannya sengaja gitu. Jangan diacak, layar terakhir baru masuk kalau layar sebelumnya udah nyantol.</p>
+      <h2>Materi hari ini</h2>
+      <p>Urutannya sengaja gitu: dari alasan, ke peta, ke cara mikir, baru praktik. Klik nomor buat loncat ke slide tertentu.</p>
     </div>
 
     <div class="screen-grid">
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen1.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s1">
         <span class="screen-no">01</span>
-        <h3>Pembukaan dan Kontrak Belajar</h3>
-        <p>Aturan main kelas, cara belajarnya, dan pembagian nilainya.</p>
-        <div class="screen-meta"><span class="durasi">± 7 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
+        <h3>Cover</h3>
+        <p>Halaman pembuka dengan dashboard yang gerak sendiri. Pesannya: nggak ada coding, nggak ada rumus, mulai dari nol.</p>
+        <div class="screen-meta"><span class="durasi">± 3 menit</span><span class="tag tag-siap">Pembuka</span><span class="open-link">Buka →</span></div>
       </a>
 
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen2.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s2">
         <span class="screen-no">02</span>
-        <h3>Kenapa Penting untuk Akuntansi</h3>
-        <p>Empat contoh nyata: nyari kecurangan, ngatur biaya, ngeramal arus kas, dan mantau anggaran negara.</p>
-        <div class="screen-meta"><span class="durasi">± 10 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
+        <h3>Kickoff</h3>
+        <p>Alur Data, Analisis, Dashboard, Keputusan. Ditutup polling: siapa yang pernah bikin dashboard.</p>
+        <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
       </a>
 
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen3.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s3">
         <span class="screen-no">03</span>
-        <h3>Peta Besar Satu Semester</h3>
-        <p>Peta 16 pertemuan, empat babak, dua karya, plus di mana posisi UTS dan UAS.</p>
-        <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
+        <h3>Relevansi</h3>
+        <p>Empat area kerja yang bakal mereka temui: pajak lewat Coretax dan e-Faktur, audit dan fraud, fintech, sektor publik.</p>
+        <div class="screen-meta"><span class="durasi">± 12 menit</span><span class="tag tag-siap">Kunci</span><span class="open-link">Buka →</span></div>
       </a>
 
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen4.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s4">
         <span class="screen-no">04</span>
-        <h3>Output Akhir dan Portofolio</h3>
-        <p>Dua karya yang kalian bawa pulang, bedanya apa, dan gunanya buat cari kerja.</p>
-        <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
+        <h3>Rancangan 16 Minggu</h3>
+        <p>Empat tahap, dua project, satu showcase. Plus posisi UTS dan UAS sebagai titik penilaian.</p>
+        <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Katalog Materi</span><span class="open-link">Buka →</span></div>
       </a>
 
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen5.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s5">
         <span class="screen-no">05</span>
-        <h3>Apa Itu Big Data Analytics</h3>
-        <p>Penjelasan gampangnya, lima ciri data gede, dan contohnya di bank, rumah sakit, sampai e-commerce.</p>
-        <div class="screen-meta"><span class="durasi">± 12 menit</span><span class="tag tag-siap">Konsep inti</span><span class="open-link">Buka →</span></div>
+        <h3>Luaran Kelas</h3>
+        <p>Dua karya buat portofolio: laporan Orange dan dashboard Tableau, masing-masing bobot 35 persen.</p>
+        <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Portofolio</span><span class="open-link">Buka →</span></div>
       </a>
 
-      <a class="tile screen-card reveal" href="screens/tm1/TM1_Screen6.html">
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s6">
         <span class="screen-no">06</span>
-        <h3>Framework Data ke Keputusan</h3>
-        <p>Lima langkah dari data ke keputusan, plus kasus penjualan turun 15 persen.</p>
-        <div class="screen-meta"><span class="durasi">± 13 menit</span><span class="tag tag-ujian">Kunci</span><span class="open-link">Buka →</span></div>
+        <h3>Big Data Itu Apa</h3>
+        <p>Lima ciri data gede, semua contohnya dekat: QRIS, e-wallet, marketplace, lapor SPT online.</p>
+        <div class="screen-meta"><span class="durasi">± 12 menit</span><span class="tag tag-siap">Konsep</span><span class="open-link">Buka →</span></div>
+      </a>
+
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s7">
+        <span class="screen-no">07</span>
+        <h3>Mulai dari Pertanyaan</h3>
+        <p>Lima langkah dari data ke keputusan, dites lewat kasus transaksi QRIS toko yang turun 15 persen.</p>
+        <div class="screen-meta"><span class="durasi">± 13 menit</span><span class="tag tag-ujian">Mindset</span><span class="open-link">Buka →</span></div>
+      </a>
+
+      <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s8">
+        <span class="screen-no">08</span>
+        <h3>Simulasi Benford</h3>
+        <p>Mahasiswa ngetik nominal karangan sendiri, lalu sistem bilang polanya alami atau mencurigakan. Ini yang beneran dipakai auditor.</p>
+        <div class="screen-meta"><span class="durasi">± 20 menit</span><span class="tag tag-ujian">Praktik</span><span class="open-link">Buka →</span></div>
       </a>
     </div>
   </div>
 </section>
 
-<section id="rundown">
+<section id="jadwal kelas">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Panduan Mengajar</span>
-      <h2>Rundown kelas 100 menit</h2>
+      <h2>Jadwal Kelas kelas 100 menit</h2>
       <p>Pegangan waktu, bukan aturan kaku. Sisain ruang buat diskusi.</p>
     </div>
     <div class="tile reveal">
-      <div class="rundown-row"><span class="t">00 - 10</span><span class="a">Pembuka dan absensi</span><span class="d">Perkenalan, cek kesiapan perangkat mahasiswa, tampilkan halaman beranda website.</span></div>
-      <div class="rundown-row"><span class="t">10 - 17</span><span class="a">Screen 1</span><span class="d">Kontrak belajar dan komposisi nilai. Jalankan polling pembuka untuk mengukur level kelas.</span></div>
-      <div class="rundown-row"><span class="t">17 - 27</span><span class="a">Screen 2</span><span class="d">Relevansi bagi profesi akuntan. Beri porsi lebih pada konteks audit dan deteksi fraud.</span></div>
-      <div class="rundown-row"><span class="t">27 - 35</span><span class="a">Screen 3</span><span class="d">Roadmap semester. Tegaskan posisi UTS dan UAS sebagai milestone project.</span></div>
-      <div class="rundown-row"><span class="t">35 - 43</span><span class="a">Screen 4</span><span class="d">Output akhir. Buka satu contoh laporan angkatan sebelumnya dari bagian Karya.</span></div>
-      <div class="rundown-row"><span class="t">43 - 55</span><span class="a">Screen 5</span><span class="d">Konsep 5V. Minta contoh dari konteks akuntansi untuk setiap V.</span></div>
-      <div class="rundown-row"><span class="t">55 - 68</span><span class="a">Screen 6</span><span class="d">Framework lima langkah dan studi kasus penurunan penjualan. Bagian paling menentukan.</span></div>
-      <div class="rundown-row"><span class="t">68 - 85</span><span class="a">Diskusi kelas</span><span class="d">Tiap mahasiswa menuliskan satu pertanyaan bisnis yang ingin dijawab dengan data.</span></div>
-      <div class="rundown-row"><span class="t">85 - 100</span><span class="a">Penutup</span><span class="d">Pembentukan kelompok, penjelasan tugas TM2, dan pengingat instalasi Orange sebelum TM3.</span></div>
+      <div class="jadwal kelas-row"><span class="t">00 - 08</span><span class="a">Pembuka dan absensi</span><span class="d">Perkenalan, cek kesiapan perangkat, buka slide Cover sambil kelas masuk.</span></div>
+      <div class="jadwal kelas-row"><span class="t">08 - 16</span><span class="a">Slide 2 Kickoff</span><span class="d">Alur Data sampai Keputusan. Jalankan polling dashboard buat ngukur level kelas.</span></div>
+      <div class="jadwal kelas-row"><span class="t">16 - 28</span><span class="a">Slide 3 Relevansi</span><span class="d">Empat area kerja. Coretax dan e-Faktur paling nyambung karena masih hangat.</span></div>
+      <div class="jadwal kelas-row"><span class="t">28 - 36</span><span class="a">Slide 4 Rancangan</span><span class="d">Peta 16 minggu. Tegaskan UTS checkpoint Project 1, UAS showcase Project 2.</span></div>
+      <div class="jadwal kelas-row"><span class="t">36 - 44</span><span class="a">Slide 5 Luaran</span><span class="d">Dua karya dan bobotnya. Kalau sempat, buka contoh laporan angkatan lalu.</span></div>
+      <div class="jadwal kelas-row"><span class="t">44 - 56</span><span class="a">Slide 6 Konsep 5V</span><span class="d">Minta satu contoh dari kelas untuk tiap V. Veracity dikaitkan ke audit.</span></div>
+      <div class="jadwal kelas-row"><span class="t">56 - 69</span><span class="a">Slide 7 Mindset</span><span class="d">Lima langkah dan kasus QRIS turun 15 persen. Biarkan kelas memilih dulu.</span></div>
+      <div class="jadwal kelas-row"><span class="t">69 - 89</span><span class="a">Slide 8 Simulasi Benford</span><span class="d">Panggil 3 sampai 4 mahasiswa maju, ketik angka karangan, lalu bandingkan dengan data asli.</span></div>
+      <div class="jadwal kelas-row"><span class="t">89 - 100</span><span class="a">Penutup</span><span class="d">Pembentukan kelompok, tugas TM2, dan pengingat instalasi Orange sebelum TM3.</span></div>
     </div>
   </div>
 </section>
@@ -211,34 +208,38 @@
     <div class="sec-head reveal">
       <span class="sec-label">Pintasan</span>
       <h2>Shortcut saat menayangkan materi</h2>
-      <p>Semua pintasan aktif di setiap layar materi, jadi tidak perlu mengarahkan kursor ke tombol saat sedang menjelaskan.</p>
+      <p>Semua pintasan aktif di setiap slide materi, jadi tidak perlu mengarahkan kursor ke tombol saat sedang menjelaskan.</p>
     </div>
     <div class="tile reveal">
       <div class="keys">
-        <div class="key-row"><span class="kbd">→ / Spasi</span> Layar berikutnya</div>
-        <div class="key-row"><span class="kbd">←</span> Layar sebelumnya</div>
-        <div class="key-row"><span class="kbd">1 - 6</span> Loncat ke layar tertentu</div>
+        <div class="key-row"><span class="kbd">→ / Spasi</span> Slide berikutnya</div>
+        <div class="key-row"><span class="kbd">←</span> Slide sebelumnya</div>
+        <div class="key-row"><span class="kbd">1 - 8</span> Loncat ke slide tertentu</div>
         <div class="key-row"><span class="kbd">N</span> Catatan pengajar</div>
         <div class="key-row"><span class="kbd">F</span> Layar penuh</div>
         <div class="key-row"><span class="kbd">T</span> Reset timer sesi</div>
-        <div class="key-row"><span class="kbd">B</span> Sembunyikan bilah navigasi</div>
-        <div class="key-row"><span class="kbd">H</span> Kembali ke halaman ini</div>
+        <div class="key-row"><span class="kbd">O</span> Daftar semua slide</div>
+        <div class="key-row"><span class="kbd">H</span> Sembunyikan bilah navigasi</div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="foot-in">
-    <div>
-      <p><b>Tatap Muka 1</b></p>
-      <p>Big Data Analytics untuk Akuntansi · Dr. Donny Maha Putra, S.Kom., M.Ak</p>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="tile note info-inline reveal">
+      <span style="font-size:20px">🗂️</span>
+      <span><b>Versi lama masih tersimpan.</b> Materi versi sebelumnya (6 slide) ada di
+      <a href="screens/tm1-lama/TM1_Screen1.html" style="color:var(--iris);font-weight:700">arsip ini</a>,
+      kalau sewaktu-waktu butuh bahan pembanding.</span>
     </div>
-    <a class="btn btn-primary" href="screens/tm1/TM1_Screen1.html">▶ Mulai Presentasi</a>
   </div>
-</footer>
+</section>
+
+<div id="foot"></div>
 
 <script src="assets/course.js"></script>
+<script src="assets/shell.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

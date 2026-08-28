@@ -7,9 +7,14 @@ Pengampu: Dr. Donny Maha Putra, S.Kom., M.Ak
 
 | Halaman | Keterangan |
 |---|---|
-| `index.html` | Beranda: roadmap 16 pertemuan, project, penilaian, tools |
-| `simulasi.html` | Empat latihan interaktif untuk mahasiswa |
-| `tm1.html` | Materi Tatap Muka 1 beserta enam layarnya |
+| `index.html` | Beranda: cerita kelas, perjalanan 16 minggu, etalase materi |
+| `orange.html` | Orange: cara install, contoh pemakaian, materi pertemuan 3-8, Karya 1 |
+| `tableau.html` | Tableau: cara install, cara publish, materi pertemuan 9-15, Karya 2 |
+| `project.html` | Ketentuan dua karya, cara nyari topik, cara dinilai |
+| `aturan.html` | Aturan main kelas |
+| `masuk.html` | Catatan nama dan ceklis persiapan mahasiswa |
+| `simulasi.html` | Empat latihan interaktif |
+| `tm1.html` | Rincian pertemuan 1 |
 | `materi/` | Modul, slide, workflow Orange, dan dataset |
 
 ## Cara buka
