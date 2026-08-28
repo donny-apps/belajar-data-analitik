@@ -273,25 +273,6 @@ html[data-theme="dark"] .nav-cta { background: var(--lime) !important; color: va
 }
 .stat-lbl { font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-top: 10px; }
 
-/* ===================== MARQUEE ===================== */
-.marquee {
-  position: relative; z-index: 2;
-  overflow: hidden; padding: 16px 0; margin: 26px 0 8px;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  background: var(--ink);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-}
-.marquee-track { display: flex; gap: 42px; width: max-content; animation: slide 34s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee span {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 15px; font-weight: 700; letter-spacing: .02em;
-  color: var(--canvas); display: flex; align-items: center; gap: 42px; white-space: nowrap;
-}
-.marquee span i { color: var(--lime); font-style: normal; }
-@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
 /* ===================== SECTION ===================== */
 section { padding: 56px 0; position: relative; z-index: 2; }
 .sec-head { margin-bottom: 30px; max-width: 82ch; }
@@ -1456,3 +1437,143 @@ h1 .judul-lanjut { display: block; }
 .zoom-catatan .ikon { width: 14px; height: 14px; margin-top: 1px; flex: none; }
 
 @media (max-width: 820px) { .zoom-kartu { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   Pita jalan pintas, ruang mahasiswa, dan kartu kelas daring
+   ============================================================ */
+
+/* ---------- pita jalan pintas ---------- */
+.pita {
+  position: relative; z-index: 3;
+  background: var(--ink); padding: 12px 0;
+  border-top: none;
+}
+html[data-theme="dark"] .pita { background: #15151d; }
+.pita-dalam {
+  max-width: 1240px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; gap: 8px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.pita-dalam::-webkit-scrollbar { display: none; }
+.pita-judul {
+  flex: none; font-size: 10px; font-weight: 800; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted); margin-right: 6px;
+}
+.pita-tautan {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 600; color: var(--canvas);
+  padding: 9px 15px; border-radius: 999px; white-space: nowrap;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  transition: all .2s cubic-bezier(.34,1.4,.64,1);
+}
+html[data-theme="dark"] .pita-tautan { color: var(--ink); }
+.pita-tautan:hover {
+  background: rgba(255,255,255,.16); border-color: rgba(255,255,255,.26);
+  transform: translateY(-2px);
+}
+.pita-tautan .ikon { width: 15px; height: 15px; opacity: .85; }
+.pita-tautan.utama {
+  background: var(--lime); color: var(--lime-ink); border-color: transparent; font-weight: 800;
+}
+.pita-tautan.utama:hover { background: var(--lime); transform: translateY(-2px); }
+.pita-titik {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--lime-ink);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* ---------- logo Zoom di kartu kelas ---------- */
+.zoom-logo { height: 26px; width: auto; display: block; margin-bottom: 12px; }
+
+/* ---------- keterangan cara penyimpanan ---------- */
+.status-server {
+  display: flex; gap: 12px; align-items: flex-start; margin-top: 24px;
+  padding: 15px 18px; border-radius: var(--r-md); font-size: 13px; line-height: 1.55;
+}
+.status-server .ikon { width: 18px; height: 18px; flex: none; margin-top: 1px; }
+.status-server b { color: var(--ink); }
+.status-server.lokal {
+  background: color-mix(in srgb, var(--amber) 12%, var(--surface));
+  color: var(--ink-2);
+}
+.status-server.lokal .ikon { color: var(--amber); }
+.status-server.tersambung {
+  background: color-mix(in srgb, var(--mint) 12%, var(--surface));
+  color: var(--ink-2);
+}
+.status-server.tersambung .ikon { color: var(--mint); }
+
+/* ---------- tab ruang mahasiswa ---------- */
+.tab-baris { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+.tab {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: inherit; font-size: 13.5px; font-weight: 700; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--line);
+  padding: 11px 18px; border-radius: 999px; cursor: pointer;
+  transition: all .22s cubic-bezier(.34,1.4,.64,1);
+}
+.tab .ikon { width: 16px; height: 16px; }
+.tab:hover { transform: translateY(-2px); border-color: var(--iris); color: var(--iris); }
+.tab.on { background: var(--iris); color: #fff; border-color: transparent; box-shadow: var(--glow-iris); }
+.tab-isi { display: none; }
+.tab-isi.tampil { display: block; }
+
+/* ---------- formulir ---------- */
+.form-rapi { display: flex; flex-direction: column; gap: 14px; }
+.field-baris { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-pesan { font-size: 12.5px; margin-top: 4px; min-height: 18px; }
+.form-pesan.sedang { color: var(--muted); }
+.form-pesan.berhasil { color: var(--mint); }
+.form-pesan.gagal { color: var(--pink); }
+
+/* ---------- kotak unggah ---------- */
+.unggah-tile .unggah-kotak { margin-top: 16px; }
+.unggah-batas {
+  margin-top: 14px; font-size: 12.5px; color: var(--ink-2);
+  background: var(--surface-2); padding: 10px 14px; border-radius: 12px;
+}
+.unggah-batas b { color: var(--ink); }
+.unggah-kotak { display: flex; flex-direction: column; gap: 10px; }
+.unggah-tombol {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-size: 13.5px; font-weight: 700; color: var(--iris); cursor: pointer;
+  padding: 16px; border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--iris) 8%, var(--surface-2));
+  border: 1.5px dashed color-mix(in srgb, var(--iris) 34%, transparent);
+  transition: all .2s ease;
+}
+.unggah-tombol:hover {
+  background: color-mix(in srgb, var(--iris) 14%, var(--surface-2));
+  border-color: var(--iris);
+}
+.unggah-tombol .ikon { width: 18px; height: 18px; }
+.unggah-info { font-size: 11.5px; color: var(--muted); text-align: center; }
+.unggah-pesan { font-size: 12.5px; min-height: 18px; }
+.unggah-pesan.sedang { color: var(--muted); }
+.unggah-pesan.berhasil { color: var(--mint); }
+.unggah-pesan.gagal { color: var(--pink); }
+
+/* ---------- daftar target pengumpulan ---------- */
+.target-baris {
+  display: grid; grid-template-columns: 34px 1fr auto; gap: 14px; align-items: center;
+  padding: 13px 16px; border-radius: var(--r-sm); background: var(--surface-2);
+  margin-bottom: 8px;
+}
+.target-baris.selesai { background: color-mix(in srgb, var(--mint) 10%, var(--surface)); }
+.target-tanda {
+  width: 30px; height: 30px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--muted) 16%, transparent); color: var(--muted);
+}
+.target-tanda .ikon { width: 16px; height: 16px; }
+.target-baris.selesai .target-tanda { background: var(--mint); color: #05231a; }
+.target-teks b { display: block; font-size: 14px; font-weight: 600; }
+.target-teks i { font-style: normal; font-size: 11.5px; color: var(--muted); }
+.target-status { font-size: 11.5px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.target-baris.selesai .target-status { color: var(--mint); }
+
+@media (max-width: 620px) {
+  .field-baris { grid-template-columns: 1fr; }
+  .target-baris { grid-template-columns: 30px 1fr; }
+  .target-status { grid-column: 2; }
+}

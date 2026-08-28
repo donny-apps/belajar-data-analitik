@@ -1,31 +1,28 @@
 /* ============================================================
    Data kelas daring.
 
-   PENTING soal kata sandi rapat.
-   Situs ini terbuka untuk umum dan terindeks mesin pencari. Kalau
-   tautan yang memuat kata sandi ditempel di sini, siapa pun yang
-   menemukan halaman ini bisa masuk ke ruang kelas, termasuk orang
-   yang tidak berkepentingan.
+   Catatan keamanan.
+   Tautan sekali klik dipasang atas keputusan dosen pengampu. Kata
+   sandinya tidak ditulis sebagai teks di halaman, tapi tetap menempel
+   di dalam tautan, jadi siapa pun yang membuka halaman ini bisa masuk.
 
-   Karena itu yang dipasang hanya nomor rapat dan tautan tanpa kata
-   sandi. Kata sandinya dibagikan lewat jalur tertutup, misalnya grup
-   kelas atau LMS kampus.
-
-   Kalau nanti diputuskan tautan lengkap boleh dipasang, ubah
-   TAUTAN_LANGSUNG di bawah dan nyalakan Waiting Room di pengaturan
-   Zoom supaya peserta tetap harus diizinkan masuk satu per satu.
+   Disarankan menyalakan Waiting Room di pengaturan Zoom, supaya
+   peserta tetap harus diizinkan masuk satu per satu.
    ============================================================ */
 
 var KELAS_DARING = {
   aktif: true,
   nama: 'Analisis Big Data Kelas A',
   nomor: '969 5349 2253',
+  logo: 'assets/img/logo-zoom.svg',
   tautan: 'https://zoom.us/j/96953492253',
 
-  /* Diisi hanya jika dosen memutuskan tautan berkata sandi boleh publik. */
-  TAUTAN_LANGSUNG: null,
+  /* Tautan sekali klik, atas keputusan dosen pengampu. Kata sandinya
+     tidak ditulis sebagai teks di halaman, tapi tetap menempel di dalam
+     tautan ini, jadi anggap tautannya sendiri bersifat terbuka. */
+  TAUTAN_LANGSUNG: 'https://zoom.us/j/96953492253?pwd=stw6HQKaq7GGlQJHOaP1libT3pDhKb.1',
 
-  jadwal: 'Sabtu, 07.15 WIB',
-  catatanSandi: 'Kata sandi dibagikan lewat grup kelas, tidak dipasang di halaman terbuka.',
+  jadwal: 'Jumat, 07.10 sampai 08.50 WIB',
+  catatanSandi: 'Klik tombol di samping untuk langsung masuk. Kalau diminta nomor rapat, nomornya ada di atas.',
   catatanJadwal: 'Cek pengumuman kelas kalau ada perubahan jadwal.'
 };

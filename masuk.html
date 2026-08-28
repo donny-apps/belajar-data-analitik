@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Masuk Kelas · Kelas Data Analitik</title>
-<meta name="description" content="Daftarkan data kamu untuk melihat tugas dan kelompok kamu, plus ceklis persiapan kuliah.">
+<title>Ruang Mahasiswa · Kelas Data Analitik</title>
+<meta name="description" content="Isi data diri, kumpulkan tugas dan sertifikat, dan pantau kemajuan project kelompok kamu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=fa69704f">
+<link rel="stylesheet" href="assets/site.css?v=8915f1cc">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -23,139 +23,141 @@
 <header class="hero">
   <div class="wrap bento">
     <div class="tile tile-hero">
-      <span class="sticker"><span class="live"></span> Ruang Kelas Digital</span>
-      <h1>Isi data, <span class="mark">lihat tugas</span> <span class="grad">kamu</span></h1>
+      <span class="sticker"><span class="live"></span> Ruang Mahasiswa</span>
+      <h1>Satu tempat buat <span class="grad">semua urusan</span> kelas</h1>
       <p class="lead">
-        Setelah isi nomor kelompok, halaman ini langsung nunjukin tema project kamu,
-        pertanyaan yang harus dijawab, dan mau presentasi ke siapa.
+        Isi data diri sekali, lalu halaman ini menampilkan tugas kelompok kamu,
+        tempat mengumpulkan berkas, dan daftar apa saja yang sudah selesai.
       </p>
-      <div class="tile note info-inline" style="margin-top:24px">
-        <span style="font-size:20px">🔓</span>
-        <span><b>Data kamu cuma disimpan di browser sendiri.</b> Nggak dikirim ke mana-mana,
-        nggak ada yang bisa membacanya dari jauh, termasuk dosen. Kalau ganti laptop atau hapus
-        riwayat browser, datanya hilang dan tinggal diisi ulang.</span>
-      </div>
+      <div id="statusServer" class="status-server"></div>
     </div>
 
-    <aside class="tile tile-dosen" id="kartuMasuk">
-      <div id="formArea">
-        <span class="sec-label">Isi Data Kamu</span>
-        <form id="formMasuk" style="margin-top:18px;display:flex;flex-direction:column;gap:13px">
-          <label class="field">
-            <span>Nama lengkap</span>
-            <input type="text" id="inNama" placeholder="Sesuai yang tertulis di presensi" maxlength="60" required autocomplete="name">
-          </label>
-          <label class="field">
-            <span>NIM</span>
-            <input type="text" id="inNim" placeholder="misalnya 2110112001" maxlength="20" required autocomplete="off" inputmode="numeric">
-          </label>
-          <label class="field">
-            <span>Email</span>
-            <input type="email" id="inEmail" placeholder="pakai email kampus kalau ada" maxlength="80" required autocomplete="email">
-          </label>
-          <label class="field">
-            <span>Nomor WhatsApp</span>
-            <input type="tel" id="inWa" placeholder="08xxxxxxxxxx" maxlength="20" required autocomplete="tel" inputmode="tel">
-          </label>
-          <label class="field">
-            <span>Kelas</span>
-            <select id="inKelas">
-              <option value="Kelas A">Kelas A</option>
-              <option value="Kelas B">Kelas B</option>
-            </select>
-          </label>
-          <label class="field">
-            <span>Kelompok</span>
-            <select id="inKlp"></select>
-          </label>
-          <button class="btn btn-primary" type="submit" style="justify-content:center">Simpan &amp; Lihat Tugas</button>
-        </form>
-      </div>
-
-      <div id="sudahArea" style="display:none">
-        <span class="sec-label">Data Kamu</span>
-        <div class="dosen-row" style="margin-top:18px">
-          <div class="dosen-foto no-foto"><span class="inisial" id="avaHuruf">?</span></div>
-          <div>
-            <strong id="lblNama">-</strong>
-            <span id="lblSub">-</span>
-          </div>
-        </div>
-        <div class="mini-list" style="margin-top:18px">
-          <div><span>NIM</span><span id="lblNim">-</span></div>
-          <div><span>Email</span><span id="lblEmail">-</span></div>
-          <div><span>WhatsApp</span><span id="lblWa">-</span></div>
-          <div><span>Kelompok</span><span id="lblKlp">-</span></div>
-        </div>
-        <div class="hero-actions" style="margin-top:20px">
-          <button class="btn btn-lime" id="btnSalin" type="button">📋 Salin Data</button>
-          <button class="btn btn-ghost" id="btnUbah" type="button">Ubah data</button>
-        </div>
-      </div>
-    </aside>
+    <aside class="tile tile-dosen" id="kartuSiswa"></aside>
   </div>
 </header>
 
-<div class="marquee">
-  <div class="marquee-track">
-    <span>ISI DATA <i>✦</i> LIHAT KELOMPOK <i>✦</i> LIHAT TUGAS <i>✦</i> CENTANG PERSIAPAN <i>✦</i> MULAI KERJA <i>✦</i></span>
-    <span>ISI DATA <i>✦</i> LIHAT KELOMPOK <i>✦</i> LIHAT TUGAS <i>✦</i> CENTANG PERSIAPAN <i>✦</i> MULAI KERJA <i>✦</i></span>
-  </div>
-</div>
+<div id="pita"></div>
 
-<!-- ============ TUGAS KAMU ============ -->
-<section id="tugas-kamu">
+<section id="ruang">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Tugas Kamu</span>
-      <h2 id="judulTugas">Tugas kelompok kamu</h2>
-      <p id="subTugas">Isi nomor kelompok dulu di kolom atas, nanti tugasnya muncul di sini.</p>
+    <div class="tab-baris" id="tabBaris">
+      <button class="tab on" data-tab="profil"><span data-ikon="orang"></span> Data Diri</button>
+      <button class="tab" data-tab="tugas"><span data-ikon="unduhan"></span> Kumpulkan Tugas</button>
+      <button class="tab" data-tab="sertifikat"><span data-ikon="bintang"></span> Sertifikat</button>
+      <button class="tab" data-tab="progres"><span data-ikon="centang"></span> Kemajuan Saya</button>
     </div>
-    <div id="tugasIsi"></div>
-  </div>
-</section>
 
-<!-- ============ CEKLIS ============ -->
-<section id="siap">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Persiapan Kamu</span>
-      <h2>Ceklis persiapan biar tidak ada yang terlewat</h2>
-      <p>Centangnya kesimpan di browser kamu. Kalau ganti laptop, centangnya mulai dari nol lagi.</p>
-    </div>
-    <div class="tile reveal">
-      <div class="ceklis" id="ceklis"></div>
-      <div class="progres-wrap">
-        <div class="bar"><i id="progresBar" style="background:linear-gradient(90deg,var(--iris),var(--mint))"></i></div>
-        <span class="progres-lbl" id="progresLbl">0 dari 0 beres</span>
+    <!-- ---------- data diri ---------- -->
+    <div class="tab-isi tampil" id="tab-profil">
+      <div class="bento">
+        <div class="tile tile-half reveal">
+          <div class="proj-head">
+            <div class="proj-ikon p2"><span data-ikon="orang"></span></div>
+            <div><h3>Data diri</h3><span>Diisi sekali, dipakai seterusnya</span></div>
+          </div>
+          <form id="formMasuk" class="form-rapi">
+            <label class="field">
+              <span>Nama lengkap</span>
+              <input type="text" id="inNama" placeholder="Sesuai yang tertulis di presensi" maxlength="60" required autocomplete="name">
+            </label>
+            <div class="field-baris">
+              <label class="field">
+                <span>NIM</span>
+                <input type="text" id="inNim" placeholder="2110112001" maxlength="20" required inputmode="numeric" autocomplete="off">
+              </label>
+              <label class="field">
+                <span>Kelas</span>
+                <select id="inKelas"><option>Kelas A</option><option>Kelas B</option></select>
+              </label>
+            </div>
+            <div class="field-baris">
+              <label class="field">
+                <span>Email</span>
+                <input type="email" id="inEmail" placeholder="email kampus kalau ada" maxlength="80" required autocomplete="email">
+              </label>
+              <label class="field">
+                <span>Nomor WhatsApp</span>
+                <input type="tel" id="inWa" placeholder="08xxxxxxxxxx" maxlength="20" required inputmode="tel" autocomplete="tel">
+              </label>
+            </div>
+            <label class="field">
+              <span>Kelompok</span>
+              <select id="inKlp"></select>
+            </label>
+            <button class="btn btn-primary" type="submit" style="justify-content:center">Simpan Data</button>
+            <p class="form-pesan" id="pesanForm"></p>
+          </form>
+        </div>
+
+        <div class="tile tile-half reveal" id="kotakTugas"></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ============ LANGKAH BERIKUTNYA ============ -->
-<section id="lanjut">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Habis Ini Ngapain</span>
-      <h2>Tiga halaman yang paling sering dibuka</h2>
+    <!-- ---------- kumpulkan tugas ---------- -->
+    <div class="tab-isi" id="tab-tugas">
+      <div class="bento" id="daftarUnggahTugas"></div>
     </div>
-    <div class="bento">
-      <a class="tile tile-third reveal" href="screens/tm1/TM1_Deck.html">
-        <div class="proj-ikon p1" style="margin-bottom:14px">📖</div>
-        <h3 style="font-size:17px;margin-bottom:8px">Materi Pertemuan 1</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Delapan slide pengantar perkuliahan, ditutup simulasi deteksi angka palsu.</p>
-      </a>
-      <a class="tile tile-third reveal" href="simulasi.html">
-        <div class="proj-ikon p2" style="margin-bottom:14px">🎮</div>
-        <h3 style="font-size:17px;margin-bottom:8px">Coba Sendiri</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Empat latihan singkat. Nggak perlu install apa-apa, tinggal klik.</p>
-      </a>
-      <a class="tile tile-third reveal" href="aturan.html">
-        <div class="proj-ikon p1" style="margin-bottom:14px">📋</div>
-        <h3 style="font-size:17px;margin-bottom:8px">Rule Perkuliahan</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Cara dinilai, kehadiran, kerja kelompok, dan batas waktu.</p>
-      </a>
+
+    <!-- ---------- sertifikat ---------- -->
+    <div class="tab-isi" id="tab-sertifikat">
+      <div class="bento">
+        <div class="tile tile-half reveal">
+          <div class="proj-head">
+            <div class="proj-ikon p1"><span data-ikon="bintang"></span></div>
+            <div><h3>Unggah sertifikat</h3><span>Kursus, pelatihan, atau lomba</span></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:18px">
+            Punya sertifikat kursus data, pelatihan analitik, atau lomba yang relevan?
+            Kumpulkan di sini. Ini menambah nilai partisipasi dan berguna waktu menyusun portofolio.
+          </p>
+          <div class="unggah-kotak" data-jenis="sertifikat" data-label="Sertifikat"></div>
+        </div>
+
+        <div class="tile tile-half reveal">
+          <div class="proj-head">
+            <div class="proj-ikon p2"><span data-ikon="lampu"></span></div>
+            <div><h3>Sertifikat apa yang dihitung</h3><span>Panduan singkat</span></div>
+          </div>
+          <ul class="checklist">
+            <li><span class="ck">✓</span><span>Kursus analisis data, statistik, atau visualisasi, dari mana pun asalnya.</span></li>
+            <li><span class="ck">✓</span><span>Pelatihan Orange, Tableau, Power BI, Excel lanjutan, SQL, atau Python.</span></li>
+            <li><span class="ck">✓</span><span>Lomba analisis data atau hackathon, ikut serta maupun menang.</span></li>
+            <li><span class="ck">✓</span><span>Sertifikat magang yang tugasnya berkaitan dengan pengolahan data.</span></li>
+          </ul>
+          <div class="tile note info-inline" style="margin-top:18px">
+            <span data-ikon="lampu"></span>
+            <span>Simpan juga berkas aslinya. Yang diunggah di sini salinannya, bukan penggantinya.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- kemajuan ---------- -->
+    <div class="tab-isi" id="tab-progres">
+      <div class="tile reveal" style="margin-bottom:16px">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="centang"></span></div>
+          <div><h3>Kemajuan kamu</h3><span id="ringkasProgres">Belum ada data</span></div>
+        </div>
+        <div class="progres-wrap" style="margin-top:6px">
+          <div class="bar"><i id="progresBar" style="background:linear-gradient(90deg,var(--iris),var(--mint))"></i></div>
+          <span class="progres-lbl" id="progresLbl">0 dari 0</span>
+        </div>
+      </div>
+
+      <div class="tile reveal" style="margin-bottom:16px">
+        <span class="sec-label" style="margin-bottom:16px">Yang harus dikumpulkan</span>
+        <div id="daftarTarget"></div>
+      </div>
+
+      <div class="tile reveal">
+        <span class="sec-label" style="margin-bottom:16px">Persiapan mandiri</span>
+        <div class="ceklis" id="ceklis"></div>
+        <div class="progres-wrap">
+          <div class="bar"><i id="siapBar" style="background:linear-gradient(90deg,var(--mint),var(--cyan))"></i></div>
+          <span class="progres-lbl" id="siapLbl">0 dari 0 beres</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -164,106 +166,205 @@
 
 <script src="assets/course.js?v=7cc7d72a"></script>
 <script src="assets/kelompok.js?v=e7f6176b"></script>
+<script src="assets/kelas-daring.js?v=fe8948ba"></script>
+<script src="assets/backend.js?v=4832d384"></script>
 <script src="assets/ikon.js?v=fb67527f"></script>
-<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/shell.js?v=5b2e50b5"></script>
 <script src="assets/site.js?v=6d9ef1ac"></script>
 <script>
 (function () {
   'use strict';
 
-  var form = document.getElementById('formMasuk');
-  var formArea = document.getElementById('formArea');
-  var sudahArea = document.getElementById('sudahArea');
+  var ik = function (n) { return window.IKON ? IKON(n) : ''; };
+  var aman = function (t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  };
 
-  /* ---------- isi pilihan kelompok ---------- */
+  /* ---------------- keterangan cara penyimpanan ---------------- */
+  var st = document.getElementById('statusServer');
+  if (BDA.terhubung()) {
+    st.className = 'status-server tersambung';
+    st.innerHTML = ik('perisai') + '<span><b>Berkas kamu tersimpan di catatan kelas.</b> Yang dikumpulkan masuk ke penyimpanan dosen beserta waktu pengumpulannya.</span>';
+  } else {
+    st.className = 'status-server lokal';
+    st.innerHTML = ik('peringatan') + '<span><b>Pengumpulan berkas lewat halaman ini belum dibuka.</b> Data yang kamu isi baru tersimpan di browser sendiri. Sementara ini kumpulkan tugas lewat jalur yang diumumkan di kelas.</span>';
+  }
+
+  /* ---------------- daftar target pengumpulan ---------------- */
+  var TARGET = [
+    { jenis: 'tugas', label: 'Laporan Project 1', ket: 'Laporan analisis Orange, format PDF', batas: 'UTS' },
+    { jenis: 'tugas', label: 'Presentasi Project 1', ket: 'Slide presentasi, format PDF', batas: 'UTS' },
+    { jenis: 'tugas', label: 'Berkas Orange', ket: 'Alur kerja .ows kelompok kamu', batas: 'UTS' },
+    { jenis: 'tugas', label: 'Dashboard Project 2', ket: 'Berkas .twbx atau tangkapan layar', batas: 'UAS' },
+    { jenis: 'tugas', label: 'Presentasi Project 2', ket: 'Slide presentasi, format PDF', batas: 'UAS' },
+    { jenis: 'sertifikat', label: 'Sertifikat', ket: 'Tambahan, tidak wajib', batas: 'Kapan saja' }
+  ];
+
+  /* ---------------- pilihan kelompok ---------------- */
   var pilKlp = document.getElementById('inKlp');
   pilKlp.innerHTML = '<option value="">Belum dapat kelompok</option>' +
     KLP_ORANGE.map(function (k) { return '<option value="' + k.klp + '">' + k.klp + '</option>'; }).join('');
 
-  function tampilkan(d) {
+  /* ---------------- kartu ringkas ---------------- */
+  function gambarKartu() {
+    var d = BDA.siswa();
+    var w = document.getElementById('kartuSiswa');
     if (!d) {
-      formArea.style.display = '';
-      sudahArea.style.display = 'none';
-      gambarTugas(null);
+      w.innerHTML = '<div><span class="sec-label">Belum Terisi</span>' +
+        '<p style="font-size:13.5px;color:var(--ink-2);margin-top:14px">' +
+        'Isi data diri di bawah supaya halaman ini bisa menampilkan tugas kelompok kamu.</p></div>' +
+        '<blockquote class="quote">Cukup diisi sekali. Setelah itu tinggal buka halaman ini kapan saja.</blockquote>';
       return;
     }
-    formArea.style.display = 'none';
-    sudahArea.style.display = '';
-    document.getElementById('avaHuruf').textContent = (d.nama || '?').charAt(0).toUpperCase();
-    document.getElementById('lblNama').textContent = d.nama;
-    document.getElementById('lblSub').textContent = d.kelas;
-    document.getElementById('lblNim').textContent = d.nim || '-';
-    document.getElementById('lblEmail').textContent = d.email || '-';
-    document.getElementById('lblWa').textContent = d.wa || '-';
-    document.getElementById('lblKlp').textContent = d.klp || 'Belum ada';
-    gambarTugas(d);
+    w.innerHTML =
+      '<div class="dosen-row">' +
+        '<div class="dosen-foto no-foto"><span class="inisial">' + (d.nama || '?').charAt(0).toUpperCase() + '</span></div>' +
+        '<div><strong>' + aman(d.nama) + '</strong><span>' + aman(d.kelas) + (d.klp ? ' · ' + aman(d.klp) : '') + '</span></div>' +
+      '</div>' +
+      '<div class="mini-list" style="margin-top:18px">' +
+        '<div><span>NIM</span><span>' + aman(d.nim || '-') + '</span></div>' +
+        '<div><span>Email</span><span>' + aman(d.email || '-') + '</span></div>' +
+        '<div><span>WhatsApp</span><span>' + aman(d.wa || '-') + '</span></div>' +
+      '</div>' +
+      '<button class="btn btn-ghost" id="btnUbah" type="button" style="margin-top:18px;justify-content:center">Ubah data</button>';
+
+    var b = document.getElementById('btnUbah');
+    if (b) b.addEventListener('click', function () {
+      pilihTab('profil');
+      document.getElementById('inNama').value = d.nama || '';
+      document.getElementById('inNim').value = d.nim || '';
+      document.getElementById('inEmail').value = d.email || '';
+      document.getElementById('inWa').value = d.wa || '';
+      document.getElementById('inKelas').value = d.kelas || 'Kelas A';
+      document.getElementById('inKlp').value = d.klp || '';
+      document.getElementById('inNama').focus();
+    });
   }
 
-  /* ---------- kartu tugas per kelompok ---------- */
-  function gambarTugas(d) {
-    var wrap = document.getElementById('tugasIsi');
-    var judul = document.getElementById('judulTugas');
-    var sub = document.getElementById('subTugas');
-
+  /* ---------------- kartu tugas kelompok ---------------- */
+  function gambarTugas() {
+    var d = BDA.siswa();
+    var w = document.getElementById('kotakTugas');
     if (!d || !d.klp) {
-      judul.textContent = 'Tugas kelompok kamu';
-      sub.textContent = 'Isi nomor kelompok dulu di kolom atas, nanti tugasnya muncul di sini.';
-      wrap.innerHTML = '<div class="tile note info-inline reveal"><span style="font-size:20px">👆</span>' +
-        '<span>Belum tahu nomor kelompok? Santai. Kelompok dibentuk di pertemuan 2. ' +
-        'Sambil nunggu, kamu bisa lihat semua tema di <a href="orange.html#kelompok" style="color:var(--iris);font-weight:700">halaman Orange</a> ' +
-        'dan <a href="tableau.html#kelompok" style="color:var(--iris);font-weight:700">halaman Tableau</a>.</span></div>';
+      w.innerHTML = '<div class="proj-head"><div class="proj-ikon p1">' + ik('tanya') + '</div>' +
+        '<div><h3>Tugas kelompok</h3><span>Menunggu nomor kelompok</span></div></div>' +
+        '<p style="font-size:13.5px;color:var(--ink-2)">Isi nomor kelompok di sebelah, nanti tema project dan pertanyaan yang harus dijawab muncul di sini. Kelompok dibentuk di pertemuan 2.</p>' +
+        '<div class="uc-links" style="--c:var(--iris)"><a href="orange.html#kelompok">Lihat semua tema</a></div>';
       return;
     }
-
     var o = null, t = null;
     KLP_ORANGE.forEach(function (k) { if (k.klp === d.klp) o = k; });
     KLP_TABLEAU.forEach(function (k) { if (k.klp === d.klp) t = k; });
 
-    judul.textContent = 'Tugas ' + d.klp;
-    sub.textContent = 'Dua project yang harus kelompok kamu kerjakan satu semester ini.';
-
-    var html = '<div class="bento">';
-
-    if (o) {
-      html += '<div class="tile tile-half reveal">' +
-        '<div class="proj-head"><div class="proj-ikon p1"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange"></div>' +
-        '<div><h3>Project Kuliah 1</h3><span>Pakai Orange · dinilai pas UTS</span></div></div>' +
-        '<div class="tm-tujuan" style="margin-top:0;margin-bottom:16px"><b>Tema dataset kelompok kamu</b>' + o.tema + '</div>' +
-        '<dl class="klp-tanya">' +
-          '<div><dt>Klasifikasi</dt><dd>' + o.klasifikasi + '</dd></div>' +
-          '<div><dt>Regresi</dt><dd>' + o.regresi + '</dd></div>' +
-          '<div><dt>Klaster</dt><dd>' + o.klaster + '</dd></div>' +
-        '</dl>' +
-        '<div class="uc-links" style="--c:var(--amber)"><a href="orange.html#project1">Ketentuan lengkap →</a>' +
-        '<a href="project.html#syarat-data">Syarat dataset →</a></div>' +
-        '</div>';
-    }
-
-    if (t) {
-      html += '<div class="tile tile-half reveal">' +
-        '<div class="proj-head"><div class="proj-ikon p2"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></div>' +
-        '<div><h3>Project Kuliah 2</h3><span>Pakai Tableau · dinilai pas UAS</span></div></div>' +
-        '<div class="tm-tujuan" style="margin-top:0;margin-bottom:16px"><b>Use case kelompok kamu</b>' + t.judul + '</div>' +
-        '<dl class="klp-tanya">' +
-          '<div><dt>Pertanyaan</dt><dd>' + t.tanya + '</dd></div>' +
-          '<div><dt>Presentasi ke</dt><dd>' + t.audiens + '</dd></div>' +
-        '</dl>' +
-        '<div class="uc-links" style="--c:var(--mint)"><a href="tableau.html#project2">Ketentuan lengkap →</a>' +
-        '<a href="project.html#isi-laporan">Isi laporan →</a></div>' +
-        '</div>';
-    }
-
-    html += '<div class="tile tile-wide note info-inline reveal"><span style="font-size:20px">📅</span>' +
-      '<span><b>Jangan tunggu mepet.</b> Project 1 dikumpulin pas UTS, Project 2 pas UAS. ' +
-      'Topik Project 1 sudah harus kepikiran di pertemuan 4.</span></div>';
-    html += '</div>';
-
-    wrap.innerHTML = html;
+    w.innerHTML = '<div class="proj-head"><div class="proj-ikon p2">' + ik('target') + '</div>' +
+      '<div><h3>Tugas ' + aman(d.klp) + '</h3><span>Dua project satu semester</span></div></div>' +
+      (o ? '<div class="tm-tujuan" style="--c:var(--amber);margin-top:0"><b>Project 1 · tema dataset</b>' + aman(o.tema) + '</div>' : '') +
+      (t ? '<div class="tm-tujuan" style="--c:var(--mint);margin-top:12px"><b>Project 2 · use case</b>' + aman(t.judul) + '</div>' : '') +
+      (t ? '<p style="font-size:13px;color:var(--ink-2);margin-top:14px">Presentasi ke: ' + aman(t.audiens) + '</p>' : '') +
+      '<div class="uc-links" style="--c:var(--iris)">' +
+        '<a href="orange.html#project1">Ketentuan Project 1</a>' +
+        '<a href="tableau.html#project2">Ketentuan Project 2</a>' +
+      '</div>';
   }
 
-  tampilkan(window.bdaSiswa ? window.bdaSiswa() : null);
+  /* ---------------- kotak unggah ---------------- */
+  function kotakUnggah(t) {
+    return '<div class="tile tile-half unggah-tile reveal">' +
+      '<div class="proj-head"><div class="proj-ikon p1">' + ik('unduhan') + '</div>' +
+      '<div><h3>' + aman(t.label) + '</h3><span>' + aman(t.ket) + '</span></div></div>' +
+      '<div class="unggah-batas">Dikumpulkan paling lambat: <b>' + aman(t.batas) + '</b></div>' +
+      '<div class="unggah-kotak" data-jenis="' + t.jenis + '" data-label="' + aman(t.label) + '"></div>' +
+      '</div>';
+  }
 
-  form.addEventListener('submit', function (e) {
+  document.getElementById('daftarUnggahTugas').innerHTML =
+    TARGET.filter(function (t) { return t.jenis === 'tugas'; }).map(kotakUnggah).join('');
+
+  function pasangKotakUnggah() {
+    Array.prototype.forEach.call(document.querySelectorAll('.unggah-kotak:not([data-siap])'), function (k) {
+      k.setAttribute('data-siap', '1');
+      var jenis = k.getAttribute('data-jenis');
+      var label = k.getAttribute('data-label');
+      k.innerHTML =
+        '<label class="unggah-tombol">' + ik('unduhan') +
+          '<span>Pilih berkas</span>' +
+          '<input type="file" hidden accept=".pdf,.ppt,.pptx,.ows,.twbx,.png,.jpg,.jpeg">' +
+        '</label>' +
+        '<span class="unggah-info">Maksimal 10 MB</span>' +
+        '<p class="unggah-pesan"></p>';
+
+      var input = k.querySelector('input');
+      var pesan = k.querySelector('.unggah-pesan');
+
+      input.addEventListener('change', function () {
+        var f = input.files && input.files[0];
+        if (!f) return;
+        pesan.className = 'unggah-pesan sedang';
+        pesan.textContent = 'Mengirim ' + f.name + ' ...';
+        BDA.unggah(f, jenis, label).then(function (h) {
+          if (h && h.ok) {
+            pesan.className = 'unggah-pesan berhasil';
+            pesan.textContent = 'Terkirim: ' + f.name;
+            muatProgres();
+          } else {
+            pesan.className = 'unggah-pesan gagal';
+            pesan.textContent = (h && h.pesan) || 'Pengiriman gagal';
+          }
+        }).catch(function (e) {
+          pesan.className = 'unggah-pesan gagal';
+          pesan.textContent = e.message;
+        });
+        input.value = '';
+      });
+    });
+  }
+
+  /* ---------------- kemajuan ---------------- */
+  function muatProgres() {
+    BDA.progres().then(function (h) {
+      var sudah = {};
+      (h.unggahan || []).forEach(function (u) { sudah[u.untuk] = u; });
+
+      var wajib = TARGET.filter(function (t) { return t.jenis === 'tugas'; });
+      var beres = wajib.filter(function (t) { return sudah[t.label]; }).length;
+
+      document.getElementById('progresBar').style.width = Math.round(beres / wajib.length * 100) + '%';
+      document.getElementById('progresLbl').textContent = beres + ' dari ' + wajib.length;
+      document.getElementById('ringkasProgres').textContent = BDA.terhubung()
+        ? (beres === wajib.length ? 'Semua berkas sudah terkumpul' : 'Masih ada yang belum dikumpulkan')
+        : 'Pencatatan otomatis belum aktif';
+
+      document.getElementById('daftarTarget').innerHTML = TARGET.map(function (t) {
+        var u = sudah[t.label];
+        return '<div class="target-baris' + (u ? ' selesai' : '') + '">' +
+          '<span class="target-tanda">' + ik(u ? 'centang' : 'jam') + '</span>' +
+          '<span class="target-teks"><b>' + aman(t.label) + '</b><i>' + aman(t.ket) + '</i></span>' +
+          '<span class="target-status">' + (u ? 'Sudah dikumpulkan' : t.batas) + '</span>' +
+          '</div>';
+      }).join('');
+    });
+  }
+
+  /* ---------------- tab ---------------- */
+  function pilihTab(nama) {
+    Array.prototype.forEach.call(document.querySelectorAll('.tab'), function (b) {
+      b.classList.toggle('on', b.getAttribute('data-tab') === nama);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.tab-isi'), function (d) {
+      d.classList.toggle('tampil', d.id === 'tab-' + nama);
+    });
+    if (window.bdaWatchReveal) window.bdaWatchReveal();
+    pasangKotakUnggah();
+    if (window.IKON_PASANG) IKON_PASANG();
+  }
+
+  document.getElementById('tabBaris').addEventListener('click', function (e) {
+    var b = e.target.closest('.tab');
+    if (b) pilihTab(b.getAttribute('data-tab'));
+  });
+
+  /* ---------------- simpan data diri ---------------- */
+  document.getElementById('formMasuk').addEventListener('submit', function (e) {
     e.preventDefault();
     var data = {
       nama: document.getElementById('inNama').value.trim(),
@@ -274,87 +375,66 @@
       klp: document.getElementById('inKlp').value
     };
     if (!data.nama || !data.nim) return;
-    window.bdaSimpanSiswa(data);
-    tampilkan(data);
-    document.getElementById('tugas-kamu').scrollIntoView({ behavior: 'smooth' });
-  });
 
-  document.getElementById('btnUbah').addEventListener('click', function () {
-    var d = window.bdaSiswa();
-    if (d) {
-      document.getElementById('inNama').value = d.nama || '';
-      document.getElementById('inNim').value = d.nim || '';
-      document.getElementById('inEmail').value = d.email || '';
-      document.getElementById('inWa').value = d.wa || '';
-      document.getElementById('inKelas').value = d.kelas || 'Kelas A';
-      document.getElementById('inKlp').value = d.klp || '';
-    }
-    formArea.style.display = '';
-    sudahArea.style.display = 'none';
-  });
+    var pesan = document.getElementById('pesanForm');
+    pesan.className = 'form-pesan sedang';
+    pesan.textContent = 'Menyimpan ...';
 
-  document.getElementById('btnSalin').addEventListener('click', function (e) {
-    var d = window.bdaSiswa();
-    if (!d) return;
-    var teks = [d.nama, d.nim, d.email, d.wa, d.kelas, d.klp || 'belum ada kelompok'].join(' | ');
-    var btn = e.target;
-    function beres() { btn.textContent = '✅ Tersalin'; setTimeout(function () { btn.textContent = '📋 Salin Data'; }, 2000); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(teks).then(beres, function () { prompt('Salin manual:', teks); });
-    } else {
-      prompt('Salin manual:', teks);
-    }
+    BDA.daftar(data).then(function (h) {
+      pesan.className = 'form-pesan berhasil';
+      pesan.textContent = h.lokal
+        ? 'Tersimpan di browser ini. Belum terkirim ke dosen.'
+        : (h.pesan || 'Tersimpan');
+      gambarKartu();
+      gambarTugas();
+      muatProgres();
+    });
   });
 
   /* ---------------- ceklis persiapan ---------------- */
   var ITEM = [
-    { id: 'orange', teks: 'Orange udah keinstal di laptop', kapan: 'Sebelum pertemuan 3', link: 'orange.html#install' },
-    { id: 'assoc', teks: 'Add-on Associate udah ditambahin di Orange', kapan: 'Sebelum pertemuan 7', link: 'orange.html#install' },
-    { id: 'akun', teks: 'Akun Tableau Public udah jadi', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#install' },
-    { id: 'tableau', teks: 'Aplikasi Tableau Public udah keinstal', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#install' },
-    { id: 'data', teks: 'Data latihan udah didownload', kapan: 'Sebelum pertemuan 9', link: 'tableau.html#latihan' },
-    { id: 'kelompok', teks: 'Udah punya kelompok', kapan: 'Pertemuan 2', link: 'aturan.html#kelompok' },
-    { id: 'topik', teks: 'Dataset Project 1 udah ketemu di Kaggle', kapan: 'Pertemuan 4', link: 'project.html#syarat-data' },
-    { id: 'aturan', teks: 'Udah baca rule perkuliahan sampai habis', kapan: 'Sebelum pertemuan 2', link: 'aturan.html' }
+    { id: 'orange', teks: 'Orange sudah terpasang', kapan: 'Sebelum pertemuan 3' },
+    { id: 'assoc', teks: 'Add-on Associate sudah ditambahkan', kapan: 'Sebelum pertemuan 7' },
+    { id: 'akun', teks: 'Akun Tableau Public sudah jadi', kapan: 'Sebelum pertemuan 9' },
+    { id: 'tableau', teks: 'Aplikasi Tableau Public sudah terpasang', kapan: 'Sebelum pertemuan 9' },
+    { id: 'data', teks: 'Data latihan sudah diunduh', kapan: 'Sebelum pertemuan 9' },
+    { id: 'kelompok', teks: 'Sudah punya kelompok', kapan: 'Pertemuan 2' },
+    { id: 'topik', teks: 'Dataset Project 1 sudah ketemu', kapan: 'Pertemuan 4' },
+    { id: 'aturan', teks: 'Sudah membaca rule perkuliahan', kapan: 'Sebelum pertemuan 2' }
   ];
-  var KEY = 'bda-ceklis';
+  var KUNCI = 'bda-ceklis';
+  var keadaan = (function () { try { return JSON.parse(localStorage.getItem(KUNCI) || '{}'); } catch (e) { return {}; } })();
+  var wadah = document.getElementById('ceklis');
 
-  function baca() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } }
-  function simpan(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
-
-  var wrap = document.getElementById('ceklis');
-  var state = baca();
-
-  function gambar() {
-    wrap.innerHTML = ITEM.map(function (it) {
-      var on = state[it.id] ? ' on' : '';
-      return '<label class="ceklis-item' + on + '">' +
-        '<input type="checkbox" data-id="' + it.id + '"' + (state[it.id] ? ' checked' : '') + '>' +
+  function gambarCeklis() {
+    wadah.innerHTML = ITEM.map(function (it) {
+      return '<label class="ceklis-item' + (keadaan[it.id] ? ' on' : '') + '">' +
+        '<input type="checkbox" data-id="' + it.id + '"' + (keadaan[it.id] ? ' checked' : '') + '>' +
         '<span class="kotak">✓</span>' +
-        '<span class="isi"><b>' + it.teks + '</b><i>' + it.kapan + '</i></span>' +
-        '<a class="panduan" href="' + it.link + '">panduan →</a>' +
-        '</label>';
+        '<span class="isi"><b>' + it.teks + '</b><i>' + it.kapan + '</i></span></label>';
     }).join('');
-    hitung();
+    hitungCeklis();
   }
-
-  function hitung() {
-    var beres = ITEM.filter(function (it) { return state[it.id]; }).length;
-    document.getElementById('progresBar').style.width = Math.round(beres / ITEM.length * 100) + '%';
-    var lbl = document.getElementById('progresLbl');
-    lbl.textContent = beres === ITEM.length ? 'Mantap, semua beres 🎉' : beres + ' dari ' + ITEM.length + ' beres';
+  function hitungCeklis() {
+    var b = ITEM.filter(function (i) { return keadaan[i.id]; }).length;
+    document.getElementById('siapBar').style.width = Math.round(b / ITEM.length * 100) + '%';
+    document.getElementById('siapLbl').textContent =
+      b === ITEM.length ? 'Semua beres' : b + ' dari ' + ITEM.length + ' beres';
   }
-
-  wrap.addEventListener('change', function (e) {
-    var cb = e.target;
-    if (cb.tagName !== 'INPUT') return;
-    state[cb.getAttribute('data-id')] = cb.checked;
-    simpan(state);
-    cb.closest('.ceklis-item').classList.toggle('on', cb.checked);
-    hitung();
+  wadah.addEventListener('change', function (e) {
+    if (e.target.tagName !== 'INPUT') return;
+    keadaan[e.target.getAttribute('data-id')] = e.target.checked;
+    try { localStorage.setItem(KUNCI, JSON.stringify(keadaan)); } catch (err) {}
+    e.target.closest('.ceklis-item').classList.toggle('on', e.target.checked);
+    hitungCeklis();
   });
 
-  gambar();
+  /* ---------------- mulai ---------------- */
+  gambarKartu();
+  gambarTugas();
+  gambarCeklis();
+  pasangKotakUnggah();
+  muatProgres();
 })();
 </script>
 </body>

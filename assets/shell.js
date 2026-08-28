@@ -64,7 +64,7 @@
       ? '<a class="nav-user" href="' + akar + 'masuk.html" title="Kamu masuk sebagai ' + s.nama + '">' +
         '<span class="nav-ava">' + (s.nama || '?').charAt(0).toUpperCase() + '</span>' +
         '<span>' + (s.nama || '').split(' ')[0] + '</span></a>'
-      : '<a class="nav-cta" href="' + akar + 'masuk.html">Masuk →</a>';
+      : '<a class="nav-cta" href="' + akar + 'masuk.html">Ruang Mahasiswa</a>';
 
     slot.outerHTML =
       '<nav class="nav">' +
@@ -80,6 +80,44 @@
           '</div>' +
         '</div>' +
       '</nav>';
+  }
+
+
+  /* ---------------- pita jalan pintas ---------------- */
+  var PITA = [
+    { label: 'Materi Pertemuan 1', href: 'screens/tm1/TM1_Deck.html', ikon: 'buku', luar: true },
+    { label: 'Bahan Kuliah', href: 'bahan.html', ikon: 'rak' },
+    { label: 'Coba Simulasi', href: 'simulasi.html', ikon: 'putar' },
+    { label: 'Katalog Project', href: 'showcase.html', ikon: 'grafik' },
+    { label: 'Sumber Dataset', href: 'sumber-data.html', ikon: 'data' },
+    { label: 'Video Belajar', href: 'belajar.html', ikon: 'layar' },
+    { label: 'Rule Perkuliahan', href: 'aturan.html', ikon: 'perisai' },
+    { label: 'Kumpulkan Tugas', href: 'masuk.html', ikon: 'unduhan' }
+  ];
+
+  var pslot = document.getElementById('pita');
+  if (pslot) {
+    var ik = function (n) { return window.IKON ? IKON(n) : ''; };
+    var isiPita = PITA
+      .filter(function (m) { return m.href !== halaman; })
+      .map(function (m) {
+        var alamat = m.luar ? akar + m.href : akar + m.href;
+        return '<a class="pita-tautan" href="' + alamat + '">' + ik(m.ikon) +
+          '<span>' + m.label + '</span></a>';
+      }).join('');
+
+    var kelasDaring = '';
+    if (typeof KELAS_DARING !== 'undefined' && KELAS_DARING.aktif) {
+      kelasDaring = '<a class="pita-tautan utama" href="' +
+        (KELAS_DARING.TAUTAN_LANGSUNG || KELAS_DARING.tautan) + '" target="_blank" rel="noopener">' +
+        '<span class="pita-titik"></span><span>Kelas ' + KELAS_DARING.jadwal + '</span></a>';
+    }
+
+    pslot.outerHTML =
+      '<div class="pita"><div class="pita-dalam">' +
+        '<span class="pita-judul">Cepat ke</span>' +
+        kelasDaring + isiPita +
+      '</div></div>';
   }
 
   /* ---------------- laci menu ---------------- */
