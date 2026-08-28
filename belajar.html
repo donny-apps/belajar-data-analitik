@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar Mandiri · Kelas Data Analitik</title>
+<meta name="description" content="Kumpulan video dan situs untuk belajar Orange dan Tableau sendiri di luar jam kelas. Semua tautan sudah diperiksa dan bisa langsung diklik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Belajar Sendiri</span>
+      <h1>Ketinggalan di kelas? <span class="grad">Kejar</span> di <span class="mark">rumah</span></h1>
+      <p class="lead">
+        Kumpulan video dan situs untuk belajar Orange dan Tableau sendiri. Sebagian besar berbahasa Indonesia,
+        semuanya gratis, dan tiap tautan sudah diperiksa supaya tidak ada yang mati waktu diklik.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#jalur">🚦 Mulai dari Mana</a>
+        <a class="btn btn-ghost" href="#orange">🍊 Video Orange</a>
+        <a class="btn btn-ghost" href="#tableau">📊 Video Tableau</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Isi Halaman Ini</span>
+        <div class="mini-list" style="margin-top:16px" id="ringkasBelajar"></div>
+      </div>
+      <blockquote class="quote">
+        Nonton satu video sambil praktik jauh lebih berguna daripada nonton sepuluh sambil rebahan.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>TONTON <i>✦</i> LANGSUNG PRAKTIK <i>✦</i> ULANG KALAU BINGUNG <i>✦</i> TANYA DI KELAS <i>✦</i></span>
+    <span>TONTON <i>✦</i> LANGSUNG PRAKTIK <i>✦</i> ULANG KALAU BINGUNG <i>✦</i> TANYA DI KELAS <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ============ JALUR BELAJAR ============ -->
+<section id="jalur">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Mulai dari Mana</span>
+      <h2>Pilih sesuai waktu yang kalian punya</h2>
+      <p>Tiga jalur, tinggal pilih yang paling masuk akal buat jadwal kalian.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-third jalur reveal" style="--c:var(--mint)">
+        <span class="jalur-waktu">Punya 1 jam</span>
+        <h3>Cukup paham gambarannya</h3>
+        <ol class="jalur-langkah">
+          <li>Tonton satu video pengantar Orange berbahasa Indonesia</li>
+          <li>Buka Orange, coba tarik dua kotak, sambungkan</li>
+          <li>Selesai. Sisanya dikejar waktu kelas</li>
+        </ol>
+      </div>
+      <div class="tile tile-third jalur reveal" style="--c:var(--iris)">
+        <span class="jalur-waktu">Punya 1 akhir pekan</span>
+        <h3>Sampai bisa bikin sendiri</h3>
+        <ol class="jalur-langkah">
+          <li>Habiskan satu seri video Orange sambil praktik</li>
+          <li>Unduh satu dataset kecil dari Kaggle</li>
+          <li>Bikin satu alur kerja lengkap sampai keluar hasilnya</li>
+        </ol>
+      </div>
+      <div class="tile tile-third jalur reveal" style="--c:var(--pink)">
+        <span class="jalur-waktu">Punya 1 bulan</span>
+        <h3>Siap menggarap project</h3>
+        <ol class="jalur-langkah">
+          <li>Selesaikan seri Orange dan seri Tableau</li>
+          <li>Ikuti latihan mingguan Makeover Monday dua sampai tiga kali</li>
+          <li>Mulai kerjakan dataset project kelompok kalian</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO ORANGE ============ -->
+<section id="orange">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Video Orange</span>
+      <h2>Belajar Orange lewat video</h2>
+      <p>Dipakai mulai pertemuan 3. Kalau baru mulai, ambil yang berbahasa Indonesia dulu.</p>
+    </div>
+    <div class="video-grid" id="videoOrange"></div>
+  </div>
+</section>
+
+<!-- ============ VIDEO TABLEAU ============ -->
+<section id="tableau">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Video Tableau</span>
+      <h2>Belajar Tableau lewat video</h2>
+      <p>Dipakai mulai pertemuan 9. Yang paling atas cuma 12 menit, cocok buat sekali duduk.</p>
+    </div>
+    <div class="video-grid" id="videoTableau"></div>
+  </div>
+</section>
+
+<!-- ============ SITUS ============ -->
+<section id="situs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Situs dan Kursus</span>
+      <h2>Bukan cuma video</h2>
+      <p>Panduan resmi, galeri karya, dan latihan rutin yang bisa diikuti kapan saja.</p>
+    </div>
+    <div class="situs-grid" id="situsIsi"></div>
+  </div>
+</section>
+
+<!-- ============ TIPS ============ -->
+<section id="tips">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Biar Nggak Sia-sia</span>
+      <h2>Empat kebiasaan yang bikin belajar sendiri berhasil</h2>
+    </div>
+    <div class="bento">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2">✅</div>
+          <div><h3>Lakukan ini</h3><span>Terbukti bikin nempel</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Buka aplikasinya sambil nonton.</b> Jeda videonya tiap satu langkah, kerjakan di aplikasi, baru lanjut.</span></li>
+          <li><span class="ck">✓</span><span><b>Pakai data sendiri setelah video selesai.</b> Ulangi langkah yang sama dengan dataset berbeda. Di situ baru ketahuan sudah paham atau belum.</span></li>
+          <li><span class="ck">✓</span><span><b>Catat menit yang bikin bingung,</b> lalu tanyakan di kelas. Pertanyaan spesifik jauh lebih cepat dijawab.</span></li>
+          <li><span class="ck">✓</span><span><b>Cukup satu video per topik.</b> Selesaikan dulu sebelum pindah ke yang lain.</span></li>
+        </ul>
+      </div>
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1">🚫</div>
+          <div><h3>Hindari ini</h3><span>Kelihatan belajar, padahal tidak</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✕</span><span><b>Menonton berjam-jam tanpa membuka aplikasi.</b> Rasanya paham, besoknya hilang.</span></li>
+          <li><span class="ck">✕</span><span><b>Mengumpulkan banyak tautan tanpa membuka satu pun.</b> Simpan tiga, tuntaskan tiga.</span></li>
+          <li><span class="ck">✕</span><span><b>Langsung meniru dashboard rumit.</b> Mulai dari satu grafik yang benar.</span></li>
+          <li><span class="ck">✕</span><span><b>Menunda sampai minggu ujian.</b> Aplikasinya perlu waktu untuk terbiasa di tangan.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/belajar.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  function aman(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function tautan(v) {
+    return v.jenis === 'playlist'
+      ? 'https://www.youtube.com/playlist?list=' + v.id
+      : 'https://www.youtube.com/watch?v=' + v.id;
+  }
+
+  function kartuVideo(v) {
+    var url = tautan(v);
+    var gambar = v.jenis === 'video'
+      ? '<img src="https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg" alt="Cuplikan video ' + aman(v.judul) + '" loading="lazy">'
+      : '<span class="vd-daftar">▶ Daftar putar</span>';
+    return '<article class="tile vd-kartu reveal">' +
+      '<a class="vd-gambar' + (v.jenis === 'playlist' ? ' vd-playlist' : '') + '" href="' + url + '" target="_blank" rel="noopener">' +
+        gambar +
+        '<span class="vd-main">▶</span>' +
+        '<span class="vd-bahasa' + (v.bahasa === 'Indonesia' ? ' id' : '') + '">' + v.bahasa + '</span>' +
+      '</a>' +
+      '<div class="vd-isi">' +
+        '<h3>' + aman(v.judul) + '</h3>' +
+        '<span class="vd-kanal">' + aman(v.kanal) + '</span>' +
+        '<p>' + aman(v.guna) + '</p>' +
+        '<div class="vd-kaki"><span class="vd-untuk">' + aman(v.untuk) + '</span>' +
+        '<a class="vd-tonton" href="' + url + '" target="_blank" rel="noopener">Tonton →</a></div>' +
+      '</div></article>';
+  }
+
+  document.getElementById('videoOrange').innerHTML = VIDEO_ORANGE.map(kartuVideo).join('');
+  document.getElementById('videoTableau').innerHTML = VIDEO_TABLEAU.map(kartuVideo).join('');
+
+  document.getElementById('situsIsi').innerHTML = SITUS_BELAJAR.map(function (s) {
+    return '<a class="tile situs reveal" href="' + s.url + '" target="_blank" rel="noopener">' +
+      '<span class="situs-ikon">' + s.ikon + '</span>' +
+      '<div class="situs-teks">' +
+        '<h3>' + aman(s.nama) + '</h3>' +
+        '<p>' + aman(s.guna) + '</p>' +
+        '<div class="situs-cap"><span>' + aman(s.jenis) + '</span><span>' + aman(s.bahasa) + '</span><span>' + aman(s.harga) + '</span></div>' +
+      '</div>' +
+      '<span class="pintas-panah">↗</span></a>';
+  }).join('');
+
+  var jmlId = VIDEO_ORANGE.concat(VIDEO_TABLEAU).filter(function (v) { return v.bahasa === 'Indonesia'; }).length;
+  document.getElementById('ringkasBelajar').innerHTML =
+    '<div><span>Video Orange</span><span>' + VIDEO_ORANGE.length + '</span></div>' +
+    '<div><span>Video Tableau</span><span>' + VIDEO_TABLEAU.length + '</span></div>' +
+    '<div><span>Berbahasa Indonesia</span><span>' + jmlId + ' video</span></div>' +
+    '<div><span>Situs dan kursus</span><span>' + SITUS_BELAJAR.length + '</span></div>';
+})();
+</script>
+</body>
+</html>

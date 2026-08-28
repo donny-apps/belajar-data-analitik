@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sumber Dataset · Kelas Data Analitik</title>
+<meta name="description" content="Tempat mencari dataset untuk project kuliah: Kaggle, data.go.id, BPS, dan sumber lain, lengkap dengan syarat dataset yang boleh dipakai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Cari Bahan Project</span>
+      <h1>Datanya <span class="grad">nyari sendiri</span>,<br>tapi <span class="mark">nggak dari nol</span></h1>
+      <p class="lead">
+        Semua tempat mencari dataset ada di sini, sudah dipisah berdasarkan asalnya.
+        Lengkap dengan syarat dataset yang boleh dipakai, dan cara cepat menilai satu dataset layak atau tidak.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sumber">📂 Daftar Sumber</a>
+        <a class="btn btn-lime" href="#syarat">✅ Syarat Dataset</a>
+        <a class="btn btn-ghost" href="#nilai">🔍 Cara Menilai</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Aturan Singkat</span>
+        <div class="mini-list" style="margin-top:16px">
+          <div><span>Project Kuliah 1</span><span>Wajib dari Kaggle</span></div>
+          <div><span>Jumlah baris</span><span>200 sampai 100.000</span></div>
+          <div><span>Format</span><span>CSV, Excel, TSV</span></div>
+          <div><span>Antar kelompok</span><span>Tidak boleh sama</span></div>
+        </div>
+      </div>
+      <blockquote class="quote">
+        Salah pilih dataset di awal berarti mengulang dari nol di tengah jalan.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>KAGGLE <i>✦</i> DATA.GO.ID <i>✦</i> BPS <i>✦</i> OJK <i>✦</i> WORLD BANK <i>✦</i> UCI <i>✦</i> OUR WORLD IN DATA <i>✦</i></span>
+    <span>KAGGLE <i>✦</i> DATA.GO.ID <i>✦</i> BPS <i>✦</i> OJK <i>✦</i> WORLD BANK <i>✦</i> UCI <i>✦</i> OUR WORLD IN DATA <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ============ SYARAT ============ -->
+<section id="syarat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Syarat Dataset</span>
+      <h2>Cek dulu sebelum kelompok kalian mulai kerja</h2>
+      <p>Satu dataset dipakai untuk tiga analisis sekaligus, jadi syaratnya memang agak ketat. Ini diambil dari lembar soal UTS.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-half reveal" style="border-color:color-mix(in srgb, var(--mint) 34%, transparent)">
+        <div class="proj-head">
+          <div class="proj-ikon p2">✅</div>
+          <div><h3>Wajib ada</h3><span>Kurang satu, cari dataset lain</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span>Diambil dari Kaggle, tautannya publik dan aktif, lisensinya terbuka.</span></li>
+          <li><span class="ck">✓</span><span>Format CSV, Excel, atau TSV supaya langsung terbaca Orange.</span></li>
+          <li><span class="ck">✓</span><span>Jumlah baris antara 200 sampai 100.000.</span></li>
+          <li><span class="ck">✓</span><span>Minimal 1 kolom kategori untuk target klasifikasi, maksimal 5 kelas.</span></li>
+          <li><span class="ck">✓</span><span>Minimal 1 kolom angka menerus untuk target regresi.</span></li>
+          <li><span class="ck">✓</span><span>Minimal 4 kolom angka untuk bahan klaster, total minimal 5 kolom prediktor.</span></li>
+          <li><span class="ck">✓</span><span>Ada penjelasan tiap kolom di halaman Kaggle-nya.</span></li>
+        </ul>
+      </div>
+
+      <div class="tile tile-half reveal" style="border-color:color-mix(in srgb, var(--pink) 34%, transparent)">
+        <div class="proj-head">
+          <div class="proj-ikon p1">🚫</div>
+          <div><h3>Dilarang</h3><span>Langsung diminta ganti</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✕</span><span>Dataset yang sudah terlalu sering dipakai: Titanic, Iris, Boston Housing, MNIST, Wine Quality, dan Diamonds.</span></li>
+          <li><span class="ck">✕</span><span>Dataset bawaan Orange.</span></li>
+          <li><span class="ck">✕</span><span>Dataset yang sama dengan kelompok lain di kelas yang sama.</span></li>
+          <li><span class="ck">✕</span><span>Dataset tanpa penjelasan kolom yang jelas.</span></li>
+          <li><span class="ck">✕</span><span>Data asli yang memuat nama orang, NIK, nomor rekening, atau nomor telepon.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUMBER ============ -->
+<section id="sumber">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Daftar Sumber</span>
+      <h2>Tempat mencari datanya</h2>
+      <p id="subSumber">Semua tautan sudah diperiksa. Klik nama sumbernya untuk langsung ke situsnya.</p>
+    </div>
+    <div id="isiSumber"></div>
+  </div>
+</section>
+
+<!-- ============ CARA MENILAI ============ -->
+<section id="nilai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Cara Menilai</span>
+      <h2>Lima menit untuk tahu dataset ini layak atau tidak</h2>
+      <p>Kerjakan urut. Kalau gagal di langkah mana pun, tinggalkan dan cari yang lain.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="tile reveal">
+        <span class="step-no">1</span>
+        <div>
+          <b>Baca penjelasan kolomnya dulu</b>
+          <p>Kalau di halaman datasetnya tidak ada keterangan arti tiap kolom, tinggalkan. Kalian akan kesulitan menjelaskan hasil analisis yang kolomnya sendiri tidak dipahami.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">2</span>
+        <div>
+          <b>Hitung barisnya</b>
+          <p>Kurang dari 200 baris, polanya tidak akan kelihatan. Lebih dari 100.000, Orange mulai berat di laptop biasa.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">3</span>
+        <div>
+          <b>Cari satu kolom kategori dan satu kolom angka</b>
+          <p>Kolom kategori jadi target klasifikasi, kolom angka jadi target regresi. Tidak ada salah satunya berarti dataset itu tidak cukup untuk tiga analisis.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">4</span>
+        <div>
+          <b>Buka di Orange sebentar</b>
+          <p>Masukkan lewat kotak <i>File</i>, lalu buka <i>Data Table</i>. Kalau banyak sel kosong atau nama kolomnya berantakan, siap-siap kerja ekstra di bagian pembersihan.</p>
+        </div>
+      </li>
+      <li class="tile reveal">
+        <span class="step-no">5</span>
+        <div>
+          <b>Uji pertanyaannya</b>
+          <p>Coba tulis satu kalimat: siapa yang akan memakai jawaban dari data ini, dan untuk keputusan apa. Kalau tidak terjawab, temanya belum cukup kuat walaupun datanya bagus.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="tile note info-inline reveal" style="margin-top:18px">
+      <span style="font-size:20px">🧭</span>
+      <span><b>Tema per kelompok sudah dibagi.</b> Lihat pembagiannya di <a href="orange.html#kelompok" style="color:var(--iris);font-weight:700">halaman Orange</a> supaya dataset antar kelompok tidak bertabrakan.</span>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js"></script>
+<script src="assets/belajar.js"></script>
+<script src="assets/shell.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  function aman(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  var jml = SUMBER_DATA.reduce(function (a, k) { return a + k.isi.length; }, 0);
+  document.getElementById('subSumber').textContent =
+    'Ada ' + jml + ' sumber dalam ' + SUMBER_DATA.length + ' kelompok. Semua tautan sudah diperiksa, klik nama sumbernya untuk langsung ke situsnya.';
+
+  document.getElementById('isiSumber').innerHTML = SUMBER_DATA.map(function (k, i) {
+    var kartu = k.isi.map(function (s) {
+      return '<a class="tile sumber reveal" href="' + s.url + '" target="_blank" rel="noopener">' +
+        '<div class="sumber-atas">' +
+          '<h3>' + aman(s.nama) + '</h3>' +
+          '<span class="pintas-panah">↗</span>' +
+        '</div>' +
+        '<p>' + aman(s.guna) + '</p>' +
+        '<div class="sumber-cap"><span>' + aman(s.wilayah) + '</span><span>' + aman(s.bayar) + '</span></div>' +
+        '<span class="sumber-alamat mono">' + s.url.replace(/^https?:\/\//, '') + '</span>' +
+        '</a>';
+    }).join('');
+
+    return '<section class="sc-tema reveal" style="--c:' + k.warna + '">' +
+      '<header class="sc-tema-kepala">' +
+        '<span class="sc-tema-no">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<span class="sc-tema-ikon">' + k.ikon + '</span>' +
+        '<div class="sc-tema-teks"><h3>' + aman(k.kelompok) + '</h3>' +
+        '<p>' + aman(k.catatan) + '</p></div>' +
+        '<span class="sc-tema-jml">' + k.isi.length + ' sumber</span>' +
+      '</header>' +
+      '<div class="sumber-grid">' + kartu + '</div>' +
+      '</section>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
