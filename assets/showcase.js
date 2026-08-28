@@ -1,11 +1,13 @@
 /* ============================================================
    Katalog project kakak tingkat, hasil UTS Project Kuliah 1.
 
-   Dua puluh presentasi dikelompokkan jadi sembilan tema.
-   Nama mahasiswa sengaja tidak dicantumkan, yang dipakai hanya
-   kode kelompok. Gambar sampul bukan sampul asli, melainkan
-   jejak warna berukuran 56 piksel yang dipasang buram sebagai
-   latar kartu, supaya tidak ada nama atau wajah yang terbaca.
+   Dua puluh presentasi dikelompokkan jadi sembilan tema dan
+   dibagikan sebagai bahan terbuka atas keputusan dosen pengampu,
+   supaya kelas berjalan punya patokan mutu yang jelas.
+
+   Berkasnya sudah dikecilkan dari 161 MB jadi 39 MB dengan cara
+   menurunkan resolusi gambar di dalamnya. Teksnya tetap teks,
+   jadi masih bisa disalin dan dicari.
    ============================================================ */
 
 var SHOWCASE_TEMA = [
@@ -60,89 +62,89 @@ var SHOWCASE = [
   { kode: 'A-KLP01', kelas: 'A', klp: 'KLP01', tema: 'pelanggan', slide: 16,
     judul: 'Telco Customer Churn',
     catatan: 'Menebak pelanggan telko yang bakal berhenti berlangganan, lalu dicari pola siapa saja mereka.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP01_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP01_Presentasi.pdf' },
   { kode: 'A-KLP04', kelas: 'A', klp: 'KLP04', tema: 'pelanggan', slide: 15,
     judul: 'Customer Segmentation dan Purchase Behavior',
     catatan: 'Membagi pelanggan jadi beberapa tipe berdasarkan cara mereka belanja.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP04_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP04_Presentasi.pdf' },
   { kode: 'B-KLP01', kelas: 'B', klp: 'KLP01', tema: 'pelanggan', slide: 14,
     judul: 'Customer Churn dan Retention pada E-Commerce',
     catatan: 'Sama seperti kasus telko, tapi konteksnya belanja online.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP01_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP01_Presentasi.pdf' },
   { kode: 'B-KLP04', kelas: 'B', klp: 'KLP04', tema: 'pelanggan', slide: 17,
     judul: 'Customer Purchasing Behavior',
     catatan: 'Membaca kebiasaan belanja untuk menebak pembelian berikutnya.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP04_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP04_Presentasi.pdf' },
 
   { kode: 'A-KLP02', kelas: 'A', klp: 'KLP02', tema: 'kredit', slide: 23,
     judul: 'Persetujuan Pinjaman Berdasarkan Karakteristik Peminjam',
     catatan: 'Presentasi paling tebal di angkatan ini, 23 slide.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP02_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP02_Presentasi.pdf' },
   { kode: 'B-KLP02', kelas: 'B', klp: 'KLP02', tema: 'kredit', slide: 16,
     judul: 'Kelayakan Kredit dan Risiko Gagal Bayar',
     catatan: 'Menilai nasabah layak dikasih kredit atau berisiko macet.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP02_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP02_Presentasi.pdf' },
 
   { kode: 'A-KLP03', kelas: 'A', klp: 'KLP03', tema: 'sdm', slide: 11,
     judul: 'Employee HR Analytics',
     catatan: 'Presentasi paling ringkas, 11 slide, tapi tiga analisisnya lengkap.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP03_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP03_Presentasi.pdf' },
   { kode: 'B-KLP03', kelas: 'B', klp: 'KLP03', tema: 'sdm', slide: 15,
     judul: 'Turnover Karyawan',
     catatan: 'Dibuka dengan data turnover di Indonesia yang mencapai belasan persen.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP03_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP03_Presentasi.pdf' },
 
   { kode: 'A-KLP05', kelas: 'A', klp: 'KLP05', tema: 'kesehatan', slide: 13,
     judul: 'Medical Insurance Cost',
     catatan: 'Memperkirakan biaya asuransi kesehatan dari profil pemegang polis.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP05_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP05_Presentasi.pdf' },
   { kode: 'B-KLP05', kelas: 'B', klp: 'KLP05', tema: 'kesehatan', slide: 15,
     judul: 'Insurance dan Healthcare Cost',
     catatan: 'Sudut pandang mirip, tapi datanya digabung dengan biaya layanan kesehatan.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP05_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP05_Presentasi.pdf' },
 
   { kode: 'A-KLP06', kelas: 'A', klp: 'KLP06', tema: 'properti', slide: 13,
     judul: 'Real Estate dan Property Valuation',
     catatan: 'Menaksir nilai properti dari ciri fisik dan lokasinya.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP06_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP06_Presentasi.pdf' },
   { kode: 'B-KLP06', kelas: 'B', klp: 'KLP06', tema: 'properti', slide: 20,
     judul: 'Harga Rumah dan Segmentasi Properti',
     catatan: 'Menggabungkan penaksiran harga dengan pengelompokan wilayah.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP6_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP6_Presentasi.pdf' },
 
   { kode: 'A-KLP07', kelas: 'A', klp: 'KLP07', tema: 'pemasaran', slide: 14,
     judul: 'Marketing Campaign Response on Bank',
     catatan: 'Menebak nasabah mana yang bakal merespons tawaran produk bank.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP07_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP07_Presentasi.pdf' },
   { kode: 'B-KLP07', kelas: 'B', klp: 'KLP07', tema: 'pemasaran', slide: 17,
     judul: 'Marketing Campaign Response',
     catatan: 'Kasus serupa dengan penekanan pada efektivitas anggaran promosi.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP07_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP07_Presentasi.pdf' },
 
   { kode: 'A-KLP09', kelas: 'A', klp: 'KLP09', tema: 'fraud', slide: 15,
     judul: 'Fraud and Anomaly Detection',
     catatan: 'Tema yang paling dekat dengan kerja auditor. Wajib dilihat kalau kalian minat audit.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP09_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP09_Presentasi.pdf' },
   { kode: 'B-KLP09', kelas: 'B', klp: 'KLP09', tema: 'fraud', slide: 14,
     judul: 'Fraud and Anomaly Detection pada Healthcare',
     catatan: 'Deteksi kecurangan klaim di layanan kesehatan.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP09_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP09_Presentasi.pdf' },
 
   { kode: 'A-KLP10', kelas: 'A', klp: 'KLP10', tema: 'pendidikan', slide: 14,
     judul: 'Education dan Student Performance',
     catatan: 'Menebak performa belajar mahasiswa dari kebiasaan hariannya.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP10_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP10_Presentasi.pdf' },
   { kode: 'B-KLP10', kelas: 'B', klp: 'KLP10', tema: 'pendidikan', slide: 15,
     judul: 'Education dan Student Performance',
     catatan: 'Tema sama dengan kelas A, menarik dibandingkan cara mereka menyusun analisisnya.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP10_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/B_KLP10_Presentasi.pdf' },
 
   { kode: 'A-KLP08', kelas: 'A', klp: 'KLP08', tema: 'penjualan', slide: 14,
     judul: 'Sales dan Revenue pada Supermart Dataset',
     catatan: 'Membaca pola penjualan ritel untuk menopang keputusan bisnis.',
-    berkas: 'UTS/Laporan Project Kelas A/KLP08_Presentasi.pdf' },
+    berkas: 'project-kakak-tingkat/A_KLP08_Presentasi.pdf' },
   { kode: 'B-KLP08', kelas: 'B', klp: 'KLP08', tema: 'penjualan', slide: 12,
     judul: 'Sales and Revenue Prediction Analysis',
     catatan: 'Memperkirakan pendapatan periode berikutnya.',
-    berkas: 'UTS/Laporan Project Kelas B/KLP08_Presentasi.pdf' }
+    berkas: 'project-kakak-tingkat/B_KLP08_Presentasi.pdf' }
 ];

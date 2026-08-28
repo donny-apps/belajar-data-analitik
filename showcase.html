@@ -18,11 +18,11 @@
 <header class="hero">
   <div class="wrap bento">
     <div class="tile tile-hero">
-      <span class="sticker"><span class="live"></span> Angkatan Sebelumnya</span>
+      <span class="sticker"><span class="live"></span> Bahan Terbuka · Angkatan Sebelumnya</span>
       <h1>20 project, <span class="grad">9 tema</span>,<br>semuanya <span class="mark">pernah dikerjain</span></h1>
       <p class="lead">
-        Ini hasil UTS kakak tingkat. Bukan buat ditiru mentah-mentah, tapi buat ngasih gambaran:
-        sejauh apa sih yang bisa dikerjain dalam satu semester.
+        Ini hasil UTS kakak tingkat, dibuka penuh biar kalian punya patokan. Bisa dibaca online
+        atau diunduh. Targetnya sederhana: project kalian tahun ini harus lebih bagus dari yang di sini.
       </p>
       <div class="filter-row" id="temaFilter" style="margin-bottom:0"></div>
     </div>
@@ -49,9 +49,10 @@
 <section id="privasi">
   <div class="wrap">
     <div class="tile note info-inline reveal">
-      <span style="font-size:20px">🔒</span>
-      <span><b>Nama dan foto kakak tingkat sengaja nggak ditampilkan.</b> Yang dipakai cuma kode kelompok.
-      Gambar di tiap kartu bukan sampul aslinya, cuma jejak warnanya, biar nggak ada identitas yang kebaca.</span>
+      <span style="font-size:20px">📂</span>
+      <span><b>Ini bahan terbuka.</b> Seluruh presentasi di halaman ini dibagikan atas keputusan dosen pengampu
+      supaya kelas yang sedang berjalan punya patokan mutu yang jelas. Berkasnya boleh dibaca, diunduh,
+      dan dipelajari susunannya. Yang tidak boleh cuma satu: menyalin isinya lalu mengaku sebagai karya sendiri.</span>
     </div>
   </div>
 </section>
@@ -71,7 +72,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Cara Pakai Katalog Ini</span>
-      <h2>Tiga cara memanfaatkannya</h2>
+      <h2>Empat cara memanfaatkannya</h2>
     </div>
     <div class="bento">
       <div class="tile tile-third reveal">
@@ -88,6 +89,11 @@
         <div class="proj-ikon p1" style="margin-bottom:14px">🚀</div>
         <h3 style="font-size:17px;margin-bottom:8px">Ambil tema, ganti sudutnya</h3>
         <p style="font-size:13.5px;color:var(--ink-2)">Tema boleh mirip, tapi dataset wajib beda dan pertanyaannya harus punya kalian sendiri.</p>
+      </div>
+      <div class="tile tile-third reveal">
+        <div class="proj-ikon p2" style="margin-bottom:14px">📊</div>
+        <h3 style="font-size:17px;margin-bottom:8px">Pakai sebagai patokan mutu</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Lihat berapa dalam analisis mereka, lalu targetkan project kalian minimal setara. Ini standar yang sudah pernah dicapai mahasiswa seangkatan kalian.</p>
       </div>
       <div class="tile tile-wide note info-inline reveal">
         <span style="font-size:20px">⚠️</span>
@@ -107,7 +113,6 @@
 (function () {
   'use strict';
 
-  var LOKAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) || location.protocol === 'file:';
   var filterTema = '';
 
   function tema(id) {
@@ -130,7 +135,8 @@
     '<div><span>Project</span><span>' + SHOWCASE.length + '</span></div>' +
     '<div><span>Tema</span><span>' + SHOWCASE_TEMA.length + '</span></div>' +
     '<div><span>Total slide</span><span>' + SHOWCASE.reduce(function (a, b) { return a + b.slide; }, 0) + '</span></div>' +
-    '<div><span>Sumber</span><span>UTS Project 1</span></div>';
+    '<div><span>Sumber</span><span>UTS Project 1</span></div>' +
+    '<div><span>Ukuran total</span><span>39 MB</span></div>';
 
   /* ---------- gambar katalog ---------- */
   function gambar() {
@@ -146,12 +152,13 @@
       if (!isi.length) return '';
 
       var kartu = isi.map(function (p) {
-        var tautan = LOKAL
-          ? '<a class="sc-buka" href="' + encodeURI('../../Input/' + p.berkas) + '" target="_blank" rel="noopener">Buka presentasi →</a>'
-          : '<span class="sc-lokal">Dibuka di kelas</span>';
+        var tautan = '<div class="sc-aksi">' +
+          '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
+          '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh</a></div>';
         return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
-          '<div class="sc-sampul"><img src="assets/img/showcase/' + p.kode + '.png" alt="" aria-hidden="true">' +
-          '<span class="sc-ikon">' + t.ikon + '</span></div>' +
+          '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">' +
+          '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
+          '<span class="sc-ikon">' + t.ikon + '</span></a>' +
           '<div class="sc-isi">' +
             '<div class="sc-meta"><span class="sc-kode">' + p.klp + '</span>' +
             '<span class="sc-kelas">Kelas ' + p.kelas + '</span>' +
