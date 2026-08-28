@@ -33,12 +33,12 @@
       '<span class="ext">' + ext(t.path) + '</span></a>';
   }
 
-  /* ---------------- kartu tahap ---------------- */
+  /* ---------------- kartu sesi ---------------- */
   var faseWrap = document.getElementById('faseGrid');
   if (faseWrap) {
     faseWrap.innerHTML = FASE.map(function (f) {
       var jml = COURSE.filter(function (c) { return c.fase === f.id; }).length;
-      return '<div class="tile tahap reveal" style="--c:' + f.warna + '">' +
+      return '<div class="tile fase reveal" style="--c:' + f.warna + '">' +
         '<div class="fase-ikon">' + f.ikon + '</div>' +
         '<h3>' + f.nama + '</h3>' +
         '<div class="rentang">' + f.rentang + ' &middot; ' + jml + ' pertemuan</div>' +
