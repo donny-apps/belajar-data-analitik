@@ -910,3 +910,8 @@ html[data-theme="dark"] .cerita.hi .cerita-no { -webkit-text-stroke-color: var(-
   .sc-tema-kepala { flex-wrap: wrap; }
   .sc-tema-jml { margin-left: 0; }
 }
+
+.sc-kosong { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  background: linear-gradient(150deg, color-mix(in srgb, var(--c) 22%, var(--surface-2)), var(--surface-2)); }
+.sc-kosong .sc-ikon { position: static; }
+.sc-kosong-teks { font-size: 11.5px; font-weight: 600; color: var(--muted); }

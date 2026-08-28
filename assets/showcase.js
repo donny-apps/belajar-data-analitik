@@ -8,6 +8,10 @@
    Berkasnya sudah dikecilkan dari 161 MB jadi 39 MB dengan cara
    menurunkan resolusi gambar di dalamnya. Teksnya tetap teks,
    jadi masih bisa disalin dan dicari.
+
+   Tiga presentasi tidak ikut dibagikan karena memuat foto pribadi
+   mahasiswa di sampulnya: B KLP05, B KLP08, dan B KLP09. Judulnya
+   tetap ditampilkan di katalog, berkasnya dibuka di kelas saja.
    ============================================================ */
 
 var SHOWCASE_TEMA = [
@@ -101,7 +105,7 @@ var SHOWCASE = [
   { kode: 'B-KLP05', kelas: 'B', klp: 'KLP05', tema: 'kesehatan', slide: 15,
     judul: 'Insurance dan Healthcare Cost',
     catatan: 'Sudut pandang mirip, tapi datanya digabung dengan biaya layanan kesehatan.',
-    berkas: 'project-kakak-tingkat/B_KLP05_Presentasi.pdf' },
+    berkas: null, adaFoto: true },
 
   { kode: 'A-KLP06', kelas: 'A', klp: 'KLP06', tema: 'properti', slide: 13,
     judul: 'Real Estate dan Property Valuation',
@@ -128,7 +132,7 @@ var SHOWCASE = [
   { kode: 'B-KLP09', kelas: 'B', klp: 'KLP09', tema: 'fraud', slide: 14,
     judul: 'Fraud and Anomaly Detection pada Healthcare',
     catatan: 'Deteksi kecurangan klaim di layanan kesehatan.',
-    berkas: 'project-kakak-tingkat/B_KLP09_Presentasi.pdf' },
+    berkas: null, adaFoto: true },
 
   { kode: 'A-KLP10', kelas: 'A', klp: 'KLP10', tema: 'pendidikan', slide: 14,
     judul: 'Education dan Student Performance',
@@ -146,5 +150,5 @@ var SHOWCASE = [
   { kode: 'B-KLP08', kelas: 'B', klp: 'KLP08', tema: 'penjualan', slide: 12,
     judul: 'Sales and Revenue Prediction Analysis',
     catatan: 'Memperkirakan pendapatan periode berikutnya.',
-    berkas: 'project-kakak-tingkat/B_KLP08_Presentasi.pdf' }
+    berkas: null, adaFoto: true }
 ];

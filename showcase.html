@@ -50,9 +50,10 @@
   <div class="wrap">
     <div class="tile note info-inline reveal">
       <span style="font-size:20px">📂</span>
-      <span><b>Ini bahan terbuka.</b> Seluruh presentasi di halaman ini dibagikan atas keputusan dosen pengampu
+      <span><b>Ini bahan terbuka.</b> Presentasi di halaman ini dibagikan atas keputusan dosen pengampu
       supaya kelas yang sedang berjalan punya patokan mutu yang jelas. Berkasnya boleh dibaca, diunduh,
-      dan dipelajari susunannya. Yang tidak boleh cuma satu: menyalin isinya lalu mengaku sebagai karya sendiri.</span>
+      dan dipelajari susunannya. Yang tidak boleh cuma satu: menyalin isinya lalu mengaku sebagai karya sendiri.
+      Tiga presentasi tidak dibagikan karena memuat foto pribadi di sampulnya, dan hanya dibuka saat kelas berlangsung.</span>
     </div>
   </div>
 </section>
@@ -152,13 +153,19 @@
       if (!isi.length) return '';
 
       var kartu = isi.map(function (p) {
-        var tautan = '<div class="sc-aksi">' +
-          '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
-          '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh</a></div>';
+        var tautan = p.berkas
+          ? '<div class="sc-aksi">' +
+            '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
+            '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh</a></div>'
+          : '<div class="sc-aksi"><span class="sc-lokal">Dibuka di kelas saja</span></div>';
+        var sampul = p.berkas
+          ? '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">' +
+            '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
+            '<span class="sc-ikon">' + t.ikon + '</span></a>'
+          : '<div class="sc-sampul sc-kosong"><span class="sc-ikon">' + t.ikon + '</span>' +
+            '<span class="sc-kosong-teks">Sampul tidak ditampilkan</span></div>';
         return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
-          '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">' +
-          '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
-          '<span class="sc-ikon">' + t.ikon + '</span></a>' +
+          sampul +
           '<div class="sc-isi">' +
             '<div class="sc-meta"><span class="sc-kode">' + p.klp + '</span>' +
             '<span class="sc-kelas">Kelas ' + p.kelas + '</span>' +
