@@ -151,6 +151,38 @@
   }
   watchReveal();
 
+  /* Halaman lain menggambar ulang kartunya sendiri setelah berkas ini
+     dijalankan. Kartu baru itu ikut memakai kelas reveal, dan tanpa
+     pengamat baru dia akan tetap tembus pandang. Dua pengaman berikut
+     memastikan hal itu tidak terjadi lagi. */
+  window.bdaWatchReveal = watchReveal;
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(function (daftar) {
+      var perlu = false;
+      daftar.forEach(function (m) {
+        Array.prototype.forEach.call(m.addedNodes, function (n) {
+          if (n.nodeType !== 1) return;
+          if (n.classList && n.classList.contains('reveal')) perlu = true;
+          else if (n.querySelector && n.querySelector('.reveal:not(.in)')) perlu = true;
+        });
+      });
+      if (perlu) watchReveal();
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
+  /* Pengaman terakhir: kalau setelah tiga detik masih ada kartu yang
+     tersembunyi, tampilkan saja. Lebih baik tanpa animasi daripada
+     halaman terlihat kosong. */
+  function tampilkanSemua() {
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'), function (el) {
+      el.classList.add('in');
+    });
+  }
+  setTimeout(tampilkanSemua, 2500);
+  window.addEventListener('load', function () { setTimeout(tampilkanSemua, 1200); });
+  window.bdaTampilkanSemua = tampilkanSemua;
+
   /* ---------------- angka berjalan ---------------- */
   function countUp(el) {
     var target = Number(el.getAttribute('data-count'));

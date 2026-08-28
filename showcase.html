@@ -92,25 +92,6 @@
   </div>
 </section>
 
-<!-- ===================== KETERANGAN ===================== -->
-<section id="keterangan">
-  <div class="wrap">
-    <div class="bento">
-      <div class="tile tile-half note info-inline reveal">
-        <span style="font-size:20px">📂</span>
-        <span><b>Kenapa dibuka.</b> Presentasi ini dibagikan atas keputusan dosen pengampu supaya kelas yang
-        sedang berjalan punya patokan mutu yang jelas, bukan cuma bayangan. Boleh dibaca, diunduh,
-        dan dipelajari susunannya.</span>
-      </div>
-      <div class="tile tile-half note info-inline reveal">
-        <span style="font-size:20px">🔒</span>
-        <span><b>Tiga project tidak dibagikan.</b> Sampulnya memuat foto pribadi mahasiswa, jadi berkasnya
-        hanya dibuka saat kelas berlangsung. Judulnya tetap ditampilkan supaya peta temanya utuh.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== CARA PAKAI ===================== -->
 <section id="cara-pakai">
   <div class="wrap">
@@ -172,13 +153,18 @@
     return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
+  /* katalog hanya menampilkan project yang berkasnya tersedia */
+  var DAFTAR = SHOWCASE.filter(function (p) { return !!p.berkas; });
+  var temaAda = SHOWCASE_TEMA.filter(function (t) {
+    return DAFTAR.some(function (p) { return p.tema === t.id; });
+  });
+
   /* ---------------- ringkasan ---------------- */
-  var bisaUnduh = SHOWCASE.filter(function (p) { return p.berkas; }).length;
   document.getElementById('ringkasKatalog').innerHTML =
-    '<div><span>Project</span><span>' + SHOWCASE.length + '</span></div>' +
-    '<div><span>Tema</span><span>' + SHOWCASE_TEMA.length + '</span></div>' +
-    '<div><span>Bisa diunduh</span><span>' + bisaUnduh + '</span></div>' +
-    '<div><span>Total slide</span><span>' + SHOWCASE.reduce(function (a, b) { return a + b.slide; }, 0) + '</span></div>';
+    '<div><span>Project</span><span>' + DAFTAR.length + '</span></div>' +
+    '<div><span>Tema</span><span>' + temaAda.length + '</span></div>' +
+    '<div><span>Total slide</span><span>' + DAFTAR.reduce(function (a, b) { return a + b.slide; }, 0) + '</span></div>' +
+    '<div><span>Semuanya</span><span>bisa diunduh</span></div>';
 
   /* ---------------- sorotan ---------------- */
   var SOROT = [
@@ -215,46 +201,35 @@
 
   /* ---------------- tombol saring ---------------- */
   var f = document.getElementById('temaFilter');
-  f.innerHTML = '<button class="chip on" data-tema="">Semua tema <b>' + SHOWCASE.length + '</b></button>' +
-    SHOWCASE_TEMA.map(function (t) {
-      var n = SHOWCASE.filter(function (p) { return p.tema === t.id; }).length;
+  f.innerHTML = '<button class="chip on" data-tema="">Semua tema <b>' + DAFTAR.length + '</b></button>' +
+    temaAda.map(function (t) {
+      var n = DAFTAR.filter(function (p) { return p.tema === t.id; }).length;
       return '<button class="chip" data-tema="' + t.id + '">' + t.ikon + ' ' + t.nama + ' <b>' + n + '</b></button>';
     }).join('');
 
   /* ---------------- kartu ---------------- */
   function kartu(p) {
     var t = tema(p.tema);
-    var punya = !!p.berkas;
-    var sampul = punya
-      ? '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener" title="Buka presentasi ' + p.klp + '">' +
-        '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
-        '<span class="sc-tanda kiri">' + p.klp + '</span>' +
-        '<span class="sc-tanda kanan">' + p.slide + ' slide</span>' +
-        '<span class="sc-tema-cap">' + t.ikon + ' ' + t.nama + '</span></a>'
-      : '<div class="sc-sampul sc-kosong">' +
-        '<span class="sc-kosong-ikon">' + t.ikon + '</span>' +
-        '<span class="sc-kosong-teks">Sampul memuat foto pribadi<br>jadi tidak ditampilkan</span>' +
-        '<span class="sc-tanda kiri">' + p.klp + '</span>' +
-        '<span class="sc-tanda kanan">' + p.slide + ' slide</span></div>';
-
-    var aksi = punya
-      ? '<div class="sc-aksi">' +
-        '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
-        '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download title="Unduh berkas">⬇ Unduh</a></div>'
-      : '<div class="sc-aksi"><span class="sc-lokal">Dibuka di kelas saja</span></div>';
-
     return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
-      sampul +
+      '<a class="sc-sampul" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener" title="Buka presentasi ' + p.klp + '">' +
+        '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
+        '<span class="sc-tanda kiri">' + p.klp + ' · Kelas ' + p.kelas + '</span>' +
+        '<span class="sc-tanda kanan">' + p.slide + ' slide</span>' +
+        '<span class="sc-tema-cap">' + t.ikon + ' ' + t.nama + '</span>' +
+      '</a>' +
       '<div class="sc-isi">' +
         '<h3>' + aman(p.judul) + '</h3>' +
         '<p>' + aman(p.catatan) + '</p>' +
-        aksi +
+        '<div class="sc-aksi">' +
+          '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
+          '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh PDF</a>' +
+        '</div>' +
       '</div></article>';
   }
 
   /* ---------------- penyusunan ---------------- */
   function saring() {
-    return SHOWCASE.filter(function (p) {
+    return DAFTAR.filter(function (p) {
       if (filterTema && p.tema !== filterTema) return false;
       if (!kataCari) return true;
       var t = tema(p.tema);
@@ -269,15 +244,15 @@
     var kosong = document.getElementById('kosongPesan');
 
     document.getElementById('subKatalog').textContent =
-      hasil.length === SHOWCASE.length
-        ? 'Ada ' + SHOWCASE.length + ' project dari ' + SHOWCASE_TEMA.length + ' tema.'
-        : 'Menampilkan ' + hasil.length + ' dari ' + SHOWCASE.length + ' project.';
+      hasil.length === DAFTAR.length
+        ? 'Ada ' + DAFTAR.length + ' project dari ' + temaAda.length + ' tema, semuanya bisa dibaca dan diunduh.'
+        : 'Menampilkan ' + hasil.length + ' dari ' + DAFTAR.length + ' project.';
 
     if (!hasil.length) { wadah.innerHTML = ''; kosong.style.display = ''; return; }
     kosong.style.display = 'none';
 
     if (urutan === 'tema') {
-      var daftar = SHOWCASE_TEMA.filter(function (t) {
+      var daftar = temaAda.filter(function (t) {
         return hasil.some(function (p) { return p.tema === t.id; });
       });
       wadah.innerHTML = daftar.map(function (t, i) {
