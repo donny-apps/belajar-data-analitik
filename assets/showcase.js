@@ -10,8 +10,8 @@
    jadi masih bisa disalin dan dicari.
 
    Tiga presentasi tidak ikut dibagikan karena memuat foto pribadi
-   mahasiswa di sampulnya: B KLP05, B KLP08, dan B KLP09. Judulnya
-   tetap ditampilkan di katalog, berkasnya dibuka di kelas saja.
+   mahasiswa di sampulnya: B KLP05, B KLP08, dan B KLP09. Entrinya
+   tetap ada di berkas ini, tapi tidak ditampilkan di halaman.
    ============================================================ */
 
 var SHOWCASE_TEMA = [

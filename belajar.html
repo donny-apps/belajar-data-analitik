@@ -8,7 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=52a31e0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=fa69704f">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -21,13 +26,13 @@
       <span class="sticker"><span class="live"></span> Belajar Sendiri</span>
       <h1>Ketinggalan di kelas? <span class="grad">Kejar</span> di <span class="mark">rumah</span></h1>
       <p class="lead">
-        Kumpulan video dan situs untuk belajar Orange dan Tableau sendiri. Sebagian besar berbahasa Indonesia,
-        semuanya gratis, dan tiap tautan sudah diperiksa supaya tidak ada yang mati waktu diklik.
+        Kumpulan video dan situs untuk belajar Orange dan Tableau sendiri. Sebagian besar berbahasa Indonesia
+        dan semuanya gratis.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#jalur">🚦 Mulai dari Mana</a>
-        <a class="btn btn-ghost" href="#orange">🍊 Video Orange</a>
-        <a class="btn btn-ghost" href="#tableau">📊 Video Tableau</a>
+        <a class="btn btn-ghost" href="#orange"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> Video Orange</a>
+        <a class="btn btn-ghost" href="#tableau"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"> Video Tableau</a>
       </div>
     </div>
 
@@ -37,7 +42,7 @@
         <div class="mini-list" style="margin-top:16px" id="ringkasBelajar"></div>
       </div>
       <blockquote class="quote">
-        Nonton satu video sambil praktik jauh lebih berguna daripada nonton sepuluh sambil rebahan.
+        Tonton sambil membuka aplikasinya. Itu yang bikin materinya nempel.
       </blockquote>
     </aside>
   </div>
@@ -120,7 +125,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Situs dan Kursus</span>
-      <h2>Bukan cuma video</h2>
+      <h2>Situs dan kursus</h2>
       <p>Panduan resmi, galeri karya, dan latihan rutin yang bisa diikuti kapan saja.</p>
     </div>
     <div class="situs-grid" id="situsIsi"></div>
@@ -132,7 +137,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Biar Nggak Sia-sia</span>
-      <h2>Empat kebiasaan yang bikin belajar sendiri berhasil</h2>
+      <h2>Cara belajar sendiri yang berhasil</h2>
     </div>
     <div class="bento">
       <div class="tile tile-half reveal">
@@ -165,10 +170,11 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=8b41df1b"></script>
-<script src="assets/belajar.js?v=5404754d"></script>
-<script src="assets/shell.js?v=a4150f10"></script>
-<script src="assets/site.js?v=35d61cb5"></script>
+<script src="assets/course.js?v=7cc7d72a"></script>
+<script src="assets/belajar.js?v=1073ffbc"></script>
+<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/site.js?v=6d9ef1ac"></script>
 <script>
 (function () {
   'use strict';
@@ -191,7 +197,7 @@
     return '<article class="tile vd-kartu reveal">' +
       '<a class="vd-gambar' + (v.jenis === 'playlist' ? ' vd-playlist' : '') + '" href="' + url + '" target="_blank" rel="noopener">' +
         gambar +
-        '<span class="vd-main">▶</span>' +
+        '<span class="vd-main">' + IKON('putar') + '</span>' +
         '<span class="vd-bahasa' + (v.bahasa === 'Indonesia' ? ' id' : '') + '">' + v.bahasa + '</span>' +
       '</a>' +
       '<div class="vd-isi">' +
@@ -214,7 +220,7 @@
         '<p>' + aman(s.guna) + '</p>' +
         '<div class="situs-cap"><span>' + aman(s.jenis) + '</span><span>' + aman(s.bahasa) + '</span><span>' + aman(s.harga) + '</span></div>' +
       '</div>' +
-      '<span class="pintas-panah">↗</span></a>';
+      '<span class="pintas-panah" data-ikon="buka"></span></a>';
   }).join('');
 
   var jmlId = VIDEO_ORANGE.concat(VIDEO_TABLEAU).filter(function (v) { return v.bahasa === 'Indonesia'; }).length;

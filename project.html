@@ -8,7 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=52a31e0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=fa69704f">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -25,8 +30,8 @@
         atau diposting di LinkedIn. Hasil kerja sendiri, bukan salinan template.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#karya1">🍊 Project Kuliah 1</a>
-        <a class="btn btn-lime" href="#karya2">📊 Project Kuliah 2</a>
+        <a class="btn btn-primary" href="#karya1"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> Project Kuliah 1</a>
+        <a class="btn btn-lime" href="#karya2"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"> Project Kuliah 2</a>
         <a class="btn btn-ghost" href="#isi-laporan">📄 Isi Laporan</a>
         <a class="btn btn-ghost" href="#contoh">👀 Contoh Jadi</a>
       </div>
@@ -44,7 +49,7 @@
         </div>
       </div>
       <blockquote class="quote">
-        Yang dinilai bukan seberapa canggih tekniknya, tapi seberapa masuk akal jawabannya.
+        Yang dinilai adalah seberapa masuk akal jawaban kalian, bukan seberapa canggih tekniknya.
       </blockquote>
     </aside>
   </div>
@@ -62,13 +67,13 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Sekilas</span>
-      <h2>Bedanya dua project ini apa?</h2>
-      <p>Yang pertama nyari jawaban. Yang kedua bikin orang lain percaya sama jawaban itu.</p>
+      <h2>Perbedaan dua project</h2>
+      <p>Project pertama mencari jawaban dari data. Project kedua menyampaikan jawaban itu ke pengambil keputusan.</p>
     </div>
     <div class="tile reveal">
       <div class="tbl-wrap">
         <table>
-          <thead><tr><th>Pembanding</th><th>🍊 Project Kuliah 1</th><th>📊 Project Kuliah 2</th></tr></thead>
+          <thead><tr><th>Pembanding</th><th>Project Kuliah 1</th><th>Project Kuliah 2</th></tr></thead>
           <tbody>
             <tr><td><b>Aplikasi</b></td><td>Orange</td><td>Tableau Public</td></tr>
             <tr><td><b>Dikerjain pas</b></td><td>Pertemuan 3 sampai 8</td><td>Pertemuan 9 sampai 15</td></tr>
@@ -89,7 +94,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Project Kuliah 1</span>
-      <h2>🍊 Laporan analisis pakai Orange</h2>
+      <h2>Laporan analisis pakai Orange</h2>
       <p>Cari satu masalah nyata, jawab pakai data, terus kasih saran. Sesederhana itu, dan sesulit itu.</p>
     </div>
 
@@ -135,7 +140,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Project Kuliah 2</span>
-      <h2>📊 Dashboard pakai Tableau</h2>
+      <h2>Dashboard pakai Tableau</h2>
       <p>Temuan kalian diubah jadi tampilan yang bisa diklik, terus dipresentasiin ke simulasi jajaran direksi.</p>
     </div>
 
@@ -189,7 +194,7 @@
     <div class="bento">
       <div class="tile tile-half reveal">
         <div class="proj-head">
-          <div class="proj-ikon p1">🍊</div>
+          <div class="proj-ikon p1"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"></div>
           <div><h3>Laporan Project Kuliah 1</h3><span>Delapan bab, satu dataset</span></div>
         </div>
         <ol class="bab">
@@ -210,7 +215,7 @@
 
       <div class="tile tile-half reveal">
         <div class="proj-head">
-          <div class="proj-ikon p2">📊</div>
+          <div class="proj-ikon p2"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></div>
           <div><h3>Keluaran Project Kuliah 2</h3><span>Lima berkas</span></div>
         </div>
         <ol class="bab">
@@ -344,22 +349,30 @@
   </div>
 </section>
 
-<!-- ============ CONTOH ============ -->
+<!-- ============ KATALOG ============ -->
 <section id="contoh">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Contoh Jadi</span>
-      <h2>Project kakak tingkat</h2>
-      <p>Ini standarnya. Buka, lihat susunannya, terus bikin yang lebih bagus.</p>
+      <h2>Lihat project angkatan sebelumnya</h2>
+      <p>Tujuh belas presentasi UTS kakak tingkat bisa dibaca dan diunduh, dikelompokkan menurut tema.</p>
     </div>
-    <div id="karyaWrap"></div>
+    <a class="tile pintas reveal" href="showcase.html" style="--c:var(--iris)">
+      <span class="pintas-ikon">📁</span>
+      <div>
+        <h3>Katalog Project</h3>
+        <p>Cari yang temanya dekat dengan project kalian, lalu pelajari urutan slide dan cara mereka menyusun analisis.</p>
+      </div>
+      <span class="pintas-panah" data-ikon="panah"></span>
+    </a>
   </div>
 </section>
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=8b41df1b"></script>
-<script src="assets/shell.js?v=a4150f10"></script>
-<script src="assets/site.js?v=35d61cb5"></script>
+<script src="assets/course.js?v=7cc7d72a"></script>
+<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/site.js?v=6d9ef1ac"></script>
 </body>
 </html>

@@ -70,7 +70,7 @@
       '<nav class="nav">' +
         '<div class="nav-in">' +
           '<a class="brand" href="' + akar + 'index.html">' +
-            '<div class="brand-mark">📊</div>' +
+            '<div class="brand-mark">' + (window.IKON ? IKON('grafik') : '') + '</div>' +
             '<div class="brand-txt"><strong>Kelas Data Analitik</strong>' +
             '<span>Akuntansi · Dr. Donny</span></div>' +
           '</a>' +
@@ -117,7 +117,7 @@
       '<footer><div class="foot-in">' +
 
         '<div class="foot-utama">' +
-          '<div class="foot-merek"><span class="foot-tanda">📊</span>' +
+          '<div class="foot-merek"><span class="foot-tanda">' + (window.IKON ? IKON('grafik') : '') + '</span>' +
           '<div><b>Kelas Data Analitik</b>' +
           '<span>Big Data Analytics untuk Akuntansi</span></div></div>' +
           '<p class="foot-dosen">Dr. Donny Maha Putra, S.Kom., M.Ak<br>' +
@@ -142,8 +142,8 @@
 
         '<div class="foot-kolom">' +
           '<h4>Aplikasi yang Dipakai</h4>' +
-          '<div class="foot-baris"><span>🍊 Orange</span><b>Gratis</b></div>' +
-          '<div class="foot-baris"><span>📊 Tableau Public</span><b>Gratis</b></div>' +
+          '<div class="foot-baris"><span><img class="logo-app" src="' + akar + 'assets/img/lambang-orange.png" alt=""> Orange</span><b>Gratis</b></div>' +
+          '<div class="foot-baris"><span><img class="logo-app" src="' + akar + 'assets/img/lambang-tableau.png" alt=""> Tableau Public</span><b>Gratis</b></div>' +
           '<p class="foot-catatan">Keduanya dipasang sendiri di laptop masing-masing sebelum pertemuan yang membutuhkan.</p>' +
         '</div>' +
 

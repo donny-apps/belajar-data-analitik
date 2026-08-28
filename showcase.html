@@ -8,7 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=52a31e0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=fa69704f">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -20,14 +25,14 @@
   <div class="wrap bento">
     <div class="tile tile-hero">
       <span class="sticker"><span class="live"></span> Bahan Terbuka · Angkatan Sebelumnya</span>
-      <h1>Lihat dulu <span class="grad">standarnya</span>,<br>baru <span class="mark">kalahkan</span></h1>
+      <h1>Contoh project dari <span class="grad">angkatan sebelumnya</span></h1>
       <p class="lead">
-        Dua puluh project UTS kakak tingkat, dibuka penuh. Cari berdasarkan tema yang kalian minati,
-        baca langsung di browser, atau unduh buat dipelajari pelan-pelan.
+        Ini presentasi UTS kakak tingkat. Cari yang temanya kalian minati, baca langsung di browser,
+        atau unduh PDF-nya. Berguna buat melihat sedalam apa analisis yang diharapkan.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#sorotan">⭐ Tiga yang Wajib Dilihat</a>
-        <a class="btn btn-ghost" href="#katalog">📚 Semua Project</a>
+        <a class="btn btn-primary" href="#sorotan">Tiga contoh pilihan</a>
+        <a class="btn btn-ghost" href="#katalog">Lihat semua</a>
       </div>
     </div>
 
@@ -37,7 +42,7 @@
         <div class="mini-list" style="margin-top:16px" id="ringkasKatalog"></div>
       </div>
       <blockquote class="quote">
-        Pelajari susunannya, ambil polanya, lalu buat yang lebih baik.
+        Perhatikan urutan slide mereka. Itu kerangka yang diminta di soal.
       </blockquote>
     </aside>
   </div>
@@ -55,8 +60,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Sorotan</span>
-      <h2>Tiga yang paling layak dibuka duluan</h2>
-      <p>Kalau waktu kalian cuma cukup buat baca tiga, baca yang ini.</p>
+      <h2>Kalau cuma sempat baca tiga</h2>
+      <p>Tiga ini dipilih karena masing-masing menunjukkan hal yang berbeda.</p>
     </div>
     <div class="sorot-grid" id="sorotIsi"></div>
   </div>
@@ -67,7 +72,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Katalog Lengkap</span>
-      <h2>Cari berdasarkan tema atau kata kunci</h2>
+      <h2>Cari sesuai tema</h2>
       <p id="subKatalog">Ada 20 project dari 9 tema.</p>
     </div>
 
@@ -116,9 +121,9 @@
         <p style="font-size:13.5px;color:var(--ink-2)">Tema boleh mirip, tapi dataset wajib beda dan pertanyaannya harus punya kalian sendiri.</p>
       </div>
       <div class="tile tile-third reveal">
-        <div class="proj-ikon p2" style="margin-bottom:14px">📊</div>
-        <h3 style="font-size:17px;margin-bottom:8px">Pakai sebagai patokan mutu</h3>
-        <p style="font-size:13.5px;color:var(--ink-2)">Lihat sedalam apa analisis mereka, lalu targetkan project kalian minimal setara. Ini standar yang sudah pernah dicapai.</p>
+        <div class="proj-ikon p2" style="margin-bottom:14px"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></div>
+        <h3 style="font-size:17px;margin-bottom:8px">Ukur target kalian</h3>
+        <p style="font-size:13.5px;color:var(--ink-2)">Lihat sedalam apa analisis mereka, lalu pastikan project kalian minimal sedalam itu.</p>
       </div>
       <div class="tile tile-wide note info-inline reveal">
         <span style="font-size:20px">⚠️</span>
@@ -130,10 +135,11 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=8b41df1b"></script>
-<script src="assets/showcase.js?v=e6f684b1"></script>
-<script src="assets/shell.js?v=a4150f10"></script>
-<script src="assets/site.js?v=35d61cb5"></script>
+<script src="assets/course.js?v=7cc7d72a"></script>
+<script src="assets/showcase.js?v=f9e3ca0f"></script>
+<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/site.js?v=6d9ef1ac"></script>
 <script>
 (function () {
   'use strict';
@@ -168,9 +174,9 @@
 
   /* ---------------- sorotan ---------------- */
   var SOROT = [
-    { kode: 'A-KLP02', alasan: 'Paling tebal di angkatan ini. Kalau mau lihat sejauh apa satu dataset bisa digali, mulai dari sini.', label: 'Paling lengkap' },
-    { kode: 'A-KLP03', alasan: 'Cuma 11 slide tapi tiga analisisnya utuh. Bukti bahwa tebal bukan syarat bagus.', label: 'Paling padat' },
-    { kode: 'A-KLP09', alasan: 'Tema yang paling dekat dengan kerja auditor. Wajib dibuka kalau kalian mengincar KAP.', label: 'Paling relevan ke audit' }
+    { kode: 'A-KLP02', alasan: 'Paling tebal, 23 slide. Contoh kalau satu dataset digali sampai dalam.', label: 'Paling lengkap' },
+    { kode: 'A-KLP03', alasan: 'Cuma 11 slide, tapi klasifikasi, regresi, dan klasternya lengkap semua.', label: 'Paling padat' },
+    { kode: 'A-KLP09', alasan: 'Temanya deteksi kecurangan. Buka ini kalau kalian mengincar kantor akuntan publik.', label: 'Paling relevan ke audit' }
   ];
 
   function cari(kode) {

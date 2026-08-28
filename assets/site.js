@@ -26,9 +26,12 @@
     return p[p.length - 1];
   }
 
+  var IKON_BERKAS = { pdf: 'pdf', pptx: 'slide', ows: 'alur', data: 'data', docx: 'berkas' };
+
   function tautanHtml(t) {
-    var ic = IKON_TIPE[t.tipe] || '📎';
-    return '<a class="file" href="' + encodeURI(BASE + t.path) + '" target="_blank" rel="noopener">' +
+    var nama = IKON_BERKAS[t.tipe] || 'berkas';
+    var ic = window.IKON ? IKON(nama) : '';
+    return '<a class="file tipe-' + t.tipe + '" href="' + encodeURI(BASE + t.path) + '" target="_blank" rel="noopener">' +
       '<span class="ic">' + ic + '</span><span>' + t.label + '</span>' +
       '<span class="ext">' + ext(t.path) + '</span></a>';
   }
@@ -68,7 +71,7 @@
 
       var links = '';
       if (c.internal) {
-        links += '<a class="file" href="' + c.internal + '"><span class="ic">🖥️</span>' +
+        links += '<a class="file tipe-html" href="' + c.internal + '"><span class="ic">' + (window.IKON ? IKON('layar') : '') + '</span>' +
           '<span>Buka materi kelas TM' + c.tm + '</span><span class="ext">html</span></a>';
       }
       if (c.tautan && c.tautan.length) links += c.tautan.map(tautanHtml).join('');
@@ -103,11 +106,12 @@
   }
 
   /* ---------------- galeri karya ---------------- */
+  /* Galeri lama tidak dipakai lagi. Kalau wadahnya kosong, bagiannya
+     dilepas dari halaman supaya tidak ada ruang menganga. */
   var karyaWrap = document.getElementById('karyaWrap');
   if (karyaWrap && (!KARYA || !KARYA.length)) {
-    karyaWrap.innerHTML = '<div class="tile note info-inline reveal"><span style="font-size:20px">🔒</span>' +
-      '<span><b>Contoh karya ditampilkan langsung di kelas.</b> Laporan kakak tingkat memuat nama dan data pribadi, ' +
-      'jadi tidak dipasang di halaman yang bisa diakses umum.</span></div>';
+    var induk = karyaWrap.closest('section');
+    if (induk) induk.remove(); else karyaWrap.remove();
   } else if (karyaWrap) {
     karyaWrap.innerHTML = KARYA.map(function (k) {
       var kartu = k.kelompok.map(function (g) {

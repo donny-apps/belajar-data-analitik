@@ -1,0 +1,14 @@
+{
+  "name": "Kelas Data Analitik",
+  "short_name": "Data Analitik",
+  "description": "Big Data Analytics untuk Akuntansi",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0b10",
+  "theme_color": "#6d5df6",
+  "icons": [
+    { "src": "favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

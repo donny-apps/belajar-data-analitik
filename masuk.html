@@ -8,7 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=52a31e0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=fa69704f">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -157,10 +162,11 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=8b41df1b"></script>
+<script src="assets/course.js?v=7cc7d72a"></script>
 <script src="assets/kelompok.js?v=e7f6176b"></script>
-<script src="assets/shell.js?v=a4150f10"></script>
-<script src="assets/site.js?v=35d61cb5"></script>
+<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/site.js?v=6d9ef1ac"></script>
 <script>
 (function () {
   'use strict';
@@ -220,7 +226,7 @@
 
     if (o) {
       html += '<div class="tile tile-half reveal">' +
-        '<div class="proj-head"><div class="proj-ikon p1">🍊</div>' +
+        '<div class="proj-head"><div class="proj-ikon p1"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange"></div>' +
         '<div><h3>Project Kuliah 1</h3><span>Pakai Orange · dinilai pas UTS</span></div></div>' +
         '<div class="tm-tujuan" style="margin-top:0;margin-bottom:16px"><b>Tema dataset kelompok kamu</b>' + o.tema + '</div>' +
         '<dl class="klp-tanya">' +
@@ -235,7 +241,7 @@
 
     if (t) {
       html += '<div class="tile tile-half reveal">' +
-        '<div class="proj-head"><div class="proj-ikon p2">📊</div>' +
+        '<div class="proj-head"><div class="proj-ikon p2"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></div>' +
         '<div><h3>Project Kuliah 2</h3><span>Pakai Tableau · dinilai pas UAS</span></div></div>' +
         '<div class="tm-tujuan" style="margin-top:0;margin-bottom:16px"><b>Use case kelompok kamu</b>' + t.judul + '</div>' +
         '<dl class="klp-tanya">' +

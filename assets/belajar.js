@@ -94,13 +94,13 @@ var VIDEO_TABLEAU = [
 
 /* ---------------- situs dan kursus ---------------- */
 var SITUS_BELAJAR = [
-  { nama: 'Getting Started Orange', url: 'https://orangedatamining.com/getting-started/', ikon: '🍊',
+  { nama: 'Getting Started Orange', url: 'https://orangedatamining.com/getting-started/', ikon: '<img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange">',
     jenis: 'Panduan resmi', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Panduan resmi dari pembuat Orange, lengkap dengan contoh alur kerja yang bisa langsung ditiru.' },
   { nama: 'Perpustakaan Alur Kerja Orange', url: 'https://orangedatamining.com/workflows/', ikon: '🔗',
     jenis: 'Contoh siap pakai', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Kumpulan alur kerja jadi yang bisa diunduh dan dibuka di Orange. Cara tercepat memahami bentuk alur yang benar.' },
-  { nama: 'Tableau Learn', url: 'https://www.tableau.com/learn', ikon: '📊',
+  { nama: 'Tableau Learn', url: 'https://www.tableau.com/learn', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
     jenis: 'Pusat belajar resmi', bahasa: 'Inggris', harga: 'Gratis, perlu akun',
     guna: 'Video pelatihan resmi dari Tableau, disusun bertahap dari pemula sampai mahir.' },
   { nama: 'Tableau Public Gallery', url: 'https://public.tableau.com/app/discover', ikon: '🖼️',
@@ -164,7 +164,7 @@ var SUMBER_DATA = [
     ]
   },
   {
-    kelompok: 'Khusus latihan Tableau', warna: 'var(--mint)', ikon: '📊',
+    kelompok: 'Khusus latihan Tableau', warna: 'var(--mint)', ikon: '<img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau">',
     catatan: 'Sudah dirancang untuk latihan visualisasi, jadi kolomnya bersih dan siap dipakai.',
     isi: [
       { nama: 'Tableau Sample Data', url: 'https://public.tableau.com/app/resources/sample-data', wilayah: 'Global', bayar: 'Gratis',

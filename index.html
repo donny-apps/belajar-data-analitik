@@ -8,7 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=52a31e0d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=fa69704f">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -22,10 +27,10 @@
     <div class="tile tile-hero">
       <div id="sapaan" class="sapaan"></div>
       <span class="sticker"><span class="live"></span> Semester Aktif 2026</span>
-      <h1>Satu semester buat <span class="grad">mengubah angka</span><br>jadi <span class="mark">keputusan</span></h1>
+      <h1>Belajar <span class="grad">mengolah data</span><br>sampai jadi <span class="mark">keputusan</span></h1>
       <p class="lead">
-        Tenang, nggak ada coding dan nggak ada rumus rumit. Mulai dari nol, pelan-pelan,
-        sampai kalian punya dua project jadi yang bisa dilampirkan waktu melamar kerja.
+        Nggak ada coding dan nggak ada rumus rumit. Mulai dari nol sampai kalian punya dua project
+        yang bisa dilampirkan waktu melamar kerja.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#materi-kelas">📚 Materi Kelas</a>
@@ -89,7 +94,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Kenapa Kelas Ini Ada</span>
-      <h2>Pekerjaan akuntan bergeser, bukan hilang</h2>
+      <h2>Kenapa kelas ini ada</h2>
     </div>
 
     <div class="cerita-grid">
@@ -155,7 +160,7 @@
 
       <div class="tile jalan-item reveal" style="--c:var(--mint)">
         <div class="jalan-kepala">
-          <span class="jalan-ikon">📊</span>
+          <span class="jalan-ikon"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></span>
           <div>
             <span class="jalan-minggu">Minggu 9 - 15</span>
             <h3>Menyajikan temuan biar mudah dipahami</h3>
@@ -182,13 +187,21 @@
   </div>
 </section>
 
+
+<!-- ===================== KELAS DARING ===================== -->
+<section id="kelas-daring">
+  <div class="wrap">
+    <div class="tile zoom-kartu reveal" id="zoomKartu"></div>
+  </div>
+</section>
+
 <!-- ===================== MATERI KELAS ===================== -->
 <section id="materi-kelas">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Materi Kelas</span>
-      <h2>Materi tiap pertemuan, terbuka kapan saja</h2>
-      <p>Slide, modul, dan data latihan tersimpan permanen di sini. Bisa dibuka ulang kapan pun, termasuk menjelang ujian.</p>
+      <h2>Materi kuliah</h2>
+      <p>Slide, modul, dan data latihan tersimpan di sini. Bisa dibuka kapan saja, termasuk menjelang ujian.</p>
     </div>
 
     <div class="tile featured reveal">
@@ -237,8 +250,8 @@
     <div class="filter-row reveal" id="faseFilter">
       <button class="chip on">Semua</button>
       <button class="chip" data-fase="1">🧱 Dasar</button>
-      <button class="chip" data-fase="2">⛏️ Orange</button>
-      <button class="chip" data-fase="3">📊 Tableau</button>
+      <button class="chip" data-fase="2"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> Orange</button>
+      <button class="chip" data-fase="3"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"> Tableau</button>
       <button class="chip" data-fase="4">🏆 Tampil</button>
     </div>
     <div class="tm-grid" id="tmGrid"></div>
@@ -250,8 +263,8 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Dipakai Buat Apa</span>
-      <h2>4 kerjaan nyata yang nunggu kalian</h2>
-      <p>Bukan contoh karangan. Ini yang beneran dikerjain orang di kantor pajak, KAP, fintech, sama instansi pemerintah.</p>
+      <h2>Empat contoh pemakaian di dunia kerja</h2>
+      <p>Empat kasus yang dikerjakan orang di kantor pajak, kantor akuntan publik, fintech, dan instansi pemerintah.</p>
     </div>
 
     <div class="uc-grid">
@@ -302,7 +315,7 @@
 
     <div class="tile note info-inline reveal" style="margin-top:18px">
       <span style="font-size:20px">🎯</span>
-      <span><b>Intinya sama semua.</b> Ada tumpukan data, ada pertanyaan yang mau dijawab, dan ada orang yang nunggu jawaban buat ambil keputusan. Kelas ini ngelatih kalian jadi orang di tengahnya.</span>
+      <span><b>Pola keempatnya sama.</b> Ada tumpukan data, ada pertanyaan yang harus dijawab, dan ada orang yang menunggu jawabannya untuk mengambil keputusan. Yang dilatih di kelas ini adalah mengerjakan bagian tengahnya.</span>
     </div>
   </div>
 </section>
@@ -312,24 +325,24 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Jalan Pintas</span>
-      <h2>Mau langsung ke mana?</h2>
+      <h2>Jalan pintas</h2>
     </div>
     <div class="bento">
       <a class="tile tile-half pintas reveal" href="orange.html" style="--c:var(--amber)">
-        <span class="pintas-ikon">🍊</span>
+        <span class="pintas-ikon"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"></span>
         <div>
           <h3>Orange Data Mining</h3>
           <p>Cara install, contoh pemakaian, materi pertemuan 3 sampai 8, dan ketentuan Project Kuliah 1.</p>
         </div>
-        <span class="pintas-panah">→</span>
+        <span class="pintas-panah" data-ikon="panah"></span>
       </a>
       <a class="tile tile-half pintas reveal" href="tableau.html" style="--c:var(--mint)">
-        <span class="pintas-ikon">📊</span>
+        <span class="pintas-ikon"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></span>
         <div>
           <h3>Tableau Visualisasi</h3>
           <p>Cara install, cara publish, materi pertemuan 9 sampai 15, dan ketentuan Project Kuliah 2.</p>
         </div>
-        <span class="pintas-panah">→</span>
+        <span class="pintas-panah" data-ikon="panah"></span>
       </a>
       <a class="tile tile-half pintas reveal" href="project.html" style="--c:var(--iris)">
         <span class="pintas-ikon">🎯</span>
@@ -337,7 +350,7 @@
           <h3>Project</h3>
           <p>Dua karya kalian, cara nyari topik, cara dinilai, dan contoh karya kakak tingkat.</p>
         </div>
-        <span class="pintas-panah">→</span>
+        <span class="pintas-panah" data-ikon="panah"></span>
       </a>
       <a class="tile tile-half pintas reveal" href="aturan.html" style="--c:var(--pink)">
         <span class="pintas-ikon">📋</span>
@@ -345,7 +358,7 @@
           <h3>Rule Perkuliahan</h3>
           <p>Cara dinilai, kehadiran, kerja kelompok, batas waktu, dan aturan soal nyontek.</p>
         </div>
-        <span class="pintas-panah">→</span>
+        <span class="pintas-panah" data-ikon="panah"></span>
       </a>
     </div>
   </div>
@@ -356,7 +369,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Tambahan</span>
-      <h2>Buat yang mau nambah jam terbang</h2>
+      <h2>Latihan tambahan</h2>
       <p>Latihan mandiri di luar jam kelas.</p>
     </div>
     <div class="tile reveal">
@@ -367,8 +380,51 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=8b41df1b"></script>
-<script src="assets/shell.js?v=a4150f10"></script>
-<script src="assets/site.js?v=35d61cb5"></script>
+<script src="assets/course.js?v=7cc7d72a"></script>
+<script src="assets/kelas-daring.js?v=08676e5a"></script>
+<script src="assets/ikon.js?v=fb67527f"></script>
+<script src="assets/shell.js?v=a045f050"></script>
+<script src="assets/site.js?v=6d9ef1ac"></script>
+<script>
+(function () {
+  var w = document.getElementById('zoomKartu');
+  if (!w || typeof KELAS_DARING === 'undefined' || !KELAS_DARING.aktif) {
+    if (w) w.parentNode.parentNode.remove();
+    return;
+  }
+  var k = KELAS_DARING;
+  var ikon = function (n) { return window.IKON ? IKON(n) : ''; };
+  var tujuan = k.TAUTAN_LANGSUNG || k.tautan;
+
+  w.innerHTML =
+    '<div class="zoom-kiri">' +
+      '<span class="zoom-tanda">' + ikon('layar') + ' Kelas Daring</span>' +
+      '<h2>' + k.nama + '</h2>' +
+      '<p>' + k.catatanJadwal + '</p>' +
+      '<div class="zoom-tombol">' +
+        '<a class="btn btn-primary" href="' + tujuan + '" target="_blank" rel="noopener">' +
+          ikon('buka') + 'Masuk Ruang Zoom</a>' +
+        '<button class="btn btn-ghost" id="zoomSalin" type="button">' + ikon('berkas') + 'Salin Nomor Rapat</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="zoom-kanan">' +
+      '<div class="zoom-baris"><span>Nomor rapat</span><b class="mono">' + k.nomor + '</b></div>' +
+      '<div class="zoom-baris"><span>Jadwal</span><b>' + k.jadwal + '</b></div>' +
+      '<p class="zoom-catatan">' + ikon('gembok') + ' ' + k.catatanSandi + '</p>' +
+    '</div>';
+
+  var tombol = document.getElementById('zoomSalin');
+  tombol.addEventListener('click', function () {
+    var teks = k.nomor.replace(/\s/g, '');
+    function beres() {
+      tombol.innerHTML = ikon('centang') + 'Nomor tersalin';
+      setTimeout(function () { tombol.innerHTML = ikon('berkas') + 'Salin Nomor Rapat'; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(teks).then(beres, function () { prompt('Salin manual:', teks); });
+    } else { prompt('Salin manual:', teks); }
+  });
+})();
+</script>
 </body>
 </html>
