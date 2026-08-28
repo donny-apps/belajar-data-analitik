@@ -1693,11 +1693,17 @@ html[data-theme="light"] .pita-kaki {
 }
 .buku-kepala { display: flex; gap: 16px; align-items: flex-start; }
 .buku-sampul {
-  flex: none; width: 78px; aspect-ratio: 3 / 4; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(150deg, var(--c, var(--iris)), color-mix(in srgb, var(--c, var(--iris)) 45%, #101018));
-  color: #fff; font-family: var(--fjudul); font-weight: 800; font-size: 26px;
-  box-shadow: 0 10px 26px rgba(0,0,0,.24);
+  flex: none; width: 104px; display: block; border-radius: 8px;
+  overflow: hidden; line-height: 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.16);
+  transition: transform .26s cubic-bezier(.34,1.4,.64,1), box-shadow .26s ease;
+}
+.buku-sampul img {
+  width: 100%; height: auto; display: block; aspect-ratio: 56 / 87; object-fit: cover;
+}
+.buku-sampul:hover {
+  transform: translateY(-4px) rotate(-1.2deg);
+  box-shadow: 0 20px 42px rgba(0,0,0,.34), 0 3px 8px rgba(0,0,0,.2);
 }
 .buku-judul { flex: 1; min-width: 0; }
 .buku-judul h3 { font-size: 18px; line-height: 1.25; margin-bottom: 6px; }
