@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics — TM1 Screen 3: Semester Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #f8f9fc;
+    --bg-card: #ffffff;
+    --accent-cyan: #0284c7;
+    --accent-emerald: #059669;
+    --accent-amber: #d97706;
+    --accent-violet: #7c3aed;
+    --accent-rose: #e11d48;
+    --accent-indigo: #4f46e5;
+    --accent-orange: #ea580c;
+    --accent-teal: #0d9488;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-subtle: rgba(148,163,184,0.22);
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.03);
+    --shadow-md: 0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+    --shadow-lg: 0 8px 24px rgba(15,23,42,0.07), 0 2px 8px rgba(15,23,42,0.04);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family:'DM Sans',sans-serif;
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    min-height:100vh; overflow-x:hidden;
+  }
+
+  body::after {
+    content:''; position:fixed; inset:0;
+    background-image:radial-gradient(rgba(148,163,184,0.08) 1px,transparent 1px);
+    background-size:28px 28px; z-index:0; pointer-events:none;
+  }
+
+  .dashboard {
+    position:relative; z-index:1;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:16px;
+    padding:24px 28px;
+    max-width:1440px; margin:0 auto;
+    min-height:100vh;
+  }
+
+  @keyframes slideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+  @keyframes growWidth { from{width:0} to{width:100%} }
+
+  /* ===== HEADER ===== */
+  .header {
+    grid-column:1/-1;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    background:var(--bg-card); border:1px solid var(--border-subtle);
+    border-radius:16px; box-shadow:var(--shadow-md);
+    animation:slideDown 0.6s ease-out;
+  }
+
+  .header-left { display:flex; align-items:center; gap:18px; }
+
+  .logo-icon {
+    width:50px; height:50px;
+    background:linear-gradient(135deg,var(--accent-cyan),var(--accent-violet));
+    border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:24px; box-shadow:0 4px 14px rgba(2,132,199,0.2);
+  }
+
+  .header-title h1 { font-family:'Playfair Display',serif; font-size:20px; font-weight:900; color:var(--text-primary); }
+  .header-title .subtitle { font-size:12.5px; color:var(--text-secondary); margin-top:2px; font-weight:500; }
+
+  .header-right { display:flex; align-items:center; gap:14px; }
+
+  .badge { padding:6px 14px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; }
+  .badge-tm { background:rgba(2,132,199,0.08); color:var(--accent-cyan); border:1px solid rgba(2,132,199,0.2); }
+  .badge-screen { background:rgba(124,58,237,0.08); color:var(--accent-violet); border:1px solid rgba(124,58,237,0.2); }
+
+  .dosen-info {
+    display:flex; align-items:center; gap:10px;
+    padding:6px 16px 6px 6px; background:var(--bg-primary);
+    border-radius:28px; border:1px solid var(--border-subtle);
+  }
+
+  .dosen-avatar {
+    width:34px; height:34px; border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:#fff;
+  }
+
+  .dosen-name { font-size:12.5px; font-weight:700; color:var(--text-primary); }
+  .dosen-title-text { font-size:10.5px; color:var(--text-muted); }
+
+  /* ===== CARD BASE ===== */
+  .card {
+    background:var(--bg-card); border:1px solid var(--border-subtle);
+    border-radius:16px; padding:24px;
+    box-shadow:var(--shadow-sm); transition:all 0.3s ease; overflow:hidden;
+  }
+  .card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+
+  .card-label {
+    font-size:10px; font-weight:700; letter-spacing:1.2px;
+    text-transform:uppercase; color:var(--text-muted);
+    margin-bottom:16px; display:flex; align-items:center; gap:7px;
+  }
+  .card-label .dot { width:7px; height:7px; border-radius:50%; }
+
+  /* ===== PROGRESS BAR (full width) ===== */
+  .progress-strip {
+    grid-column:1/-1;
+    animation:fadeUp 0.6s ease-out 0.1s both;
+    padding:20px 28px;
+  }
+
+  .progress-strip:hover { transform:none; }
+
+  .progress-label-row {
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:12px;
+  }
+
+  .progress-label-row .pl-title {
+    font-size:11px; font-weight:700; letter-spacing:1px;
+    text-transform:uppercase; color:var(--text-muted);
+    display:flex; align-items:center; gap:7px;
+  }
+
+  .progress-label-row .pl-meta {
+    font-size:11px; color:var(--text-muted);
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  .progress-track {
+    width:100%; height:14px;
+    background:#f1f5f9;
+    border-radius:7px; overflow:hidden;
+    display:flex; position:relative;
+  }
+
+  .progress-seg {
+    height:100%; position:relative;
+    transition:width 1s ease 0.3s;
+  }
+
+  .progress-seg:first-child { border-radius:7px 0 0 7px; }
+  .progress-seg:last-child { border-radius:0 7px 7px 0; }
+
+  .seg-fondasi { background:linear-gradient(90deg,#93c5fd,#3b82f6); width:12.5%; }
+  .seg-project1 { background:linear-gradient(90deg,#fdba74,#ea580c); width:37.5%; }
+  .seg-project2 { background:linear-gradient(90deg,#6ee7b7,#059669); width:43.75%; }
+  .seg-uas { background:linear-gradient(90deg,#c4b5fd,#7c3aed); width:6.25%; }
+
+  .progress-labels {
+    display:flex; margin-top:8px;
+  }
+
+  .progress-labels span {
+    font-size:10px; font-weight:600; color:var(--text-muted);
+    text-align:center; letter-spacing:0.3px;
+  }
+
+  .progress-labels .pl-fondasi { width:12.5%; color:#3b82f6; }
+  .progress-labels .pl-project1 { width:37.5%; color:#ea580c; }
+  .progress-labels .pl-project2 { width:43.75%; color:#059669; }
+  .progress-labels .pl-uas { width:6.25%; color:#7c3aed; }
+
+  /* Milestone markers */
+  .milestones {
+    display:flex; margin-top:6px; position:relative;
+  }
+
+  .milestone-mark {
+    position:absolute; top:0;
+    display:flex; flex-direction:column; align-items:center;
+    transform:translateX(-50%);
+  }
+
+  .milestone-mark .mm-line { width:1px; height:8px; background:var(--text-muted); opacity:0.3; }
+  .milestone-mark .mm-text { font-size:9px; color:var(--text-muted); font-family:'JetBrains Mono',monospace; white-space:nowrap; margin-top:2px; }
+
+  /* ===== PHASE CARDS ===== */
+  .phase-card {
+    animation:fadeUp 0.7s ease-out calc(0.15s + var(--d,0s)) both;
+    display:flex; flex-direction:column;
+    border-top:4px solid var(--phase-color,#94a3b8);
+  }
+
+  .phase-badge {
+    display:inline-flex; align-items:center; gap:6px;
+    padding:5px 12px; border-radius:8px;
+    font-size:10px; font-weight:700; letter-spacing:0.8px;
+    text-transform:uppercase; margin-bottom:14px; width:fit-content;
+  }
+
+  .phase-header { margin-bottom:14px; }
+
+  .phase-header h3 {
+    font-family:'Playfair Display',serif;
+    font-size:18px; font-weight:900; color:var(--text-primary);
+    margin-bottom:4px;
+  }
+
+  .phase-header .phase-period {
+    font-size:12px; font-weight:600; color:var(--text-muted);
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  .phase-icon {
+    width:48px; height:48px; border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; margin-bottom:14px;
+  }
+
+  .phase-topics {
+    display:flex; flex-direction:column; gap:8px;
+    flex:1;
+  }
+
+  .topic-item {
+    display:flex; align-items:center; gap:10px;
+    padding:9px 12px;
+    background:var(--bg-primary);
+    border-radius:10px; border:1px solid var(--border-subtle);
+    transition:all 0.2s ease;
+    font-size:12.5px; color:var(--text-secondary);
+    font-weight:500;
+  }
+
+  .topic-item:hover { box-shadow:var(--shadow-sm); transform:translateX(3px); }
+
+  .topic-item .ti-icon {
+    width:28px; height:28px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; flex-shrink:0;
+  }
+
+  .topic-item .ti-text { flex:1; }
+
+  /* Milestone tag */
+  .milestone-tag {
+    margin-top:auto; padding-top:12px;
+    border-top:1px solid var(--border-subtle);
+    display:flex; align-items:center; gap:8px;
+  }
+
+  .milestone-tag .mt-badge {
+    padding:5px 12px; border-radius:8px;
+    font-size:10.5px; font-weight:700;
+    letter-spacing:0.5px; text-transform:uppercase;
+    display:flex; align-items:center; gap:5px;
+  }
+
+  .milestone-tag .mt-desc {
+    font-size:11px; color:var(--text-muted);
+  }
+
+  /* ===== Phase 1: Fondasi ===== */
+  .phase-fondasi { --phase-color:#3b82f6; }
+  .phase-fondasi .phase-badge { background:#eff6ff; color:#1d4ed8; }
+  .phase-fondasi .phase-icon { background:#eff6ff; border:1.5px solid #bfdbfe; }
+  .phase-fondasi .ti-icon { background:#eff6ff; }
+  .phase-fondasi .mt-badge { background:#eff6ff; color:#1d4ed8; }
+
+  /* ===== Phase 2: Project 1 ===== */
+  .phase-project1 { --phase-color:#ea580c; }
+  .phase-project1 .phase-badge { background:#fff7ed; color:#c2410c; }
+  .phase-project1 .phase-icon { background:#fff7ed; border:1.5px solid #fed7aa; }
+  .phase-project1 .ti-icon { background:#fff7ed; }
+  .phase-project1 .mt-badge { background:#fff7ed; color:#c2410c; }
+
+  /* ===== Phase 3: Project 2 ===== */
+  .phase-project2 { --phase-color:#059669; }
+  .phase-project2 .phase-badge { background:#ecfdf5; color:#047857; }
+  .phase-project2 .phase-icon { background:#ecfdf5; border:1.5px solid #a7f3d0; }
+  .phase-project2 .ti-icon { background:#ecfdf5; }
+  .phase-project2 .mt-badge { background:#ecfdf5; color:#047857; }
+
+  /* ===== Phase 4: UAS ===== */
+  .phase-uas { --phase-color:#7c3aed; }
+  .phase-uas .phase-badge { background:#f5f3ff; color:#6d28d9; }
+  .phase-uas .phase-icon { background:#f5f3ff; border:1.5px solid #ddd6fe; }
+  .phase-uas .ti-icon { background:#f5f3ff; }
+  .phase-uas .mt-badge { background:#f5f3ff; color:#6d28d9; }
+
+  /* ===== BOTTOM SECTION ===== */
+  .bottom-section {
+    grid-column:1/-1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    animation:fadeUp 0.7s ease-out 0.6s both;
+  }
+
+  /* ===== POLL ===== */
+  .poll-card { display:flex; flex-direction:column; }
+
+  .poll-q {
+    font-size:14.5px; font-weight:600; color:var(--text-primary);
+    line-height:1.55; margin-bottom:18px; padding:14px 18px;
+    background:linear-gradient(135deg,#fff7ed,#f5f3ff);
+    border-radius:12px; border-left:4px solid var(--accent-orange);
+  }
+
+  .poll-options { display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+
+  .poll-opt {
+    width:100%; padding:14px 18px;
+    background:var(--bg-primary); border:1.5px solid var(--border-subtle);
+    border-radius:12px; color:var(--text-secondary);
+    font-size:13.5px; font-weight:500; font-family:'DM Sans',sans-serif;
+    cursor:pointer; transition:all 0.3s ease;
+    text-align:left; display:flex; align-items:center; gap:14px;
+    position:relative; overflow:hidden;
+  }
+
+  .poll-opt:hover { background:rgba(234,88,12,0.04); border-color:rgba(234,88,12,0.3); color:var(--text-primary); }
+
+  .poll-opt.selected { border-color:var(--accent-orange); color:var(--accent-orange); font-weight:700; background:rgba(234,88,12,0.03); }
+
+  .poll-opt .o-bar {
+    position:absolute; left:0; top:0; bottom:0;
+    width:0; border-radius:12px; transition:width 0.6s ease;
+  }
+
+  .poll-opt.revealed .o-bar { width:var(--bw,0%); }
+
+  .poll-opt .o-icon {
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0;
+    background:var(--bg-card); border:1px solid var(--border-subtle);
+    position:relative; z-index:1;
+    transition:all 0.3s ease;
+  }
+
+  .poll-opt.selected .o-icon { background:rgba(234,88,12,0.08); border-color:rgba(234,88,12,0.3); }
+
+  .poll-opt .o-text { flex:1; position:relative; z-index:1; }
+
+  .poll-opt .o-pct {
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    font-weight:700; opacity:0; transition:opacity 0.4s ease;
+    color:var(--accent-orange); position:relative; z-index:1;
+  }
+
+  .poll-opt.revealed .o-pct { opacity:1; }
+
+  .poll-result {
+    padding:14px 18px; border-radius:12px;
+    background:linear-gradient(135deg,#ecfdf5,#eff6ff);
+    border:1px solid rgba(5,150,105,0.15);
+    display:none; animation:fadeIn 0.5s ease;
+  }
+
+  .poll-result.show { display:block; }
+
+  .poll-result .pr-title { font-size:13.5px; font-weight:700; color:var(--accent-emerald); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .poll-result .pr-text { font-size:12.5px; color:var(--text-secondary); line-height:1.6; }
+  .poll-result .pr-text strong { color:var(--text-primary); }
+
+  /* ===== SEMESTER OVERVIEW ===== */
+  .overview-card { display:flex; flex-direction:column; }
+
+  .overview-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:10px; flex:1;
+  }
+
+  .ov-item {
+    padding:14px 16px; background:var(--bg-primary);
+    border-radius:12px; border:1px solid var(--border-subtle);
+    text-align:center; transition:all 0.3s ease;
+  }
+
+  .ov-item:hover { box-shadow:var(--shadow-sm); }
+
+  .ov-value {
+    font-family:'Playfair Display',serif;
+    font-size:26px; font-weight:900; line-height:1; margin-bottom:4px;
+  }
+
+  .ov-label { font-size:10px; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px; }
+  .ov-sub { font-size:10px; color:var(--text-muted); margin-top:2px; }
+
+  .ov-takeaway {
+    margin-top:auto; padding-top:14px;
+    border-top:1px solid var(--border-subtle);
+  }
+
+  .ov-takeaway p {
+    font-size:12.5px; color:var(--text-secondary); line-height:1.6;
+    padding:12px 16px; background:linear-gradient(135deg,#fff7ed,#fffbeb);
+    border-radius:10px; border-left:4px solid var(--accent-amber);
+  }
+
+  .ov-takeaway p strong { color:var(--text-primary); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    grid-column:1/-1; text-align:center; padding:8px;
+    font-size:11px; color:var(--text-muted);
+    animation:fadeUp 0.7s ease-out 0.7s both;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1200px) {
+    .dashboard { grid-template-columns:1fr 1fr; padding:16px; }
+    .progress-strip, .header, .footer, .bottom-section { grid-column:1/-1; }
+  }
+
+  @media (max-width:768px) {
+    .dashboard { grid-template-columns:1fr; gap:12px; padding:12px; }
+    .header { flex-direction:column; gap:12px; text-align:center; }
+    .header-right { flex-wrap:wrap; justify-content:center; }
+    .bottom-section { grid-template-columns:1fr; }
+    .progress-labels span { font-size:8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-icon">📊</div>
+      <div class="header-title">
+        <h1>Big Data Analytics untuk Akuntansi</h1>
+        <div class="subtitle">Peta Besar 1 Semester — Semester Roadmap</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-tm">TM 1</span>
+      <span class="badge badge-screen">Screen 3</span>
+      <div class="dosen-info">
+        <div class="dosen-avatar">DP</div>
+        <div>
+          <div class="dosen-name">Dr. Donny Maha Putra</div>
+          <div class="dosen-title-text">S.Kom., M.Ak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS STRIP -->
+  <div class="card progress-strip">
+    <div class="progress-label-row">
+      <div class="pl-title"><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent-cyan);display:inline-block"></span> Timeline 16 Pertemuan</div>
+      <div class="pl-meta">TM1 → TM16 &nbsp;·&nbsp; 4 Fase &nbsp;·&nbsp; 2 Project</div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-seg seg-fondasi"></div>
+      <div class="progress-seg seg-project1"></div>
+      <div class="progress-seg seg-project2"></div>
+      <div class="progress-seg seg-uas"></div>
+    </div>
+    <div class="progress-labels">
+      <span class="pl-fondasi">Fondasi</span>
+      <span class="pl-project1">Project 1 — Data Mining (Orange)</span>
+      <span class="pl-project2">Project 2 — Dashboard (Tableau)</span>
+      <span class="pl-uas">UAS</span>
+    </div>
+    <div class="milestones" style="position:relative;height:22px;margin-top:4px;">
+      <div class="milestone-mark" style="left:0%"><div class="mm-line"></div><div class="mm-text">TM1</div></div>
+      <div class="milestone-mark" style="left:12.5%"><div class="mm-line"></div><div class="mm-text">TM3</div></div>
+      <div class="milestone-mark" style="left:50%"><div class="mm-line"></div><div class="mm-text">UTS</div></div>
+      <div class="milestone-mark" style="left:93.75%"><div class="mm-line"></div><div class="mm-text">TM16</div></div>
+    </div>
+  </div>
+
+  <!-- PHASE 1: FONDASI -->
+  <div class="card phase-card phase-fondasi" style="--d:0s">
+    <div class="phase-badge">🟦 Fase 1</div>
+    <div class="phase-icon">🧱</div>
+    <div class="phase-header">
+      <h3>Fondasi</h3>
+      <span class="phase-period">TM1 – TM2 &nbsp;·&nbsp; 2 Pertemuan</span>
+    </div>
+    <div class="phase-topics">
+      <div class="topic-item">
+        <span class="ti-icon">📖</span>
+        <span class="ti-text">Big Data & Data Literacy</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">⚖️</span>
+        <span class="ti-text">Etika Data</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">🗺️</span>
+        <span class="ti-text">Pemetaan Masalah Bisnis</span>
+      </div>
+    </div>
+    <div class="milestone-tag">
+      <span class="mt-badge">📌 Output</span>
+      <span class="mt-desc">Mindset & problem framing</span>
+    </div>
+  </div>
+
+  <!-- PHASE 2: PROJECT 1 -->
+  <div class="card phase-card phase-project1" style="--d:0.08s">
+    <div class="phase-badge">🟧 Fase 2</div>
+    <div class="phase-icon">⛏️</div>
+    <div class="phase-header">
+      <h3>Project 1 — Data Mining</h3>
+      <span class="phase-period">TM3 – TM8 &nbsp;·&nbsp; 6 Pertemuan</span>
+    </div>
+    <div class="phase-topics">
+      <div class="topic-item">
+        <span class="ti-icon">🔄</span>
+        <span class="ti-text">CRISP-DM Methodology</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">🧹</span>
+        <span class="ti-text">Data Preprocessing</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">🏷️</span>
+        <span class="ti-text">Klasifikasi / Klasterisasi / Asosiasi</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">🍊</span>
+        <span class="ti-text">Praktik dengan Orange</span>
+      </div>
+    </div>
+    <div class="milestone-tag">
+      <span class="mt-badge">🏁 UTS = Milestone Project 1</span>
+      <span class="mt-desc"></span>
+    </div>
+  </div>
+
+  <!-- PHASE 3: PROJECT 2 -->
+  <div class="card phase-card phase-project2" style="--d:0.16s">
+    <div class="phase-badge">🟩 Fase 3</div>
+    <div class="phase-icon">📊</div>
+    <div class="phase-header">
+      <h3>Project 2 — Tableau</h3>
+      <span class="phase-period">TM9 – TM15 &nbsp;·&nbsp; 7 Pertemuan</span>
+    </div>
+    <div class="phase-topics">
+      <div class="topic-item">
+        <span class="ti-icon">🎨</span>
+        <span class="ti-text">Visualisasi & Storytelling</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">📱</span>
+        <span class="ti-text">Dashboard Interaktif</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">🏢</span>
+        <span class="ti-text">Boardroom Simulation</span>
+      </div>
+    </div>
+    <div class="milestone-tag">
+      <span class="mt-badge">🎯 Output</span>
+      <span class="mt-desc">Dashboard + rekomendasi</span>
+    </div>
+  </div>
+
+  <!-- PHASE 4: UAS -->
+  <div class="card phase-card phase-uas" style="--d:0.24s">
+    <div class="phase-badge">🟪 Fase 4</div>
+    <div class="phase-icon">🏆</div>
+    <div class="phase-header">
+      <h3>Final Showcase</h3>
+      <span class="phase-period">TM16 &nbsp;·&nbsp; UAS</span>
+    </div>
+    <div class="phase-topics">
+      <div class="topic-item">
+        <span class="ti-icon">🎤</span>
+        <span class="ti-text">Presentasi Final</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">💡</span>
+        <span class="ti-text">Rekomendasi Manajerial</span>
+      </div>
+      <div class="topic-item">
+        <span class="ti-icon">📈</span>
+        <span class="ti-text">Portofolio Dashboard</span>
+      </div>
+    </div>
+    <div class="milestone-tag">
+      <span class="mt-badge">🏁 UAS = Final Showcase</span>
+      <span class="mt-desc"></span>
+    </div>
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom-section">
+
+    <!-- POLL -->
+    <div class="card poll-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-rose)"></span> Pertanyaan Pemantik</div>
+
+      <div class="poll-q">
+        🤔 Dari 4 fase ini, mana yang paling bikin <strong>penasaran</strong>?
+      </div>
+
+      <div class="poll-options">
+        <button class="poll-opt" onclick="pick(this,0)">
+          <span class="o-bar" style="background:rgba(234,88,12,0.07)"></span>
+          <span class="o-icon">⛏️</span>
+          <span class="o-text">Cari pola tersembunyi (Data Mining)</span>
+          <span class="o-pct">42%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,1)">
+          <span class="o-bar" style="background:rgba(5,150,105,0.07)"></span>
+          <span class="o-icon">📊</span>
+          <span class="o-text">Bikin dashboard interaktif (Tableau)</span>
+          <span class="o-pct">38%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,2)">
+          <span class="o-bar" style="background:rgba(124,58,237,0.07)"></span>
+          <span class="o-icon">🎤</span>
+          <span class="o-text">Presentasi boardroom simulation</span>
+          <span class="o-pct">12%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,3)">
+          <span class="o-bar" style="background:rgba(59,130,246,0.07)"></span>
+          <span class="o-icon">🧱</span>
+          <span class="o-text">Fondasi — cara berpikir dengan data</span>
+          <span class="o-pct">8%</span>
+        </button>
+      </div>
+
+      <div class="poll-result" id="pollResult">
+        <div class="pr-title">✅ Kabar baiknya?</div>
+        <div class="pr-text">Kalian akan <strong>melewati semuanya</strong> dalam 1 semester ini. Setiap fase saling terhubung — dari memahami data, menemukan pola, memvisualisasikan insight, hingga <strong>mempresentasikan rekomendasi ke pengambil keputusan</strong>. Itulah alur kerja seorang akuntan berbasis data.</div>
+      </div>
+    </div>
+
+    <!-- OVERVIEW STATS -->
+    <div class="card overview-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-amber)"></span> Semester dalam Angka</div>
+
+      <div class="overview-grid">
+        <div class="ov-item">
+          <div class="ov-value" style="color:var(--accent-cyan)">16</div>
+          <div class="ov-label">Pertemuan</div>
+          <div class="ov-sub">TM1 – TM16</div>
+        </div>
+        <div class="ov-item">
+          <div class="ov-value" style="color:var(--accent-orange)">2</div>
+          <div class="ov-label">Project Besar</div>
+          <div class="ov-sub">Mining + Dashboard</div>
+        </div>
+        <div class="ov-item">
+          <div class="ov-value" style="color:var(--accent-emerald)">2</div>
+          <div class="ov-label">Tools Utama</div>
+          <div class="ov-sub">Orange & Tableau</div>
+        </div>
+        <div class="ov-item">
+          <div class="ov-value" style="color:var(--accent-violet)">1</div>
+          <div class="ov-label">Final Showcase</div>
+          <div class="ov-sub">Boardroom Simulation</div>
+        </div>
+      </div>
+
+      <div class="ov-takeaway">
+        <p>🚀 <strong>Setiap pertemuan punya tujuan.</strong> Dari fondasi berpikir, hingga presentasi di depan "board of directors" — kalian akan punya portofolio nyata di akhir semester.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Big Data Analytics — Akuntansi &nbsp;|&nbsp; Tatap Muka 1 · Screen 3 &nbsp;|&nbsp; © 2025 Dr. Donny Maha Putra, S.Kom., M.Ak
+  </div>
+
+</div>
+
+<script>
+  const pcts = [42, 38, 12, 8];
+
+  function pick(btn, idx) {
+    const opts = document.querySelectorAll('.poll-opt');
+    opts.forEach((o, i) => {
+      o.classList.add('revealed');
+      o.style.setProperty('--bw', pcts[i] + '%');
+      if (i === idx) o.classList.add('selected');
+      else o.classList.remove('selected');
+    });
+    setTimeout(() => {
+      document.getElementById('pollResult').classList.add('show');
+    }, 600);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics — TM1 Screen 5: Apa Itu Big Data Analytics?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-primary:#f8f9fc;--bg-card:#ffffff;
+    --accent-cyan:#0284c7;--accent-emerald:#059669;--accent-amber:#d97706;
+    --accent-violet:#7c3aed;--accent-rose:#e11d48;--accent-orange:#ea580c;
+    --accent-indigo:#4f46e5;--accent-blue:#3b82f6;--accent-teal:#0d9488;
+    --text-primary:#1e293b;--text-secondary:#475569;--text-muted:#94a3b8;
+    --border-subtle:rgba(148,163,184,0.22);
+    --shadow-sm:0 1px 3px rgba(15,23,42,0.04),0 1px 2px rgba(15,23,42,0.03);
+    --shadow-md:0 4px 12px rgba(15,23,42,0.06),0 2px 4px rgba(15,23,42,0.04);
+    --shadow-lg:0 8px 24px rgba(15,23,42,0.07),0 2px 8px rgba(15,23,42,0.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+  body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(148,163,184,0.08) 1px,transparent 1px);background-size:28px 28px;z-index:0;pointer-events:none}
+
+  .dashboard{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:16px;padding:24px 28px;max-width:1440px;margin:0 auto;min-height:100vh}
+
+  @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes scaleIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+
+  /* ===== HEADER ===== */
+  .header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-md);animation:slideDown 0.6s ease-out}
+  .header-left{display:flex;align-items:center;gap:18px}
+  .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-violet));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(2,132,199,0.2)}
+  .header-title h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--text-primary)}
+  .header-title .subtitle{font-size:12.5px;color:var(--text-secondary);margin-top:2px;font-weight:500}
+  .header-right{display:flex;align-items:center;gap:14px}
+  .badge{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+  .badge-tm{background:rgba(2,132,199,0.08);color:var(--accent-cyan);border:1px solid rgba(2,132,199,0.2)}
+  .badge-screen{background:rgba(124,58,237,0.08);color:var(--accent-violet);border:1px solid rgba(124,58,237,0.2)}
+  .dosen-info{display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;background:var(--bg-primary);border-radius:28px;border:1px solid var(--border-subtle)}
+  .dosen-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+  .dosen-name{font-size:12.5px;font-weight:700;color:var(--text-primary)}
+  .dosen-title-text{font-size:10.5px;color:var(--text-muted)}
+
+  /* ===== CARD ===== */
+  .card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);transition:all 0.3s ease;overflow:hidden}
+  .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+  .card-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+  .card-label .dot{width:7px;height:7px;border-radius:50%}
+
+  /* ===== DEFINITION HERO ===== */
+  .def-hero{grid-column:1/-1;animation:fadeUp 0.7s ease-out 0.1s both;padding:30px 36px;display:flex;align-items:center;gap:36px;background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 50%,#ecfdf5 100%);border:1px solid rgba(2,132,199,0.1)}
+  .def-hero:hover{transform:none}
+
+  .def-left{flex:1}
+  .def-left .def-eyebrow{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .def-left h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--text-primary);line-height:1.35;margin-bottom:14px}
+  .def-left h2 span{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+  .def-box{padding:18px 22px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm)}
+  .def-box p{font-size:15px;color:var(--text-secondary);line-height:1.75;font-weight:500}
+  .def-box p strong{color:var(--text-primary);font-weight:700}
+
+  .def-right{flex-shrink:0;display:flex;flex-direction:column;gap:10px;align-items:center}
+
+  .def-flow{display:flex;flex-direction:column;align-items:center;gap:0}
+  .def-flow-node{width:120px;padding:12px;text-align:center;border-radius:12px;font-size:12px;font-weight:700;border:1.5px solid;transition:transform 0.3s ease}
+  .def-flow-node:hover{transform:scale(1.05)}
+  .def-flow-arrow{font-size:16px;color:var(--text-muted);margin:2px 0;opacity:0.4}
+
+  .dfn-data{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+  .dfn-process{background:#f5f3ff;border-color:#ddd6fe;color:#6d28d9}
+  .dfn-insight{background:#ecfdf5;border-color:#a7f3d0;color:#047857}
+  .dfn-decision{background:#fffbeb;border-color:#fde68a;color:#b45309}
+
+  /* ===== 5V CARDS ===== */
+  .v-card{animation:scaleIn 0.5s ease-out calc(0.2s + var(--vd,0s)) both;display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 18px;border-top:4px solid var(--vc,#94a3b8);position:relative}
+
+  .v-card:hover .v-icon{animation:float 2s ease-in-out infinite}
+
+  .v-icon{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:14px;transition:all 0.3s ease}
+
+  .v-letter{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1;margin-bottom:2px}
+  .v-name{font-size:14px;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+  .v-desc{font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:14px;flex:1}
+
+  .v-example{width:100%;padding:10px 12px;background:var(--bg-primary);border-radius:10px;border:1px solid var(--border-subtle);font-size:11px;color:var(--text-muted);font-weight:500;display:flex;align-items:center;gap:8px;text-align:left;margin-top:auto}
+  .v-example .ve-icon{font-size:14px;flex-shrink:0}
+
+  /* V1: Volume */
+  .v-volume{--vc:#3b82f6}
+  .v-volume .v-icon{background:#eff6ff;border:1.5px solid #bfdbfe}
+  .v-volume .v-letter{color:#3b82f6}
+
+  /* V2: Variety */
+  .v-variety{--vc:#8b5cf6}
+  .v-variety .v-icon{background:#f5f3ff;border:1.5px solid #ddd6fe}
+  .v-variety .v-letter{color:#8b5cf6}
+
+  /* V3: Velocity */
+  .v-velocity{--vc:#ea580c}
+  .v-velocity .v-icon{background:#fff7ed;border:1.5px solid #fed7aa}
+  .v-velocity .v-letter{color:#ea580c}
+
+  /* V4: Veracity */
+  .v-veracity{--vc:#e11d48}
+  .v-veracity .v-icon{background:#fff1f2;border:1.5px solid #fecdd3}
+  .v-veracity .v-letter{color:#e11d48}
+
+  /* V5: Value */
+  .v-value{--vc:#059669}
+  .v-value .v-icon{background:#ecfdf5;border:1.5px solid #a7f3d0}
+  .v-value .v-letter{color:#059669}
+
+  /* ===== CONNECTOR BAR ===== */
+  .connector{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:0;padding:0;animation:fadeUp 0.5s ease-out 0.5s both;background:transparent;border:none;box-shadow:none}
+  .connector:hover{transform:none;box-shadow:none}
+  .conn-segment{height:4px;flex:1;border-radius:2px;opacity:0.5}
+  .conn-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;border:2px solid var(--bg-card)}
+  .cs1{background:#3b82f6}.cd1{background:#3b82f6}
+  .cs2{background:#8b5cf6}.cd2{background:#8b5cf6}
+  .cs3{background:#ea580c}.cd3{background:#ea580c}
+  .cs4{background:#e11d48}.cd4{background:#e11d48}
+  .cs5{background:#059669}.cd5{background:#059669}
+
+  /* ===== BOTTOM ROW ===== */
+  .bottom-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px;animation:fadeUp 0.7s ease-out 0.6s both}
+
+  /* ===== POLL ===== */
+  .poll-card{display:flex;flex-direction:column}
+  .poll-q{font-size:14.5px;font-weight:600;color:var(--text-primary);line-height:1.55;margin-bottom:18px;padding:14px 18px;background:linear-gradient(135deg,#fff1f2,#fff7ed);border-radius:12px;border-left:4px solid var(--accent-rose)}
+  .poll-options{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+
+  .poll-opt{width:100%;padding:13px 16px;background:var(--bg-primary);border:1.5px solid var(--border-subtle);border-radius:12px;color:var(--text-secondary);font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.3s ease;text-align:left;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden}
+  .poll-opt:hover{border-color:rgba(225,29,72,0.3);color:var(--text-primary)}
+  .poll-opt.selected{border-color:var(--accent-rose);color:var(--accent-rose);font-weight:700;background:rgba(225,29,72,0.02)}
+
+  .poll-opt .o-bar{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:12px;transition:width 0.6s ease}
+  .poll-opt.revealed .o-bar{width:var(--bw,0%)}
+
+  .poll-opt .o-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-subtle);position:relative;z-index:1;transition:all 0.3s ease}
+  .poll-opt.selected .o-icon{background:rgba(225,29,72,0.06);border-color:rgba(225,29,72,0.25)}
+
+  .poll-opt .o-text{flex:1;position:relative;z-index:1}
+  .poll-opt .o-pct{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;opacity:0;transition:opacity 0.4s ease;color:var(--accent-rose);position:relative;z-index:1}
+  .poll-opt.revealed .o-pct{opacity:1}
+
+  .poll-reveal{padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,#ecfdf5,#eff6ff);border:1px solid rgba(5,150,105,0.12);display:none;animation:fadeIn 0.5s ease}
+  .poll-reveal.show{display:block}
+  .poll-reveal .pr-title{font-size:13.5px;font-weight:700;color:var(--accent-emerald);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .poll-reveal .pr-text{font-size:12.5px;color:var(--text-secondary);line-height:1.65}
+  .poll-reveal .pr-text strong{color:var(--text-primary)}
+
+  /* ===== REAL WORLD ===== */
+  .realworld-card{display:flex;flex-direction:column}
+  .rw-list{display:flex;flex-direction:column;gap:10px;flex:1}
+
+  .rw-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bg-primary);border-radius:12px;border:1px solid var(--border-subtle);transition:all 0.3s ease}
+  .rw-item:hover{box-shadow:var(--shadow-sm);transform:translateX(3px)}
+
+  .rw-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .rw-icon-1{background:#eff6ff}
+  .rw-icon-2{background:#f5f3ff}
+  .rw-icon-3{background:#fff7ed}
+  .rw-icon-4{background:#ecfdf5}
+
+  .rw-content strong{display:block;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:2px}
+  .rw-content span{font-size:11.5px;color:var(--text-secondary);line-height:1.5}
+
+  .rw-tag{display:inline-flex;padding:3px 8px;border-radius:5px;font-size:9.5px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;margin-top:4px}
+
+  .rw-takeaway{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle)}
+  .rw-takeaway p{font-size:12.5px;color:var(--text-secondary);line-height:1.6;padding:12px 16px;background:linear-gradient(135deg,#f5f3ff,#eff6ff);border-radius:10px;border-left:4px solid var(--accent-violet)}
+  .rw-takeaway p strong{color:var(--text-primary)}
+
+  /* ===== FOOTER ===== */
+  .footer{grid-column:1/-1;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);animation:fadeUp 0.7s ease-out 0.75s both}
+
+  @media(max-width:1200px){
+    .dashboard{grid-template-columns:1fr 1fr 1fr;padding:16px}
+    .def-hero,.connector,.bottom-row,.header,.footer{grid-column:1/-1}
+    .v-card:nth-child(n+9){grid-column:auto}
+  }
+  @media(max-width:900px){
+    .dashboard{grid-template-columns:1fr 1fr;gap:12px}
+    .v-card{grid-column:auto}
+    .bottom-row{grid-template-columns:1fr}
+    .def-hero{flex-direction:column;gap:20px}
+  }
+  @media(max-width:640px){
+    .dashboard{grid-template-columns:1fr;gap:12px;padding:12px}
+    .header{flex-direction:column;gap:12px;text-align:center}
+    .header-right{flex-wrap:wrap;justify-content:center}
+    .def-hero{padding:20px}
+    .def-left h2{font-size:20px}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-icon">📊</div>
+      <div class="header-title">
+        <h1>Big Data Analytics untuk Akuntansi</h1>
+        <div class="subtitle">Apa Itu Big Data Analytics? — Versi Sederhana</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-tm">TM 1</span>
+      <span class="badge badge-screen">Screen 5</span>
+      <div class="dosen-info">
+        <div class="dosen-avatar">DP</div>
+        <div>
+          <div class="dosen-name">Dr. Donny Maha Putra</div>
+          <div class="dosen-title-text">S.Kom., M.Ak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEFINITION HERO -->
+  <div class="card def-hero">
+    <div class="def-left">
+      <div class="def-eyebrow">📘 Definisi Sederhana</div>
+      <h2>Apa Itu <span>Big Data Analytics</span>?</h2>
+      <div class="def-box">
+        <p><strong>Big Data Analytics</strong> adalah proses mengolah data dalam jumlah <strong>besar</strong>, format yang <strong>beragam</strong>, dan bergerak <strong>cepat</strong> — untuk menemukan <strong>pola</strong>, menggali <strong>insight</strong>, dan mendukung <strong>pengambilan keputusan</strong> yang lebih cerdas.</p>
+      </div>
+    </div>
+    <div class="def-right">
+      <div class="def-flow">
+        <div class="def-flow-node dfn-data">📁 Data Besar & Beragam</div>
+        <div class="def-flow-arrow">↓</div>
+        <div class="def-flow-node dfn-process">⚙️ Proses & Analisis</div>
+        <div class="def-flow-arrow">↓</div>
+        <div class="def-flow-node dfn-insight">💡 Pola & Insight</div>
+        <div class="def-flow-arrow">↓</div>
+        <div class="def-flow-node dfn-decision">🎯 Keputusan Cerdas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5V CARDS -->
+  <div class="card v-card v-volume" style="--vd:0s">
+    <div class="v-icon">📦</div>
+    <div class="v-letter">V₁</div>
+    <div class="v-name">Volume</div>
+    <div class="v-desc">Jumlah data yang sangat besar — jutaan baris transaksi, terabyte log, data historis bertahun-tahun.</div>
+    <div class="v-example">
+      <span class="ve-icon">🏦</span>
+      Bank memproses 500 juta+ transaksi per hari
+    </div>
+  </div>
+
+  <div class="card v-card v-variety" style="--vd:0.06s">
+    <div class="v-icon">🎨</div>
+    <div class="v-letter">V₂</div>
+    <div class="v-name">Variety</div>
+    <div class="v-desc">Format data beragam — angka, teks, gambar, video, sensor IoT, media sosial, spreadsheet.</div>
+    <div class="v-example">
+      <span class="ve-icon">📋</span>
+      Audit: faktur PDF + database + email
+    </div>
+  </div>
+
+  <div class="card v-card v-velocity" style="--vd:0.12s">
+    <div class="v-icon">⚡</div>
+    <div class="v-letter">V₃</div>
+    <div class="v-name">Velocity</div>
+    <div class="v-desc">Kecepatan data masuk dan berubah — real-time streaming, update per detik, live monitoring.</div>
+    <div class="v-example">
+      <span class="ve-icon">📈</span>
+      Harga saham update tiap milidetik
+    </div>
+  </div>
+
+  <div class="card v-card v-veracity" style="--vd:0.18s">
+    <div class="v-icon">🛡️</div>
+    <div class="v-letter">V₄</div>
+    <div class="v-name">Veracity</div>
+    <div class="v-desc">Akurasi dan keandalan data — data kotor, duplikat, tidak konsisten, atau bias perlu divalidasi.</div>
+    <div class="v-example">
+      <span class="ve-icon">⚠️</span>
+      30% data perusahaan dinilai "tidak bersih"
+    </div>
+  </div>
+
+  <div class="card v-card v-value" style="--vd:0.24s">
+    <div class="v-icon">💎</div>
+    <div class="v-letter">V₅</div>
+    <div class="v-name">Value</div>
+    <div class="v-desc">Nilai dan manfaat akhir — data baru bermakna kalau bisa menghasilkan insight untuk keputusan.</div>
+    <div class="v-example">
+      <span class="ve-icon">🎯</span>
+      Dashboard KPI → keputusan strategis
+    </div>
+  </div>
+
+  <!-- CONNECTOR -->
+  <div class="card connector" style="padding:6px 28px">
+    <div class="conn-dot cd1"></div><div class="conn-segment cs1"></div>
+    <div class="conn-dot cd2"></div><div class="conn-segment cs2"></div>
+    <div class="conn-dot cd3"></div><div class="conn-segment cs3"></div>
+    <div class="conn-dot cd4"></div><div class="conn-segment cs4"></div>
+    <div class="conn-dot cd5"></div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- POLL -->
+    <div class="card poll-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-rose)"></span> Mini Polling</div>
+
+      <div class="poll-q">
+        🤔 Menurut kalian, mana yang <strong>paling sering jadi masalah</strong> saat bekerja dengan data?
+      </div>
+
+      <div class="poll-options">
+        <button class="poll-opt" onclick="pick(this,0)">
+          <span class="o-bar" style="background:rgba(59,130,246,0.06)"></span>
+          <span class="o-icon">📦</span>
+          <span class="o-text">Data terlalu banyak (Volume)</span>
+          <span class="o-pct">18%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,1)">
+          <span class="o-bar" style="background:rgba(139,92,246,0.06)"></span>
+          <span class="o-icon">🎨</span>
+          <span class="o-text">Data berantakan (Variety)</span>
+          <span class="o-pct">28%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,2)">
+          <span class="o-bar" style="background:rgba(225,29,72,0.06)"></span>
+          <span class="o-icon">🛡️</span>
+          <span class="o-text">Data tidak valid (Veracity)</span>
+          <span class="o-pct">22%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,3)">
+          <span class="o-bar" style="background:rgba(217,119,6,0.06)"></span>
+          <span class="o-icon">🤷</span>
+          <span class="o-text">Tidak tahu mau diapakan (Value)</span>
+          <span class="o-pct">32%</span>
+        </button>
+      </div>
+
+      <div class="poll-reveal" id="pollReveal">
+        <div class="pr-title">✅ Semua jawaban valid!</div>
+        <div class="pr-text">Dalam dunia nyata, keempat masalah ini <strong>sering terjadi bersamaan</strong>. Itulah mengapa Big Data Analytics bukan hanya soal tools — tapi soal <strong>memahami karakteristik data</strong> (5V) terlebih dahulu sebelum mengolahnya. Di kelas ini, kalian akan belajar mengenali dan mengatasi setiap tantangan ini.</div>
+      </div>
+    </div>
+
+    <!-- REAL WORLD EXAMPLES -->
+    <div class="card realworld-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-amber)"></span> Contoh Dunia Nyata</div>
+
+      <div class="rw-list">
+        <div class="rw-item">
+          <div class="rw-icon rw-icon-1">🏦</div>
+          <div class="rw-content">
+            <strong>Perbankan</strong>
+            <span>Deteksi fraud real-time dari jutaan transaksi harian — kombinasi Volume + Velocity + Veracity.</span>
+            <div><span class="rw-tag" style="background:#eff6ff;color:#1d4ed8">V₁ V₃ V₄</span></div>
+          </div>
+        </div>
+        <div class="rw-item">
+          <div class="rw-icon rw-icon-2">🏥</div>
+          <div class="rw-content">
+            <strong>Rumah Sakit</strong>
+            <span>Rekam medis teks + lab + imaging — data beragam yang harus akurat untuk diagnosis.</span>
+            <div><span class="rw-tag" style="background:#f5f3ff;color:#6d28d9">V₂ V₄ V₅</span></div>
+          </div>
+        </div>
+        <div class="rw-item">
+          <div class="rw-icon rw-icon-3">🏛️</div>
+          <div class="rw-content">
+            <strong>Pemerintah Daerah</strong>
+            <span>Dashboard penyerapan anggaran real-time — mengubah data mentah jadi insight bagi pimpinan.</span>
+            <div><span class="rw-tag" style="background:#fff7ed;color:#c2410c">V₁ V₃ V₅</span></div>
+          </div>
+        </div>
+        <div class="rw-item">
+          <div class="rw-icon rw-icon-4">🛒</div>
+          <div class="rw-content">
+            <strong>E-Commerce</strong>
+            <span>Analisis perilaku belanja jutaan user untuk rekomendasi produk dan prediksi stok.</span>
+            <div><span class="rw-tag" style="background:#ecfdf5;color:#047857">V₁ V₂ V₃ V₅</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rw-takeaway">
+        <p>🔑 <strong>5V bukan teori abstrak</strong> — ini framework untuk memahami tantangan data di setiap industri. Setiap konteks punya kombinasi V yang berbeda, dan akuntan perlu mengenali ini.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Big Data Analytics — Akuntansi &nbsp;|&nbsp; Tatap Muka 1 · Screen 5 &nbsp;|&nbsp; © 2025 Dr. Donny Maha Putra, S.Kom., M.Ak
+  </div>
+
+</div>
+
+<script>
+  const pcts=[18,28,22,32];
+  function pick(btn,idx){
+    const opts=document.querySelectorAll('.poll-opt');
+    opts.forEach((o,i)=>{
+      o.classList.add('revealed');
+      o.style.setProperty('--bw',pcts[i]+'%');
+      if(i===idx)o.classList.add('selected');else o.classList.remove('selected');
+    });
+    setTimeout(()=>{document.getElementById('pollReveal').classList.add('show')},600);
+  }
+</script>
+</body>
+</html>

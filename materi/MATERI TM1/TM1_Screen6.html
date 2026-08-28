@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics — TM1 Screen 6: Cara Berpikir Analitik</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-primary:#f8f9fc;--bg-card:#fff;
+    --accent-cyan:#0284c7;--accent-emerald:#059669;--accent-amber:#d97706;
+    --accent-violet:#7c3aed;--accent-rose:#e11d48;--accent-orange:#ea580c;
+    --accent-indigo:#4f46e5;--accent-blue:#3b82f6;--accent-teal:#0d9488;
+    --text-primary:#1e293b;--text-secondary:#475569;--text-muted:#94a3b8;
+    --border-subtle:rgba(148,163,184,0.22);
+    --shadow-sm:0 1px 3px rgba(15,23,42,0.04),0 1px 2px rgba(15,23,42,0.03);
+    --shadow-md:0 4px 12px rgba(15,23,42,0.06),0 2px 4px rgba(15,23,42,0.04);
+    --shadow-lg:0 8px 24px rgba(15,23,42,0.07),0 2px 8px rgba(15,23,42,0.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+  body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(148,163,184,0.08) 1px,transparent 1px);background-size:28px 28px;z-index:0;pointer-events:none}
+
+  .dashboard{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px 28px;max-width:1440px;margin:0 auto;min-height:100vh}
+
+  @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(2,132,199,0.15)}50%{box-shadow:0 0 0 8px rgba(2,132,199,0)}}
+
+  .header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-md);animation:slideDown 0.6s ease-out}
+  .header-left{display:flex;align-items:center;gap:18px}
+  .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-violet));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(2,132,199,0.2)}
+  .header-title h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--text-primary)}
+  .header-title .subtitle{font-size:12.5px;color:var(--text-secondary);margin-top:2px;font-weight:500}
+  .header-right{display:flex;align-items:center;gap:14px}
+  .badge{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+  .badge-tm{background:rgba(2,132,199,0.08);color:var(--accent-cyan);border:1px solid rgba(2,132,199,0.2)}
+  .badge-screen{background:rgba(124,58,237,0.08);color:var(--accent-violet);border:1px solid rgba(124,58,237,0.2)}
+  .dosen-info{display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;background:var(--bg-primary);border-radius:28px;border:1px solid var(--border-subtle)}
+  .dosen-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+  .dosen-name{font-size:12.5px;font-weight:700;color:var(--text-primary)}
+  .dosen-title-text{font-size:10.5px;color:var(--text-muted)}
+
+  .card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);transition:all 0.3s ease;overflow:hidden}
+  .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+  .card-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+  .card-label .dot{width:7px;height:7px;border-radius:50%}
+
+  /* ===== HERO ===== */
+  .hero{grid-column:1/-1;animation:fadeUp 0.7s ease-out 0.1s both;display:flex;align-items:center;gap:32px;padding:28px 32px;background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 50%,#ecfdf5 100%);border:1px solid rgba(2,132,199,0.1)}
+  .hero:hover{transform:none}
+  .hero-left{flex:1}
+  .hero-left .eyebrow{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-indigo);margin-bottom:8px}
+  .hero-left h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--text-primary);line-height:1.3;margin-bottom:12px}
+  .hero-left h2 span{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-left p{font-size:14px;color:var(--text-secondary);line-height:1.7;max-width:540px}
+  .hero-left p strong{color:var(--text-primary)}
+
+  .hero-right{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .hero-badge{padding:10px 22px;border-radius:12px;font-family:'Playfair Display',serif;font-size:36px;font-weight:900;background:var(--bg-card);border:1.5px solid var(--border-subtle);box-shadow:var(--shadow-sm);color:var(--accent-indigo);text-align:center;line-height:1}
+  .hero-badge-sub{font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;font-family:'DM Sans',sans-serif}
+
+  /* ===== FRAMEWORK — 5 STEPS ===== */
+  .framework-area{grid-column:1/-1;animation:fadeUp 0.7s ease-out 0.2s both;padding:28px}
+  .framework-area:hover{transform:none}
+
+  .fw-steps{display:flex;align-items:flex-start;gap:0;position:relative}
+
+  .fw-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 10px}
+
+  .fw-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#fff;margin-bottom:12px;position:relative;z-index:2;transition:transform 0.3s ease;cursor:default}
+  .fw-step:hover .fw-num{transform:scale(1.12)}
+
+  .fw-icon-box{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:12px;border:1.5px solid;transition:transform 0.3s ease}
+  .fw-step:hover .fw-icon-box{transform:scale(1.06)}
+
+  .fw-title{font-size:13.5px;font-weight:700;color:var(--text-primary);margin-bottom:4px;line-height:1.3}
+  .fw-desc{font-size:11.5px;color:var(--text-secondary);line-height:1.5;margin-bottom:10px}
+  .fw-tool{display:inline-flex;padding:4px 10px;border-radius:7px;font-size:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase}
+
+  /* Connector line */
+  .fw-connector{position:absolute;top:22px;left:0;right:0;height:2px;z-index:1}
+  .fw-conn-line{height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ea580c,#059669,#d97706);border-radius:1px;opacity:0.2}
+
+  /* Step arrows between */
+  .fw-arrow{display:flex;align-items:center;justify-content:center;padding-top:8px;color:var(--text-muted);font-size:18px;opacity:0.3;flex-shrink:0;width:24px;align-self:flex-start;margin-top:10px}
+
+  /* Step colors */
+  .fw-s1 .fw-num{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+  .fw-s1 .fw-icon-box{background:#eff6ff;border-color:#bfdbfe}
+  .fw-s1 .fw-tool{background:#eff6ff;color:#1d4ed8}
+
+  .fw-s2 .fw-num{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
+  .fw-s2 .fw-icon-box{background:#f5f3ff;border-color:#ddd6fe}
+  .fw-s2 .fw-tool{background:#f5f3ff;color:#6d28d9}
+
+  .fw-s3 .fw-num{background:linear-gradient(135deg,#ea580c,#dc2626)}
+  .fw-s3 .fw-icon-box{background:#fff7ed;border-color:#fed7aa}
+  .fw-s3 .fw-tool{background:#fff7ed;color:#c2410c}
+
+  .fw-s4 .fw-num{background:linear-gradient(135deg,#059669,#047857)}
+  .fw-s4 .fw-icon-box{background:#ecfdf5;border-color:#a7f3d0}
+  .fw-s4 .fw-tool{background:#ecfdf5;color:#047857}
+
+  .fw-s5 .fw-num{background:linear-gradient(135deg,#d97706,#b45309)}
+  .fw-s5 .fw-icon-box{background:#fffbeb;border-color:#fde68a}
+  .fw-s5 .fw-tool{background:#fffbeb;color:#b45309}
+
+  /* ===== CASE STUDY ===== */
+  .case-card{animation:fadeUp 0.7s ease-out 0.4s both;display:flex;flex-direction:column}
+
+  .case-scenario{padding:18px 20px;background:linear-gradient(135deg,#fff7ed,#fff1f2);border-radius:14px;border-left:4px solid var(--accent-orange);margin-bottom:18px}
+  .case-scenario .cs-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent-orange);margin-bottom:6px}
+  .case-scenario p{font-size:14px;color:var(--text-primary);line-height:1.65;font-weight:500}
+  .case-scenario p strong{font-weight:700}
+
+  .case-question{font-size:14.5px;font-weight:600;color:var(--text-primary);line-height:1.55;margin-bottom:16px;padding:14px 18px;background:var(--bg-primary);border-radius:12px;border:1px solid var(--border-subtle)}
+
+  .case-options{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+
+  .case-opt{width:100%;padding:14px 18px;background:var(--bg-primary);border:1.5px solid var(--border-subtle);border-radius:12px;color:var(--text-secondary);font-size:13.5px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.35s ease;text-align:left;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden}
+  .case-opt:hover{border-color:rgba(234,88,12,0.3);color:var(--text-primary)}
+
+  .case-opt .co-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;border:1px solid var(--border-subtle);background:var(--bg-card);position:relative;z-index:1;transition:all 0.3s ease}
+
+  .case-opt .co-text{flex:1;position:relative;z-index:1}
+  .case-opt .co-text strong{display:block;font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:1px}
+  .case-opt .co-text span{font-size:11px;color:var(--text-muted)}
+
+  .case-opt .co-tag{position:relative;z-index:1;padding:4px 10px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;opacity:0;transition:opacity 0.3s ease;flex-shrink:0}
+
+  .case-opt.correct{border-color:#059669;background:rgba(5,150,105,0.03)}
+  .case-opt.correct .co-icon{background:rgba(5,150,105,0.08);border-color:rgba(5,150,105,0.25)}
+  .case-opt.correct .co-tag{opacity:1;background:#ecfdf5;color:#047857}
+
+  .case-opt.wrong{border-color:var(--accent-rose);background:rgba(225,29,72,0.02);opacity:0.6}
+  .case-opt.wrong .co-icon{background:rgba(225,29,72,0.06);border-color:rgba(225,29,72,0.2)}
+  .case-opt.wrong .co-tag{opacity:1;background:#fff1f2;color:#e11d48}
+
+  .case-reveal{padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,#ecfdf5,#eff6ff);border:1px solid rgba(5,150,105,0.15);display:none;animation:fadeIn 0.5s ease}
+  .case-reveal.show{display:block}
+  .case-reveal .cr-title{font-size:14px;font-weight:700;color:var(--accent-emerald);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .case-reveal .cr-text{font-size:13px;color:var(--text-secondary);line-height:1.7}
+  .case-reveal .cr-text strong{color:var(--text-primary)}
+
+  .cr-steps{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+  .cr-step{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg-card);border-radius:8px;border:1px solid var(--border-subtle);font-size:12px;color:var(--text-secondary)}
+  .cr-step .crs-num{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0}
+  .cr-step .crs-text{flex:1}
+  .cr-step .crs-text strong{color:var(--text-primary);font-weight:600}
+
+  /* ===== MINDSET CARD ===== */
+  .mindset-card{animation:fadeUp 0.7s ease-out 0.45s both;display:flex;flex-direction:column}
+
+  .mindset-compare{display:flex;gap:14px;margin-bottom:18px}
+
+  .mc-col{flex:1;padding:18px;border-radius:14px;border:1.5px solid;position:relative}
+  .mc-col .mc-badge{position:absolute;top:-10px;left:16px;padding:3px 10px;border-radius:6px;font-size:9.5px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+
+  .mc-wrong{background:#fff8f8;border-color:#fecaca}
+  .mc-wrong .mc-badge{background:#fef2f2;color:#b91c1c}
+  .mc-right{background:#f0fdf9;border-color:#a7f3d0}
+  .mc-right .mc-badge{background:#ecfdf5;color:#047857}
+
+  .mc-col h4{font-size:13px;font-weight:700;margin-bottom:8px;margin-top:8px;display:flex;align-items:center;gap:6px}
+  .mc-wrong h4{color:#b91c1c}
+  .mc-right h4{color:#047857}
+
+  .mc-flow{display:flex;flex-direction:column;gap:4px}
+  .mc-flow-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary);padding:6px 10px;border-radius:8px}
+  .mc-wrong .mc-flow-item{background:rgba(254,202,202,0.3)}
+  .mc-right .mc-flow-item{background:rgba(167,243,208,0.3)}
+  .mc-flow-arrow{font-size:10px;color:var(--text-muted);text-align:center;opacity:0.5}
+
+  /* Key principles */
+  .principles{display:flex;flex-direction:column;gap:8px;flex:1}
+  .principle-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:var(--bg-primary);border-radius:11px;border:1px solid var(--border-subtle);transition:all 0.25s ease}
+  .principle-item:hover{box-shadow:var(--shadow-sm);transform:translateX(3px)}
+  .pi-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .pi-text strong{display:block;font-size:12.5px;font-weight:700;color:var(--text-primary);margin-bottom:1px}
+  .pi-text span{font-size:11px;color:var(--text-secondary);line-height:1.45}
+
+  .mindset-takeaway{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle)}
+  .mindset-takeaway p{font-size:12.5px;color:var(--text-secondary);line-height:1.6;padding:12px 16px;background:linear-gradient(135deg,#eff6ff,#f5f3ff);border-radius:10px;border-left:4px solid var(--accent-indigo)}
+  .mindset-takeaway p strong{color:var(--text-primary)}
+
+  .footer{grid-column:1/-1;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);animation:fadeUp 0.7s ease-out 0.7s both}
+
+  @media(max-width:1100px){
+    .fw-steps{flex-wrap:wrap;justify-content:center;gap:8px}
+    .fw-arrow{display:none}
+    .fw-step{max-width:180px}
+    .fw-connector{display:none}
+  }
+  @media(max-width:900px){
+    .dashboard{grid-template-columns:1fr;padding:16px}
+    .hero{flex-direction:column;gap:20px}
+    .mindset-compare{flex-direction:column}
+  }
+  @media(max-width:640px){
+    .dashboard{gap:12px;padding:12px}
+    .header{flex-direction:column;gap:12px;text-align:center}
+    .header-right{flex-wrap:wrap;justify-content:center}
+    .hero-left h2{font-size:20px}
+    .fw-steps{flex-direction:column;align-items:center}
+    .fw-step{max-width:100%;width:100%;flex-direction:row;text-align:left;gap:14px;padding:12px 16px;background:var(--bg-primary);border-radius:12px;border:1px solid var(--border-subtle)}
+    .fw-step .fw-icon-box{width:48px;height:48px;font-size:22px;border-radius:12px;margin-bottom:0}
+    .fw-step .fw-num{width:28px;height:28px;font-size:13px;margin-bottom:0}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-icon">📊</div>
+      <div class="header-title">
+        <h1>Big Data Analytics untuk Akuntansi</h1>
+        <div class="subtitle">Cara Berpikir Analitik — Framework Sederhana</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-tm">TM 1</span>
+      <span class="badge badge-screen">Screen 6</span>
+      <div class="dosen-info">
+        <div class="dosen-avatar">DP</div>
+        <div>
+          <div class="dosen-name">Dr. Donny Maha Putra</div>
+          <div class="dosen-title-text">S.Kom., M.Ak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="card hero">
+    <div class="hero-left">
+      <div class="eyebrow">🧠 Pola Pikir Semester Ini</div>
+      <h2>Framework <span>"Dari Data ke Keputusan"</span></h2>
+      <p>Sepanjang semester ini, kalian akan berulang kali menggunakan kerangka berpikir yang sama. <strong>Bukan mulai dari tools</strong> — tapi mulai dari <strong>pertanyaan bisnis</strong>. Ini yang membedakan akuntan biasa dari akuntan analitik.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-badge">5</div>
+      <div class="hero-badge-sub">Langkah<br>Berpikir</div>
+    </div>
+  </div>
+
+  <!-- 5-STEP FRAMEWORK -->
+  <div class="card framework-area">
+    <div class="card-label"><span class="dot" style="background:var(--accent-indigo)"></span> Framework: Data → Keputusan</div>
+    <div class="fw-steps" style="position:relative">
+      <div class="fw-connector"><div class="fw-conn-line"></div></div>
+
+      <div class="fw-step fw-s1">
+        <div class="fw-num">1</div>
+        <div class="fw-icon-box">❓</div>
+        <div class="fw-title">Tentukan Pertanyaan Bisnis</div>
+        <div class="fw-desc">Apa masalahnya? Apa yang ingin diketahui? Rumuskan dengan jelas sebelum menyentuh data.</div>
+        <span class="fw-tool">🧠 Thinking</span>
+      </div>
+
+      <div class="fw-arrow">›</div>
+
+      <div class="fw-step fw-s2">
+        <div class="fw-num">2</div>
+        <div class="fw-icon-box">📂</div>
+        <div class="fw-title">Pilih Data yang Relevan</div>
+        <div class="fw-desc">Tidak semua data berguna. Pilih yang menjawab pertanyaan — bersihkan, validasi, siapkan.</div>
+        <span class="fw-tool">🔍 Selection</span>
+      </div>
+
+      <div class="fw-arrow">›</div>
+
+      <div class="fw-step fw-s3">
+        <div class="fw-num">3</div>
+        <div class="fw-icon-box">⛏️</div>
+        <div class="fw-title">Analisis Pola</div>
+        <div class="fw-desc">Gunakan teknik data mining untuk menemukan pola tersembunyi — klasifikasi, klaster, asosiasi.</div>
+        <span class="fw-tool">🍊 Orange</span>
+      </div>
+
+      <div class="fw-arrow">›</div>
+
+      <div class="fw-step fw-s4">
+        <div class="fw-num">4</div>
+        <div class="fw-icon-box">📊</div>
+        <div class="fw-title">Komunikasikan Insight</div>
+        <div class="fw-desc">Ubah temuan jadi visual yang mudah dipahami. Dashboard interaktif, bukan tabel mentah.</div>
+        <span class="fw-tool">📊 Tableau</span>
+      </div>
+
+      <div class="fw-arrow">›</div>
+
+      <div class="fw-step fw-s5">
+        <div class="fw-num">5</div>
+        <div class="fw-icon-box">🎯</div>
+        <div class="fw-title">Beri Rekomendasi Tindakan</div>
+        <div class="fw-desc">Data tanpa rekomendasi = laporan biasa. Tambahkan "so what" dan "now what" untuk manajemen.</div>
+        <span class="fw-tool">💡 Decision</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY INTERACTIVE -->
+  <div class="card case-card">
+    <div class="card-label"><span class="dot" style="background:var(--accent-orange)"></span> Kasus Cepat — 1 Menit</div>
+
+    <div class="case-scenario">
+      <div class="cs-label">📋 Skenario</div>
+      <p>Manajer keuangan melapor: <strong>"Penjualan bulan ini turun 15% dibanding bulan lalu."</strong> Sebagai analis, apa langkah pertama kalian?</p>
+    </div>
+
+    <div class="case-question">
+      🤔 Langsung bikin grafik penjualan, atau <strong>rumuskan pertanyaan bisnis</strong> dulu?
+    </div>
+
+    <div class="case-options">
+      <button class="case-opt" onclick="answer(this,'wrong')">
+        <span class="co-icon">📊</span>
+        <span class="co-text">
+          <strong>Langsung bikin grafik</strong>
+          <span>Buka data → buat chart → tunjukkan ke manajer</span>
+        </span>
+        <span class="co-tag">Kurang tepat</span>
+      </button>
+      <button class="case-opt" onclick="answer(this,'correct')">
+        <span class="co-icon">❓</span>
+        <span class="co-text">
+          <strong>Rumuskan pertanyaan dulu</strong>
+          <span>Turun di produk mana? Wilayah mana? Faktor apa?</span>
+        </span>
+        <span class="co-tag">✓ Tepat!</span>
+      </button>
+    </div>
+
+    <div class="case-reveal" id="caseReveal">
+      <div class="cr-title">✅ Pertanyaan dulu, baru analisis!</div>
+      <div class="cr-text">
+        Grafik tanpa pertanyaan yang jelas hanya menunjukkan <strong>"apa yang terjadi"</strong> — tapi tidak menjawab <strong>"mengapa"</strong> dan <strong>"harus apa"</strong>. Inilah langkah yang benar:
+      </div>
+      <div class="cr-steps">
+        <div class="cr-step">
+          <span class="crs-num" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">1</span>
+          <span class="crs-text"><strong>Pertanyaan:</strong> "Produk & wilayah mana yang paling turun?"</span>
+        </div>
+        <div class="cr-step">
+          <span class="crs-num" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">2</span>
+          <span class="crs-text"><strong>Data:</strong> Sales per produk, per wilayah, 3 bulan terakhir</span>
+        </div>
+        <div class="cr-step">
+          <span class="crs-num" style="background:linear-gradient(135deg,#ea580c,#dc2626)">3</span>
+          <span class="crs-text"><strong>Analisis:</strong> Cari pola penurunan — segmen mana & tren</span>
+        </div>
+        <div class="cr-step">
+          <span class="crs-num" style="background:linear-gradient(135deg,#059669,#047857)">4</span>
+          <span class="crs-text"><strong>Visual:</strong> Dashboard penjualan drill-down per kategori</span>
+        </div>
+        <div class="cr-step">
+          <span class="crs-num" style="background:linear-gradient(135deg,#d97706,#b45309)">5</span>
+          <span class="crs-text"><strong>Rekomendasi:</strong> Fokus promo ke segmen X, review pricing Y</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MINDSET COMPARISON -->
+  <div class="card mindset-card">
+    <div class="card-label"><span class="dot" style="background:var(--accent-violet)"></span> Pola Pikir: Salah vs Benar</div>
+
+    <div class="mindset-compare">
+      <div class="mc-col mc-wrong">
+        <span class="mc-badge">❌ Keliru</span>
+        <h4>🚫 Langsung ke Tools</h4>
+        <div class="mc-flow">
+          <div class="mc-flow-item">📂 Buka data</div>
+          <div class="mc-flow-arrow">↓</div>
+          <div class="mc-flow-item">📊 Bikin grafik</div>
+          <div class="mc-flow-arrow">↓</div>
+          <div class="mc-flow-item">🤷 "Terus apa nih?"</div>
+        </div>
+      </div>
+      <div class="mc-col mc-right">
+        <span class="mc-badge">✅ Benar</span>
+        <h4>✓ Mulai dari Pertanyaan</h4>
+        <div class="mc-flow">
+          <div class="mc-flow-item">❓ Apa masalahnya?</div>
+          <div class="mc-flow-arrow">↓</div>
+          <div class="mc-flow-item">📂 Data apa yang perlu?</div>
+          <div class="mc-flow-arrow">↓</div>
+          <div class="mc-flow-item">🎯 Insight → Rekomendasi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="principle-item">
+        <div class="pi-icon" style="background:#eff6ff">🧭</div>
+        <div class="pi-text">
+          <strong>Pertanyaan Mengarahkan Analisis</strong>
+          <span>Tanpa pertanyaan yang jelas, data sebanyak apapun tidak akan menghasilkan insight bermakna.</span>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pi-icon" style="background:#f5f3ff">🔬</div>
+        <div class="pi-text">
+          <strong>Tools Adalah Alat, Bukan Tujuan</strong>
+          <span>Orange dan Tableau hanyalah instrumen — yang penting adalah cara berpikir di baliknya.</span>
+        </div>
+      </div>
+      <div class="principle-item">
+        <div class="pi-icon" style="background:#ecfdf5">💬</div>
+        <div class="pi-text">
+          <strong>"So What?" Test</strong>
+          <span>Setiap temuan harus bisa menjawab: "Lalu apa?" dan "Harus berbuat apa?"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mindset-takeaway">
+      <p>🔑 <strong>Inilah framework yang akan kalian pakai berulang kali sepanjang semester.</strong> Dari Project 1 sampai Final Showcase — selalu mulai dari pertanyaan, akhiri dengan rekomendasi.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Big Data Analytics — Akuntansi &nbsp;|&nbsp; Tatap Muka 1 · Screen 6 &nbsp;|&nbsp; © 2025 Dr. Donny Maha Putra, S.Kom., M.Ak
+  </div>
+
+</div>
+
+<script>
+  let answered = false;
+  function answer(btn, type) {
+    if (answered) return;
+    answered = true;
+    const opts = document.querySelectorAll('.case-opt');
+    opts.forEach(o => {
+      if (o === btn) {
+        o.classList.add(type);
+      } else {
+        o.classList.add(type === 'correct' ? 'wrong' : 'correct');
+      }
+      o.style.cursor = 'default';
+    });
+    setTimeout(() => {
+      document.getElementById('caseReveal').classList.add('show');
+    }, 500);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* ============================================================
+   Presenter Layer — bilah navigasi, catatan pengajar, timer.
+   Gaya mengikuti design system BDA Studio.
+   ============================================================ */
+
+:root {
+  --pz-ink: #14131a;
+  --pz-muted: #8f8d9c;
+  --pz-line: rgba(20, 19, 26, 0.12);
+  --pz-iris: #6d5df6;
+  --pz-pink: #ff4d84;
+  --pz-lime: #c6f24e;
+  --pz-lime-ink: #3c4a05;
+  --pz-mint: #12b981;
+  --pz-surface: #ffffff;
+}
+
+body { padding-bottom: 104px !important; }
+
+/* ---------- garis progres ---------- */
+.pz-progress {
+  position: fixed; top: 0; left: 0; height: 4px; z-index: 9999;
+  background: linear-gradient(90deg, var(--pz-iris), var(--pz-pink) 60%, var(--pz-lime));
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 14px rgba(109, 93, 246, .5);
+  transition: width .5s cubic-bezier(.22,1,.36,1);
+}
+
+/* ---------- bilah bawah ---------- */
+.pz-bar {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 9998;
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 11px;
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(20px) saturate(170%); -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid var(--pz-line);
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(20,19,26,.06), 0 18px 44px rgba(20,19,26,.16);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  animation: pzRise .55s cubic-bezier(.34,1.4,.64,1) both;
+}
+@keyframes pzRise { from { opacity:0; transform: translate(-50%, 26px);} to {opacity:1; transform: translate(-50%,0);} }
+.pz-bar.pz-hidden { opacity: 0; pointer-events: none; transform: translate(-50%, 26px); transition: all .3s ease; }
+
+.pz-btn {
+  border: 1px solid transparent; background: transparent; cursor: pointer;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--pz-ink); font-family: inherit;
+  transition: all .22s cubic-bezier(.34,1.5,.64,1);
+}
+.pz-btn:hover { background: var(--pz-ink); color: #fff; transform: translateY(-2px) scale(1.04); }
+.pz-btn:disabled { opacity: .25; cursor: not-allowed; transform: none; background: transparent; color: var(--pz-ink); }
+
+.pz-dots { display: flex; align-items: center; gap: 5px; padding: 0 5px; }
+.pz-dot {
+  width: 28px; height: 28px; border-radius: 10px; border: 1px solid var(--pz-line);
+  background: #fff; color: var(--pz-muted); cursor: pointer;
+  font-size: 11.5px; font-weight: 800; font-family: inherit;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .22s cubic-bezier(.34,1.5,.64,1);
+}
+.pz-dot:hover { border-color: var(--pz-iris); color: var(--pz-iris); transform: translateY(-3px); }
+.pz-dot.pz-active {
+  background: linear-gradient(140deg, var(--pz-iris), var(--pz-pink));
+  border-color: transparent; color: #fff;
+  box-shadow: 0 6px 16px rgba(109, 93, 246, .38);
+}
+
+.pz-sep { width: 1px; height: 22px; background: var(--pz-line); margin: 0 3px; }
+
+.pz-label {
+  font-size: 11px; font-weight: 800; letter-spacing: .1em;
+  color: var(--pz-muted); text-transform: uppercase;
+  padding: 0 8px; white-space: nowrap;
+}
+.pz-timer {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px; font-weight: 500; color: var(--pz-ink);
+  padding: 5px 10px; min-width: 52px; text-align: center; cursor: pointer;
+  background: var(--pz-lime); color: var(--pz-lime-ink); border-radius: 999px;
+  transition: transform .2s ease;
+}
+.pz-timer:hover { transform: scale(1.05); }
+.pz-timer.pz-over { background: var(--pz-pink); color: #fff; }
+
+/* ---------- catatan pengajar ---------- */
+.pz-notes {
+  position: fixed; right: 22px; bottom: 84px; z-index: 9997;
+  width: min(410px, calc(100vw - 44px));
+  max-height: 64vh; overflow-y: auto;
+  background: var(--pz-surface); border: 1px solid var(--pz-line); border-radius: 26px;
+  box-shadow: 0 24px 64px rgba(20,19,26,.22);
+  padding: 24px 26px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  opacity: 0; transform: translateY(18px) scale(.97); pointer-events: none;
+  transition: all .32s cubic-bezier(.34,1.4,.64,1);
+}
+.pz-notes.pz-open { opacity: 1; transform: none; pointer-events: auto; }
+.pz-notes h4 {
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--pz-iris); margin-bottom: 8px; font-weight: 800;
+}
+.pz-notes .pz-notes-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px; font-weight: 800; letter-spacing: -.03em;
+  color: var(--pz-ink); margin-bottom: 14px; line-height: 1.15;
+}
+.pz-notes .pz-chip {
+  display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: .06em;
+  padding: 5px 13px; border-radius: 999px; margin-bottom: 16px;
+  background: var(--pz-lime); color: var(--pz-lime-ink);
+}
+.pz-notes ul { list-style: none; padding: 0; margin: 0; }
+.pz-notes li {
+  position: relative; padding-left: 22px; margin-bottom: 12px;
+  font-size: 13.5px; line-height: 1.55; color: #4b4a57;
+}
+.pz-notes li::before {
+  content: ''; position: absolute; left: 3px; top: 8px;
+  width: 8px; height: 8px; border-radius: 3px;
+  background: linear-gradient(140deg, var(--pz-iris), var(--pz-pink));
+}
+.pz-notes .pz-ask {
+  margin-top: 16px; padding: 14px 16px; border-radius: 16px;
+  background: rgba(255, 165, 31, .10); border: 1px solid rgba(255, 165, 31, .3);
+  font-size: 13px; color: #7a4a05; line-height: 1.55;
+}
+
+/* ---------- bantuan pintasan ---------- */
+.pz-help {
+  position: fixed; inset: 0; z-index: 9999; display: none;
+  align-items: center; justify-content: center;
+  background: rgba(20, 19, 26, .6); backdrop-filter: blur(6px);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+.pz-help.pz-open { display: flex; animation: pzFade .25s ease both; }
+@keyframes pzFade { from { opacity: 0 } to { opacity: 1 } }
+.pz-help-card {
+  background: #fff; border-radius: 28px; padding: 32px 36px; max-width: 470px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  animation: pzPop .35s cubic-bezier(.34,1.5,.64,1) both;
+}
+@keyframes pzPop { from { transform: scale(.92) translateY(14px); opacity: 0 } to { transform: none; opacity: 1 } }
+.pz-help-card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; font-weight: 800;
+  letter-spacing: -.035em; margin-bottom: 18px; color: var(--pz-ink);
+}
+.pz-help-row { display:flex; justify-content: space-between; align-items:center; padding: 9px 0; border-bottom: 1px dashed var(--pz-line); font-size: 13.5px; color:#4b4a57; }
+.pz-help-row:last-child { border-bottom: none; }
+.pz-key {
+  font-family:'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  background:#f6f5f1; border:1px solid var(--pz-line); border-bottom-width: 2px;
+  border-radius: 8px; padding: 4px 10px; color: var(--pz-ink);
+}
+
+@media print { .pz-bar, .pz-notes, .pz-progress, .pz-help { display: none !important; } body { padding-bottom: 0 !important; } }
+@media (max-width: 640px) { .pz-label { display: none; } .pz-bar { gap: 4px; padding: 7px; } }
+@media (prefers-reduced-motion: reduce) { .pz-bar, .pz-help-card { animation: none !important; } }

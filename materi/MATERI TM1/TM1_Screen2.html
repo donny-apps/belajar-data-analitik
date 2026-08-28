@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics untuk Akuntansi — TM1 Screen 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #f8f9fc;
+    --bg-card: #ffffff;
+    --accent-cyan: #0284c7;
+    --accent-emerald: #059669;
+    --accent-amber: #d97706;
+    --accent-violet: #7c3aed;
+    --accent-rose: #e11d48;
+    --accent-indigo: #4f46e5;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-subtle: rgba(148,163,184,0.22);
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.03);
+    --shadow-md: 0 4px 12px rgba(15,23,42,0.06), 0 2px 4px rgba(15,23,42,0.04);
+    --shadow-lg: 0 8px 24px rgba(15,23,42,0.07), 0 2px 8px rgba(15,23,42,0.04);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: radial-gradient(rgba(148,163,184,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    z-index: 0; pointer-events: none;
+  }
+
+  .dashboard {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 16px;
+    padding: 24px 28px;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    animation: slideDown 0.6s ease-out;
+  }
+
+  @keyframes slideDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  .header-left { display:flex; align-items:center; gap:18px; }
+
+  .logo-icon {
+    width:50px; height:50px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    border-radius:14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px;
+    box-shadow: 0 4px 14px rgba(2,132,199,0.2);
+  }
+
+  .header-title h1 {
+    font-family:'Playfair Display',serif; font-size:20px; font-weight:900;
+    color:var(--text-primary); letter-spacing:-0.3px;
+  }
+
+  .header-title .subtitle { font-size:12.5px; color:var(--text-secondary); margin-top:2px; font-weight:500; }
+
+  .header-right { display:flex; align-items:center; gap:14px; }
+
+  .badge {
+    padding:6px 14px; border-radius:20px;
+    font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase;
+  }
+
+  .badge-tm { background:rgba(2,132,199,0.08); color:var(--accent-cyan); border:1px solid rgba(2,132,199,0.2); }
+  .badge-screen { background:rgba(124,58,237,0.08); color:var(--accent-violet); border:1px solid rgba(124,58,237,0.2); }
+
+  .dosen-info {
+    display:flex; align-items:center; gap:10px;
+    padding:6px 16px 6px 6px;
+    background:var(--bg-primary); border-radius:28px; border:1px solid var(--border-subtle);
+  }
+
+  .dosen-avatar {
+    width:34px; height:34px; border-radius:50%;
+    background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; color:#fff;
+  }
+
+  .dosen-name { font-size:12.5px; font-weight:700; color:var(--text-primary); }
+  .dosen-title-text { font-size:10.5px; color:var(--text-muted); }
+
+  /* ===== CARD BASE ===== */
+  .card {
+    background:var(--bg-card);
+    border:1px solid var(--border-subtle);
+    border-radius:16px; padding:24px;
+    box-shadow:var(--shadow-sm);
+    transition:all 0.3s ease;
+    overflow:hidden;
+  }
+
+  .card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
+
+  .card-label {
+    font-size:10px; font-weight:700; letter-spacing:1.2px;
+    text-transform:uppercase; color:var(--text-muted);
+    margin-bottom:16px; display:flex; align-items:center; gap:7px;
+  }
+
+  .card-label .dot { width:7px; height:7px; border-radius:50%; }
+
+  /* ===== HERO BANNER ===== */
+  .hero-banner {
+    grid-column: 1 / -1;
+    animation: fadeUp 0.7s ease-out 0.1s both;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 50%, #ecfdf5 100%);
+    border: 1px solid rgba(2,132,199,0.12);
+  }
+
+  .hero-banner:hover { transform: none; }
+
+  .hero-left { flex: 1; }
+
+  .hero-left h2 {
+    font-family:'Playfair Display',serif;
+    font-size: 24px; font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .hero-left h2 span {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 520px;
+  }
+
+  .hero-right {
+    display: flex; gap: 12px; flex-shrink: 0;
+  }
+
+  .hero-stat {
+    text-align: center;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+    min-width: 100px;
+  }
+
+  .hero-stat .hs-value {
+    font-family:'Playfair Display',serif;
+    font-size: 30px; font-weight: 900; line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat .hs-label {
+    font-size: 10px; color: var(--text-muted);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* ===== 4 CONTEXT CARDS ===== */
+  .context-card {
+    animation: fadeUp 0.7s ease-out calc(0.2s + var(--delay, 0s)) both;
+    display: flex; flex-direction: column;
+  }
+
+  .context-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 16px;
+  }
+
+  .context-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover .context-icon { transform: scale(1.08) rotate(-3deg); }
+
+  .context-header-text h3 {
+    font-size: 15px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .context-header-text .context-sub {
+    font-size: 11.5px; color: var(--text-muted); font-weight: 500;
+  }
+
+  .context-body { flex: 1; }
+
+  .context-body p {
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.65; margin-bottom: 14px;
+  }
+
+  /* Use-case tags */
+  .use-cases {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+
+  .use-tag {
+    padding: 5px 11px; border-radius: 8px;
+    font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  /* Context-specific colors */
+  .ctx-audit .context-icon { background: #fef2f2; border: 1.5px solid #fecaca; }
+  .ctx-audit .use-tag { background: #fef2f2; color: #b91c1c; }
+
+  .ctx-manajemen .context-icon { background: #eff6ff; border: 1.5px solid #bfdbfe; }
+  .ctx-manajemen .use-tag { background: #eff6ff; color: #1d4ed8; }
+
+  .ctx-keuangan .context-icon { background: #ecfdf5; border: 1.5px solid #a7f3d0; }
+  .ctx-keuangan .use-tag { background: #ecfdf5; color: #047857; }
+
+  .ctx-publik .context-icon { background: #fffbeb; border: 1.5px solid #fde68a; }
+  .ctx-publik .use-tag { background: #fffbeb; color: #b45309; }
+
+  /* Mini bar visual in each card */
+  .context-metric {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .metric-bar-bg {
+    flex: 1; height: 8px; border-radius: 4px;
+    background: #f1f5f9; overflow: hidden;
+  }
+
+  .metric-bar-fill {
+    height: 100%; border-radius: 4px;
+    transition: width 1s ease 0.6s;
+    width: 0;
+  }
+
+  .metric-bar-fill.loaded { width: var(--w); }
+
+  .metric-label {
+    font-size: 10px; color: var(--text-muted);
+    font-weight: 600; white-space: nowrap;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .metric-text {
+    font-size: 10px; color: var(--text-muted);
+    font-weight: 500; white-space: nowrap;
+  }
+
+  /* ===== BOTTOM ROW ===== */
+  .bottom-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    animation: fadeUp 0.7s ease-out 0.65s both;
+  }
+
+  /* ===== POLL CARD ===== */
+  .poll-card { display: flex; flex-direction: column; }
+
+  .poll-question-main {
+    font-size: 14.5px; font-weight: 600; color: var(--text-primary);
+    line-height: 1.55; margin-bottom: 16px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-cyan);
+  }
+
+  .poll-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+
+  .poll-opt {
+    width: 100%; padding: 14px 18px;
+    background: var(--bg-primary);
+    border: 1.5px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-size: 13.5px; font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: all 0.3s ease;
+    text-align: left;
+    display: flex; align-items: center; gap: 14px;
+    position: relative; overflow: hidden;
+  }
+
+  .poll-opt:hover {
+    background: rgba(2,132,199,0.04);
+    border-color: rgba(2,132,199,0.3);
+    color: var(--text-primary);
+  }
+
+  .poll-opt.selected {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    font-weight: 700;
+    background: rgba(2,132,199,0.04);
+  }
+
+  .poll-opt .opt-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+    background: var(--bg-card); border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+  }
+
+  .poll-opt.selected .opt-icon {
+    background: rgba(2,132,199,0.1);
+    border-color: rgba(2,132,199,0.3);
+  }
+
+  .poll-opt .opt-text { flex: 1; }
+
+  .poll-opt .opt-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; font-weight: 700;
+    opacity: 0; transition: opacity 0.4s ease;
+    color: var(--accent-cyan);
+  }
+
+  .poll-opt.revealed .opt-pct { opacity: 1; }
+
+  .poll-opt .opt-bar {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 0; background: rgba(2,132,199,0.05);
+    transition: width 0.6s ease; border-radius: 12px;
+  }
+
+  .poll-opt.revealed .opt-bar { width: var(--bar-w, 0%); }
+
+  /* Reveal box */
+  .reveal-box {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+    border-radius: 12px;
+    border: 1px solid rgba(5,150,105,0.15);
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .reveal-box.show { display: block; }
+
+  .reveal-box .reveal-icon {
+    font-size: 20px; margin-bottom: 6px;
+  }
+
+  .reveal-box .reveal-title {
+    font-size: 14px; font-weight: 700;
+    color: var(--accent-emerald); margin-bottom: 4px;
+  }
+
+  .reveal-box .reveal-text {
+    font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+  }
+
+  .reveal-box .reveal-text strong {
+    color: var(--text-primary);
+  }
+
+  /* ===== INSIGHT CARD ===== */
+  .insight-card { display: flex; flex-direction: column; }
+
+  .insight-list { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+
+  .insight-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+  }
+
+  .insight-item:hover { box-shadow: var(--shadow-sm); transform: translateX(3px); }
+
+  .insight-num {
+    width: 32px; height: 32px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+
+  .insight-item:nth-child(1) .insight-num { background: #fef2f2; color: #b91c1c; }
+  .insight-item:nth-child(2) .insight-num { background: #eff6ff; color: #1d4ed8; }
+  .insight-item:nth-child(3) .insight-num { background: #ecfdf5; color: #047857; }
+
+  .insight-content strong {
+    display: block; font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;
+  }
+
+  .insight-content span {
+    font-size: 11.5px; color: var(--text-secondary); line-height: 1.5;
+  }
+
+  .takeaway-box {
+    margin-top: auto; padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .takeaway-box p {
+    font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #f5f3ff, #eff6ff);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-violet);
+  }
+
+  .takeaway-box p strong { color: var(--text-primary); }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    grid-column: 1 / -1;
+    text-align: center; padding: 8px;
+    font-size: 11px; color: var(--text-muted);
+    animation: fadeUp 0.7s ease-out 0.75s both;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .dashboard { padding: 16px; }
+    .hero-banner { flex-direction: column; gap: 20px; }
+    .hero-right { justify-content: center; }
+    .bottom-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .dashboard { grid-template-columns: 1fr; gap: 12px; padding: 12px; }
+    .header { flex-direction: column; gap: 12px; text-align: center; }
+    .header-right { flex-wrap: wrap; justify-content: center; }
+    .hero-left h2 { font-size: 20px; }
+    .hero-right { flex-wrap: wrap; }
+    .bottom-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-icon">📊</div>
+      <div class="header-title">
+        <h1>Big Data Analytics untuk Akuntansi</h1>
+        <div class="subtitle">Kenapa Mata Kuliah Ini Penting untuk Mahasiswa Akuntansi?</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-tm">TM 1</span>
+      <span class="badge badge-screen">Screen 2</span>
+      <div class="dosen-info">
+        <div class="dosen-avatar">DP</div>
+        <div>
+          <div class="dosen-name">Dr. Donny Maha Putra</div>
+          <div class="dosen-title-text">S.Kom., M.Ak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO BANNER -->
+  <div class="card hero-banner">
+    <div class="hero-left">
+      <h2>Ini Bukan "Mata Kuliah IT" —<br>Ini <span>Masa Depan Akuntansi</span></h2>
+      <p>Big Data Analytics sudah menjadi kebutuhan utama di dunia akuntansi modern. Dari audit hingga sektor publik, kemampuan membaca dan menganalisis data adalah keunggulan kompetitif yang membedakan akuntan biasa dari akuntan yang memberi dampak.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-cyan)">4</div>
+        <div class="hs-label">Konteks<br>Akuntansi</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-violet)">77%</div>
+        <div class="hs-label">Perusahaan<br>Butuh Data</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-emerald)">2x</div>
+        <div class="hs-label">Nilai Akuntan<br>+ Analytics</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEXT 1: Audit & Fraud Detection -->
+  <div class="card context-card ctx-audit" style="--delay:0.05s">
+    <div class="card-label"><span class="dot" style="background:#ef4444"></span> Konteks 1</div>
+    <div class="context-header">
+      <div class="context-icon">🔎</div>
+      <div class="context-header-text">
+        <h3>Audit & Fraud Detection</h3>
+        <span class="context-sub">Mendeteksi pola transaksi tidak wajar</span>
+      </div>
+    </div>
+    <div class="context-body">
+      <p>Big Data memungkinkan auditor menganalisis 100% populasi transaksi — bukan hanya sampling. Anomali, duplikasi, dan pola fraud dapat terdeteksi secara otomatis melalui teknik data mining.</p>
+      <div class="use-cases">
+        <span class="use-tag">🚨 Anomaly Detection</span>
+        <span class="use-tag">🔁 Duplicate Invoices</span>
+        <span class="use-tag">📊 Benford's Law</span>
+        <span class="use-tag">🕵️ Journal Entry Testing</span>
+      </div>
+    </div>
+    <div class="context-metric">
+      <div class="metric-text">Deteksi fraud rate</div>
+      <div class="metric-bar-bg">
+        <div class="metric-bar-fill" style="--w:85%;background:linear-gradient(90deg,#fca5a5,#ef4444)"></div>
+      </div>
+      <div class="metric-label">85%</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT 2: Akuntansi Manajemen -->
+  <div class="card context-card ctx-manajemen" style="--delay:0.12s">
+    <div class="card-label"><span class="dot" style="background:#3b82f6"></span> Konteks 2</div>
+    <div class="context-header">
+      <div class="context-icon">📈</div>
+      <div class="context-header-text">
+        <h3>Akuntansi Manajemen</h3>
+        <span class="context-sub">Analisis biaya, profitabilitas & KPI</span>
+      </div>
+    </div>
+    <div class="context-body">
+      <p>Dashboard analitik membantu manajemen melihat profitabilitas per produk, efisiensi biaya, dan tren KPI secara real-time — bukan menunggu laporan bulanan yang sudah usang.</p>
+      <div class="use-cases">
+        <span class="use-tag">💰 Cost Analysis</span>
+        <span class="use-tag">📊 KPI Dashboard</span>
+        <span class="use-tag">📉 Variance Analysis</span>
+        <span class="use-tag">🎯 Profitability Map</span>
+      </div>
+    </div>
+    <div class="context-metric">
+      <div class="metric-text">Decision speed ↑</div>
+      <div class="metric-bar-bg">
+        <div class="metric-bar-fill" style="--w:72%;background:linear-gradient(90deg,#93c5fd,#3b82f6)"></div>
+      </div>
+      <div class="metric-label">72%</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT 3: Keuangan -->
+  <div class="card context-card ctx-keuangan" style="--delay:0.19s">
+    <div class="card-label"><span class="dot" style="background:#10b981"></span> Konteks 3</div>
+    <div class="context-header">
+      <div class="context-icon">💹</div>
+      <div class="context-header-text">
+        <h3>Akuntansi Keuangan</h3>
+        <span class="context-sub">Risiko piutang, cashflow & prediksi</span>
+      </div>
+    </div>
+    <div class="context-body">
+      <p>Analitik data memungkinkan prediksi arus kas, scoring risiko piutang tak tertagih, dan early warning system untuk kesehatan keuangan perusahaan berbasis data historis.</p>
+      <div class="use-cases">
+        <span class="use-tag">💳 Credit Scoring</span>
+        <span class="use-tag">📈 Cashflow Forecast</span>
+        <span class="use-tag">⚠️ Risk Prediction</span>
+        <span class="use-tag">🔮 Trend Analysis</span>
+      </div>
+    </div>
+    <div class="context-metric">
+      <div class="metric-text">Forecast accuracy</div>
+      <div class="metric-bar-bg">
+        <div class="metric-bar-fill" style="--w:78%;background:linear-gradient(90deg,#6ee7b7,#10b981)"></div>
+      </div>
+      <div class="metric-label">78%</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT 4: Sektor Publik -->
+  <div class="card context-card ctx-publik" style="--delay:0.26s">
+    <div class="card-label"><span class="dot" style="background:#f59e0b"></span> Konteks 4</div>
+    <div class="context-header">
+      <div class="context-icon">🏛️</div>
+      <div class="context-header-text">
+        <h3>Sektor Publik & Organisasi</h3>
+        <span class="context-sub">Dashboard kinerja & monitoring layanan</span>
+      </div>
+    </div>
+    <div class="context-body">
+      <p>Instansi pemerintah dan organisasi nirlaba menggunakan dashboard untuk memantau penyerapan anggaran, kinerja program, dan akuntabilitas layanan publik secara transparan.</p>
+      <div class="use-cases">
+        <span class="use-tag">🏗️ Budget Monitoring</span>
+        <span class="use-tag">📋 Performance Index</span>
+        <span class="use-tag">👥 Service Analytics</span>
+        <span class="use-tag">📑 Compliance Check</span>
+      </div>
+    </div>
+    <div class="context-metric">
+      <div class="metric-text">Transparansi ↑</div>
+      <div class="metric-bar-bg">
+        <div class="metric-bar-fill" style="--w:68%;background:linear-gradient(90deg,#fcd34d,#f59e0b)"></div>
+      </div>
+      <div class="metric-label">68%</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- INTERACTIVE POLL -->
+    <div class="card poll-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-rose)"></span> Pertanyaan Pemantik</div>
+
+      <div class="poll-question-main">
+        🤔 Kalau nanti kerja di akuntansi/keuangan, lebih sering diminta <strong>bikin laporan</strong> atau <strong>kasih rekomendasi</strong>?
+      </div>
+
+      <div class="poll-options">
+        <button class="poll-opt" onclick="selectPoll(this, 0)">
+          <span class="opt-bar"></span>
+          <span class="opt-icon">📄</span>
+          <span class="opt-text">Bikin laporan saja</span>
+          <span class="opt-pct">24%</span>
+        </button>
+        <button class="poll-opt" onclick="selectPoll(this, 1)">
+          <span class="opt-bar"></span>
+          <span class="opt-icon">💡</span>
+          <span class="opt-text">Kasih rekomendasi saja</span>
+          <span class="opt-pct">18%</span>
+        </button>
+        <button class="poll-opt" onclick="selectPoll(this, 2)">
+          <span class="opt-bar"></span>
+          <span class="opt-icon">🎯</span>
+          <span class="opt-text">Dua-duanya!</span>
+          <span class="opt-pct">58%</span>
+        </button>
+      </div>
+
+      <div class="reveal-box" id="revealBox">
+        <div class="reveal-icon">✅</div>
+        <div class="reveal-title">Jawabannya: Sekarang tuntutannya dua-duanya.</div>
+        <div class="reveal-text">
+          Akuntan modern tidak cukup hanya menyajikan angka. Dunia kerja menuntut kemampuan <strong>mengolah data menjadi laporan</strong> sekaligus <strong>memberikan rekomendasi berbasis insight</strong>. Itulah mengapa Big Data Analytics menjadi keterampilan esensial — bukan sekadar pelengkap.
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY INSIGHT -->
+    <div class="card insight-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-violet)"></span> Mengapa Ini Relevan?</div>
+
+      <div class="insight-list">
+        <div class="insight-item">
+          <div class="insight-num">01</div>
+          <div class="insight-content">
+            <strong>Akuntan ≠ Data Entry</strong>
+            <span>Peran akuntan bergeser dari pencatat menjadi analis dan penasihat strategis berbasis data.</span>
+          </div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">02</div>
+          <div class="insight-content">
+            <strong>Otomasi Mengubah Segalanya</strong>
+            <span>Tugas repetitif sudah digantikan software. Yang tersisa adalah kemampuan analisis dan judgment.</span>
+          </div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">03</div>
+          <div class="insight-content">
+            <strong>Keunggulan Kompetitif</strong>
+            <span>Akuntan yang bisa membuat dashboard dan membaca pola data punya nilai lebih di pasar kerja.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="takeaway-box">
+        <p>💎 <strong>Key takeaway:</strong> Mata kuliah ini bukan soal belajar IT — tapi soal menyiapkan kalian jadi akuntan yang <strong>bisa berpikir dengan data</strong> dan <strong>membuat keputusan yang lebih cerdas</strong>.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Big Data Analytics — Akuntansi &nbsp;|&nbsp; Tatap Muka 1 · Screen 2 &nbsp;|&nbsp; © 2025 Dr. Donny Maha Putra, S.Kom., M.Ak
+  </div>
+</div>
+
+<script>
+  // Animate metric bars on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.metric-bar-fill').forEach(bar => {
+        bar.classList.add('loaded');
+      });
+    }, 400);
+  });
+
+  // Poll interaction
+  const pcts = [24, 18, 58];
+  function selectPoll(btn, idx) {
+    const opts = document.querySelectorAll('.poll-opt');
+    opts.forEach((opt, i) => {
+      opt.classList.add('revealed');
+      opt.style.setProperty('--bar-w', pcts[i] + '%');
+      if (i === idx) {
+        opt.classList.add('selected');
+      } else {
+        opt.classList.remove('selected');
+      }
+    });
+
+    // Show reveal after short delay
+    setTimeout(() => {
+      document.getElementById('revealBox').classList.add('show');
+    }, 600);
+  }
+</script>
+
+</body>
+</html>

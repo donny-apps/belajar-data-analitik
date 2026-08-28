@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics — TM1 Screen 4: Output Akhir</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary:#f8f9fc;
+    --bg-card:#ffffff;
+    --accent-cyan:#0284c7;
+    --accent-emerald:#059669;
+    --accent-amber:#d97706;
+    --accent-violet:#7c3aed;
+    --accent-rose:#e11d48;
+    --accent-orange:#ea580c;
+    --accent-indigo:#4f46e5;
+    --text-primary:#1e293b;
+    --text-secondary:#475569;
+    --text-muted:#94a3b8;
+    --border-subtle:rgba(148,163,184,0.22);
+    --shadow-sm:0 1px 3px rgba(15,23,42,0.04),0 1px 2px rgba(15,23,42,0.03);
+    --shadow-md:0 4px 12px rgba(15,23,42,0.06),0 2px 4px rgba(15,23,42,0.04);
+    --shadow-lg:0 8px 24px rgba(15,23,42,0.07),0 2px 8px rgba(15,23,42,0.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+  body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(148,163,184,0.08) 1px,transparent 1px);background-size:28px 28px;z-index:0;pointer-events:none}
+
+  .dashboard{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px 28px;max-width:1440px;margin:0 auto;min-height:100vh}
+
+  @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+  /* ===== HEADER ===== */
+  .header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:18px 28px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;box-shadow:var(--shadow-md);animation:slideDown 0.6s ease-out}
+  .header-left{display:flex;align-items:center;gap:18px}
+  .logo-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-violet));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(2,132,199,0.2)}
+  .header-title h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--text-primary)}
+  .header-title .subtitle{font-size:12.5px;color:var(--text-secondary);margin-top:2px;font-weight:500}
+  .header-right{display:flex;align-items:center;gap:14px}
+  .badge{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+  .badge-tm{background:rgba(2,132,199,0.08);color:var(--accent-cyan);border:1px solid rgba(2,132,199,0.2)}
+  .badge-screen{background:rgba(124,58,237,0.08);color:var(--accent-violet);border:1px solid rgba(124,58,237,0.2)}
+  .dosen-info{display:flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;background:var(--bg-primary);border-radius:28px;border:1px solid var(--border-subtle)}
+  .dosen-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent-emerald),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+  .dosen-name{font-size:12.5px;font-weight:700;color:var(--text-primary)}
+  .dosen-title-text{font-size:10.5px;color:var(--text-muted)}
+
+  /* ===== CARD ===== */
+  .card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm);transition:all 0.3s ease;overflow:hidden}
+  .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+  .card-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;display:flex;align-items:center;gap:7px}
+  .card-label .dot{width:7px;height:7px;border-radius:50%}
+
+  /* ===== HERO ===== */
+  .hero{grid-column:1/-1;animation:fadeUp 0.7s ease-out 0.1s both;display:flex;align-items:center;gap:32px;padding:28px 32px;background:linear-gradient(135deg,#fff7ed 0%,#f5f3ff 40%,#ecfdf5 100%);border:1px solid rgba(234,88,12,0.1)}
+  .hero:hover{transform:none}
+  .hero-left{flex:1}
+  .hero-left h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--text-primary);line-height:1.3;margin-bottom:10px}
+  .hero-left h2 span{background:linear-gradient(135deg,var(--accent-orange),var(--accent-violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-left p{font-size:14px;color:var(--text-secondary);line-height:1.65;max-width:560px}
+  .hero-right{display:flex;gap:14px;flex-shrink:0}
+  .hero-stat{text-align:center;padding:18px 22px;background:var(--bg-card);border-radius:14px;border:1px solid var(--border-subtle);box-shadow:var(--shadow-sm);min-width:105px}
+  .hero-stat .hs-value{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1;margin-bottom:4px}
+  .hero-stat .hs-label{font-size:10px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+
+  /* ===== OUTPUT CARDS ===== */
+  .output-card{animation:fadeUp 0.7s ease-out calc(0.2s + var(--d,0s)) both;display:flex;flex-direction:column;border-top:4px solid var(--oc-color,#94a3b8)}
+
+  .oc-header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+  .oc-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;transition:transform 0.3s ease}
+  .card:hover .oc-icon{transform:scale(1.08) rotate(-3deg)}
+  .oc-header-text h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--text-primary);margin-bottom:2px}
+  .oc-header-text .oc-sub{font-size:11.5px;color:var(--text-muted);font-weight:500}
+
+  .oc-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:7px;font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:16px;width:fit-content}
+
+  /* Deliverable items */
+  .deliverables{display:flex;flex-direction:column;gap:8px;flex:1}
+
+  .deliv-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--bg-primary);border-radius:11px;border:1px solid var(--border-subtle);transition:all 0.25s ease;cursor:default}
+  .deliv-item:hover{box-shadow:var(--shadow-sm);transform:translateX(4px)}
+
+  .deliv-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+  .deliv-text{flex:1}
+  .deliv-text strong{display:block;font-size:12.5px;font-weight:700;color:var(--text-primary)}
+  .deliv-text span{font-size:11px;color:var(--text-secondary);line-height:1.45}
+
+  .deliv-check{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;opacity:0;transition:opacity 0.4s ease}
+  .deliv-item:hover .deliv-check{opacity:1}
+
+  /* Output 1: Orange */
+  .output-mining{--oc-color:#ea580c}
+  .output-mining .oc-icon{background:#fff7ed;border:1.5px solid #fed7aa}
+  .output-mining .oc-badge{background:#fff7ed;color:#c2410c}
+  .output-mining .deliv-icon{background:#fff7ed}
+  .output-mining .deliv-check{background:#fff7ed;color:#ea580c}
+
+  /* Output 2: Tableau */
+  .output-tableau{--oc-color:#059669}
+  .output-tableau .oc-icon{background:#ecfdf5;border:1.5px solid #a7f3d0}
+  .output-tableau .oc-badge{background:#ecfdf5;color:#047857}
+  .output-tableau .deliv-icon{background:#ecfdf5}
+  .output-tableau .deliv-check{background:#ecfdf5;color:#059669}
+
+  /* Completion indicator */
+  .completion-strip{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle);display:flex;align-items:center;gap:10px}
+  .comp-track{flex:1;height:8px;border-radius:4px;background:#f1f5f9;overflow:hidden}
+  .comp-fill{height:100%;border-radius:4px;width:0;transition:width 1.2s ease 0.5s}
+  .comp-fill.loaded{width:var(--cw)}
+  .comp-label{font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;white-space:nowrap}
+  .comp-text{font-size:10px;color:var(--text-muted);font-weight:600;white-space:nowrap}
+
+  /* ===== PORTFOLIO BANNER ===== */
+  .portfolio-banner{grid-column:1/-1;animation:fadeUp 0.7s ease-out 0.45s both;display:flex;align-items:center;gap:24px;padding:22px 28px;background:linear-gradient(135deg,#f5f3ff,#eff6ff,#ecfdf5);border:1px solid rgba(79,70,229,0.12)}
+  .portfolio-banner:hover{transform:none}
+
+  .pb-icon-group{display:flex;gap:-8px;flex-shrink:0}
+  .pb-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;border:3px solid var(--bg-card);box-shadow:var(--shadow-sm)}
+  .pb-circle:nth-child(2){margin-left:-14px;z-index:1}
+  .pb-circle:nth-child(3){margin-left:-14px;z-index:2}
+  .pb-c1{background:#fff7ed}
+  .pb-c2{background:#ecfdf5}
+  .pb-c3{background:#f5f3ff}
+
+  .pb-content{flex:1}
+  .pb-content h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:var(--text-primary);margin-bottom:4px}
+  .pb-content h3 em{font-style:normal;color:var(--accent-indigo)}
+  .pb-content p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+  .pb-content p strong{color:var(--text-primary)}
+
+  .pb-tags{display:flex;flex-direction:column;gap:6px;flex-shrink:0}
+  .pb-tag{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;white-space:nowrap}
+  .pb-tag-acad{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+  .pb-tag-prof{background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
+  .pb-tag-link{background:#f5f3ff;color:#6d28d9;border:1px solid #ddd6fe}
+
+  /* ===== BOTTOM ROW ===== */
+  .bottom-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px;animation:fadeUp 0.7s ease-out 0.55s both}
+
+  /* ===== POLL ===== */
+  .poll-card{display:flex;flex-direction:column}
+
+  .poll-q{font-size:14.5px;font-weight:600;color:var(--text-primary);line-height:1.55;margin-bottom:18px;padding:14px 18px;background:linear-gradient(135deg,#fff7ed,#ecfdf5);border-radius:12px;border-left:4px solid var(--accent-amber)}
+
+  .poll-options{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+
+  .poll-opt{width:100%;padding:14px 18px;background:var(--bg-primary);border:1.5px solid var(--border-subtle);border-radius:12px;color:var(--text-secondary);font-size:13.5px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.3s ease;text-align:left;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden}
+  .poll-opt:hover{background:rgba(217,119,6,0.04);border-color:rgba(217,119,6,0.3);color:var(--text-primary)}
+  .poll-opt.selected{border-color:var(--accent-amber);color:var(--accent-amber);font-weight:700;background:rgba(217,119,6,0.03)}
+
+  .poll-opt .o-bar{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:12px;transition:width 0.6s ease}
+  .poll-opt.revealed .o-bar{width:var(--bw,0%)}
+
+  .poll-opt .o-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-subtle);position:relative;z-index:1;transition:all 0.3s ease}
+  .poll-opt.selected .o-icon{background:rgba(217,119,6,0.08);border-color:rgba(217,119,6,0.3)}
+
+  .poll-opt .o-text{flex:1;position:relative;z-index:1}
+  .poll-opt .o-sub{display:block;font-size:11px;color:var(--text-muted);font-weight:400;margin-top:2px}
+
+  .poll-opt .o-pct{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;opacity:0;transition:opacity 0.4s ease;color:var(--accent-amber);position:relative;z-index:1}
+  .poll-opt.revealed .o-pct{opacity:1}
+
+  .poll-reveal{padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:1px solid rgba(79,70,229,0.12);display:none;animation:fadeIn 0.5s ease}
+  .poll-reveal.show{display:block}
+  .poll-reveal .pr-title{font-size:13.5px;font-weight:700;color:var(--accent-indigo);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .poll-reveal .pr-text{font-size:12.5px;color:var(--text-secondary);line-height:1.65}
+  .poll-reveal .pr-text strong{color:var(--text-primary)}
+
+  /* ===== COMPARISON ===== */
+  .compare-card{display:flex;flex-direction:column}
+
+  .compare-table{width:100%;border-collapse:separate;border-spacing:0}
+  .compare-table th{font-size:10px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--text-muted);padding:8px 12px;text-align:left;border-bottom:2px solid var(--border-subtle)}
+  .compare-table th:first-child{width:35%}
+
+  .compare-table td{padding:10px 12px;font-size:12px;color:var(--text-secondary);border-bottom:1px solid var(--border-subtle);vertical-align:top}
+  .compare-table tr:last-child td{border-bottom:none}
+  .compare-table td:first-child{font-weight:600;color:var(--text-primary);font-size:11.5px}
+
+  .compare-table tr:hover td{background:rgba(248,249,252,0.5)}
+
+  .col-mining{color:var(--accent-orange) !important;font-weight:600}
+  .col-tableau{color:var(--accent-emerald) !important;font-weight:600}
+
+  .compare-footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-subtle)}
+  .compare-footer p{font-size:12px;color:var(--text-secondary);line-height:1.6;padding:12px 16px;background:linear-gradient(135deg,#fff7ed,#ecfdf5);border-radius:10px;border-left:4px solid var(--accent-orange)}
+  .compare-footer p strong{color:var(--text-primary)}
+
+  /* ===== FOOTER ===== */
+  .footer{grid-column:1/-1;text-align:center;padding:8px;font-size:11px;color:var(--text-muted);animation:fadeUp 0.7s ease-out 0.7s both}
+
+  @media(max-width:1024px){
+    .dashboard{padding:16px}
+    .hero{flex-direction:column;gap:20px}
+    .hero-right{justify-content:center}
+    .bottom-row{grid-template-columns:1fr}
+    .portfolio-banner{flex-direction:column;text-align:center}
+    .pb-tags{flex-direction:row;justify-content:center}
+  }
+  @media(max-width:640px){
+    .dashboard{grid-template-columns:1fr;gap:12px;padding:12px}
+    .header{flex-direction:column;gap:12px;text-align:center}
+    .header-right{flex-wrap:wrap;justify-content:center}
+    .hero-right{flex-wrap:wrap}
+    .bottom-row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-icon">📊</div>
+      <div class="header-title">
+        <h1>Big Data Analytics untuk Akuntansi</h1>
+        <div class="subtitle">Output Akhir Mata Kuliah — Apa yang Mahasiswa Dapat</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-tm">TM 1</span>
+      <span class="badge badge-screen">Screen 4</span>
+      <div class="dosen-info">
+        <div class="dosen-avatar">DP</div>
+        <div>
+          <div class="dosen-name">Dr. Donny Maha Putra</div>
+          <div class="dosen-title-text">S.Kom., M.Ak</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="card hero">
+    <div class="hero-left">
+      <h2>Bukan Cuma Nilai —<br>Kalian Dapat <span>Portofolio Nyata</span></h2>
+      <p>Di akhir semester, kalian tidak hanya mendapatkan huruf di transkrip. Kalian akan punya dua output profesional yang bisa ditunjukkan ke dunia kerja — hasil karya sendiri, bukan template.</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-orange)">2</div>
+        <div class="hs-label">Output<br>Utama</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-emerald)">1</div>
+        <div class="hs-label">Portofolio<br>Profesional</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-value" style="color:var(--accent-violet)">∞</div>
+        <div class="hs-label">Nilai<br>Karier</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTPUT 1: DATA MINING -->
+  <div class="card output-card output-mining" style="--d:0s">
+    <div class="oc-badge">🍊 Project 1 — Orange</div>
+    <div class="oc-header">
+      <div class="oc-icon">📄</div>
+      <div class="oc-header-text">
+        <h3>Laporan Data Mining</h3>
+        <span class="oc-sub">Analisis pola dari data bisnis nyata</span>
+      </div>
+    </div>
+    <div class="deliverables">
+      <div class="deliv-item">
+        <div class="deliv-icon">🎯</div>
+        <div class="deliv-text">
+          <strong>Problem Bisnis</strong>
+          <span>Identifikasi masalah nyata yang bisa dijawab dengan data</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">⚙️</div>
+        <div class="deliv-text">
+          <strong>Model Analitik</strong>
+          <span>Klasifikasi, klasterisasi, atau asosiasi menggunakan Orange</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">📏</div>
+        <div class="deliv-text">
+          <strong>Evaluasi Model</strong>
+          <span>Akurasi, confusion matrix, dan validasi hasil analisis</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">💡</div>
+        <div class="deliv-text">
+          <strong>Insight & Rekomendasi</strong>
+          <span>Temuan bermakna dan saran tindak lanjut untuk bisnis</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+    </div>
+    <div class="completion-strip">
+      <div class="comp-text">Bobot penilaian</div>
+      <div class="comp-track">
+        <div class="comp-fill" style="--cw:35%;background:linear-gradient(90deg,#fdba74,#ea580c)"></div>
+      </div>
+      <div class="comp-label" style="color:var(--accent-orange)">35%</div>
+    </div>
+  </div>
+
+  <!-- OUTPUT 2: TABLEAU -->
+  <div class="card output-card output-tableau" style="--d:0.1s">
+    <div class="oc-badge">📊 Project 2 — Tableau</div>
+    <div class="oc-header">
+      <div class="oc-icon">📊</div>
+      <div class="oc-header-text">
+        <h3>Dashboard Interaktif + Presentasi</h3>
+        <span class="oc-sub">Visualisasi & storytelling untuk pengambil keputusan</span>
+      </div>
+    </div>
+    <div class="deliverables">
+      <div class="deliv-item">
+        <div class="deliv-icon">📈</div>
+        <div class="deliv-text">
+          <strong>KPI & Metrics</strong>
+          <span>Indikator kinerja utama yang relevan untuk bisnis/organisasi</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">🎨</div>
+        <div class="deliv-text">
+          <strong>Visualisasi Interaktif</strong>
+          <span>Chart, filter, dan drill-down yang memudahkan eksplorasi</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">📝</div>
+        <div class="deliv-text">
+          <strong>Narasi Insight</strong>
+          <span>Cerita di balik data — bukan sekadar angka, tapi makna</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+      <div class="deliv-item">
+        <div class="deliv-icon">🏢</div>
+        <div class="deliv-text">
+          <strong>Rekomendasi Keputusan</strong>
+          <span>Saran strategis berbasis data untuk manajemen/stakeholder</span>
+        </div>
+        <div class="deliv-check">✓</div>
+      </div>
+    </div>
+    <div class="completion-strip">
+      <div class="comp-text">Bobot penilaian</div>
+      <div class="comp-track">
+        <div class="comp-fill" style="--cw:35%;background:linear-gradient(90deg,#6ee7b7,#059669)"></div>
+      </div>
+      <div class="comp-label" style="color:var(--accent-emerald)">35%</div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO BANNER -->
+  <div class="card portfolio-banner">
+    <div class="pb-icon-group">
+      <div class="pb-circle pb-c1">📄</div>
+      <div class="pb-circle pb-c2">📊</div>
+      <div class="pb-circle pb-c3">🎤</div>
+    </div>
+    <div class="pb-content">
+      <h3>🎓 Ini Bisa Jadi <em>Portofolio Akademik & Profesional</em> Kalian</h3>
+      <p>Kedua output ini bukan tugas biasa yang selesai lalu dilupakan. Ini adalah <strong>bukti kompetensi</strong> yang bisa ditunjukkan saat melamar kerja, mengikuti seleksi beasiswa, atau membangun personal branding sebagai akuntan yang melek data.</p>
+    </div>
+    <div class="pb-tags">
+      <span class="pb-tag pb-tag-acad">🎓 Portofolio Akademik</span>
+      <span class="pb-tag pb-tag-prof">💼 CV & Lamaran Kerja</span>
+      <span class="pb-tag pb-tag-link">🔗 LinkedIn Profile</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW -->
+  <div class="bottom-row">
+
+    <!-- POLL -->
+    <div class="card poll-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-rose)"></span> Pertanyaan Pemantik</div>
+
+      <div class="poll-q">
+        🤔 Kalau disuruh pilih, kalian lebih nyaman mana?
+      </div>
+
+      <div class="poll-options">
+        <button class="poll-opt" onclick="pick(this,0)">
+          <span class="o-bar" style="background:rgba(234,88,12,0.06)"></span>
+          <span class="o-icon">📄</span>
+          <span class="o-text">
+            Nulis laporan analitik
+            <span class="o-sub">Riset, analisis mendalam, rekomendasi tertulis</span>
+          </span>
+          <span class="o-pct">35%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,1)">
+          <span class="o-bar" style="background:rgba(5,150,105,0.06)"></span>
+          <span class="o-icon">📊</span>
+          <span class="o-text">
+            Presentasi dashboard
+            <span class="o-sub">Visual, interaktif, langsung di depan audiens</span>
+          </span>
+          <span class="o-pct">45%</span>
+        </button>
+        <button class="poll-opt" onclick="pick(this,2)">
+          <span class="o-bar" style="background:rgba(124,58,237,0.06)"></span>
+          <span class="o-icon">🤷</span>
+          <span class="o-text">
+            Belum tahu — masih mau coba dulu
+            <span class="o-sub">Terbuka untuk keduanya!</span>
+          </span>
+          <span class="o-pct">20%</span>
+        </button>
+      </div>
+
+      <div class="poll-reveal" id="pollReveal">
+        <div class="pr-title">💡 Yang menarik?</div>
+        <div class="pr-text">Di dunia profesional, <strong>kalian butuh keduanya</strong>. Laporan analitik menunjukkan kedalaman berpikir, sementara presentasi dashboard menunjukkan kemampuan komunikasi. Mata kuliah ini melatih <strong>dua skill sekaligus</strong> — jadi di manapun kalian lebih nyaman, kalian tetap akan berkembang di sisi lainnya.</div>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="card compare-card">
+      <div class="card-label"><span class="dot" style="background:var(--accent-amber)"></span> Perbandingan 2 Output</div>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Aspek</th>
+            <th>🍊 Project 1</th>
+            <th>📊 Project 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tools</td>
+            <td class="col-mining">Orange</td>
+            <td class="col-tableau">Tableau</td>
+          </tr>
+          <tr>
+            <td>Fokus</td>
+            <td>Menemukan pola</td>
+            <td>Memvisualisasikan insight</td>
+          </tr>
+          <tr>
+            <td>Output</td>
+            <td>Laporan tertulis</td>
+            <td>Dashboard + presentasi</td>
+          </tr>
+          <tr>
+            <td>Skill Utama</td>
+            <td>Analytical thinking</td>
+            <td>Visual storytelling</td>
+          </tr>
+          <tr>
+            <td>Audiens</td>
+            <td>Tim analis / auditor</td>
+            <td>Manajemen / board</td>
+          </tr>
+          <tr>
+            <td>Bobot</td>
+            <td class="col-mining">35%</td>
+            <td class="col-tableau">35%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="compare-footer">
+        <p>🔗 <strong>Keduanya saling melengkapi.</strong> Project 1 mengajarkan cara menggali insight dari data, Project 2 mengajarkan cara menyampaikannya ke pengambil keputusan. Akuntan yang kuat punya kedua kemampuan ini.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Big Data Analytics — Akuntansi &nbsp;|&nbsp; Tatap Muka 1 · Screen 4 &nbsp;|&nbsp; © 2025 Dr. Donny Maha Putra, S.Kom., M.Ak
+  </div>
+
+</div>
+
+<script>
+  // Animate completion bars
+  window.addEventListener('load',()=>{
+    setTimeout(()=>{
+      document.querySelectorAll('.comp-fill').forEach(f=>f.classList.add('loaded'));
+    },400);
+  });
+
+  // Poll
+  const pcts=[35,45,20];
+  function pick(btn,idx){
+    const opts=document.querySelectorAll('.poll-opt');
+    opts.forEach((o,i)=>{
+      o.classList.add('revealed');
+      o.style.setProperty('--bw',pcts[i]+'%');
+      if(i===idx)o.classList.add('selected');
+      else o.classList.remove('selected');
+    });
+    setTimeout(()=>{document.getElementById('pollReveal').classList.add('show')},600);
+  }
+</script>
+</body>
+</html>

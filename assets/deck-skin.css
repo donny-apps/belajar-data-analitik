@@ -1,0 +1,51 @@
+/* ============================================================
+   Deck Skin — menyelaraskan enam layar materi TM1 dengan
+   design system BDA Studio. Berkas ini hanya menimpa token
+   warna, sudut, dan bayangan. Struktur asli materi tidak diubah.
+   ============================================================ */
+
+:root {
+  --bg-primary: #f6f5f1;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbfaf7;
+
+  --accent-cyan: #6d5df6;
+  --accent-teal: #5b4be8;
+  --accent-indigo: #6d5df6;
+  --accent-violet: #a855f7;
+  --accent-blue: #4c8dff;
+  --accent-emerald: #12b981;
+  --accent-amber: #ffa51f;
+  --accent-orange: #ff7a2f;
+  --accent-rose: #ff4d84;
+
+  --text-primary: #14131a;
+  --text-secondary: #4b4a57;
+  --text-muted: #8f8d9c;
+
+  --border-subtle: rgba(20, 19, 26, 0.10);
+  --shadow-sm: 0 1px 2px rgba(20,19,26,.05), 0 2px 8px rgba(20,19,26,.04);
+  --shadow-md: 0 2px 6px rgba(20,19,26,.06), 0 10px 24px rgba(20,19,26,.07);
+  --shadow-lg: 0 8px 18px rgba(20,19,26,.08), 0 24px 56px rgba(20,19,26,.12);
+}
+
+/* lapisan gradasi lembut di belakang materi */
+body::before {
+  content: '';
+  position: fixed; inset: -20%;
+  z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(36vw 36vw at 10% 2%, rgba(109, 93, 246, .16), transparent 62%),
+    radial-gradient(30vw 30vw at 94% 10%, rgba(198, 242, 78, .22), transparent 60%),
+    radial-gradient(38vw 38vw at 74% 92%, rgba(255, 77, 132, .12), transparent 64%);
+  filter: blur(30px);
+}
+
+body { letter-spacing: -0.005em; }
+
+/* sudut lebih membulat mengikuti gaya baru */
+.card, .header, .footer { border-radius: 22px; }
+.node-icon, .proj-ikon { border-radius: 20px; }
+.badge, .badge-tm, .badge-live { border-radius: 999px; letter-spacing: .08em; }
+
+::selection { background: #c6f24e; color: #3c4a05; }

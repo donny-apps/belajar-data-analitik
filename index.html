@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Data Analytics untuk Akuntansi — Ruang Kuliah Digital</title>
+<meta name="description" content="Website mata kuliah Big Data Analytics untuk Program Studi Akuntansi. Roadmap 16 pertemuan, materi, dua project, dan portofolio mahasiswa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  /* set tema sebelum render supaya tidak berkedip */
+  (function(){ try { var t = localStorage.getItem('bda-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(e){} })();
+</script>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">📊</div>
+      <div class="brand-txt">
+        <strong>BDA Studio</strong>
+        <span>Big Data Analytics · Akuntansi</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="simulasi.html">Simulasi</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#project">Project</a>
+      <a href="#nilai">Penilaian</a>
+      <a href="#tools">Tools</a>
+      <a href="#karya">Karya</a>
+      <button class="theme-btn" id="themeBtn" title="Ganti mode terang atau gelap" aria-label="Ganti tema">🌙</button>
+      <a class="nav-cta" href="tm1.html">Mulai TM1 →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap bento">
+
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Semester Aktif 2026</span>
+      <h1>Baca <span class="grad">masalah bisnis</span> lewat data,<br>bukan cuma <span class="mark">hafal software</span></h1>
+      <p class="lead">
+        16 pertemuan. 2 karya beneran yang bisa dipamerin pas ngelamar kerja.
+        Nggak ada hafalan rumus. Yang dilatih: nyari pola di data, terus jelasin artinya ke orang.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="simulasi.html">🎮 Coba Simulasinya Dulu</a>
+        <a class="btn btn-ghost" href="tm1.html">▶ Materi TM1</a>
+        <a class="btn btn-ghost" href="#roadmap">🗺 Peta 16 Pertemuan</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div class="dosen-row">
+        <div class="dosen-ava">DP</div>
+        <div>
+          <strong>Dr. Donny Maha Putra</strong>
+          <span>S.Kom., M.Ak · Dosen Pengampu</span>
+        </div>
+      </div>
+      <blockquote class="quote">
+        Di kelas ini kita nggak cuma belajar aplikasi. Kita belajar cara mikirnya.
+      </blockquote>
+      <div class="mini-list">
+        <div><span>Program Studi</span><span>Akuntansi</span></div>
+        <div><span>Tools Utama</span><span>Orange · Tableau</span></div>
+        <div><span>Titik Penilaian</span><span>UTS &amp; UAS</span></div>
+        <div><span>Yang Kalian Bawa Pulang</span><span>Dashboard + Laporan</span></div>
+      </div>
+    </aside>
+
+    <div class="tile tile-stat">
+      <div class="stat-num" data-count="16" style="color:var(--iris)">16</div>
+      <div class="stat-lbl">Pertemuan</div>
+    </div>
+    <div class="tile tile-stat">
+      <div class="stat-num" data-count="2" style="color:var(--pink)">2</div>
+      <div class="stat-lbl">Project Besar</div>
+    </div>
+    <div class="tile tile-stat">
+      <div class="stat-num" data-count="70" data-suffix="%" style="color:var(--mint)">70%</div>
+      <div class="stat-lbl">Nilai dari Karya</div>
+    </div>
+    <div class="tile tile-stat">
+      <div class="stat-num" style="color:var(--amber)">5V</div>
+      <div class="stat-lbl">Ciri Big Data</div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>CARI YANG JANGGAL <i>✦</i> KELOMPOKIN YANG MIRIP <i>✦</i> TEBAK YANG BAKAL KEJADIAN <i>✦</i> BIKIN DASHBOARD <i>✦</i> CERITAIN TEMUANNYA <i>✦</i> KASIH SARAN <i>✦</i></span>
+    <span>CARI YANG JANGGAL <i>✦</i> KELOMPOKIN YANG MIRIP <i>✦</i> TEBAK YANG BAKAL KEJADIAN <i>✦</i> BIKIN DASHBOARD <i>✦</i> CERITAIN TEMUANNYA <i>✦</i> KASIH SARAN <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ===================== FASE ===================== -->
+<section id="fase">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Isi Semester</span>
+      <h2>Semester ini dibagi 4 babak</h2>
+      <p>Babak awal: belajar mikirnya. Babak tengah: nyari pola di data. Babak akhir: bikin orang percaya sama temuan kalian.</p>
+    </div>
+    <div class="fase-grid" id="faseGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== ROADMAP ===================== -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Roadmap &amp; Materi</span>
+      <h2>Peta 16 pertemuan</h2>
+      <p>Klik nama berkasnya buat langsung buka slide, modul, atau datasetnya. Yang ditandai Rencana masih bisa berubah.</p>
+    </div>
+    <div class="filter-row reveal" id="faseFilter">
+      <button class="chip on">Semua</button>
+      <button class="chip" data-fase="1">🧱 Fondasi</button>
+      <button class="chip" data-fase="2">⛏️ Data Mining</button>
+      <button class="chip" data-fase="3">📊 Dashboard</button>
+      <button class="chip" data-fase="4">🏆 Showcase</button>
+    </div>
+    <div class="tm-grid" id="tmGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== TUGAS ===================== -->
+<section id="materi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Tugas Pendukung</span>
+      <h2>Kursus mandiri</h2>
+      <p>Buat yang mau nambah jam terbang di luar kelas.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="tm-links" id="tugasWrap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECT ===================== -->
+<section id="project">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Yang Kalian Hasilkan</span>
+      <h2>Dua karya, dua skill beda</h2>
+      <p>Yang pertama: nemuin sesuatu di data. Yang kedua: bikin orang lain ngerti temuan itu. Dua-duanya kepake di dunia kerja.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1">🍊</div>
+          <div>
+            <h3>Project 1 · Data Mining</h3>
+            <span>Pakai Orange · dinilai pas UTS</span>
+          </div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Masalahnya apa.</b> Pilih satu masalah nyata yang bisa dijawab pakai data.</span></li>
+          <li><span class="ck">✓</span><span><b>Olah datanya.</b> Kelompokin, ramalin, atau cari kaitan antar hal pakai Orange.</span></li>
+          <li><span class="ck">✓</span><span><b>Cek meleset apa nggak.</b> Seberapa sering tebakan modelnya salah.</span></li>
+          <li><span class="ck">✓</span><span><b>Terus apa.</b> Temuan kalian bikin perusahaan harus ngapain.</span></li>
+        </ul>
+        <div class="bobot"><span>Bobot penilaian</span><b style="color:var(--amber)">35%</b></div>
+      </div>
+
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2">📊</div>
+          <div>
+            <h3>Project 2 · Dashboard</h3>
+            <span>Pakai Tableau · dinilai pas UAS</span>
+          </div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Angka yang penting aja.</b> Pilih ukuran yang beneran dipakai buat ambil keputusan.</span></li>
+          <li><span class="ck">✓</span><span><b>Bisa diklik.</b> Ada filter, bisa dipecah per wilayah, per produk, per bulan.</span></li>
+          <li><span class="ck">✓</span><span><b>Ada ceritanya.</b> Bukan grafik numpuk, tapi jelas mau ngomong apa.</span></li>
+          <li><span class="ck">✓</span><span><b>Ada sarannya.</b> Setelah lihat ini, manajemen sebaiknya ngapain.</span></li>
+        </ul>
+        <div class="bobot"><span>Bobot penilaian</span><b style="color:var(--mint)">35%</b></div>
+      </div>
+
+      <div class="tile tile-wide reveal">
+        <span class="sec-label" style="margin-bottom:18px">Perbandingan dua output</span>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Aspek</th><th>🍊 Project 1</th><th>📊 Project 2</th></tr></thead>
+            <tbody>
+              <tr><td><b>Tools</b></td><td>Orange</td><td>Tableau</td></tr>
+              <tr><td><b>Intinya</b></td><td>Nemuin polanya</td><td>Bikin orang ngerti</td></tr>
+              <tr><td><b>Output</b></td><td>Laporan tertulis</td><td>Dashboard + presentasi</td></tr>
+              <tr><td><b>Yang dilatih</b></td><td>Ketelitian analisis</td><td>Cara nyampein</td></tr>
+              <tr><td><b>Buat siapa</b></td><td>Tim analis dan auditor</td><td>Manajemen dan direksi</td></tr>
+              <tr><td><b>Bobot</b></td><td>35%</td><td>35%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PENILAIAN ===================== -->
+<section id="nilai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Penilaian</span>
+      <h2>70 persen nilai dari karya kalian</h2>
+      <p>Nggak ada SKS hafalan di sini. Yang dinilai: apa yang kalian bikin.</p>
+    </div>
+    <div class="bento">
+      <div class="tile tile-third nilai reveal">
+        <div class="ring" style="color:var(--iris)">30%</div>
+        <h4>Tugas dan Kehadiran</h4>
+        <p>Ikut kelas, ngerjain latihan, aktif pas diskusi kelompok.</p>
+        <div class="bar"><i data-w="30" style="background:var(--iris)"></i></div>
+      </div>
+      <div class="tile tile-third nilai reveal">
+        <div class="ring" style="color:var(--amber)">35%</div>
+        <h4>Project 1 · Data Mining</h4>
+        <p>Laporan analisis pakai Orange. Dikumpulin dan dipresentasiin pas UTS.</p>
+        <div class="bar"><i data-w="35" style="background:var(--amber)"></i></div>
+      </div>
+      <div class="tile tile-third nilai reveal">
+        <div class="ring" style="color:var(--mint)">35%</div>
+        <h4>Project 2 · Dashboard</h4>
+        <p>Dashboard Tableau plus presentasi ke simulasi jajaran direksi pas UAS.</p>
+        <div class="bar"><i data-w="35" style="background:var(--mint)"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOOLS ===================== -->
+<section id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Yang Perlu Diinstall</span>
+      <h2>Dua aplikasi, dua-duanya gratis</h2>
+      <p>Install duluan ya. Sayang kalau jam kelas habis cuma buat nungguin instalan.</p>
+    </div>
+    <div class="bento">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1">🍊</div>
+          <div>
+            <h3>Orange Data Mining</h3>
+            <span>Dipakai mulai TM3 · open source</span>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-2)">
+          Nggak perlu ngoding. Tinggal seret kotak, sambungin pakai garis, hasilnya keluar.
+          Mirip main Lego, tapi buat nganalisis data.
+        </p>
+        <div class="tm-links">
+          <a class="file" href="https://orangedatamining.com/download/" target="_blank" rel="noopener"><span class="ic">⬇️</span><span>Unduh Orange</span><span class="ext">web</span></a>
+        </div>
+      </div>
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2">📊</div>
+          <div>
+            <h3>Tableau Public</h3>
+            <span>Dipakai mulai TM9 · gratis dengan akun</span>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-2)">
+          Buat bikin dashboard yang bisa diklik. Hasilnya bisa dipublish online,
+          linknya tinggal tempel di CV atau LinkedIn.
+        </p>
+        <div class="tm-links">
+          <a class="file" href="https://public.tableau.com/app/discover" target="_blank" rel="noopener"><span class="ic">⬇️</span><span>Unduh Tableau Public</span><span class="ext">web</span></a>
+        </div>
+      </div>
+      <div class="tile tile-wide note info-inline reveal">
+        <span style="font-size:20px">💡</span>
+        <span><b>Deadline install:</b> Orange sebelum TM3, akun Tableau Public sebelum TM9. Panduannya ada di kartu pertemuan masing-masing.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KARYA ===================== -->
+<section id="karya">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Contoh Jadi</span>
+      <h2>Karya kakak tingkat</h2>
+      <p>Ini standarnya. Buka, lihat susunannya, terus bikin yang lebih bagus.</p>
+    </div>
+    <div id="karyaWrap"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <p><b>BDA Studio</b></p>
+      <p>Big Data Analytics untuk Akuntansi · Dr. Donny Maha Putra, S.Kom., M.Ak</p>
+    </div>
+    <a class="btn btn-primary" href="tm1.html">▶ Mulai TM1</a>
+  </div>
+</footer>
+
+<script src="assets/course.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

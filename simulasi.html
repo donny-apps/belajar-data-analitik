@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruang Simulasi — Big Data Analytics untuk Akuntansi</title>
+<meta name="description" content="Empat latihan interaktif: cari transaksi janggal, tentukan langkah pertama, mainkan dashboard, dan kelompokkan pelanggan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/sim.css">
+<script>
+  (function(){ try { var t = localStorage.getItem('bda-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(e){} })();
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">📊</div>
+      <div class="brand-txt">
+        <strong>BDA Studio</strong>
+        <span>Big Data Analytics · Akuntansi</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="index.html#roadmap">Roadmap</a>
+      <a href="tm1.html">Materi TM1</a>
+      <button class="theme-btn" id="themeBtn" title="Ganti mode terang atau gelap" aria-label="Ganti tema">🌙</button>
+      <a class="nav-cta" href="#sim1">Mulai Main →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Ruang Simulasi</span>
+      <h1>Coba dulu, <span class="mark">baru</span> <span class="grad">teorinya</span></h1>
+      <p class="lead">
+        Empat latihan singkat. Nggak perlu install apa-apa, tinggal klik.
+        Habis ini kalian bakal ngerti kerjaan analis data itu ngapain aja.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#sim1">🕵️ Mulai dari yang pertama</a>
+        <a class="btn btn-ghost" href="index.html">🏠 Balik ke beranda</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Isi Ruangan Ini</span>
+        <div class="mini-list" style="margin-top:16px">
+          <div><span>1. Cari yang janggal</span><span>3 menit</span></div>
+          <div><span>2. Mulai dari mana</span><span>2 menit</span></div>
+          <div><span>3. Main dashboard</span><span>3 menit</span></div>
+          <div><span>4. Kelompokin pelanggan</span><span>2 menit</span></div>
+        </div>
+      </div>
+      <blockquote class="quote">
+        Kalau bisa dicoba, ngapain cuma didengerin.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>KLIK <i>✦</i> SALAH GAPAPA <i>✦</i> COBA LAGI <i>✦</i> LIHAT POLANYA <i>✦</i> TARIK KESIMPULAN <i>✦</i></span>
+    <span>KLIK <i>✦</i> SALAH GAPAPA <i>✦</i> COBA LAGI <i>✦</i> LIHAT POLANYA <i>✦</i> TARIK KESIMPULAN <i>✦</i></span>
+  </div>
+</div>
+
+<!-- ============ SIM 1 ============ -->
+<section id="sim1">
+  <div class="wrap">
+    <div class="tile reveal">
+      <div class="sim-head">
+        <span class="sim-num">01</span>
+        <h3>Cari transaksi yang janggal</h3>
+      </div>
+      <p class="sim-tanya">
+        Ini 8 transaksi sebuah perusahaan minggu lalu. <b>3 di antaranya mencurigakan.</b>
+        Klik yang menurut kalian aneh. Salah? Santai, klik lagi yang lain.
+      </p>
+
+      <div class="skor-bar">
+        <span class="skor-pill">Ketemu: <b id="simTrxSkor">0 dari 3</b></span>
+        <button class="btn-mini" id="simTrxReset">Ulang dari awal</button>
+      </div>
+
+      <div class="trx-table" id="simTrx"></div>
+      <div class="sim-hasil ok" id="simTrxPesan"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIM 2 ============ -->
+<section id="sim2">
+  <div class="wrap">
+    <div class="tile reveal">
+      <div class="sim-head">
+        <span class="sim-num">02</span>
+        <h3>Bos bilang: penjualan turun 15 persen</h3>
+      </div>
+      <p class="sim-tanya">
+        Kalian dipanggil. Datanya ada di laptop. <b>Langkah pertama kalian apa?</b>
+      </p>
+
+      <div class="pilih-grid" id="simMulai">
+        <button class="pilih" data-pilih="grafik">
+          <span class="emo">📊</span>
+          <b>Langsung bikin grafik</b>
+          <span class="ket">Buka data, bikin chart, tunjukin ke bos</span>
+        </button>
+        <button class="pilih" data-pilih="tanya">
+          <span class="emo">🗣️</span>
+          <b>Tanya tim sales dulu</b>
+          <span class="ket">Cari tahu versi mereka soal apa yang terjadi</span>
+        </button>
+        <button class="pilih" data-pilih="rumus">
+          <span class="emo">❓</span>
+          <b>Susun pertanyaannya dulu</b>
+          <span class="ket">Turun di mana, sejak kapan, produk apa</span>
+        </button>
+      </div>
+
+      <div class="sim-hasil" id="simMulaiHasil"></div>
+
+      <div class="langkah" id="simMulaiLangkah">
+        <div><b>01</b> Susun pertanyaan</div>
+        <div><b>02</b> Ambil data yang perlu</div>
+        <div><b>03</b> Cari polanya</div>
+        <div><b>04</b> Bikin visualnya</div>
+        <div><b>05</b> Kasih saran tindakan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIM 3 ============ -->
+<section id="sim3">
+  <div class="wrap">
+    <div class="tile reveal" id="simDash">
+      <div class="sim-head">
+        <span class="sim-num">03</span>
+        <h3>Ini rasanya main dashboard</h3>
+      </div>
+      <p class="sim-tanya">
+        Klik kategorinya. Semua angka di bawah langsung ikut berubah.
+        <b>Cari kategori yang jualannya rame tapi untungnya minus.</b>
+      </p>
+
+      <div class="dash-filter">
+        <button class="chip on" data-kat="Semua">Semua</button>
+        <button class="chip" data-kat="Elektronik">Elektronik</button>
+        <button class="chip" data-kat="Fashion">Fashion</button>
+        <button class="chip" data-kat="Makanan">Makanan</button>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi"><b id="kpiJual" style="color:var(--iris)">0</b><span>Penjualan</span></div>
+        <div class="kpi"><b id="kpiUntung" style="color:var(--amber)">0</b><span>Untung</span></div>
+        <div class="kpi"><b id="kpiMargin" style="color:var(--mint)">0%</b><span>Margin</span></div>
+      </div>
+
+      <div id="dashBars"></div>
+      <div class="sim-hasil" id="dashTemuan"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIM 4 ============ -->
+<section id="sim4">
+  <div class="wrap">
+    <div class="tile reveal">
+      <div class="sim-head">
+        <span class="sim-num">04</span>
+        <h3>Kelompokin pelanggan tanpa disuruh</h3>
+      </div>
+      <p class="sim-tanya">
+        Satu titik satu pelanggan. Ke kanan artinya makin sering belanja, ke atas artinya makin besar nominalnya.
+        <b>Kelihatan nggak, mereka ngumpul di tiga tempat?</b>
+      </p>
+
+      <div class="klaster-wrap">
+        <div>
+          <div class="klaster-plot">
+            <svg viewBox="0 0 100 100" id="simKlaster" aria-label="Sebaran pelanggan"></svg>
+            <div class="klaster-axis"><span>jarang belanja</span><span>sering belanja</span></div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+            <button class="btn btn-primary" id="klasterBtn" style="padding:11px 20px;font-size:13.5px">✨ Kelompokkan</button>
+            <button class="btn-mini" id="klasterReset">Balikin lagi</button>
+          </div>
+        </div>
+        <div class="klaster-hasil" id="klasterHasil"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PENUTUP ============ -->
+<section>
+  <div class="wrap">
+    <div class="tile reveal" style="text-align:center;padding:44px 32px">
+      <span class="sec-label">Barusan kalian ngapain</span>
+      <h2 style="font-size:clamp(26px,3.6vw,40px);margin:16px 0 14px">Itu tadi isi satu semester, versi 10 menit</h2>
+      <p class="lead" style="margin:0 auto 26px">
+        Nomor 1 dan 4 itu kerjaan Orange. Nomor 3 itu kerjaan Tableau.
+        Nomor 2 yang paling penting: cara mikirnya. Semester ini kita latih semuanya.
+      </p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" href="tm1.html">▶ Lihat materi TM1</a>
+        <a class="btn btn-ghost" href="index.html#roadmap">🗺 Peta 16 pertemuan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <p><b>Ruang Simulasi</b></p>
+      <p>Big Data Analytics untuk Akuntansi · Dr. Donny Maha Putra, S.Kom., M.Ak</p>
+    </div>
+    <a class="btn btn-primary" href="index.html">🏠 Beranda</a>
+  </div>
+</footer>
+
+<script src="assets/course.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/sim.js"></script>
+</body>
+</html>
