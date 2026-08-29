@@ -25,15 +25,15 @@
   --muted: #656374;
 
   /* aksen */
-  --iris: #4c37fc;
+  --iris: #513dff;
   --iris-2: #8b7cff;
   --lime: #c6f24e;
   --lime-ink: #3c4a05;
-  --pink: #b80039;
-  --cyan: #056978;
-  --amber: #8a5200;
-  --mint: #066d4b;
-  --violet: #7c02f0;
+  --pink: #c0003b;
+  --cyan: #006c7c;
+  --amber: #8f5500;
+  --mint: #00704b;
+  --violet: #8100fb;
 
   /* efek */
   --glow-iris: 0 10px 30px rgba(109, 93, 246, .28);
@@ -44,10 +44,10 @@
 
 
   /* warna tiap tahap kuliah, versi tema terang */
-  --fase-1: #0070aa;
-  --fase-2: #a35801;
-  --fase-3: #017954;
-  --fase-4: #7b36f1;
+  --fase-1: #00689d;
+  --fase-2: #975100;
+  --fase-3: #00704d;
+  --fase-4: #7423ff;
 
   --iris-tombol: #6452fa;
 
@@ -57,9 +57,9 @@
   --r-lg: 26px;
   --r-xl: 34px;
 
-  --blob-1: rgba(109, 93, 246, .22);
-  --blob-2: rgba(198, 242, 78, .30);
-  --blob-3: rgba(255, 77, 132, .16);
+  --blob-1: rgba(109, 93, 246, .30);
+  --blob-2: rgba(198, 242, 78, .38);
+  --blob-3: rgba(255, 77, 132, .22);
   --grain: .035;
 }
 
