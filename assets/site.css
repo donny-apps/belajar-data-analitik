@@ -1922,3 +1922,53 @@ body.cari-terbuka { overflow: hidden; }
   0%, 100% { box-shadow: 0 0 0 0 transparent; }
   15%, 60% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--iris) 55%, transparent); }
 }
+
+/* ============================================================
+   Blok tiga cara di beranda
+   ------------------------------------------------------------
+   Dipasang tepat di bawah bagian pembuka supaya pembaca langsung
+   dapat arah, tanpa harus menggulir dulu untuk tahu situs ini
+   isinya apa saja.
+   ============================================================ */
+.cara-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
+  gap: 14px;
+}
+.cara {
+  display: flex; flex-direction: column;
+  background:
+    radial-gradient(120% 85% at 100% 0%, color-mix(in srgb, var(--c) 14%, transparent) 0%, transparent 58%),
+    var(--surface);
+}
+.cara-ikon {
+  width: 48px; height: 48px; border-radius: 16px; margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+  transition: transform .28s cubic-bezier(.34, 1.4, .64, 1);
+}
+.cara-ikon .ikon { width: 23px; height: 23px; }
+.cara:hover .cara-ikon { transform: translateY(-3px) rotate(-4deg); }
+.cara h3 { font-size: 18px; letter-spacing: -.03em; margin-bottom: 8px; line-height: 1.25; }
+.cara > p { font-size: 13.5px; color: var(--ink-2); margin-bottom: 18px; }
+
+.cara-tautan { display: flex; flex-direction: column; gap: 6px; margin-top: auto; }
+.cara-tautan a {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  padding: 11px 14px; border-radius: var(--r-sm);
+  background: var(--surface-2);
+  transition: transform .2s cubic-bezier(.34, 1.4, .64, 1), background .2s ease;
+}
+.cara-tautan a:hover {
+  transform: translateX(4px);
+  background: color-mix(in srgb, var(--c) 13%, var(--surface-2));
+}
+.cara-tautan .ikon { width: 16px; height: 16px; flex: none; color: var(--c); }
+.cara-tautan .logo-app { width: 16px; height: 16px; flex: none; object-fit: contain; }
+.cara-catatan { margin-top: 16px; }
+
+@media (max-width: 620px) {
+  .cara { padding: 22px 20px; }
+}

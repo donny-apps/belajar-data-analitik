@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=1f713277">
+<link rel="stylesheet" href="assets/site.css?v=601e3c13">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -82,6 +82,61 @@
   </div>
 </header>
 
+
+<!-- ===================== TIGA CARA ===================== -->
+<section id="mulai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Mulai Dari Sini</span>
+      <h2>Tiga cara memakai situs ini</h2>
+      <p>Pilih yang paling dekat dengan keperluan kamu sekarang. Sisanya bisa dibuka belakangan.</p>
+    </div>
+
+    <div class="cara-grid">
+      <div class="tile cara reveal" style="--c:var(--iris)">
+        <span class="cara-ikon" data-ikon="orang"></span>
+        <h3>Saya mahasiswa kelas ini</h3>
+        <p>Cari jadwal, bahan tiap pertemuan, ketentuan project, dan tempat mengumpulkan tugas.</p>
+        <div class="cara-tautan">
+          <a href="bahan.html"><span data-ikon="rak"></span>Bahan tiap pertemuan</a>
+          <a href="project.html"><span data-ikon="target"></span>Ketentuan dua project</a>
+          <a href="aturan.html"><span data-ikon="perisai"></span>Rule perkuliahan</a>
+          <a href="masuk.html"><span data-ikon="unduhan"></span>Kumpulkan tugas</a>
+        </div>
+      </div>
+
+      <div class="tile cara reveal" style="--c:var(--amber)">
+        <span class="cara-ikon" data-ikon="alur"></span>
+        <h3>Saya mau bisa pakai aplikasinya</h3>
+        <p>Cara memasang Orange dan Tableau, contoh pemakaian, sampai latihan yang bisa langsung dicoba.</p>
+        <div class="cara-tautan">
+          <a href="orange.html"><img class="logo-app" src="assets/img/lambang-orange.png" alt="">Orange Data Mining</a>
+          <a href="tableau.html"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="">Tableau Public</a>
+          <a href="simulasi.html"><span data-ikon="putar"></span>Coba sendiri di browser</a>
+          <a href="tm1.html"><span data-ikon="buku"></span>Materi pertemuan 1</a>
+        </div>
+      </div>
+
+      <div class="tile cara reveal" style="--c:var(--mint)">
+        <span class="cara-ikon" data-ikon="kaca"></span>
+        <h3>Saya cari data atau contoh</h3>
+        <p>Delapan belas sumber dataset, dua puluh lima project kakak tingkat, video, dan buku pegangan.</p>
+        <div class="cara-tautan">
+          <a href="sumber-data.html"><span data-ikon="data"></span>Sumber dataset</a>
+          <a href="showcase.html"><span data-ikon="grafik"></span>Katalog project</a>
+          <a href="belajar.html"><span data-ikon="layar"></span>Video belajar</a>
+          <a href="buku.html"><span data-ikon="buku"></span>Buku referensi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tile note info-inline reveal cara-catatan">
+      <span data-ikon="cari"></span>
+      <span><b>Nggak ketemu juga?</b> Tekan tombol garis miring di papan ketik, atau klik kaca pembesar
+      di menu atas. Pencarian itu menembus seluruh isi situs, dari materi tiap pertemuan sampai bab buku.</span>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== CERITA ===================== -->
 <section id="cerita">
@@ -233,144 +288,6 @@
   </div>
 </section>
 
-<!-- ===================== ETALASE MATERI ===================== -->
-<section id="katalog">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Etalase Materi</span>
-      <h2>Semua materi, 16 pertemuan</h2>
-      <p>Klik nama berkasnya buat langsung buka slide, modul, atau datanya. Yang ditandai Rencana masih bisa berubah.</p>
-    </div>
-    <div class="filter-row reveal" id="faseFilter">
-      <button class="chip on">Semua</button>
-      <button class="chip" data-fase="1">🧱 Dasar</button>
-      <button class="chip" data-fase="2"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> Orange</button>
-      <button class="chip" data-fase="3"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"> Tableau</button>
-      <button class="chip" data-fase="4">🏆 Tampil</button>
-    </div>
-    <div class="tm-grid" id="tmGrid"></div>
-  </div>
-</section>
-
-<!-- ===================== USE CASE ===================== -->
-<section id="kepake">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Dipakai Buat Apa</span>
-      <h2>Empat contoh pemakaian di dunia kerja</h2>
-      <p>Empat kasus yang dikerjakan orang di kantor pajak, kantor akuntan publik, fintech, dan instansi pemerintah.</p>
-    </div>
-
-    <div class="uc-grid">
-      <article class="tile uc reveal" style="--c:var(--iris)">
-        <div class="uc-top"><span class="uc-ikon">🧾</span><span class="tag tag-siap">Pajak</span></div>
-        <h3>Mencocokkan SPT dengan transaksi yang sebenarnya</h3>
-        <dl class="uc-list">
-          <div><dt>Situasinya</dt><dd>Sejak ada Coretax dan e-Faktur, semua faktur kerekam. Nggak ada lagi yang ngumpet di kertas.</dd></div>
-          <div><dt>Datanya</dt><dd>Jutaan baris faktur, laporan SPT, mutasi rekening.</dd></div>
-          <div><dt>Yang dikerjain</dt><dd>Cari selisih antara yang dilaporin sama yang beneran terjadi.</dd></div>
-        </dl>
-        <div class="uc-links"><a href="screens/tm1/TM1_Deck.html#s3">Lihat di materi →</a></div>
-      </article>
-
-      <article class="tile uc reveal" style="--c:var(--pink)">
-        <div class="uc-top"><span class="uc-ikon">🔎</span><span class="tag tag-ujian">Audit</span></div>
-        <h3>Memeriksa seluruh transaksi, bukan cuma sampel</h3>
-        <dl class="uc-list">
-          <div><dt>Situasinya</dt><dd>Dulu auditor cuma ngecek beberapa sampel. Sekarang semua transaksi bisa disisir sekaligus.</dd></div>
-          <div><dt>Datanya</dt><dd>Buku besar, daftar faktur, catatan pembayaran ke vendor.</dd></div>
-          <div><dt>Yang dikerjain</dt><dd>Cari tagihan kebayar dua kali, nominal yang nempel di bawah batas persetujuan, transaksi tengah malam.</dd></div>
-        </dl>
-        <div class="uc-links"><a href="simulasi.html#sim1">Coba jadi auditor →</a><a href="orange.html#kepake">Pakai Orange →</a></div>
-      </article>
-
-      <article class="tile uc reveal" style="--c:var(--mint)">
-        <div class="uc-top"><span class="uc-ikon">💳</span><span class="tag tag-siap">Fintech</span></div>
-        <h3>Menentukan pengajuan pinjaman yang layak disetujui</h3>
-        <dl class="uc-list">
-          <div><dt>Situasinya</dt><dd>Pengajuan pinjaman masuk ribuan per hari. Nggak mungkin dicek satu-satu.</dd></div>
-          <div><dt>Datanya</dt><dd>Riwayat bayar, penghasilan, umur, lama kerja, pinjaman sebelumnya.</dd></div>
-          <div><dt>Yang dikerjain</dt><dd>Bikin model yang nebak siapa yang bakal telat bayar, terus dicek tebakannya sering meleset apa nggak.</dd></div>
-        </dl>
-        <div class="uc-links"><a href="simulasi.html#sim4">Coba kelompokin →</a><a href="orange.html#materi">Pertemuan 5 →</a></div>
-      </article>
-
-      <article class="tile uc reveal" style="--c:var(--amber)">
-        <div class="uc-top"><span class="uc-ikon">🏛️</span><span class="tag tag-siap">Pemerintah</span></div>
-        <h3>Memantau serapan anggaran sepanjang tahun berjalan</h3>
-        <dl class="uc-list">
-          <div><dt>Situasinya</dt><dd>Pimpinan butuh tahu serapan anggaran hari ini, bukan nunggu laporan bulan depan.</dd></div>
-          <div><dt>Datanya</dt><dd>Realisasi belanja per unit, per program, per bulan.</dd></div>
-          <div><dt>Yang dikerjain</dt><dd>Bikin dashboard yang bisa diklik, biar ketahuan unit mana yang serapannya seret.</dd></div>
-        </dl>
-        <div class="uc-links"><a href="simulasi.html#sim3">Coba mainin →</a><a href="tableau.html#kepake">Pakai Tableau →</a></div>
-      </article>
-    </div>
-
-    <div class="tile note info-inline reveal" style="margin-top:18px">
-      <span style="font-size:20px">🎯</span>
-      <span><b>Pola keempatnya sama.</b> Ada tumpukan data, ada pertanyaan yang harus dijawab, dan ada orang yang menunggu jawabannya untuk mengambil keputusan. Yang dilatih di kelas ini adalah mengerjakan bagian tengahnya.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== JALAN PINTAS ===================== -->
-<section id="pintas">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Buka Cepat</span>
-      <h2>Langsung ke bagian yang kamu butuh</h2>
-    </div>
-    <div class="bento">
-      <a class="tile tile-half pintas reveal" href="orange.html" style="--c:var(--amber)">
-        <span class="pintas-ikon"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"></span>
-        <div>
-          <h3>Orange Data Mining</h3>
-          <p>Cara install, contoh pemakaian, materi pertemuan 3 sampai 8, dan ketentuan Project Kuliah 1.</p>
-        </div>
-        <span class="pintas-panah" data-ikon="panah"></span>
-      </a>
-      <a class="tile tile-half pintas reveal" href="tableau.html" style="--c:var(--mint)">
-        <span class="pintas-ikon"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"></span>
-        <div>
-          <h3>Tableau Visualisasi</h3>
-          <p>Cara install, cara publish, materi pertemuan 9 sampai 15, dan ketentuan Project Kuliah 2.</p>
-        </div>
-        <span class="pintas-panah" data-ikon="panah"></span>
-      </a>
-      <a class="tile tile-half pintas reveal" href="project.html" style="--c:var(--iris)">
-        <span class="pintas-ikon">🎯</span>
-        <div>
-          <h3>Project</h3>
-          <p>Dua karya kalian, cara nyari topik, cara dinilai, dan contoh karya kakak tingkat.</p>
-        </div>
-        <span class="pintas-panah" data-ikon="panah"></span>
-      </a>
-      <a class="tile tile-half pintas reveal" href="aturan.html" style="--c:var(--pink)">
-        <span class="pintas-ikon">📋</span>
-        <div>
-          <h3>Rule Perkuliahan</h3>
-          <p>Cara dinilai, kehadiran, kerja kelompok, batas waktu, dan aturan soal nyontek.</p>
-        </div>
-        <span class="pintas-panah" data-ikon="panah"></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TAMBAHAN ===================== -->
-<section id="tugas">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Tambahan</span>
-      <h2>Latihan tambahan</h2>
-      <p>Latihan mandiri di luar jam kelas.</p>
-    </div>
-    <div class="tile reveal">
-      <div class="tm-links" id="tugasWrap"></div>
-    </div>
-  </div>
-</section>
 
 <div id="foot"></div>
 
