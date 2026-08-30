@@ -2182,3 +2182,4 @@ body.cari-terbuka { overflow: hidden; }
   .riset-kanan { flex-direction: row; flex-wrap: wrap; }
   .riset-angka { flex: 1; min-width: 130px; }
 }
+.paper-catatan { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.55; }

@@ -203,7 +203,7 @@
           '<h4>Identitas Mata Kuliah</h4>' +
           '<div class="foot-baris"><span>Kode</span><b>AKT120406</b></div>' +
           '<div class="foot-baris"><span>Bobot</span><b>2 SKS</b></div>' +
-          '<div class="foot-baris"><span>Jumlah pertemuan</span><b>16 kali</b></div>' +
+          '<div class="foot-baris"><span>Jumlah pertemuan</span><b>16</b></div>' +
           '<div class="foot-baris"><span>Kelompok</span><b>4 orang</b></div>' +
         '</div>' +
 
