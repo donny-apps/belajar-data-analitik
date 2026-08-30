@@ -1,0 +1,10 @@
+# Situs mata kuliah Big Data Analytics untuk Akuntansi
+# Universitas Pembangunan Nasional Veteran Jakarta
+
+User-agent: *
+Allow: /
+
+# Halaman ini berisi kotak isian mahasiswa, tidak perlu masuk hasil pencarian
+Disallow: /masuk.html
+
+Sitemap: https://donny-apps.github.io/belajar-data-analitik/sitemap.xml
