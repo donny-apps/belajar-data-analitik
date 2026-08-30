@@ -1997,3 +1997,26 @@ body.cari-terbuka { overflow: hidden; }
 @media (max-width: 620px) {
   .khusus { margin-left: 0; margin-top: 10px; }
 }
+
+/* ---------- tombol halaman materi di rak per pertemuan ----------
+   Muncul sendiri untuk pertemuan yang sudah punya halaman materinya,
+   jadi begitu pertemuan berikutnya dibuat, tombolnya ikut muncul
+   tanpa mengubah halaman ini. */
+.rak-halaman {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12.5px; font-weight: 700; white-space: nowrap;
+  color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+  background: color-mix(in srgb, var(--iris) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--iris) 28%, transparent);
+  padding: 7px 14px; border-radius: var(--r-pill);
+  transition: all .2s cubic-bezier(.34, 1.4, .64, 1);
+}
+.rak-halaman:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--iris) 20%, transparent);
+}
+.rak-halaman .ikon { width: 15px; height: 15px; }
+
+@media (max-width: 620px) {
+  .rak-halaman { margin-left: 0; margin-top: 10px; }
+}

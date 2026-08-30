@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=d2864279">
+<link rel="stylesheet" href="assets/site.css?v=4b0f10b6">
 <script>
   (function(){ try { var t = localStorage.getItem('bda-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(e){} })();
 </script>
@@ -24,13 +24,17 @@
     content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
     background: linear-gradient(180deg, var(--iris), var(--pink));
   }
-  .screen-no {
-    font-family: 'Bricolage Grotesque', sans-serif; font-size: 54px; font-weight: 800;
-    letter-spacing: -.06em; line-height: .85; color: transparent;
-    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--iris) 42%, transparent);
-    position: absolute; right: 22px; top: 18px; pointer-events: none;
+  .screen-ikon {
+    width: 44px; height: 44px; border-radius: 14px; margin-bottom: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--iris);
+    background: color-mix(in srgb, var(--iris) 13%, transparent);
+    border: 1px solid color-mix(in srgb, var(--iris) 28%, transparent);
+    transition: transform .28s cubic-bezier(.34, 1.4, .64, 1);
   }
-  .screen-card h3 { font-size: 19px; margin: 8px 0 10px; padding-right: 62px; letter-spacing: -.03em; line-height: 1.15; }
+  .screen-ikon .ikon { width: 21px; height: 21px; }
+  .screen-card:hover .screen-ikon { transform: translateY(-3px) rotate(-4deg); }
+  .screen-card h3 { font-size: 19px; margin: 0 0 10px; letter-spacing: -.03em; line-height: 1.15; }
   .screen-card p { font-size: 13.5px; color: var(--ink-2); flex: 1; }
   .screen-meta { display: flex; gap: 9px; align-items: center; margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); }
   .durasi { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); }
@@ -124,56 +128,56 @@
 
     <div class="screen-grid">
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s1">
-        <span class="screen-no">01</span>
+        <span class="screen-ikon" data-ikon="putar"></span>
         <h3>Cover</h3>
         <p>Halaman pembuka dengan dashboard yang gerak sendiri. Pesannya: nggak ada coding, nggak ada rumus, mulai dari nol.</p>
         <div class="screen-meta"><span class="durasi">± 3 menit</span><span class="tag tag-siap">Pembuka</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s2">
-        <span class="screen-no">02</span>
+        <span class="screen-ikon" data-ikon="alur"></span>
         <h3>Kickoff</h3>
         <p>Alur Data, Analisis, Dashboard, Keputusan. Ditutup polling: siapa yang pernah bikin dashboard.</p>
         <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Polling</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s3">
-        <span class="screen-no">03</span>
+        <span class="screen-ikon" data-ikon="gedung"></span>
         <h3>Relevansi</h3>
         <p>Empat area kerja yang bakal mereka temui: pajak lewat Coretax dan e-Faktur, audit dan fraud, fintech, sektor publik.</p>
         <div class="screen-meta"><span class="durasi">± 12 menit</span><span class="tag tag-siap">Kunci</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s4">
-        <span class="screen-no">04</span>
+        <span class="screen-ikon" data-ikon="kalender"></span>
         <h3>Rancangan 16 Minggu</h3>
         <p>Empat sesi, dua project, satu presentasi akhir. Plus posisi UTS dan UAS sebagai titik penilaian.</p>
         <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Katalog Materi</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s5">
-        <span class="screen-no">05</span>
+        <span class="screen-ikon" data-ikon="target"></span>
         <h3>Luaran Kelas</h3>
         <p>Dua karya buat portofolio: laporan Orange dan dashboard Tableau, masing-masing bobot 35 persen.</p>
         <div class="screen-meta"><span class="durasi">± 8 menit</span><span class="tag tag-siap">Portofolio</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s6">
-        <span class="screen-no">06</span>
+        <span class="screen-ikon" data-ikon="data"></span>
         <h3>Big Data Itu Apa</h3>
         <p>Lima ciri data gede, semua contohnya dekat: QRIS, e-wallet, marketplace, lapor SPT online.</p>
         <div class="screen-meta"><span class="durasi">± 12 menit</span><span class="tag tag-siap">Konsep</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s7">
-        <span class="screen-no">07</span>
+        <span class="screen-ikon" data-ikon="tanya"></span>
         <h3>Mulai dari Pertanyaan</h3>
         <p>Lima langkah dari data ke keputusan, dites lewat kasus transaksi QRIS toko yang turun 15 persen.</p>
         <div class="screen-meta"><span class="durasi">± 13 menit</span><span class="tag tag-ujian">Mindset</span><span class="open-link">Buka →</span></div>
       </a>
 
       <a class="tile screen-card reveal" href="screens/tm1/TM1_Deck.html#s8">
-        <span class="screen-no">08</span>
+        <span class="screen-ikon" data-ikon="kaca"></span>
         <h3>Simulasi Benford</h3>
         <p>Mahasiswa ngetik nominal karangan sendiri, lalu sistem bilang polanya alami atau mencurigakan. Ini yang beneran dipakai auditor.</p>
         <div class="screen-meta"><span class="durasi">± 20 menit</span><span class="tag tag-ujian">Praktik</span><span class="open-link">Buka →</span></div>
@@ -241,9 +245,9 @@
 <script src="assets/course.js?v=7cc269c0"></script>
 <script src="assets/ikon.js?v=56710d72"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
-<script src="assets/indeks-cari.js?v=31448d27"></script>
+<script src="assets/indeks-cari.js?v=ddc35800"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=f90ed0f8"></script>
+<script src="assets/shell.js?v=927392d4"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 </body>
 </html>

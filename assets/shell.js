@@ -13,7 +13,7 @@
     { label: 'Orange', href: 'orange.html' },
     { label: 'Tableau', href: 'tableau.html' },
     { label: 'Bahan Belajar', anak: [
-      { label: 'Bahan Kuliah', href: 'bahan.html', ket: 'Slide, modul, dan data latihan' },
+      { label: 'Materi Kuliah', href: 'bahan.html', ket: 'Materi tiap pertemuan, slide, modul, dan data latihan' },
       { label: 'Buku Referensi', href: 'buku.html', ket: 'Dua buku pegangan dan bab mana dibaca kapan' },
       { label: 'Sumber Data', href: 'sumber-data.html', ket: 'Tempat mencari dataset project' },
       { label: 'Belajar Mandiri', href: 'belajar.html', ket: 'Video dan situs buat belajar sendiri' },
@@ -22,8 +22,7 @@
     ] },
     { label: 'Kelas', anak: [
       { label: 'Project Kuliah', href: 'project.html', ket: 'Ketentuan dua project dan cara dinilai' },
-      { label: 'Rule Perkuliahan', href: 'aturan.html', ket: 'Penilaian, kehadiran, kelompok, tenggat' },
-      { label: 'Materi Pertemuan 1', href: 'tm1.html', ket: 'Rincian dan slide pertemuan pertama' }
+      { label: 'Rule Perkuliahan', href: 'aturan.html', ket: 'Penilaian, kehadiran, kelompok, tenggat' }
     ] }
   ];
 

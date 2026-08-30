@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bahan Kuliah · Kelas Data Analitik</title>
-<meta name="description" content="Daftar lengkap bahan kuliah: slide PPT, modul PDF, file latihan Orange, dan data latihan. Bisa dicari dan disaring.">
+<title>Materi Kuliah · Kelas Data Analitik</title>
+<meta name="description" content="Materi tiap pertemuan: halaman materi, slide PPT, modul PDF, file latihan Orange, dan data latihan. Bisa dicari dan disaring.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=d2864279">
+<link rel="stylesheet" href="assets/site.css?v=4b0f10b6">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -23,8 +23,8 @@
 <header class="hero">
   <div class="wrap bento">
     <div class="tile tile-hero">
-      <span class="sticker"><span class="live"></span> Semua Bahan Satu Tempat</span>
-      <h1>Cari <span class="grad">bahan kuliah</span> tanpa <span class="mark">scroll grup WhatsApp</span></h1>
+      <span class="sticker"><span class="live"></span> Semua Materi Satu Tempat</span>
+      <h1>Cari <span class="grad">materi kuliah</span> tanpa <span class="mark">scroll grup WhatsApp</span></h1>
       <p class="lead">
         Semua slide, modul, file latihan, dan data ada di sini. Ketik yang kalian cari,
         atau saring berdasarkan jenisnya.
@@ -57,8 +57,8 @@
 <section id="rak">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Rak Bahan</span>
-      <h2>Bahan diurutkan per pertemuan</h2>
+      <span class="sec-label">Materi Per Pertemuan</span>
+      <h2>Materi diurutkan per pertemuan</h2>
       <p id="hitungHasil">Menampilkan semua bahan.</p>
     </div>
     <div id="rakIsi"></div>
@@ -87,9 +87,9 @@
 <script src="assets/course.js?v=7cc269c0"></script>
 <script src="assets/ikon.js?v=56710d72"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
-<script src="assets/indeks-cari.js?v=31448d27"></script>
+<script src="assets/indeks-cari.js?v=ddc35800"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=f90ed0f8"></script>
+<script src="assets/shell.js?v=927392d4"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
@@ -125,20 +125,53 @@
       return teks.indexOf(kataCari) >= 0;
     });
 
-    document.getElementById('hitungHasil').textContent =
-      hasil.length ? 'Ketemu ' + hasil.length + ' berkas.' : 'Nggak ada yang cocok. Coba kata lain.';
+    var halamanMateri = COURSE.filter(function (c) { return c.internal; }).length;
+    document.getElementById('hitungHasil').textContent = hasil.length
+      ? 'Ketemu ' + hasil.length + ' berkas, plus ' + halamanMateri + ' halaman materi.'
+      : 'Nggak ada yang cocok. Coba kata lain.';
 
     var perTm = {};
     hasil.forEach(function (b) { (perTm[b.tm] = perTm[b.tm] || []).push(b); });
 
+    /* Pertemuan yang materinya berupa halaman web, bukan berkas unduhan,
+       tetap dapat barisnya sendiri selama tidak sedang disaring. */
+    if (!filterTipe) {
+      COURSE.forEach(function (c) {
+        if (!c.internal) return;
+        if (kataCari) {
+          var t = (c.judul + ' ' + (c.ringkas || '') + ' TM' + c.tm).toLowerCase();
+          if (t.indexOf(kataCari) < 0) return;
+        }
+        if (!perTm[c.tm]) perTm[c.tm] = [];
+      });
+    }
+
     var urut = Object.keys(perTm).map(Number).sort(function (a, b) { return a - b; });
     document.getElementById('rakIsi').innerHTML = urut.map(function (tm) {
       var judul = tm === 0 ? 'Tambahan' : 'Pertemuan ' + tm;
-      var sub = tm === 0 ? 'Latihan mandiri' : perTm[tm][0].judul;
+      var sub = 'Latihan mandiri';
+      if (tm !== 0) {
+        sub = perTm[tm].length ? perTm[tm][0].judul : '';
+        if (!sub) {
+          COURSE.forEach(function (c) { if (c.tm === tm) sub = c.judul; });
+        }
+      }
       /* penanda tm1, tm2, dan seterusnya dipakai kotak pencarian
          supaya hasil pencarian mendarat tepat di pertemuannya */
+      /* Pertemuan yang sudah punya halaman materi sendiri memunculkan
+         tombolnya di sini. Menambah pertemuan berikutnya cukup mengisi
+         kolom internal di course.js, tidak perlu mengubah halaman ini. */
+      var punyaHalaman = '';
+      COURSE.forEach(function (c) {
+        if (c.tm === tm && c.internal) {
+          punyaHalaman = '<a class="rak-halaman" href="' + c.internal + '">' +
+            (window.IKON ? IKON('layar') : '') + 'Buka halaman materi</a>';
+        }
+      });
+
       return '<div class="rak-blok" id="tm' + tm + '">' +
-        '<div class="rak-kepala"><span class="rak-tm">' + judul + '</span><span class="rak-judul">' + sub + '</span></div>' +
+        '<div class="rak-kepala"><span class="rak-tm">' + judul + '</span>' +
+        '<span class="rak-judul">' + sub + '</span>' + punyaHalaman + '</div>' +
         '<div class="tm-links">' + perTm[tm].map(function (b) {
           var ic = IKON_TIPE[b.tipe] || '📎';
           return '<a class="file" href="' + encodeURI(BASE + b.path) + '" target="_blank" rel="noopener">' +
