@@ -2020,3 +2020,165 @@ body.cari-terbuka { overflow: hidden; }
 @media (max-width: 620px) {
   .rak-halaman { margin-left: 0; margin-top: 10px; }
 }
+
+/* ============================================================
+   Halaman riset dosen
+   ============================================================ */
+.paper {
+  display: grid; grid-template-columns: 1.55fr 1fr; gap: 28px; padding: 32px;
+  background:
+    radial-gradient(120% 85% at 100% 0%, color-mix(in srgb, var(--iris) 15%, transparent) 0%, transparent 60%),
+    var(--surface);
+}
+.paper-jurnal {
+  display: block; font-size: 11px; font-weight: 800; letter-spacing: .1em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+  margin-bottom: 12px;
+}
+.paper h2 { font-size: 27px; line-height: 1.2; letter-spacing: -.035em; margin-bottom: 6px; }
+.paper-sub { font-size: 15px; color: var(--ink-2); margin-bottom: 22px; }
+
+.paper-penulis { display: flex; align-items: center; gap: 13px; margin-bottom: 20px; }
+.paper-ava {
+  width: 42px; height: 42px; border-radius: 50%; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fjudul); font-size: 18px; font-weight: 800;
+  background: var(--iris-tombol); color: #fff;
+}
+.paper-penulis b { display: block; font-size: 14.5px; }
+.paper-penulis i { font-style: normal; font-size: 12.5px; color: var(--muted); }
+
+.paper-ringkas { font-size: 14px; color: var(--ink-2); line-height: 1.7; margin-bottom: 20px; }
+
+.paper-kunci { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+.paper-kunci span {
+  font-family: var(--fmono); font-size: 11px; padding: 5px 11px; border-radius: var(--r-pill);
+  color: var(--ink-2); background: var(--surface-2);
+}
+.paper-aksi { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.paper-kanan {
+  background: var(--surface-2); border-radius: var(--r-md); padding: 22px; align-self: start;
+}
+.paper-baris {
+  display: flex; justify-content: space-between; gap: 14px; align-items: baseline;
+  padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 13px;
+}
+.paper-baris:last-of-type { border-bottom: none; }
+.paper-baris span { color: var(--muted); }
+.paper-baris b { text-align: right; }
+.paper-lisensi {
+  display: flex; gap: 10px; align-items: flex-start; margin-top: 16px;
+  font-size: 12px; color: var(--ink-2); line-height: 1.55;
+}
+.paper-lisensi .ikon { width: 15px; height: 15px; flex: none; margin-top: 2px; color: var(--mint); }
+
+/* ---------- empat tahap alur ---------- */
+.tahap-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 14px;
+}
+.tahap {
+  display: flex; flex-direction: column;
+  background:
+    radial-gradient(120% 85% at 100% 0%, color-mix(in srgb, var(--c) 14%, transparent) 0%, transparent 58%),
+    var(--surface);
+}
+.tahap-ikon {
+  width: 44px; height: 44px; border-radius: 14px; margin-bottom: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+  transition: transform .28s cubic-bezier(.34, 1.4, .64, 1);
+}
+.tahap-ikon .ikon { width: 21px; height: 21px; }
+.tahap:hover .tahap-ikon { transform: translateY(-3px) rotate(-4deg); }
+.tahap-no {
+  font-family: var(--fmono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--c) 86%, var(--ink)); margin-bottom: 6px;
+}
+.tahap h3 { font-size: 16.5px; letter-spacing: -.03em; margin-bottom: 8px; line-height: 1.25; }
+.tahap p { font-size: 13px; color: var(--ink-2); flex: 1; line-height: 1.6; }
+.tahap-widget {
+  display: inline-block; margin-top: 16px; align-self: flex-start;
+  font-family: var(--fmono); font-size: 11px;
+  color: color-mix(in srgb, var(--c) 86%, var(--ink));
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 26%, transparent);
+  padding: 6px 12px; border-radius: 9px;
+}
+
+/* ---------- tabel hasil ---------- */
+.baris-menang td { background: color-mix(in srgb, var(--mint) 9%, transparent); }
+.baris-jebakan td { background: color-mix(in srgb, var(--pink) 9%, transparent); }
+
+/* ---------- tabel silang ---------- */
+.silang { display: flex; flex-direction: column; gap: 8px; }
+.silang-baris {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: baseline;
+  padding: 11px 14px; border-radius: var(--r-sm); background: var(--surface-2);
+}
+.silang-baris span { font-size: 13.5px; font-weight: 600; }
+.silang-baris i { font-style: normal; font-family: var(--fmono); font-size: 11.5px; color: var(--muted); }
+.silang-baris b {
+  font-family: var(--fmono); font-size: 13px;
+  color: color-mix(in srgb, var(--mint) 86%, var(--ink));
+}
+
+/* ---------- baris nyambung ke pertemuan ---------- */
+.nyambung-baris { color: var(--ink); transition: transform .2s cubic-bezier(.34, 1.4, .64, 1); }
+.nyambung-baris:hover { transform: translateX(4px); }
+.nyambung-baris .target-status { color: color-mix(in srgb, var(--iris) 86%, var(--ink)); }
+
+/* ---------- kotak sitasi ---------- */
+.sitasi-kotak { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.sitasi-teks {
+  font-size: 13.5px; line-height: 1.75; color: var(--ink-2);
+  background: var(--surface-2); padding: 18px 20px; border-radius: var(--r-md);
+  width: 100%; overflow-wrap: anywhere;
+}
+.sitasi-teks i { color: var(--ink); }
+
+@media (max-width: 860px) {
+  .paper { grid-template-columns: 1fr; padding: 24px; gap: 22px; }
+  .paper h2 { font-size: 22px; }
+}
+
+/* ---------- kartu riset dosen di beranda ---------- */
+.riset-sorot {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: center;
+  padding: 30px 32px; color: var(--ink);
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--iris) 16%, transparent) 0%, transparent 60%),
+    var(--surface);
+  transition: transform .26s cubic-bezier(.34, 1.4, .64, 1), box-shadow .26s ease;
+}
+.riset-sorot:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
+.riset-sorot h2 { font-size: 25px; line-height: 1.22; letter-spacing: -.035em; margin: 12px 0 12px; }
+.riset-sorot p { font-size: 14px; color: var(--ink-2); line-height: 1.68; }
+.riset-buka {
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 18px;
+  font-size: 13.5px; font-weight: 800;
+  color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+}
+.riset-buka .ikon { width: 16px; height: 16px; transition: transform .24s ease; }
+.riset-sorot:hover .riset-buka .ikon { transform: translateX(5px); }
+
+.riset-kanan { display: flex; flex-direction: column; gap: 10px; }
+.riset-angka {
+  background: var(--surface-2); border-radius: var(--r-md); padding: 16px 20px;
+}
+.riset-angka b {
+  display: block; font-family: var(--fjudul); font-size: 26px; font-weight: 800;
+  letter-spacing: -.04em; line-height: 1;
+  color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+}
+.riset-angka span { display: block; font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+@media (max-width: 860px) {
+  .riset-sorot { grid-template-columns: 1fr; padding: 26px 22px; gap: 22px; }
+  .riset-sorot h2 { font-size: 21px; }
+  .riset-kanan { flex-direction: row; flex-wrap: wrap; }
+  .riset-angka { flex: 1; min-width: 130px; }
+}

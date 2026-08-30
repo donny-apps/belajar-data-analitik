@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riset Dosen · Kelas Data Analitik</title>
+<meta name="description" content="Paper Dr. Donny Maha Putra di jurnal Scientax: memakai Orange Data Mining untuk memprediksi lama penyelesaian sengketa pajak dari 16.223 kasus.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=f49ad3ce">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Riset Dosen Pengampu</span>
+      <h1>Yang kalian pelajari di kelas ini <span class="grad">dipakai di riset beneran</span></h1>
+      <p class="lead">
+        Orange, Random Forest, Decision Tree, SVM, confusion matrix. Semua yang ada di pertemuan 3 sampai 6
+        dipakai untuk membaca 16.223 berkas sengketa pajak, lalu terbit di jurnal Direktorat Jenderal Pajak.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#alur"><span data-ikon="alur"></span> Alur kerjanya di Orange</a>
+        <a class="btn btn-ghost" href="#hasil"><span data-ikon="grafik"></span> Hasil dan pelajarannya</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Angka Kuncinya</span>
+        <div class="mini-list" style="margin-top:16px">
+          <div><span>Berkas sengketa</span><span>16.223</span></div>
+          <div><span>Rentang tahun</span><span>2016 sampai 2023</span></div>
+          <div><span>Model diuji</span><span>3 buah</span></div>
+          <div><span>Akurasi terbaik</span><span>99,7 persen</span></div>
+        </div>
+      </div>
+      <blockquote class="quote">
+        Datanya nyata, alatnya sama dengan yang kalian pakai di kelas.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<!-- ===================== KARTU PAPER ===================== -->
+<section id="paper">
+  <div class="wrap">
+    <article class="tile paper reveal">
+      <div class="paper-kiri">
+        <span class="paper-jurnal">Scientax · Jurnal Kajian Ilmiah Perpajakan Indonesia</span>
+        <h2>Data Mining Innovation to Predict the Duration of Tax Disputes</h2>
+        <p class="paper-sub">A Case Study in Indonesia</p>
+
+        <div class="paper-penulis">
+          <span class="paper-ava">D</span>
+          <div>
+            <b>Donny Maha Putra</b>
+            <i>Universitas Pembangunan Nasional Veteran Jakarta</i>
+          </div>
+        </div>
+
+        <p class="paper-ringkas">
+          Sengketa pajak di Indonesia sering berlarut, dan itu merugikan dua pihak sekaligus: negara kehilangan
+          kepastian penerimaan, wajib pajak kehilangan kepastian hukum. Penelitian ini menguji apakah lama
+          penyelesaian sengketa bisa diperkirakan sejak awal, memakai tiga model dari pertemuan 5 dan 6.
+          Hasilnya bisa dipakai Pengadilan Pajak untuk mengatur beban perkara dan mengalokasikan orang.
+        </p>
+
+        <div class="paper-kunci">
+          <span>tax disputes</span><span>random forest</span><span>support vector machine</span>
+          <span>duration prediction</span><span>data mining</span>
+        </div>
+
+        <div class="paper-aksi">
+          <a class="btn btn-primary" href="https://ejurnal.pajak.go.id/st/article/view/1006" target="_blank" rel="noopener">
+            <span data-ikon="buka"></span> Buka di jurnal
+          </a>
+          <a class="btn btn-ghost" href="https://ejurnal.pajak.go.id/st/article/download/1006/165/3910" target="_blank" rel="noopener">
+            <span data-ikon="unduh"></span> Unduh PDF
+          </a>
+        </div>
+      </div>
+
+      <div class="paper-kanan">
+        <div class="paper-baris"><span>Terbit</span><b>31 Oktober 2025</b></div>
+        <div class="paper-baris"><span>Volume</span><b>7 (1), halaman 1 sampai 15</b></div>
+        <div class="paper-baris"><span>Penerbit</span><b>Direktorat Jenderal Pajak</b></div>
+        <div class="paper-baris"><span>ISSN</span><b>2686-5718</b></div>
+        <div class="paper-baris"><span>DOI</span><b class="mono">10.52869/st.v7i1.1006</b></div>
+        <div class="paper-lisensi">
+          <span data-ikon="buka"></span>
+          <span>Akses terbuka, lisensi CC BY-NC-SA 4.0. Boleh dibaca dan dikutip siapa saja.</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== ALUR ORANGE ===================== -->
+<section id="alur">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Alur Kerjanya</span>
+      <h2>Empat tahap, semuanya di Orange</h2>
+      <p>Ini alur yang sama dengan yang kalian susun di pertemuan 5. Bedanya cuma datanya, bukan caranya.</p>
+    </div>
+
+    <div class="tahap-grid">
+      <div class="tile tahap reveal" style="--c:var(--fase-1)">
+        <span class="tahap-ikon" data-ikon="data"></span>
+        <span class="tahap-no">Tahap 1</span>
+        <h3>Masukkan data</h3>
+        <p>16.223 baris berkas sengketa dari 2016 sampai 2023 dimuat lewat kotak <b>File</b>.</p>
+        <span class="tahap-widget">File</span>
+      </div>
+
+      <div class="tile tahap reveal" style="--c:var(--fase-2)">
+        <span class="tahap-ikon" data-ikon="alur"></span>
+        <span class="tahap-no">Tahap 2</span>
+        <h3>Bangun tiga model</h3>
+        <p>Random Forest, Decision Tree, dan SVM dijalankan berdampingan supaya bisa dibandingkan.</p>
+        <span class="tahap-widget">Random Forest · Tree · SVM</span>
+      </div>
+
+      <div class="tile tahap reveal" style="--c:var(--fase-3)">
+        <span class="tahap-ikon" data-ikon="target"></span>
+        <span class="tahap-no">Tahap 3</span>
+        <h3>Ukur hasilnya</h3>
+        <p>Ketiganya diuji sekaligus, diukur pakai AUC, akurasi, presisi, recall, F1, dan MCC.</p>
+        <span class="tahap-widget">Test and Score</span>
+      </div>
+
+      <div class="tile tahap reveal" style="--c:var(--fase-4)">
+        <span class="tahap-ikon" data-ikon="kaca"></span>
+        <span class="tahap-no">Tahap 4</span>
+        <h3>Lihat salahnya di mana</h3>
+        <p>Tabel silang menunjukkan kelas mana yang sering ketuker, bukan cuma berapa persen yang benar.</p>
+        <span class="tahap-widget">Confusion Matrix</span>
+      </div>
+    </div>
+
+    <div class="tile note info-inline reveal" style="margin-top:16px">
+      <span data-ikon="lampu"></span>
+      <span><b>Kalau mau coba sendiri:</b> susun alur yang persis sama di Orange pakai dataset kalian.
+      Panduan kotak per kotak ada di <a href="orange.html">halaman Orange</a>, dan latihan singkatnya
+      ada di <a href="simulasi.html">Coba Sendiri</a>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HASIL ===================== -->
+<section id="hasil">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Hasil Tiga Model</span>
+      <h2>Angka yang paling penting bukan akurasi</h2>
+      <p>Perhatikan baris Decision Tree. Di situ ada pelajaran yang bakal kalian temui lagi waktu mengerjakan project.</p>
+    </div>
+
+    <div class="tile reveal">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Model</th><th>AUC</th><th>Akurasi</th><th>MCC</th><th>Kesimpulan</th></tr>
+          </thead>
+          <tbody>
+            <tr class="baris-menang">
+              <td><b>Random Forest</b></td><td>0,950</td><td>0,997</td><td>tinggi</td>
+              <td>Paling bisa diandalkan, dan alasannya masih bisa dijelaskan</td>
+            </tr>
+            <tr>
+              <td><b>SVM</b></td><td>0,922</td><td>0,997</td><td>tinggi</td>
+              <td>Hasilnya stabil, akurasinya setara Random Forest</td>
+            </tr>
+            <tr class="baris-jebakan">
+              <td><b>Decision Tree</b></td><td>0,469</td><td>0,983</td><td>0,000</td>
+              <td>Akurasinya kelihatan tinggi, tapi sebenarnya gagal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bento" style="margin-top:16px">
+      <div class="tile tile-half reveal" style="--c:var(--pink)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="peringatan"></span></div>
+          <div><h3>Kenapa akurasi 98,3 persen itu menipu</h3><span>Pelajaran utama dari paper ini</span></div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.65">
+          Dari 16.223 berkas, 15.941 di antaranya masuk satu kategori yang sama. Kalau sebuah model
+          menebak semuanya masuk kategori terbanyak itu, akurasinya otomatis sudah 98 persen tanpa
+          benar-benar belajar apa pun. Itu yang terjadi pada Decision Tree: MCC-nya 0,000 dan AUC-nya
+          0,469, artinya tebakannya setara melempar koin.
+        </p>
+        <div class="tm-tujuan" style="--c:var(--pink);margin-top:16px">
+          <b>Yang harus kalian lakukan</b>
+          Jangan berhenti di angka akurasi. Buka confusion matrix, lihat AUC, dan periksa apakah kelas
+          yang jumlahnya sedikit ikut tertebak benar.
+        </div>
+      </div>
+
+      <div class="tile tile-half reveal" style="--c:var(--mint)">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="kaca"></span></div>
+          <div><h3>Apa yang kelihatan dari tabel silang</h3><span>Random Forest, 16.223 berkas</span></div>
+        </div>
+        <div class="silang">
+          <div class="silang-baris"><span>Substance</span><i>15.930 dari 15.941</i><b>99,93%</b></div>
+          <div class="silang-baris"><span>Authority</span><i>103 dari 121</i><b>85,12%</b></div>
+          <div class="silang-baris"><span>Procedure</span><i>134 dari 161</i><b>83,23%</b></div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.65;margin-top:16px">
+          Kategori yang datanya banyak hampir selalu tertebak benar. Dua kategori yang datanya sedikit
+          jauh lebih sering meleset. Ini yang tidak kelihatan kalau kalian cuma melihat satu angka akurasi.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NYAMBUNG KE PERTEMUAN ===================== -->
+<section id="nyambung">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Nyambung ke Mana</span>
+      <h2>Paper ini memakai materi pertemuan berapa</h2>
+      <p>Buka babnya waktu materinya dibahas, biar kelihatan bentuk jadinya seperti apa.</p>
+    </div>
+    <div id="nyambungIsi"></div>
+  </div>
+</section>
+
+<!-- ===================== SITASI ===================== -->
+<section id="sitasi">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Cara Mengutip</span>
+      <h2>Kalau dipakai di laporan project</h2>
+      <p>Laporan kalian butuh rujukan. Ini formatnya sudah sesuai APA edisi ketujuh, tinggal salin.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="sitasi-kotak">
+        <p class="sitasi-teks" id="sitasiTeks">Putra, D. M. (2025). Data mining innovation to predict the duration of tax disputes: A case study in Indonesia. <i>Scientax: Jurnal Kajian Ilmiah Perpajakan Indonesia, 7</i>(1), 1-15. https://doi.org/10.52869/st.v7i1.1006</p>
+        <button class="btn btn-ghost" id="salinSitasi" type="button"><span data-ikon="berkas"></span> Salin sitasi</button>
+      </div>
+      <div class="tile note info-inline" style="margin-top:16px">
+        <span data-ikon="perisai"></span>
+        <span>Mengutip berarti menulis ulang idenya pakai kalimat sendiri lalu menyebut sumbernya.
+        Menyalin paragraf mentah tetap dihitung plagiarisme, walaupun sumbernya ditulis. Ketentuannya
+        ada di <a href="aturan.html#jujur">Rule Perkuliahan</a>.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js?v=7cc269c0"></script>
+<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/kelas-daring.js?v=fe8948ba"></script>
+<script src="assets/indeks-cari.js?v=92e0d0a0"></script>
+<script src="assets/cari.js?v=d5a9569b"></script>
+<script src="assets/shell.js?v=c0e72654"></script>
+<script src="assets/site.js?v=e7fe9354"></script>
+<script>
+(function () {
+  'use strict';
+
+  function aman(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* Pertemuan yang materinya benar benar dipakai di paper ini.
+     Judul pertemuannya diambil dari course.js supaya kalau judulnya
+     diubah, halaman ini ikut berubah sendiri. */
+  var NYAMBUNG = [
+    { tm: 3, pakai: 'Memasang Orange dan mengenali kotak kerjanya. Semua analisis di paper ini dikerjakan di sana.' },
+    { tm: 4, pakai: 'Membersihkan dan memeriksa isi data sebelum dianalisis. Tanpa tahap ini, 16.223 baris tadi tidak bisa dipakai.' },
+    { tm: 5, pakai: 'Klasifikasi dan cara mengecek hasilnya. Random Forest, Decision Tree, SVM, Test and Score, dan confusion matrix semuanya dari sini.' },
+    { tm: 6, pakai: 'Membaca pola di dalam data dan menilai model mana yang paling masuk akal dipakai.' }
+  ];
+
+  function judulTM(n) {
+    if (typeof COURSE === 'undefined') return '';
+    for (var i = 0; i < COURSE.length; i++) {
+      if (COURSE[i].tm === Number(n)) return COURSE[i].judul;
+    }
+    return '';
+  }
+
+  function tujuanTM(n) {
+    if (typeof COURSE === 'undefined') return 'bahan.html';
+    for (var i = 0; i < COURSE.length; i++) {
+      if (COURSE[i].tm === Number(n)) return COURSE[i].internal || ('bahan.html#tm' + n);
+    }
+    return 'bahan.html';
+  }
+
+  document.getElementById('nyambungIsi').innerHTML = NYAMBUNG.map(function (x) {
+    return '<a class="target-baris nyambung-baris reveal" href="' + tujuanTM(x.tm) + '">' +
+      '<span class="target-tanda">' + (window.IKON ? IKON('buku') : '') + '</span>' +
+      '<span class="target-teks">' +
+        '<b>Pertemuan ' + x.tm + ' · ' + aman(judulTM(x.tm)) + '</b>' +
+        '<i>' + aman(x.pakai) + '</i>' +
+      '</span>' +
+      '<span class="target-status">Buka →</span>' +
+      '</a>';
+  }).join('');
+
+  /* ---------------- salin sitasi ---------------- */
+  var tombol = document.getElementById('salinSitasi');
+  tombol.addEventListener('click', function () {
+    var teks = document.getElementById('sitasiTeks').textContent.trim();
+    function beres() {
+      tombol.innerHTML = (window.IKON ? IKON('centang') : '') + ' Sudah tersalin';
+      setTimeout(function () {
+        tombol.innerHTML = (window.IKON ? IKON('berkas') : '') + ' Salin sitasi';
+      }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(teks).then(beres, function () { pilihManual(); });
+    } else {
+      pilihManual();
+    }
+    function pilihManual() {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById('sitasiTeks'));
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      tombol.innerHTML = (window.IKON ? IKON('berkas') : '') + ' Tekan Ctrl dan C';
+    }
+  });
+
+  if (window.IKON_PASANG) IKON_PASANG();
+  if (window.bdaWatchReveal) window.bdaWatchReveal();
+})();
+</script>
+</body>
+</html>

@@ -16,6 +16,7 @@
        laci Kelas berisi dokumen yang mengikat mahasiswa terdaftar. */
     { label: 'Bahan Belajar', anak: [
       { label: 'Buku Referensi', href: 'buku.html', ket: 'Dua buku pegangan dan bab mana dibaca kapan' },
+      { label: 'Riset Dosen', href: 'riset.html', ket: 'Paper yang memakai Orange untuk membaca data sengketa pajak' },
       { label: 'Sumber Data', href: 'sumber-data.html', ket: 'Tempat mencari dataset project' },
       { label: 'Belajar Mandiri', href: 'belajar.html', ket: 'Video dan situs buat belajar sendiri' },
       { label: 'Katalog Project', href: 'showcase.html', ket: 'Karya kakak tingkat, bisa diunduh' },
