@@ -1972,3 +1972,28 @@ body.cari-terbuka { overflow: hidden; }
 @media (max-width: 620px) {
   .cara { padding: 22px 20px; }
 }
+
+/* ---------- penanda bagian khusus kelas ----------
+   Situs ini dibuka juga oleh orang di luar kelas. Bagian yang cuma
+   bisa dipakai mahasiswa terdaftar diberi penanda ini supaya pembaca
+   umum langsung paham, tanpa perlu menyembunyikan isinya. */
+.khusus {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .07em;
+  text-transform: uppercase; white-space: nowrap;
+  color: color-mix(in srgb, var(--amber) 86%, var(--ink));
+  background: color-mix(in srgb, var(--amber) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--amber) 30%, transparent);
+  padding: 5px 12px; border-radius: var(--r-pill);
+  margin-left: 10px; vertical-align: middle;
+}
+.khusus::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor; opacity: .7;
+}
+.sec-head .khusus { margin-left: 10px; }
+.zoom-tanda + .khusus { margin-left: 0; margin-top: 10px; }
+
+@media (max-width: 620px) {
+  .khusus { margin-left: 0; margin-top: 10px; }
+}

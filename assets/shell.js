@@ -6,11 +6,12 @@
 (function () {
   'use strict';
 
+  /* Lima tujuan tingkat pertama. Sisanya masuk laci, dan yang tidak
+     muat tetap bisa dicapai lewat kotak pencarian. */
   var MENU = [
     { label: 'Beranda', href: 'index.html' },
     { label: 'Orange', href: 'orange.html' },
     { label: 'Tableau', href: 'tableau.html' },
-    { label: 'Project', href: 'project.html' },
     { label: 'Bahan Belajar', anak: [
       { label: 'Bahan Kuliah', href: 'bahan.html', ket: 'Slide, modul, dan data latihan' },
       { label: 'Buku Referensi', href: 'buku.html', ket: 'Dua buku pegangan dan bab mana dibaca kapan' },
@@ -19,7 +20,11 @@
       { label: 'Katalog Project', href: 'showcase.html', ket: 'Karya kakak tingkat, bisa diunduh' },
       { label: 'Coba Sendiri', href: 'simulasi.html', ket: 'Empat latihan interaktif singkat' }
     ] },
-    { label: 'Rule Perkuliahan', href: 'aturan.html' }
+    { label: 'Kelas', anak: [
+      { label: 'Project Kuliah', href: 'project.html', ket: 'Ketentuan dua project dan cara dinilai' },
+      { label: 'Rule Perkuliahan', href: 'aturan.html', ket: 'Penilaian, kehadiran, kelompok, tenggat' },
+      { label: 'Materi Pertemuan 1', href: 'tm1.html', ket: 'Rincian dan slide pertemuan pertama' }
+    ] }
   ];
 
   var halaman = location.pathname.split('/').pop() || 'index.html';
@@ -92,17 +97,15 @@
      jalan pelan ke kiri supaya semua tautan kebagian giliran tampil,
      dan berhenti begitu kursor masuk atau salah satu tautan disorot
      lewat papan ketik, jadi tetap gampang diklik. */
+  /* Isinya sengaja tidak mengulang menu atas. Yang dimuat di sini
+     tujuan yang letaknya dalam, jadi pita ini melengkapi menu,
+     bukan menyalinnya. */
   var PITA = [
-    { label: 'Materi Pertemuan 1', href: 'screens/tm1/TM1_Deck.html', ikon: 'buku' },
-    { label: 'Bahan Kuliah', href: 'bahan.html', ikon: 'rak' },
-    { label: 'Buku Referensi', href: 'buku.html', ikon: 'buku' },
-    { label: 'Coba Simulasi', href: 'simulasi.html', ikon: 'putar' },
-    { label: 'Katalog Project', href: 'showcase.html', ikon: 'grafik' },
-    { label: 'Project Tableau', href: 'showcase.html#tableau', ikon: 'papan' },
+    { label: 'Kumpulkan Tugas', href: 'masuk.html', ikon: 'unduhan' },
+    { label: 'Slide Pertemuan 1', href: 'screens/tm1/TM1_Deck.html', ikon: 'layar' },
+    { label: 'Project Tableau Kakak Tingkat', href: 'showcase.html#tableau', ikon: 'papan' },
     { label: 'Sumber Dataset', href: 'sumber-data.html', ikon: 'data' },
-    { label: 'Video Belajar', href: 'belajar.html', ikon: 'layar' },
-    { label: 'Rule Perkuliahan', href: 'aturan.html', ikon: 'perisai' },
-    { label: 'Kumpulkan Tugas', href: 'masuk.html', ikon: 'unduhan' }
+    { label: 'Coba Simulasi', href: 'simulasi.html', ikon: 'putar' }
   ];
 
   (function pasangPita() {
