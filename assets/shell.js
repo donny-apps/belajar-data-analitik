@@ -12,8 +12,9 @@
     { label: 'Beranda', href: 'index.html' },
     { label: 'Orange', href: 'orange.html' },
     { label: 'Tableau', href: 'tableau.html' },
+    /* Laci Bahan Belajar berisi rujukan yang bisa dipakai siapa saja,
+       laci Kelas berisi dokumen yang mengikat mahasiswa terdaftar. */
     { label: 'Bahan Belajar', anak: [
-      { label: 'Materi Kuliah', href: 'bahan.html', ket: 'Materi tiap pertemuan, slide, modul, dan data latihan' },
       { label: 'Buku Referensi', href: 'buku.html', ket: 'Dua buku pegangan dan bab mana dibaca kapan' },
       { label: 'Sumber Data', href: 'sumber-data.html', ket: 'Tempat mencari dataset project' },
       { label: 'Belajar Mandiri', href: 'belajar.html', ket: 'Video dan situs buat belajar sendiri' },
@@ -21,6 +22,7 @@
       { label: 'Coba Sendiri', href: 'simulasi.html', ket: 'Empat latihan interaktif singkat' }
     ] },
     { label: 'Kelas', anak: [
+      { label: 'Materi Kuliah', href: 'bahan.html', ket: 'Materi tiap pertemuan, slide, modul, dan data latihan' },
       { label: 'Project Kuliah', href: 'project.html', ket: 'Ketentuan dua project dan cara dinilai' },
       { label: 'Rule Perkuliahan', href: 'aturan.html', ket: 'Penilaian, kehadiran, kelompok, tenggat' }
     ] }
