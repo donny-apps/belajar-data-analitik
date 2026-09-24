@@ -23,6 +23,7 @@
       { label: 'Coba Sendiri', href: 'simulasi.html', ket: 'Empat latihan interaktif singkat' }
     ] },
     { label: 'Kelas', anak: [
+      { label: 'Soal Project UTS', href: 'uts.html', ket: 'Ketentuan, syarat dataset, bobot nilai, dan batas kumpul' },
       { label: 'Materi Kuliah', href: 'bahan.html', ket: 'Materi tiap pertemuan, slide, modul, dan data latihan' },
       { label: 'Project Kuliah', href: 'project.html', ket: 'Ketentuan dua project dan cara dinilai' },
       { label: 'Rule Perkuliahan', href: 'aturan.html', ket: 'Penilaian, kehadiran, kelompok, tenggat' }
@@ -204,7 +205,7 @@
           '<div class="foot-baris"><span>Kode</span><b>AKT120406</b></div>' +
           '<div class="foot-baris"><span>Bobot</span><b>2 SKS</b></div>' +
           '<div class="foot-baris"><span>Jumlah pertemuan</span><b>16</b></div>' +
-          '<div class="foot-baris"><span>Kelompok</span><b>4 orang</b></div>' +
+          '<div class="foot-baris"><span>Kelompok</span><b>15 kelompok</b></div>' +
         '</div>' +
 
         '<div class="foot-kolom">' +
@@ -225,7 +226,7 @@
       '</div>' +
       '<div class="foot-bawah">' +
         '<span>Bahan kuliah terbuka. Slide, modul, dan data latihan boleh diunduh dan dipelajari kapan saja.</span>' +
-        '<span class="foot-tahun">Semester Genap 2025/2026</span>' +
+        '<span class="foot-tahun">Semester Ganjil 2026/2027</span>' +
       '</div></footer>';
   }
 

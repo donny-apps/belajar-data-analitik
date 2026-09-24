@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal Project UTS · Kelas Data Analitik</title>
+<meta name="description" content="Ketentuan project UTS Ganjil 2026/2027: tiga analisis Orange dalam satu laporan, syarat dataset Kaggle, struktur laporan, bobot nilai, dan batas pengumpulan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d5df6">
+<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+
+<link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/uts.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Dr. Donny Maha Putra">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kelas Data Analitik">
+<meta property="og:locale" content="id_ID">
+<meta property="og:url" content="https://donny-apps.github.io/belajar-data-analitik/uts.html">
+<meta property="og:title" content="Soal Project UTS · Kelas Data Analitik">
+<meta property="og:description" content="Ketentuan project UTS Ganjil 2026/2027: tiga analisis Orange dalam satu laporan, syarat dataset Kaggle, struktur laporan, bobot nilai, dan batas pengumpulan.">
+<meta property="og:image" content="https://donny-apps.github.io/belajar-data-analitik/assets/img/bagikan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sampul situs mata kuliah Big Data Analytics untuk Akuntansi">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soal Project UTS · Kelas Data Analitik">
+<meta name="twitter:description" content="Ketentuan project UTS Ganjil 2026/2027: tiga analisis Orange dalam satu laporan, syarat dataset Kaggle, struktur laporan, bobot nilai, dan batas pengumpulan.">
+<meta name="twitter:image" content="https://donny-apps.github.io/belajar-data-analitik/assets/img/bagikan.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Soal Project UTS · Kelas Data Analitik","description":"Ketentuan project UTS Ganjil 2026/2027: tiga analisis Orange dalam satu laporan, syarat dataset Kaggle, struktur laporan, bobot nilai, dan batas pengumpulan.","inLanguage":"id","url":"https://donny-apps.github.io/belajar-data-analitik/uts.html","isPartOf":{"@type":"WebSite","name":"Kelas Data Analitik","url":"https://donny-apps.github.io/belajar-data-analitik/"}}</script>
+</head>
+<body>
+
+<div id="nav"></div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap bento">
+    <div class="tile tile-hero">
+      <span class="sticker"><span class="live"></span> Soal Resmi · Ganjil 2026/2027</span>
+      <span class="khusus">Khusus kelas A</span>
+      <h1>Satu dataset, <span class="grad">tiga analisis</span>, satu laporan</h1>
+      <p class="lead">
+        Project UTS kali ini mewajibkan tiap kelompok mengerjakan klasifikasi, regresi, dan klaster
+        sekaligus dari satu dataset yang sama. Yang paling menentukan nilai bukan ketiga analisisnya,
+        tapi bab yang menyatukan ketiganya.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="ujian/Soal-Project-UTS-Ganjil-2026-2027.pdf" download>
+          <span data-ikon="unduh"></span> Unduh soal lengkap
+        </a>
+        <a class="btn btn-ghost" href="#nilai"><span data-ikon="target"></span> Bobot penilaian</a>
+      </div>
+    </div>
+
+    <aside class="tile tile-dosen">
+      <div>
+        <span class="sec-label">Tanggal Penting</span>
+        <div class="mini-list" style="margin-top:16px">
+          <div><span>Ujian</span><span>Sabtu, 10 Oktober 2026</span></div>
+          <div><span>Jam</span><span>07.10 sampai 08.55 WIB</span></div>
+          <div><span>Ruang</span><span>Daring</span></div>
+          <div><span>Batas kumpul</span><span>10 Oktober, 23.59 WIB</span></div>
+        </div>
+      </div>
+      <blockquote class="quote">
+        Dikerjakan kelompok, tapi tiap mahasiswa tetap mengunggah sendiri lewat LEADS.
+      </blockquote>
+    </aside>
+  </div>
+</header>
+
+<!-- ===================== TIGA ANALISIS ===================== -->
+<section id="tiga">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Yang Dikerjakan</span>
+      <h2>Tiga analisis, semuanya wajib</h2>
+      <p>Satu dataset dibaca dari tiga sudut berbeda. Tiap analisis punya algoritma wajibnya sendiri.</p>
+    </div>
+
+    <div class="tahap-grid">
+      <div class="tile tahap reveal" style="--c:var(--fase-1)">
+        <span class="tahap-ikon" data-ikon="target"></span>
+        <span class="tahap-no">Bab 4</span>
+        <h3>Klasifikasi</h3>
+        <p>Pilih satu kolom kategorik jadi target. Kalau kelasnya timpang, wajib diseimbangkan dan dicatat caranya.</p>
+        <span class="tahap-widget">KNN · Decision Tree · Random Forest</span>
+        <div class="uts-metrik">
+          <b>Wajib dilaporkan</b>
+          Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC, plus tabel perbandingan antar algoritma.
+        </div>
+      </div>
+
+      <div class="tile tahap reveal" style="--c:var(--fase-2)">
+        <span class="tahap-ikon" data-ikon="grafik"></span>
+        <span class="tahap-no">Bab 5</span>
+        <h3>Regresi</h3>
+        <p>Pilih satu kolom numerik kontinu jadi target. Bukan ordinal, bukan hitungan bilangan bulat.</p>
+        <span class="tahap-widget">Linear · Tree · Random Forest</span>
+        <div class="uts-metrik">
+          <b>Wajib dilaporkan</b>
+          Plot Predicted vs Actual, Residual Plot, dan tafsiran tiga variabel yang paling berpengaruh.
+        </div>
+      </div>
+
+      <div class="tile tahap reveal" style="--c:var(--fase-3)">
+        <span class="tahap-ikon" data-ikon="orang"></span>
+        <span class="tahap-no">Bab 6</span>
+        <h3>Klaster</h3>
+        <p>Pakai fitur numerik saja, dan variabel target tidak boleh ikut jadi masukan.</p>
+        <span class="tahap-widget">K-Means · Hierarchical</span>
+        <div class="uts-metrik">
+          <b>Wajib dilaporkan</b>
+          Penentuan K lewat Silhouette Score, scatter plot klaster, dan tafsiran persona tiap klaster.
+        </div>
+      </div>
+
+      <div class="tile tahap kunci reveal">
+        <span class="tahap-ikon" data-ikon="lampu"></span>
+        <span class="tahap-no">Bab 7 · Penentu nilai</span>
+        <h3>Sintesis terintegrasi</h3>
+        <p>Menyatukan ketiga temuan jadi satu cerita bisnis. Bobotnya paling besar bersama tiap analisis, dan ini yang membedakan.</p>
+        <span class="tahap-widget">Bobot 15 persen</span>
+        <div class="uts-metrik">
+          <b>Empat pertanyaan yang harus dijawab</b>
+          Apakah fitur penting di klasifikasi juga penting di regresi, apakah klaster condong ke kelas tertentu,
+          bagaimana ketiganya jadi satu cerita, dan apa saran praktis buat manajer atau auditor.
+        </div>
+      </div>
+    </div>
+
+    <div class="tile note info-inline reveal" style="margin-top:16px">
+      <span data-ikon="lampu"></span>
+      <span><b>Algoritma tambahan menambah nilai.</b> Naive Bayes, AdaBoost, atau Gradient Boosting di klasifikasi,
+      dan DBSCAN di klaster. Kalau datasetnya berbentuk transaksi, klaster boleh diganti Association Rule
+      dengan minimal sepuluh aturan bermakna beserta Support, Confidence, dan Lift.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SYARAT DATASET ===================== -->
+<section id="dataset">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Syarat Dataset</span>
+      <h2>Datasetnya harus muat buat tiga analisis sekaligus</h2>
+      <p>Ini tahap yang paling sering bikin kelompok harus mengulang dari awal. Periksa semuanya sebelum mulai.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile tile-half reveal" style="--c:var(--mint)">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="centang"></span></div>
+          <div><h3>Syarat umum</h3><span>Semuanya harus terpenuhi</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span><b>Sumber wajib Kaggle.</b> Tautannya harus publik dan masih aktif.</span></li>
+          <li><span class="ck">✓</span><span><b>Lisensi terbuka.</b> CC0, CC-BY, atau Kaggle Public Dataset License.</span></li>
+          <li><span class="ck">✓</span><span><b>Format CSV, Excel, atau TSV.</b> Supaya langsung terbaca widget File di Orange.</span></li>
+          <li><span class="ck">✓</span><span><b>Punya data dictionary</b> yang jelas di halaman Kaggle-nya.</span></li>
+          <li><span class="ck">✓</span><span><b>Didaftarkan lebih dulu</b> lewat formulir dosen. Yang daftar duluan berhak memakainya.</span></li>
+        </ul>
+      </div>
+
+      <div class="tile tile-half reveal" style="--c:var(--pink)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="silang"></span></div>
+          <div><h3>Yang dilarang</h3><span>Langsung ditolak</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✕</span><span><b>Dataset kembar antar kelompok.</b> Tiap kelompok harus beda.</span></li>
+          <li><span class="ck">✕</span><span><b>Dataset yang dipakai angkatan sebelumnya</b> di UTS Genap 2025/2026, Kelas A maupun B.</span></li>
+          <li><span class="ck">✕</span><span><b>Dataset ikonik.</b> Titanic, Iris, Boston Housing, MNIST, Wine Quality, Diamonds, dan bawaan Orange.</span></li>
+        </ul>
+        <div class="uc-links" style="--c:var(--pink)">
+          <a href="showcase.html">Lihat dataset yang sudah terpakai</a>
+        </div>
+      </div>
+
+      <div class="tile tile-wide reveal" style="--c:var(--amber)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="kaca"></span></div>
+          <div><h3>Syarat supaya muat tiga analisis</h3><span>Periksa satu per satu di halaman Kaggle sebelum mengunduh</span></div>
+        </div>
+        <div id="syaratTiga"></div>
+      </div>
+    </div>
+
+    <div class="tile note info-inline reveal" style="margin-top:16px">
+      <span data-ikon="lampu"></span>
+      <span><b>Contoh yang biasanya lolos ketiganya:</b> Telco Customer Churn, HR Employee Attrition,
+      Insurance Premium Data, dan Online Retail pada tingkat pelanggan. Ini cuma contoh, bukan daftar
+      pilihan. Kelayakannya tetap wajib kalian periksa sendiri. Mulai mencarinya dari
+      <a href="sumber-data.html">halaman Sumber Dataset</a>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STRUKTUR LAPORAN ===================== -->
+<section id="laporan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Susunan Laporan</span>
+      <h2>Tujuh bab, urutannya sudah ditentukan</h2>
+      <p>Bab 4, 5, dan 6 berdiri sendiri sendiri. Bab 7 yang menyatukan ketiganya.</p>
+    </div>
+    <div class="tile reveal">
+      <div id="babIsi"></div>
+    </div>
+
+    <div class="bento" style="margin-top:16px">
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="berkas"></span></div>
+          <div><h3>Nama berkas</h3><span>Salah nama berpengaruh ke nilai</span></div>
+        </div>
+        <div class="uts-berkas">
+          <code>KLP[NN]_[NamaMahasiswa]_Laporan.pdf</code>
+          <code>KLP[NN]_[NamaMahasiswa]_Presentasi.pdf</code>
+        </div>
+        <p style="font-size:13px;color:var(--ink-2);margin-top:14px">
+          NN dua digit, 01 sampai 15. Nama ditulis tanpa spasi atau pakai garis bawah.
+          Contoh: <span class="mono">KLP01_AhmadFauzi_Laporan.pdf</span>
+        </p>
+      </div>
+
+      <div class="tile tile-half reveal">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="layar"></span></div>
+          <div><h3>Presentasi</h3><span>10 sampai 15 slide, rasio 16 banding 9</span></div>
+        </div>
+        <div class="mini-list">
+          <div><span>Huruf</span><span>Aptos dan Aptos Display</span></div>
+          <div><span>Warna</span><span>Putih, navy, teal</span></div>
+          <div><span>Spasi laporan</span><span>1,5</span></div>
+          <div><span>Margin</span><span>1 inci semua sisi</span></div>
+          <div><span>Referensi</span><span>Minimal 7, APA edisi 7</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PEMBAGIAN PERAN ===================== -->
+<section id="peran">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Pembagian Peran</span>
+      <h2>Tiap anggota memimpin satu bagian</h2>
+      <p>Jadi lead bukan berarti cuma paham satu bagian. Tiap anggota harus bisa menjelaskan seluruh isi laporan.</p>
+    </div>
+    <div class="bento">
+      <div class="tile tile-half reveal" style="--c:var(--iris)">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="orang"></span></div>
+          <div><h3>Kelompok 4 orang</h3><span>KLP01 sampai KLP13</span></div>
+        </div>
+        <div class="silang">
+          <div class="silang-baris"><span>Anggota 1</span><i>Bab 3 dan Bab 7</i><b>EDA dan Sintesis</b></div>
+          <div class="silang-baris"><span>Anggota 2</span><i>Bab 4</i><b>Klasifikasi</b></div>
+          <div class="silang-baris"><span>Anggota 3</span><i>Bab 5</i><b>Regresi</b></div>
+          <div class="silang-baris"><span>Anggota 4</span><i>Bab 6</i><b>Klaster</b></div>
+        </div>
+      </div>
+      <div class="tile tile-half reveal" style="--c:var(--mint)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="orang"></span></div>
+          <div><h3>Kelompok 3 orang</h3><span>KLP14 dan KLP15</span></div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-2);line-height:1.7">
+          Tiap anggota memimpin satu analisis: klasifikasi, regresi, atau klaster.
+          EDA dan sintesis dikerjakan bersama sama.
+        </p>
+        <div class="tm-tujuan" style="--c:var(--mint);margin-top:16px">
+          <b>Yang wajib ada di sampul</b>
+          Peran lead tiap anggota harus tertulis di sampul laporan dan di matriks kontribusi.
+          Nilai individu bisa disesuaikan berdasarkan matriks itu.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOBOT NILAI ===================== -->
+<section id="nilai">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Bobot Penilaian</span>
+      <h2>Ke mana nilai kalian sebenarnya pergi</h2>
+      <p>Jumlahnya 100 persen. Perhatikan bahwa menjalankan ketiga analisis saja baru menutup 45 persen.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Komponen</th><th>Bobot</th><th>Kategori</th></tr></thead>
+          <tbody id="nilaiIsi"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ETIKA ===================== -->
+<section id="etika">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Etika Akademik</span>
+      <h2>Soal AI generatif, ini batasnya</h2>
+    </div>
+    <div class="bento">
+      <div class="tile tile-half reveal" style="--c:var(--mint)">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="centang"></span></div>
+          <div><h3>Boleh dipakai</h3><span>Tidak melanggar</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✓</span><span>Orange Data Mining sebagai alat analisis.</span></li>
+          <li><span class="ck">✓</span><span>Google dan Google Scholar untuk mencari referensi.</span></li>
+          <li><span class="ck">✓</span><span>Pemeriksa ejaan dan tata bahasa seperti Microsoft Editor atau Grammarly versi gratis.</span></li>
+        </ul>
+      </div>
+
+      <div class="tile tile-half reveal" style="--c:var(--pink)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="silang"></span></div>
+          <div><h3>Dilarang</h3><span>Ada sanksinya</span></div>
+        </div>
+        <ul class="checklist">
+          <li><span class="ck">✕</span><span>Membuat paragraf, bab, kesimpulan, atau tafsiran pakai chatbot AI.</span></li>
+          <li><span class="ck">✕</span><span>Parafrase otomatis, misalnya mode AI di Quillbot.</span></li>
+          <li><span class="ck">✕</span><span>Membuat slide otomatis lewat Gamma, Tome, atau sejenisnya.</span></li>
+          <li><span class="ck">✕</span><span>Menyalin keluaran AI lalu diedit seadanya.</span></li>
+        </ul>
+      </div>
+
+      <div class="tile tile-wide reveal" style="--c:var(--amber)">
+        <div class="proj-head">
+          <div class="proj-ikon p1"><span data-ikon="peringatan"></span></div>
+          <div><h3>Cara pemeriksaan dan sanksinya</h3><span>Semua laporan dipindai</span></div>
+        </div>
+        <div class="silang">
+          <div class="silang-baris"><span>Kandungan AI 30 sampai 50 persen</span><i>pelanggaran ringan</i><b>Nilai laporan 0, wajib remedial, nilai maksimum 70</b></div>
+          <div class="silang-baris"><span>Kandungan AI di atas 50 persen</span><i>pelanggaran berat</i><b>Nilai UTS 0 plus surat peringatan akademik</b></div>
+        </div>
+        <p style="font-size:13px;color:var(--ink-2);margin-top:14px">
+          Pemindaian memakai GPTZero, Turnitin AI Detection, atau ZeroGPT.
+          Menyalin dari kelompok lain, kelas lain, atau laporan semester sebelumnya bisa berakibat gagal mata kuliah.
+        </p>
+      </div>
+    </div>
+
+    <div class="tile reveal" style="margin-top:16px">
+      <span class="sec-label" style="margin-bottom:16px">Tujuh Cara Menulis yang Aman</span>
+      <div id="tipsIsi"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEMA KELOMPOK ===================== -->
+<section id="tema">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Tema Tiap Kelompok</span>
+      <h2>Lima belas kelompok, lima belas tema</h2>
+      <p id="subTema"></p>
+    </div>
+    <div id="temaIsi"></div>
+    <div class="tile note info-inline reveal" style="margin-top:16px">
+      <span data-ikon="perisai"></span>
+      <span>Daftar nama anggota dan NIM tidak dimuat di halaman ini karena situs ini terbuka untuk umum.
+      Daftar lengkapnya ada di lembar soal yang dibagikan lewat LEADS.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PENGUMPULAN ===================== -->
+<section id="kumpul">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Pengumpulan</span>
+      <h2>Sebelum menekan tombol unggah</h2>
+      <p>Periksa daftar ini satu per satu. Ceklisnya tersimpan di browser kalian sendiri.</p>
+    </div>
+    <div class="tile reveal">
+      <div class="ceklis" id="ceklisKumpul"></div>
+      <div class="progres-wrap">
+        <div class="bar"><i id="siapBar" style="background:linear-gradient(90deg,var(--mint),var(--cyan))"></i></div>
+        <span class="progres-lbl" id="siapLbl">0 dari 0 beres</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="foot"></div>
+
+<script src="assets/course.js?v=7cc269c0"></script>
+<script src="assets/kelompok.js?v=cb227a37"></script>
+<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/kelas-daring.js?v=fe8948ba"></script>
+<script src="assets/indeks-cari.js?v=c8d4b2ce"></script>
+<script src="assets/cari.js?v=d5a9569b"></script>
+<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/site.js?v=e7fe9354"></script>
+<script>
+(function () {
+  'use strict';
+
+  function aman(t) {
+    return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ---------------- syarat kelayakan tiga analisis ---------------- */
+  var SYARAT = [
+    ['Target klasifikasi', 'Minimal 1 kolom kategorik yang bermakna. Maksimum 5 kelas, dan kelas paling sedikit minimal 5 persen.'],
+    ['Target regresi', 'Minimal 1 kolom numerik kontinu yang bermakna. Bukan ordinal, bukan hitungan bilangan bulat.'],
+    ['Masukan klaster', 'Minimal 4 fitur numerik dengan sebaran yang cukup beragam.'],
+    ['Total fitur', 'Minimal 5 fitur prediktor, tidak termasuk kolom ID dan kolom target.'],
+    ['Campuran tipe', 'Disarankan ada fitur numerik dan kategorik sekaligus, supaya kalian terlatih membersihkan data.']
+  ];
+  document.getElementById('syaratTiga').innerHTML = SYARAT.map(function (x) {
+    return '<div class="target-baris">' +
+      '<span class="target-tanda">' + (window.IKON ? IKON('centang') : '') + '</span>' +
+      '<span class="target-teks"><b>' + x[0] + '</b><i>' + x[1] + '</i></span>' +
+      '</div>';
+  }).join('');
+
+  /* ---------------- struktur bab ---------------- */
+  var BAB = [
+    ['Sampul', 'Judul project, nama, NIM, peran lead tiap anggota, kelas, mata kuliah, dosen pengampu, dan tahun akademik.'],
+    ['Bab 1 Pendahuluan', 'Konteks kasus, keterangan dataset, tiga rumusan masalah, dan tujuan analisis terintegrasi.'],
+    ['Bab 2 Tinjauan Teori dan Metode', 'Konsep ketiga kategori algoritma serta metodologi analisis. Minimal 7 referensi APA edisi 7.'],
+    ['Bab 3 EDA dan Data Preparation', 'Eksplorasi awal, penanganan nilai kosong, encoding, scaling, dan alasan tiap keputusan.'],
+    ['Bab 4 Analisis Klasifikasi', 'Penerapan algoritma, evaluasi kinerja, tafsiran feature importance, dan temuan.'],
+    ['Bab 5 Analisis Regresi', 'Penerapan algoritma, evaluasi kinerja, tafsiran koefisien atau feature importance, dan temuan.'],
+    ['Bab 6 Analisis Klaster', 'Penerapan algoritma, penilaian mutu klaster, tafsiran persona tiap segmen, dan temuan.'],
+    ['Bab 7 Sintesis dan Implikasi', 'Penyatuan temuan ketiga analisis jadi satu cerita bisnis beserta saran praktisnya.']
+  ];
+  document.getElementById('babIsi').innerHTML = BAB.map(function (x, i) {
+    var kunci = i === 7;
+    return '<div class="target-baris' + (kunci ? ' selesai' : '') + '">' +
+      '<span class="target-tanda">' + (window.IKON ? IKON(kunci ? 'lampu' : 'berkas') : '') + '</span>' +
+      '<span class="target-teks"><b>' + x[0] + '</b><i>' + x[1] + '</i></span>' +
+      (kunci ? '<span class="target-status">Penentu nilai</span>' : '') +
+      '</div>';
+  }).join('');
+
+  /* ---------------- bobot penilaian ---------------- */
+  var NILAI = [
+    ['Problem framing dan tiga rumusan masalah', 5, 'Thinking'],
+    ['EDA dan Data Preparation', 10, 'Thinking dan Doing'],
+    ['Analisis Klasifikasi', 15, 'Doing dan Thinking'],
+    ['Analisis Regresi', 15, 'Doing dan Thinking'],
+    ['Analisis Klaster', 15, 'Doing dan Thinking'],
+    ['Sintesis terintegrasi lintas analisis', 15, 'Thinking, kunci penilaian'],
+    ['Implikasi praktis untuk bisnis dan akuntansi', 10, 'Thinking'],
+    ['Mutu laporan dan presentasi', 15, 'Communicating']
+  ];
+  var total = NILAI.reduce(function (a, b) { return a + b[1]; }, 0);
+  document.getElementById('nilaiIsi').innerHTML = NILAI.map(function (x) {
+    var kunci = x[2].indexOf('kunci') >= 0;
+    return '<tr' + (kunci ? ' class="baris-menang"' : '') + '>' +
+      '<td>' + (kunci ? '<b>' + aman(x[0]) + '</b>' : aman(x[0])) + '</td>' +
+      '<td><b>' + x[1] + '%</b></td>' +
+      '<td>' + aman(x[2]) + '</td></tr>';
+  }).join('') +
+    '<tr><td><b>Jumlah</b></td><td><b>' + total + '%</b></td><td></td></tr>';
+
+  /* ---------------- tips menulis ---------------- */
+  var TIPS = [
+    'Tulis dalam bahasa Indonesia yang wajar dan personal. Hindari gaya yang terlalu kaku.',
+    'Masukkan contoh nyata dari dataset kalian: angka aslinya, nama kolomnya, dan pola yang kalian temukan.',
+    'Variasikan panjang kalimat. Tulisan mesin cenderung panjang dan seragam.',
+    'Tambahkan refleksi pengalaman kelompok selama proses analisis.',
+    'Hindari frasa klise seperti "Dalam era modern", "Sebagai kesimpulan dapat dikatakan bahwa", dan "Hal ini menunjukkan pentingnya".',
+    'Selipkan konteks lokal: Indonesia, UPNVJ, atau perusahaan yang kalian kenal.',
+    'Pakai sitasi APA 7 yang benar. Mesin sering mengarang referensi yang sebenarnya tidak ada.'
+  ];
+  document.getElementById('tipsIsi').innerHTML = TIPS.map(function (t, i) {
+    return '<div class="target-baris">' +
+      '<span class="target-tanda"><span class="tips-no">' + (i + 1) + '</span></span>' +
+      '<span class="target-teks"><i style="font-size:13.5px;color:var(--ink-2)">' + aman(t) + '</i></span>' +
+      '</div>';
+  }).join('');
+
+  /* ---------------- tema kelompok ---------------- */
+  document.getElementById('subTema').textContent =
+    JUMLAH_MAHASISWA + ' mahasiswa dibagi jadi ' + JUMLAH_KELOMPOK +
+    ' kelompok. Temanya bersifat pengarah supaya dataset antar kelompok tidak bertabrakan.';
+
+  document.getElementById('temaIsi').innerHTML =
+    '<div class="klp-grid">' + KLP_ORANGE.map(function (k) {
+      return '<article class="tile klp reveal">' +
+        '<div class="klp-kepala"><span class="klp-no">' + k.klp + '</span>' +
+        '<h3>' + aman(k.tema) + '</h3>' +
+        (k.anggota ? '<span class="klp-anggota">' + k.anggota + ' orang</span>' : '') +
+        '</div>' +
+        '<dl class="klp-tanya">' +
+          '<div><dt>Klasifikasi</dt><dd>' + aman(k.klasifikasi) + '</dd></div>' +
+          '<div><dt>Regresi</dt><dd>' + aman(k.regresi) + '</dd></div>' +
+          '<div><dt>Klaster</dt><dd>' + aman(k.klaster) + '</dd></div>' +
+        '</dl></article>';
+    }).join('') + '</div>';
+
+  /* ---------------- ceklis sebelum kumpul ---------------- */
+  var ITEM = [
+    { id: 'daftar', teks: 'Dataset sudah didaftarkan ke dosen dan tidak bentrok dengan kelompok lain' },
+    { id: 'syarat', teks: 'Dataset memenuhi seluruh syarat kelayakan tiga analisis' },
+    { id: 'tiga', teks: 'Ketiga analisis sudah dikerjakan, bukan cuma salah satu' },
+    { id: 'metrik', teks: 'Semua metrik wajib sudah dilampirkan beserta tabel perbandingannya' },
+    { id: 'bab7', teks: 'Bab 7 benar benar menyatukan ketiga temuan, bukan sekadar merangkum ulang' },
+    { id: 'referensi', teks: 'Minimal 7 referensi, format APA edisi 7, dan sumbernya benar ada' },
+    { id: 'peran', teks: 'Peran lead tiap anggota tertulis di sampul dan di matriks kontribusi' },
+    { id: 'format', teks: 'Huruf Aptos, spasi 1,5, margin 1 inci, nomor halaman di bawah tengah' },
+    { id: 'nama', teks: 'Nama berkas sudah mengikuti format KLP[NN]_[Nama]_Laporan.pdf' },
+    { id: 'pdf', teks: 'Laporan dan presentasi sudah diekspor jadi PDF' },
+    { id: 'leads', teks: 'Sudah diunggah sendiri ke LEADS, bukan diwakilkan ke teman sekelompok' }
+  ];
+  var KUNCI = 'bda-ceklis-uts';
+  var keadaan = (function () { try { return JSON.parse(localStorage.getItem(KUNCI) || '{}'); } catch (e) { return {}; } })();
+  var wadah = document.getElementById('ceklisKumpul');
+
+  function gambarCeklis() {
+    wadah.innerHTML = ITEM.map(function (it) {
+      return '<label class="ceklis-item' + (keadaan[it.id] ? ' on' : '') + '">' +
+        '<input type="checkbox" data-id="' + it.id + '"' + (keadaan[it.id] ? ' checked' : '') + '>' +
+        '<span class="kotak">✓</span>' +
+        '<span class="isi"><b>' + it.teks + '</b></span></label>';
+    }).join('');
+    hitung();
+  }
+  function hitung() {
+    var b = ITEM.filter(function (i) { return keadaan[i.id]; }).length;
+    document.getElementById('siapBar').style.width = Math.round(b / ITEM.length * 100) + '%';
+    document.getElementById('siapLbl').textContent =
+      b === ITEM.length ? 'Semua beres, siap dikumpulkan' : b + ' dari ' + ITEM.length + ' beres';
+  }
+  wadah.addEventListener('change', function (e) {
+    if (e.target.tagName !== 'INPUT') return;
+    keadaan[e.target.getAttribute('data-id')] = e.target.checked;
+    try { localStorage.setItem(KUNCI, JSON.stringify(keadaan)); } catch (err) {}
+    e.target.closest('.ceklis-item').classList.toggle('on', e.target.checked);
+    hitung();
+  });
+  gambarCeklis();
+
+  if (window.IKON_PASANG) IKON_PASANG();
+  if (window.bdaWatchReveal) window.bdaWatchReveal();
+})();
+</script>
+</body>
+</html>

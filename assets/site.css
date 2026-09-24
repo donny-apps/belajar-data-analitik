@@ -2183,3 +2183,114 @@ body.cari-terbuka { overflow: hidden; }
   .riset-angka { flex: 1; min-width: 130px; }
 }
 .paper-catatan { font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.55; }
+
+/* ---------- halaman soal project UTS ---------- */
+.klp-anggota {
+  margin-left: auto; font-family: var(--fmono); font-size: 11px; white-space: nowrap;
+  color: color-mix(in srgb, var(--amber) 86%, var(--ink));
+  background: color-mix(in srgb, var(--amber) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--amber) 26%, transparent);
+  padding: 4px 10px; border-radius: var(--r-pill);
+}
+.uts-metrik {
+  margin-top: 16px; padding: 13px 15px; border-radius: var(--r-sm);
+  background: var(--surface-2); font-size: 12.5px; line-height: 1.6; color: var(--ink-2);
+}
+.uts-metrik b {
+  display: block; margin-bottom: 5px; font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--c) 86%, var(--ink));
+}
+.uts-berkas { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.uts-berkas code {
+  font-family: var(--fmono); font-size: 12.5px; color: var(--ink);
+  background: var(--surface-2); padding: 11px 14px; border-radius: var(--r-sm);
+  overflow-wrap: anywhere;
+}
+
+/* ============================================================
+   Kabar terbaru di beranda
+   ------------------------------------------------------------
+   Dipasang paling atas supaya pengumuman yang sedang berlaku
+   terbaca lebih dulu daripada isi yang sifatnya tetap.
+   ============================================================ */
+.kabar {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 26px; align-items: center;
+  padding: 26px 30px; color: var(--ink);
+  background:
+    radial-gradient(130% 100% at 0% 0%, color-mix(in srgb, var(--lime) 20%, transparent) 0%, transparent 62%),
+    var(--surface);
+  border-color: color-mix(in srgb, var(--lime) 34%, transparent);
+  transition: transform .26s cubic-bezier(.34, 1.4, .64, 1), box-shadow .26s ease;
+}
+.kabar:hover { transform: translateY(-4px); box-shadow: var(--sh-3); }
+.kabar-tanda {
+  display: inline-flex; align-items: center; gap: 9px; align-self: start;
+  font-size: 10.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+  white-space: nowrap; color: var(--lime-ink);
+  background: var(--lime); padding: 7px 14px; border-radius: var(--r-pill);
+}
+html[data-theme="dark"] .kabar-tanda { color: var(--lime-ink); }
+.kabar-isi h2 { font-size: 23px; line-height: 1.24; letter-spacing: -.035em; margin-bottom: 9px; }
+.kabar-isi p { font-size: 13.5px; color: var(--ink-2); line-height: 1.68; }
+.kabar-buka {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+  font-size: 13px; font-weight: 800;
+  color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+}
+.kabar-buka .ikon { width: 15px; height: 15px; transition: transform .24s ease; }
+.kabar:hover .kabar-buka .ikon { transform: translateX(5px); }
+
+.kabar-tanggal {
+  text-align: center; padding: 18px 22px; border-radius: var(--r-md);
+  background: var(--surface-2); min-width: 148px;
+}
+.kabar-hari {
+  display: block; font-family: var(--fjudul); font-size: 40px; font-weight: 800;
+  letter-spacing: -.05em; line-height: 1;
+  color: color-mix(in srgb, var(--iris) 86%, var(--ink));
+}
+.kabar-bulan { display: block; font-size: 13.5px; font-weight: 700; margin-top: 3px; }
+.kabar-jam { display: block; font-size: 11.5px; color: var(--muted); margin-top: 7px; }
+.kabar-batas {
+  display: block; font-family: var(--fmono); font-size: 10.5px; margin-top: 9px;
+  color: color-mix(in srgb, var(--pink) 86%, var(--ink));
+}
+
+@media (max-width: 860px) {
+  .kabar { grid-template-columns: 1fr; gap: 18px; padding: 24px 22px; }
+  .kabar-isi h2 { font-size: 20px; }
+  .kabar-tanggal { display: flex; align-items: baseline; gap: 10px; justify-content: flex-start; }
+  .kabar-hari { font-size: 30px; }
+  .kabar-jam, .kabar-batas { margin-top: 0; }
+}
+
+/* Kartu penentu nilai di halaman soal UTS. Lime dipakai sebagai latar,
+   bukan sebagai warna tulisan, karena lime terlalu muda untuk dibaca
+   di atas latar terang. */
+.tahap.kunci {
+  background:
+    radial-gradient(120% 85% at 100% 0%, color-mix(in srgb, var(--lime) 30%, transparent) 0%, transparent 62%),
+    var(--surface);
+  border-color: color-mix(in srgb, var(--lime) 40%, transparent);
+}
+.tahap.kunci .tahap-ikon {
+  color: var(--lime-ink);
+  background: color-mix(in srgb, var(--lime) 55%, transparent);
+  border-color: color-mix(in srgb, var(--lime) 70%, transparent);
+}
+.tahap.kunci .tahap-no,
+.tahap.kunci .uts-metrik b { color: var(--ink); }
+.tahap.kunci .tahap-widget {
+  color: var(--lime-ink);
+  background: color-mix(in srgb, var(--lime) 55%, transparent);
+  border-color: color-mix(in srgb, var(--lime) 70%, transparent);
+  font-weight: 700;
+}
+html[data-theme="dark"] .tahap.kunci .tahap-ikon,
+html[data-theme="dark"] .tahap.kunci .tahap-widget {
+  color: var(--lime);
+  background: color-mix(in srgb, var(--lime) 16%, transparent);
+  border-color: color-mix(in srgb, var(--lime) 34%, transparent);
+}
+
+.tips-no { font-family: var(--fmono); font-size: 12px; font-weight: 600; color: var(--ink); }
