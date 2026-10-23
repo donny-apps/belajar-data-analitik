@@ -104,28 +104,7 @@
 
 <!-- ===================== KABAR TERBARU ===================== -->
 <section id="kabar">
-  <div class="wrap">
-    <a class="tile kabar reveal" href="uts.html">
-      <span class="kabar-tanda">
-        <span class="live"></span> Kabar Terbaru
-      </span>
-      <div class="kabar-isi">
-        <h2>Soal Project UTS sudah keluar</h2>
-        <p>
-          Semester Ganjil 2026/2027. Tiap kelompok mengerjakan klasifikasi, regresi, dan klaster
-          sekaligus dari satu dataset Kaggle. Ketentuan lengkap, syarat dataset, bobot nilai,
-          dan ceklis sebelum mengumpulkan sudah tersedia.
-        </p>
-        <span class="kabar-buka">Buka ketentuannya <span data-ikon="panah"></span></span>
-      </div>
-      <div class="kabar-tanggal">
-        <span class="kabar-hari">10</span>
-        <span class="kabar-bulan">Oktober</span>
-        <span class="kabar-jam">Sabtu, 07.10 WIB</span>
-        <span class="kabar-batas">Kumpul sampai 23.59</span>
-      </div>
-    </a>
-  </div>
+  <div class="wrap" id="kabarIsi"></div>
 </section>
 
 <!-- ===================== TIGA CARA ===================== -->
@@ -360,10 +339,11 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=7cc269c0"></script>
+<script src="assets/course.js?v=0e09a6d6"></script>
+<script src="assets/kabar.js?v=89890055"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/ikon.js?v=56710d72"></script>
-<script src="assets/indeks-cari.js?v=c8d4b2ce"></script>
+<script src="assets/indeks-cari.js?v=42f65456"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
 <script src="assets/shell.js?v=a9920dc3"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
@@ -408,6 +388,43 @@
       navigator.clipboard.writeText(teks).then(beres, function () { prompt('Salin manual:', teks); });
     } else { prompt('Salin manual:', teks); }
   });
+})();
+
+/* ---------------- kabar terbaru ----------------
+   Yang ditampilkan entri paling atas di assets/kabar.js. Kalau tidak
+   ada kabar sama sekali, bagiannya dilepas supaya tidak menyisakan
+   ruang kosong di beranda. */
+(function () {
+  var wadah = document.getElementById('kabarIsi');
+  if (!wadah) return;
+  if (typeof KABAR === 'undefined' || !KABAR.length) {
+    var bagian = document.getElementById('kabar');
+    if (bagian) bagian.remove();
+    return;
+  }
+  var k = KABAR[0];
+  function aman(t) {
+    return String(t == null ? '' : t)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  wadah.innerHTML =
+    '<a class="tile kabar reveal" href="' + aman(k.href) + '">' +
+      '<span class="kabar-tanda"><span class="live"></span> ' + aman(k.label) + '</span>' +
+      '<div class="kabar-isi">' +
+        '<h2>' + aman(k.judul) + '</h2>' +
+        '<p>' + aman(k.isi) + '</p>' +
+        '<span class="kabar-buka">' + aman(k.aksi) +
+          ' <span data-ikon="panah"></span></span>' +
+      '</div>' +
+      '<div class="kabar-tanggal">' +
+        '<span class="kabar-hari">' + aman(k.hari) + '</span>' +
+        '<span class="kabar-bulan">' + aman(k.bulan) + '</span>' +
+        '<span class="kabar-jam">' + aman(k.ket) + '</span>' +
+        (k.sorot ? '<span class="kabar-batas">' + aman(k.sorot) + '</span>' : '') +
+      '</div>' +
+    '</a>';
+  if (window.IKON_PASANG) IKON_PASANG();
+  if (window.bdaWatchReveal) window.bdaWatchReveal();
 })();
 </script>
 </body>

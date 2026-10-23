@@ -116,11 +116,16 @@ var COURSE = [
     ]
   },
   {
-    tm: 10, fase: 3, status: 'rencana',
-    judul: 'Rapikan dan Gabungkan Data',
-    ringkas: 'Gabungin beberapa file jadi satu tabel yang rapi dan siap dipakai.',
-    tujuan: 'Bisa nyiapin data biar enak divisualisasiin.',
-    tautan: []
+    tm: 10, fase: 3, status: 'siap',
+    judul: 'Memulai Tableau Public',
+    ringkas: 'Dari nol sampai karya pertama terbit: bikin akun, pasang aplikasi, masukkan data Global Superstore, lalu susun tiga worksheet.',
+    tujuan: 'Punya akun Tableau Public sendiri dan tiga grafik yang sudah terbit di profil kalian.',
+    tautan: [
+      { label: 'Modul TM10 Pengantar Tableau Public', path: 'TM10_Pengantar_Tableau_Public.pdf', tipe: 'pdf' },
+      { label: 'Slide TM10 Pengantar Tableau Public', path: 'TM10_Pengantar_Tableau_Public.pptx', tipe: 'pptx' },
+      { label: 'Dataset Global Superstore Orders', path: 'Tableau Project/Global Superstore Orders 2016.xlsx', tipe: 'data' },
+      { label: 'Dataset Global Superstore Returns', path: 'Tableau Project/Global Superstore Returns 2016.csv', tipe: 'data' }
+    ]
   },
   {
     tm: 11, fase: 3, status: 'rencana',
