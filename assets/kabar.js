@@ -20,16 +20,18 @@
 var KABAR = [
   {
     label: 'Materi Baru',
-    judul: 'Materi Pertemuan 11 sudah bisa diunduh',
-    isi: 'Praktik Tableau lanjutan: pecah satu garis tren pakai shelf Color, bandingkan SUM dengan AVG, ' +
-         'hitung pertumbuhan antar tahun lewat Quick Table Calculation, susun crosstab berwarna, ' +
-         'lalu bikin peta pakai Show Me. Ada lembar kerja langkah demi langkah selama 80 menit.',
+    judul: 'Pertemuan 11: Dari Angka Jadi Keputusan',
+    isi: 'Satu garis tren penjualan dibongkar jadi empat langkah. Lihat polanya dengan memindahkan ' +
+         'tahun ke shelf Color, ukur dengan SUM atau AVG lalu hitung pertumbuhan antar tahun, ' +
+         'laporkan sebagai crosstab berwarna yang langsung menunjuk sel rugi, dan jelajahi lewat peta ' +
+         'sampai ketemu wilayah yang ternyata merugi padahal negaranya untung. Ditutup lembar kerja ' +
+         '80 menit yang bisa kalian kerjakan sendiri di rumah.',
     aksi: 'Buka daftar materi',
     href: 'bahan.html#tm11',
     hari: '31',
     bulan: 'Oktober',
     ket: 'Pertemuan 11',
-    sorot: '38 slide, 3 berkas'
+    sorot: '38 slide, modul dan PPT'
   },
   {
     label: 'Materi Baru',

@@ -130,12 +130,11 @@ var COURSE = [
   {
     tm: 11, fase: 3, status: 'siap',
     judul: 'Dari Angka Jadi Keputusan',
-    ringkas: 'Praktik Tableau: pecah tren pakai Color, ganti SUM jadi AVG, hitung pertumbuhan antar tahun, susun crosstab berwarna, lalu bikin peta lewat Show Me dan filter.',
-    tujuan: 'Bisa membaca satu dataset dari tiga sisi sekaligus: pola waktunya, angka persisnya, dan sebarannya di peta.',
+    ringkas: 'Satu garis tren dibongkar jadi empat langkah: lihat polanya lewat shelf Color, ukur dengan SUM atau AVG dan hitung pertumbuhan antar tahun, laporkan sebagai crosstab berwarna, lalu jelajahi lewat peta Show Me dan filter. Ditutup lembar kerja 80 menit yang bisa dikerjakan sendiri.',
+    tujuan: 'Paham bahwa tiap shelf di Tableau itu keputusan analitis, bukan sekadar pilihan tampilan, dan bisa membuktikan kalau angka gabungan sering menyembunyikan masalah di bawahnya.',
     tautan: [
       { label: 'Modul TM11 Praktik Visualisasi Tableau', path: 'TM11_Praktik_Visualisasi_Tableau.pdf', tipe: 'pdf' },
-      { label: 'Slide TM11 Praktik Visualisasi Tableau', path: 'TM11_Praktik_Visualisasi_Tableau.pptx', tipe: 'pptx' },
-      { label: 'Dataset Global Superstore Orders', path: 'Tableau Project/Global Superstore Orders 2016.xlsx', tipe: 'data' }
+      { label: 'Slide TM11 Praktik Visualisasi Tableau', path: 'TM11_Praktik_Visualisasi_Tableau.pptx', tipe: 'pptx' }
     ]
   },
   {
@@ -167,14 +166,12 @@ var COURSE = [
     tautan: []
   },
   {
-    tm: 16, fase: 4, status: 'siap', milestone: 'UAS',
+    tm: 16, fase: 4, status: 'rencana', milestone: 'UAS',
     judul: 'Final Showcase - Boardroom Simulation',
     ringkas: 'Presentasi final ke simulasi jajaran direksi.',
     tujuan: 'Bisa mempertanggungjawabkan analisis dan saran kalian.',
-    tautan: [
-      { label: 'Briefing UAS Kelas A', path: 'UAS/Briefing_UAS_BDA_Kelas_A.pptx', tipe: 'pptx' },
-      { label: 'Briefing UAS Kelas B', path: 'UAS/Briefing_UAS_BDA_Kelas_B.pdf', tipe: 'pdf' }
-    ]
+    nota: 'Bahan briefingnya menyusul, dibagikan menjelang pelaksanaan.',
+    tautan: []
   }
 ];
 
