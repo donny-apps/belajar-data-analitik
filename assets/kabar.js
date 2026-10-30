@@ -20,6 +20,19 @@
 var KABAR = [
   {
     label: 'Materi Baru',
+    judul: 'Materi Pertemuan 11 sudah bisa diunduh',
+    isi: 'Praktik Tableau lanjutan: pecah satu garis tren pakai shelf Color, bandingkan SUM dengan AVG, ' +
+         'hitung pertumbuhan antar tahun lewat Quick Table Calculation, susun crosstab berwarna, ' +
+         'lalu bikin peta pakai Show Me. Ada lembar kerja langkah demi langkah selama 80 menit.',
+    aksi: 'Buka daftar materi',
+    href: 'bahan.html#tm11',
+    hari: '31',
+    bulan: 'Oktober',
+    ket: 'Pertemuan 11',
+    sorot: '38 slide, 3 berkas'
+  },
+  {
+    label: 'Materi Baru',
     judul: 'Materi Pertemuan 10 sudah bisa diunduh',
     isi: 'Memulai Tableau Public dari nol: bikin akun pakai email kampus, pasang aplikasinya, ' +
          'masukkan data Global Superstore, lalu susun tiga worksheet sampai terbit di profil kalian. ' +

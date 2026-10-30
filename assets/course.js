@@ -128,11 +128,15 @@ var COURSE = [
     ]
   },
   {
-    tm: 11, fase: 3, status: 'rencana',
-    judul: 'Milih Grafik yang Tepat',
-    ringkas: 'Milih bentuk grafik yang pas, dan ngehindarin grafik yang malah nyesatin.',
-    tujuan: 'Bisa milih grafik sesuai pertanyaan yang mau dijawab.',
-    tautan: []
+    tm: 11, fase: 3, status: 'siap',
+    judul: 'Dari Angka Jadi Keputusan',
+    ringkas: 'Praktik Tableau: pecah tren pakai Color, ganti SUM jadi AVG, hitung pertumbuhan antar tahun, susun crosstab berwarna, lalu bikin peta lewat Show Me dan filter.',
+    tujuan: 'Bisa membaca satu dataset dari tiga sisi sekaligus: pola waktunya, angka persisnya, dan sebarannya di peta.',
+    tautan: [
+      { label: 'Modul TM11 Praktik Visualisasi Tableau', path: 'TM11_Praktik_Visualisasi_Tableau.pdf', tipe: 'pdf' },
+      { label: 'Slide TM11 Praktik Visualisasi Tableau', path: 'TM11_Praktik_Visualisasi_Tableau.pptx', tipe: 'pptx' },
+      { label: 'Dataset Global Superstore Orders', path: 'Tableau Project/Global Superstore Orders 2016.xlsx', tipe: 'data' }
+    ]
   },
   {
     tm: 12, fase: 3, status: 'rencana',
