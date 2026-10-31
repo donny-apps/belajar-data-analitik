@@ -2337,3 +2337,98 @@ html[data-theme="dark"] .tahap.kunci .tahap-widget {
    isinya perlu dipusatkan dan diberi ukuran sendiri. */
 .theme-btn { display: inline-flex; align-items: center; justify-content: center; }
 .theme-btn .ikon { width: 17px; height: 17px; }
+
+
+/* ============================================================
+   Pencatatan sertifikat di Ruang Mahasiswa
+   ============================================================ */
+/* Sengaja tidak memakai kelas unggah-kotak, karena pemasang kotak
+   unggah umum menimpa seluruh isi kotak berkelas itu. */
+.srt-kotak { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.srt-kotak .unggah-tombol { padding: 14px; }
+
+.srt-pratinjau { margin-top: 4px; }
+.srt-pra-isi {
+  display: grid; grid-template-columns: 46px 1fr auto; gap: 13px; align-items: center;
+  padding: 11px 13px; border-radius: var(--r-sm); background: var(--surface-2);
+}
+.srt-pra-gambar {
+  width: 46px; height: 46px; border-radius: 10px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--iris) 12%, transparent);
+  color: var(--iris);
+}
+.srt-pra-gambar .ikon { width: 20px; height: 20px; }
+.srt-pra-gambar img { width: 100%; height: 100%; object-fit: cover; }
+.srt-pra-teks { min-width: 0; }
+.srt-pra-teks b { display: block; font-size: 13px; overflow-wrap: anywhere; }
+.srt-pra-teks i { font-style: normal; font-family: var(--fmono); font-size: 11px; color: var(--muted); }
+.srt-pra-hapus {
+  width: 30px; height: 30px; border-radius: 9px; cursor: pointer; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  transition: all .18s ease;
+}
+.srt-pra-hapus:hover {
+  color: color-mix(in srgb, var(--pink) 88%, var(--ink));
+  border-color: color-mix(in srgb, var(--pink) 40%, transparent);
+}
+.srt-pra-hapus .ikon { width: 13px; height: 13px; }
+
+.srt-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr)); gap: 12px;
+}
+.srt-kartu {
+  padding: 18px;
+  background:
+    radial-gradient(120% 85% at 100% 0%, color-mix(in srgb, var(--c) 13%, transparent) 0%, transparent 60%),
+    var(--surface);
+}
+.srt-atas { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.srt-ikon {
+  width: 34px; height: 34px; border-radius: 11px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+}
+.srt-ikon .ikon { width: 16px; height: 16px; }
+.srt-jenis {
+  font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--c) 86%, var(--ink));
+}
+.srt-hapus {
+  margin-left: auto; width: 26px; height: 26px; border-radius: 8px; cursor: pointer; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: 1px solid transparent; color: var(--muted);
+  transition: all .18s ease;
+}
+.srt-hapus:hover {
+  color: color-mix(in srgb, var(--pink) 88%, var(--ink));
+  border-color: color-mix(in srgb, var(--pink) 34%, transparent);
+}
+.srt-hapus .ikon { width: 12px; height: 12px; }
+
+.srt-kartu h4 { font-size: 15px; line-height: 1.3; letter-spacing: -.02em; margin-bottom: 12px; }
+.srt-rinci { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.srt-rinci > div { display: grid; grid-template-columns: 68px 1fr; gap: 10px; font-size: 12.5px; }
+.srt-rinci span:first-child { color: var(--muted); }
+.srt-rinci span:last-child { color: var(--ink-2); overflow-wrap: anywhere; }
+
+.srt-status {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: var(--r-pill);
+}
+.srt-status .ikon { width: 12px; height: 12px; }
+.srt-status.simpan {
+  color: color-mix(in srgb, var(--amber) 86%, var(--ink));
+  background: color-mix(in srgb, var(--amber) 12%, transparent);
+}
+.srt-status.kirim {
+  color: color-mix(in srgb, var(--mint) 86%, var(--ink));
+  background: color-mix(in srgb, var(--mint) 12%, transparent);
+}
+
+@media (max-width: 560px) {
+  .srt-pra-isi { grid-template-columns: 40px 1fr auto; }
+}

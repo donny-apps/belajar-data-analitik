@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=c29da294">
+<link rel="stylesheet" href="assets/site.css?v=264285c3">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/masuk.html">
@@ -123,19 +123,62 @@
         <div class="tile tile-half reveal">
           <div class="proj-head">
             <div class="proj-ikon p1"><span data-ikon="bintang"></span></div>
-            <div><h3>Unggah sertifikat</h3><span>Kursus, pelatihan, atau lomba</span></div>
+            <div><h3>Catat sertifikat</h3><span>Kursus, pelatihan, lomba, atau magang</span></div>
           </div>
-          <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:18px">
-            Punya sertifikat kursus data, pelatihan analitik, atau lomba yang relevan?
-            Kumpulkan di sini. Ini menambah nilai partisipasi dan berguna waktu menyusun portofolio.
-          </p>
-          <div class="unggah-kotak" data-jenis="sertifikat" data-label="Sertifikat"></div>
+
+          <form id="formSertifikat" class="form-rapi">
+            <label class="field">
+              <span>Nama sertifikat</span>
+              <input type="text" id="srtNama" maxlength="90" required
+                     placeholder="Contoh: Data Analysis with Python" autocomplete="off">
+            </label>
+
+            <div class="field-baris">
+              <label class="field">
+                <span>Penerbit</span>
+                <input type="text" id="srtPenerbit" maxlength="60" required
+                       placeholder="Coursera, Dicoding, BPS" autocomplete="off">
+              </label>
+              <label class="field">
+                <span>Tanggal terbit</span>
+                <input type="date" id="srtTanggal">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Jenis</span>
+              <select id="srtJenis">
+                <option value="kursus">Kursus daring atau luring</option>
+                <option value="pelatihan">Pelatihan aplikasi</option>
+                <option value="lomba">Lomba atau hackathon</option>
+                <option value="magang">Magang yang berkaitan dengan data</option>
+              </select>
+            </label>
+
+            <div class="field">
+              <span>Berkas sertifikat</span>
+              <div class="srt-kotak">
+                <label class="unggah-tombol">
+                  <span data-ikon="unduhan"></span>
+                  <span id="srtLabelBerkas">Pilih berkas</span>
+                  <input type="file" id="srtBerkas" hidden accept=".pdf,.png,.jpg,.jpeg,.webp">
+                </label>
+                <span class="unggah-info">PDF atau gambar, maksimal 10 MB</span>
+                <div id="srtPratinjau" class="srt-pratinjau" hidden></div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" style="justify-content:center">
+              <span data-ikon="tambah"></span> Simpan sertifikat
+            </button>
+            <p class="form-pesan" id="srtPesan"></p>
+          </form>
         </div>
 
         <div class="tile tile-half reveal">
           <div class="proj-head">
             <div class="proj-ikon p2"><span data-ikon="lampu"></span></div>
-            <div><h3>Sertifikat apa yang dihitung</h3><span>Panduan singkat</span></div>
+            <div><h3>Yang dihitung</h3><span>Panduan singkat</span></div>
           </div>
           <ul class="checklist">
             <li><span class="ck"><span data-ikon="centang"></span></span><span>Kursus analisis data, statistik, atau visualisasi, dari mana pun asalnya.</span></li>
@@ -144,10 +187,18 @@
             <li><span class="ck"><span data-ikon="centang"></span></span><span>Sertifikat magang yang tugasnya berkaitan dengan pengolahan data.</span></li>
           </ul>
           <div class="tile note info-inline" style="margin-top:18px">
-            <span data-ikon="lampu"></span>
-            <span>Simpan juga berkas aslinya. Yang diunggah di sini salinannya, bukan penggantinya.</span>
+            <span data-ikon="perisai"></span>
+            <span>Simpan juga berkas aslinya. Yang dicatat di sini salinannya, bukan penggantinya.</span>
           </div>
         </div>
+      </div>
+
+      <div class="tile reveal" style="margin-top:16px">
+        <div class="proj-head">
+          <div class="proj-ikon p2"><span data-ikon="rak"></span></div>
+          <div><h3>Sertifikat kamu</h3><span id="srtRingkas">Belum ada yang dicatat</span></div>
+        </div>
+        <div id="srtDaftar"></div>
       </div>
     </div>
 
@@ -411,6 +462,208 @@
       muatProgres();
     });
   });
+
+
+  /* ============================================================
+     Pencatatan sertifikat
+     ------------------------------------------------------------
+     Dirancang supaya tetap berguna walaupun pengiriman berkas belum
+     dibuka. Keterangan sertifikatnya disimpan di browser mahasiswa,
+     jadi mereka punya daftar sendiri yang bisa dibuka kapan saja.
+     Begitu alamat pengiriman diisi dosen, berkasnya ikut terkirim
+     dan tiap baris berubah statusnya jadi terkirim.
+     ============================================================ */
+  var KUNCI_SRT = 'bda-sertifikat';
+
+  var JENIS_SRT = {
+    kursus: { label: 'Kursus', ikon: 'topi', warna: 'var(--iris)' },
+    pelatihan: { label: 'Pelatihan', ikon: 'alur', warna: 'var(--mint)' },
+    lomba: { label: 'Lomba', ikon: 'bintang', warna: 'var(--amber)' },
+    magang: { label: 'Magang', ikon: 'gedung', warna: 'var(--cyan)' }
+  };
+
+  function bacaSrt() {
+    try { return JSON.parse(localStorage.getItem(KUNCI_SRT) || '[]'); } catch (e) { return []; }
+  }
+  function tulisSrt(d) {
+    try { localStorage.setItem(KUNCI_SRT, JSON.stringify(d)); } catch (e) {}
+  }
+
+  function tanggalIndonesia(iso) {
+    if (!iso) return 'Tanggal tidak diisi';
+    var B = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+             'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+    var p = iso.split('-');
+    if (p.length !== 3) return iso;
+    return Number(p[2]) + ' ' + B[Number(p[1]) - 1] + ' ' + p[0];
+  }
+
+  /* ---------------- pratinjau berkas yang dipilih ---------------- */
+  var inputBerkas = document.getElementById('srtBerkas');
+  var pratinjau = document.getElementById('srtPratinjau');
+  var labelBerkas = document.getElementById('srtLabelBerkas');
+  var berkasTerpilih = null;
+
+  inputBerkas.addEventListener('change', function () {
+    var f = inputBerkas.files && inputBerkas.files[0];
+    berkasTerpilih = f || null;
+    if (!f) {
+      pratinjau.hidden = true;
+      labelBerkas.textContent = 'Pilih berkas';
+      return;
+    }
+    labelBerkas.textContent = 'Ganti berkas';
+    var ukuran = f.size < 1048576
+      ? Math.round(f.size / 1024) + ' KB'
+      : (f.size / 1048576).toFixed(1) + ' MB';
+
+    pratinjau.hidden = false;
+    pratinjau.innerHTML =
+      '<div class="srt-pra-isi">' +
+        '<div class="srt-pra-gambar" id="srtPraGambar">' +
+          (window.IKON ? IKON(/^image\//.test(f.type) ? 'grafik' : 'pdf') : '') +
+        '</div>' +
+        '<div class="srt-pra-teks"><b>' + aman(f.name) + '</b><i>' + ukuran + '</i></div>' +
+        '<button type="button" class="srt-pra-hapus" id="srtBuang" aria-label="Lepas berkas">' +
+          (window.IKON ? IKON('silang') : '') + '</button>' +
+      '</div>';
+
+    /* gambar ditampilkan sebagai gambar kecil, PDF cukup ikonnya */
+    if (/^image\//.test(f.type)) {
+      var pembaca = new FileReader();
+      pembaca.onload = function () {
+        var kotak = document.getElementById('srtPraGambar');
+        if (kotak) kotak.innerHTML = '<img src="' + pembaca.result + '" alt="Pratinjau sertifikat">';
+      };
+      pembaca.readAsDataURL(f);
+    }
+
+    document.getElementById('srtBuang').addEventListener('click', function () {
+      inputBerkas.value = '';
+      berkasTerpilih = null;
+      pratinjau.hidden = true;
+      labelBerkas.textContent = 'Pilih berkas';
+    });
+  });
+
+  /* ---------------- daftar sertifikat ---------------- */
+  function gambarSrt() {
+    var d = bacaSrt();
+    var wadah = document.getElementById('srtDaftar');
+    var ringkas = document.getElementById('srtRingkas');
+
+    if (!d.length) {
+      ringkas.textContent = 'Belum ada yang dicatat';
+      wadah.innerHTML =
+        '<div class="tile note info-inline" style="margin:0">' +
+          (window.IKON ? IKON('lampu') : '') +
+          '<span>Belum ada sertifikat yang dicatat. Isi borang di atas, satu sertifikat satu catatan. ' +
+          'Daftarnya tersimpan di browser ini, jadi tetap ada waktu kamu buka lagi nanti.</span>' +
+        '</div>';
+      return;
+    }
+
+    var terkirim = d.filter(function (x) { return x.terkirim; }).length;
+    ringkas.textContent = d.length + ' sertifikat dicatat' +
+      (BDA.terhubung() ? ', ' + terkirim + ' sudah terkirim' : ', belum ada yang terkirim');
+
+    wadah.innerHTML = '<div class="srt-grid">' + d.map(function (x, i) {
+      var j = JENIS_SRT[x.jenis] || JENIS_SRT.kursus;
+      return '<article class="tile srt-kartu" style="--c:' + j.warna + '">' +
+        '<div class="srt-atas">' +
+          '<span class="srt-ikon">' + (window.IKON ? IKON(j.ikon) : '') + '</span>' +
+          '<span class="srt-jenis">' + j.label + '</span>' +
+          '<button type="button" class="srt-hapus" data-urut="' + i + '" ' +
+            'aria-label="Hapus catatan ini">' + (window.IKON ? IKON('silang') : '') + '</button>' +
+        '</div>' +
+        '<h4>' + aman(x.nama) + '</h4>' +
+        '<div class="srt-rinci">' +
+          '<div><span>Penerbit</span><span>' + aman(x.penerbit) + '</span></div>' +
+          '<div><span>Terbit</span><span>' + tanggalIndonesia(x.tanggal) + '</span></div>' +
+          '<div><span>Berkas</span><span>' + aman(x.berkas || 'Tidak dilampirkan') + '</span></div>' +
+        '</div>' +
+        '<span class="srt-status ' + (x.terkirim ? 'kirim' : 'simpan') + '">' +
+          (window.IKON ? IKON(x.terkirim ? 'centang' : 'jam') : '') +
+          (x.terkirim ? 'Sudah terkirim ke dosen' : 'Tercatat di browser kamu') +
+        '</span>' +
+        '</article>';
+    }).join('') + '</div>';
+
+    Array.prototype.forEach.call(wadah.querySelectorAll('.srt-hapus'), function (b) {
+      b.addEventListener('click', function () {
+        var daftar = bacaSrt();
+        daftar.splice(Number(b.getAttribute('data-urut')), 1);
+        tulisSrt(daftar);
+        gambarSrt();
+        muatProgres();
+      });
+    });
+  }
+
+  /* ---------------- simpan sertifikat ---------------- */
+  document.getElementById('formSertifikat').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var pesan = document.getElementById('srtPesan');
+    var nama = document.getElementById('srtNama').value.trim();
+    var penerbit = document.getElementById('srtPenerbit').value.trim();
+    if (!nama || !penerbit) return;
+
+    if (berkasTerpilih && berkasTerpilih.size > 10 * 1024 * 1024) {
+      pesan.className = 'form-pesan gagal';
+      pesan.textContent = 'Berkasnya lebih dari 10 MB. Kecilkan dulu, atau simpan tanpa lampiran.';
+      return;
+    }
+
+    var catatan = {
+      nama: nama,
+      penerbit: penerbit,
+      tanggal: document.getElementById('srtTanggal').value,
+      jenis: document.getElementById('srtJenis').value,
+      berkas: berkasTerpilih ? berkasTerpilih.name : '',
+      dicatat: new Date().toISOString().slice(0, 10),
+      terkirim: false
+    };
+
+    function selesai(tulisan, kelas) {
+      var daftar = bacaSrt();
+      daftar.unshift(catatan);
+      tulisSrt(daftar);
+      e.target.reset();
+      berkasTerpilih = null;
+      pratinjau.hidden = true;
+      labelBerkas.textContent = 'Pilih berkas';
+      pesan.className = 'form-pesan ' + kelas;
+      pesan.textContent = tulisan;
+      gambarSrt();
+      muatProgres();
+    }
+
+    if (!berkasTerpilih) {
+      selesai('Tercatat tanpa lampiran. Berkasnya bisa ditambahkan nanti.', 'berhasil');
+      return;
+    }
+
+    if (!BDA.terhubung()) {
+      selesai('Tercatat di browser kamu. Berkasnya belum terkirim karena pengiriman ' +
+              'lewat halaman ini belum dibuka.', 'berhasil');
+      return;
+    }
+
+    pesan.className = 'form-pesan sedang';
+    pesan.textContent = 'Mengirim ' + berkasTerpilih.name + ' ...';
+    BDA.unggah(berkasTerpilih, 'sertifikat', nama + ' - ' + penerbit).then(function (h) {
+      if (h && h.ok) {
+        catatan.terkirim = true;
+        selesai('Terkirim ke dosen: ' + catatan.berkas, 'berhasil');
+      } else {
+        selesai('Tercatat, tapi pengiriman berkasnya gagal. Coba lagi nanti.', 'gagal');
+      }
+    }).catch(function (err) {
+      selesai('Tercatat, tapi pengiriman gagal: ' + err.message, 'gagal');
+    });
+  });
+
+  gambarSrt();
 
   /* ---------------- ceklis persiapan ---------------- */
   var ITEM = [
