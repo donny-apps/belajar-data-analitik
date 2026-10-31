@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/bahan.html">
@@ -53,10 +53,10 @@
       </div>
       <div class="filter-row" id="tipeFilter" style="margin-top:16px;margin-bottom:0">
         <button class="chip on" data-tipe="">Semua</button>
-        <button class="chip" data-tipe="pptx">📑 Slide PPT</button>
-        <button class="chip" data-tipe="pdf">📄 Modul PDF</button>
+        <button class="chip" data-tipe="pptx"><span data-ikon="slide"></span> Slide PPT</button>
+        <button class="chip" data-tipe="pdf"><span data-ikon="pdf"></span> Modul PDF</button>
         <button class="chip" data-tipe="ows"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> File Orange</button>
-        <button class="chip" data-tipe="data">📈 Data Latihan</button>
+        <button class="chip" data-tipe="data"><span data-ikon="data"></span> Data Latihan</button>
       </div>
     </div>
 
@@ -103,12 +103,12 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/course.js?v=42ab9177"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
@@ -192,7 +192,7 @@
         '<div class="rak-kepala"><span class="rak-tm">' + judul + '</span>' +
         '<span class="rak-judul">' + sub + '</span>' + punyaHalaman + '</div>' +
         '<div class="tm-links">' + perTm[tm].map(function (b) {
-          var ic = IKON_TIPE[b.tipe] || '📎';
+          var ic = window.IKON ? IKON(IKON_TIPE[b.tipe] || 'berkas') : '';
           return '<a class="file" href="' + encodeURI(BASE + b.path) + '" target="_blank" rel="noopener">' +
             '<span class="ic">' + ic + '</span><span>' + b.label + '</span>' +
             '<span class="ext">' + b.path.split('.').pop() + '</span></a>';

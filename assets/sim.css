@@ -125,3 +125,7 @@ html[data-theme="dark"] .sim-num { background: var(--lime); color: var(--lime-in
 
 .klaster-plot { max-width: 430px; }
 .klaster-plot svg { max-height: 380px; }
+
+/* Ikon garis menggantikan emoji di kartu pilihan, jadi perlu ukuran
+   dan warna sendiri. */
+.pilih .emo .ikon { width: 26px; height: 26px; color: var(--iris); }

@@ -99,7 +99,7 @@ var SITUS_BELAJAR = [
     jenis: 'Panduan resmi', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Panduan resmi dari pembuat Orange, lengkap dengan contoh alur kerja yang bisa langsung ditiru.' },
   { nama: 'Perpustakaan Alur Kerja Orange', url: 'https://orangedatamining.com/workflows/',
-    lambang: 'assets/img/sumber/orange.png', ikon: '🔗',
+    lambang: 'assets/img/sumber/orange.png', ikon: 'buka',
     jenis: 'Contoh siap pakai', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Kumpulan alur kerja jadi yang bisa diunduh dan dibuka di Orange. Cara tercepat memahami bentuk alur yang benar.' },
   { nama: 'Tableau Learn', url: 'https://www.tableau.com/learn',
@@ -107,27 +107,27 @@ var SITUS_BELAJAR = [
     jenis: 'Pusat belajar resmi', bahasa: 'Inggris', harga: 'Gratis, perlu akun',
     guna: 'Video pelatihan resmi dari Tableau, disusun bertahap dari pemula sampai mahir.' },
   { nama: 'Tableau Public Gallery', url: 'https://public.tableau.com/app/discover',
-    lambang: 'assets/img/sumber/tableaupublic.png', ikon: '🖼️',
+    lambang: 'assets/img/sumber/tableaupublic.png', ikon: 'grafik',
     jenis: 'Galeri karya', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Ribuan dashboard buatan orang seluruh dunia. Bagus buat cari ide tampilan sebelum menyusun Project Kuliah 2.' },
   { nama: 'Kaggle Learn', url: 'https://www.kaggle.com/learn',
-    lambang: 'assets/img/sumber/kaggle.png', ikon: '🎓',
+    lambang: 'assets/img/sumber/kaggle.png', ikon: 'topi',
     jenis: 'Kursus singkat', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Kursus pendek soal data, masing-masing bisa selesai dalam beberapa jam.' },
   { nama: 'Dicoding', url: 'https://www.dicoding.com',
-    lambang: 'assets/img/sumber/dicoding.png', ikon: '🇮🇩',
+    lambang: 'assets/img/sumber/dicoding.png', ikon: 'peta',
     jenis: 'Kelas daring', bahasa: 'Indonesia', harga: 'Ada yang gratis',
     guna: 'Kelas berbahasa Indonesia, beberapa di antaranya membahas dasar analisis data.' },
   { nama: 'Makeover Monday', url: 'https://www.makeovermonday.co.uk',
-    lambang: 'assets/img/sumber/makeovermonday.png', ikon: '🗓️',
+    lambang: 'assets/img/sumber/makeovermonday.png', ikon: 'kalender',
     jenis: 'Latihan mingguan', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Tiap minggu ada satu dataset dan satu grafik untuk diperbaiki. Latihan paling ampuh buat mengasah rasa visual.' },
   { nama: 'From Data to Viz', url: 'https://www.data-to-viz.com',
-    lambang: 'assets/img/sumber/datatoviz.png', ikon: '🧭',
+    lambang: 'assets/img/sumber/datatoviz.png', ikon: 'dashboard',
     jenis: 'Panduan memilih grafik', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Bingung pilih grafik apa? Situs ini menuntun dari bentuk data kalian ke jenis grafik yang cocok.' },
   { nama: 'Storytelling with Data', url: 'https://www.storytellingwithdata.com',
-    lambang: 'assets/img/sumber/swd.png', ikon: '💬',
+    lambang: 'assets/img/sumber/swd.png', ikon: 'obrolan',
     jenis: 'Blog dan latihan', bahasa: 'Inggris', harga: 'Gratis',
     guna: 'Fokus ke cara bercerita dengan data. Cocok dibaca menjelang penyusunan rekomendasi.' }
 ];
@@ -138,7 +138,7 @@ var SITUS_BELAJAR = [
    resmi masing-masing lembaga. */
 var SUMBER_DATA = [
   {
-    kelompok: 'Wajib untuk Project Kuliah 1', warna: 'var(--amber)', ikon: '⭐',
+    kelompok: 'Wajib untuk Project Kuliah 1', warna: 'var(--amber)', ikon: 'bintang',
     catatan: 'Soal UTS mewajibkan dataset diambil dari Kaggle. Sumber lain boleh dipakai untuk latihan, tapi bukan untuk project yang dinilai.',
     isi: [
       { nama: 'Kaggle Datasets', url: 'https://www.kaggle.com/datasets',
@@ -148,7 +148,7 @@ var SUMBER_DATA = [
     ]
   },
   {
-    kelompok: 'Keuangan dan Akuntansi', warna: 'var(--mint)', ikon: '💼',
+    kelompok: 'Keuangan dan Akuntansi', warna: 'var(--mint)', ikon: 'gedung',
     catatan: 'Paling nyambung dengan jurusan kalian. Angkanya angka beneran yang dipakai analis dan auditor, jadi rekomendasi yang kalian tulis punya bobot.',
     isi: [
       { nama: 'Bursa Efek Indonesia', url: 'https://www.idx.co.id/id/perusahaan-tercatat/laporan-keuangan-dan-tahunan/',
@@ -178,7 +178,7 @@ var SUMBER_DATA = [
     ]
   },
   {
-    kelompok: 'Data Indonesia', warna: 'var(--pink)', ikon: '🇮🇩',
+    kelompok: 'Data Indonesia', warna: 'var(--pink)', ikon: 'peta',
     catatan: 'Enak dipakai karena konteksnya dekat, jadi rekomendasi kalian lebih masuk akal. Cocok untuk latihan dan untuk Project Kuliah 2.',
     isi: [
       { nama: 'Satu Data Indonesia', url: 'https://data.go.id',
@@ -192,7 +192,7 @@ var SUMBER_DATA = [
     ]
   },
   {
-    kelompok: 'Data Internasional', warna: 'var(--iris)', ikon: '🌍',
+    kelompok: 'Data Internasional', warna: 'var(--iris)', ikon: 'peta',
     catatan: 'Ukurannya besar dan dokumentasinya rapi. Bagus untuk latihan sebelum menggarap dataset project.',
     isi: [
       { nama: 'UCI Machine Learning Repository', url: 'https://archive.ics.uci.edu',

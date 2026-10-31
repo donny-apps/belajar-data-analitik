@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/orange.html">
@@ -49,10 +49,10 @@
         Di sinilah kalian ngerjain Project Kuliah 1.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#install">⬇️ Cara Install</a>
-        <a class="btn btn-ghost" href="#kelompok">👥 Pembagian Kelompok</a>
-        <a class="btn btn-ghost" href="#kepake">💼 Kepake Buat Apa</a>
-        <a class="btn btn-lime" href="#project1">🎯 Ketentuan Project 1</a>
+        <a class="btn btn-primary" href="#install"><span data-ikon="unduh"></span> Cara Install</a>
+        <a class="btn btn-ghost" href="#kelompok"><span data-ikon="orang"></span> Pembagian Kelompok</a>
+        <a class="btn btn-ghost" href="#kepake"><span data-ikon="gedung"></span> Kepake Buat Apa</a>
+        <a class="btn btn-lime" href="#project1"><span data-ikon="target"></span> Ketentuan Project 1</a>
       </div>
     </div>
 
@@ -67,7 +67,7 @@
           <div><span>Dinilai</span><span>Pas UTS</span></div>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://orangedatamining.com/download/" target="_blank" rel="noopener" style="width:100%;justify-content:center">⬇️ Buka Halaman Download</a>
+      <a class="btn btn-primary" href="https://orangedatamining.com/download/" target="_blank" rel="noopener" style="width:100%;justify-content:center"><span data-ikon="unduh"></span> Buka Halaman Download</a>
     </aside>
   </div>
 </header>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="tile note info-inline reveal" style="margin-top:18px">
-      <span style="font-size:20px">🖱️</span>
+      <span style="font-size:20px"><span data-ikon="putar"></span></span>
       <span><b>Nggak ada satu baris kode pun di dua gambar itu.</b> Semuanya hasil seret bulatan dari panel kiri, terus disambungin pakai garis. Contoh ini diambil dari modul kelas kita sendiri.</span>
     </div>
   </div>
@@ -148,7 +148,7 @@
         <div>
           <b>Buka halaman download</b>
           <p>Masuk ke situs resminya. Jangan download dari situs lain, takutnya kena file aneh.</p>
-          <a class="file" href="https://orangedatamining.com/download/" target="_blank" rel="noopener"><span class="ic">🔗</span><span>orangedatamining.com/download</span><span class="ext">web</span></a>
+          <a class="file" href="https://orangedatamining.com/download/" target="_blank" rel="noopener"><span class="ic"><span data-ikon="buka"></span></span><span>orangedatamining.com/download</span><span class="ext">web</span></a>
         </div>
       </li>
       <li class="tile reveal">
@@ -189,7 +189,7 @@
     </ol>
 
     <div class="tile note info-inline reveal" style="margin-top:18px">
-      <span style="font-size:20px">🆘</span>
+      <span style="font-size:20px"><span data-ikon="tanya"></span></span>
       <span><b>Gagal install?</b> Jangan panik dan jangan nyerah sendirian. Screenshot pesan errornya, tanya di grup kelas. Biasanya masalahnya cuma antivirus yang kelewat rajin atau ruang disk yang penuh.</span>
     </div>
   </div>
@@ -220,47 +220,47 @@
 
     <div class="uc-grid">
       <article class="tile uc reveal" style="--c:var(--pink)">
-        <div class="uc-top"><span class="uc-ikon">🔎</span><span class="tag tag-ujian">Audit</span></div>
+        <div class="uc-top"><span class="uc-ikon"><span data-ikon="kaca"></span></span><span class="tag tag-ujian">Audit</span></div>
         <h3>Mencari transaksi yang janggal</h3>
         <dl class="uc-list">
           <div><dt>Masalahnya</dt><dd>Ada 2 juta baris transaksi. Nggak mungkin dicek satu-satu pakai mata.</dd></div>
           <div><dt>Cara Orange</dt><dd>Kotak <i>Outlier</i> nandain transaksi yang beda sendiri dari yang lain.</dd></div>
           <div><dt>Hasilnya</dt><dd>Daftar pendek transaksi yang perlu dicek manual. Dari 2 juta jadi 200-an.</dd></div>
         </dl>
-        <div class="uc-links"><a href="simulasi.html#sim1">Coba versi mininya →</a></div>
+        <div class="uc-links"><a href="simulasi.html#sim1">Coba versi mininya <span data-ikon="panah"></span></a></div>
       </article>
 
       <article class="tile uc reveal" style="--c:var(--iris)">
-        <div class="uc-top"><span class="uc-ikon">💳</span><span class="tag tag-siap">Fintech</span></div>
+        <div class="uc-top"><span class="uc-ikon"><span data-ikon="kartu"></span></span><span class="tag tag-siap">Fintech</span></div>
         <h3>Memperkirakan siapa yang berisiko telat bayar</h3>
         <dl class="uc-list">
           <div><dt>Masalahnya</dt><dd>Ribuan pengajuan pinjaman masuk tiap hari, harus diputusin cepat.</dd></div>
           <div><dt>Cara Orange</dt><dd>Kotak <i>Tree</i> atau <i>Logistic Regression</i> belajar dari data peminjam lama.</dd></div>
           <div><dt>Hasilnya</dt><dd>Tiap pengajuan dapat skor risiko, plus angka seberapa sering modelnya meleset.</dd></div>
         </dl>
-        <div class="uc-links"><a href="#materi">Dipelajari di pertemuan 5 →</a></div>
+        <div class="uc-links"><a href="#materi">Dipelajari di pertemuan 5 <span data-ikon="panah"></span></a></div>
       </article>
 
       <article class="tile uc reveal" style="--c:var(--mint)">
-        <div class="uc-top"><span class="uc-ikon">👥</span><span class="tag tag-siap">Marketing</span></div>
+        <div class="uc-top"><span class="uc-ikon"><span data-ikon="orang"></span></span><span class="tag tag-siap">Marketing</span></div>
         <h3>Mengelompokkan pelanggan tanpa ditentukan dari awal</h3>
         <dl class="uc-list">
           <div><dt>Masalahnya</dt><dd>Ada 50 ribu pelanggan, tapi belum diketahui mereka sebenarnya terbagi jadi tipe apa saja.</dd></div>
           <div><dt>Cara Orange</dt><dd>Kotak <i>k-Means</i> mengumpulkan pelanggan yang perilakunya mirip jadi satu kelompok, tanpa diberi tahu kelompoknya apa saja.</dd></div>
           <div><dt>Hasilnya</dt><dd>Misalnya 3 kelompok: yang jarang belanja, yang rutin, dan yang royal. Tiap kelompok dikasih perlakuan beda.</dd></div>
         </dl>
-        <div class="uc-links"><a href="simulasi.html#sim4">Coba versi mininya →</a></div>
+        <div class="uc-links"><a href="simulasi.html#sim4">Coba versi mininya <span data-ikon="panah"></span></a></div>
       </article>
 
       <article class="tile uc reveal" style="--c:var(--amber)">
-        <div class="uc-top"><span class="uc-ikon">🛒</span><span class="tag tag-siap">Retail</span></div>
+        <div class="uc-top"><span class="uc-ikon"><span data-ikon="toko"></span></span><span class="tag tag-siap">Retail</span></div>
         <h3>Mencari barang yang sering dibeli bersamaan</h3>
         <dl class="uc-list">
           <div><dt>Masalahnya</dt><dd>Mau nentuin barang apa yang enaknya ditaruh berdekatan atau dibundel.</dd></div>
           <div><dt>Cara Orange</dt><dd>Add-on <i>Associate</i> baca ribuan struk belanja sekaligus.</dd></div>
           <div><dt>Hasilnya</dt><dd>Aturan macam "yang beli roti biasanya beli selai juga". Dipakai buat nyusun promo.</dd></div>
         </dl>
-        <div class="uc-links"><a href="#materi">Dipelajari di pertemuan 7 →</a></div>
+        <div class="uc-links"><a href="#materi">Dipelajari di pertemuan 7 <span data-ikon="panah"></span></a></div>
       </article>
     </div>
   </div>
@@ -290,7 +290,7 @@
     </div>
 
     <div class="tile note info-inline reveal" style="margin-bottom:18px">
-      <span style="font-size:20px">📌</span>
+      <span style="font-size:20px"><span data-ikon="bintang"></span></span>
       <span><b>Tema ini cuma pengarah biar dataset antar kelompok nggak nabrak.</b> Datasetnya tetap kalian pilih sendiri dari Kaggle, dan wajib memenuhi syarat teknis di soal UTS. Tiga pertanyaan di bawah cuma contoh, boleh diganti asal tetap satu klasifikasi, satu regresi, dan satu klaster.</span>
     </div>
 
@@ -327,19 +327,19 @@
 
       <div class="tile tile-half reveal">
         <div class="proj-head">
-          <div class="proj-ikon p2">📋</div>
+          <div class="proj-ikon p2"><span data-ikon="berkas"></span></div>
           <div>
             <h3>Yang dikumpulin</h3>
             <span>3 berkas</span>
           </div>
         </div>
         <ul class="checklist">
-          <li><span class="ck">✓</span><span><b>Laporan PDF.</b> Nama file: KLP00_Laporan.pdf</span></li>
-          <li><span class="ck">✓</span><span><b>Slide presentasi PDF.</b> Nama file: KLP00_Presentasi.pdf</span></li>
-          <li><span class="ck">✓</span><span><b>File Orange (.ows).</b> Biar kelihatan alur kerjanya, bukan cuma hasil akhirnya.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Laporan PDF.</b> Nama file: KLP00_Laporan.pdf</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Slide presentasi PDF.</b> Nama file: KLP00_Presentasi.pdf</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>File Orange (.ows).</b> Biar kelihatan alur kerjanya, bukan cuma hasil akhirnya.</span></li>
         </ul>
         <div class="tile note info-inline" style="margin-top:18px;background:transparent;border-style:dashed">
-          <span>📌</span>
+          <span><span data-ikon="bintang"></span></span>
           <span>Presentasi per kelompok sekitar 10 menit, plus tanya jawab. Semua anggota harus kebagian ngomong.</span>
         </div>
       </div>
@@ -362,7 +362,7 @@
     </div>
 
     <div class="tile note info-inline reveal" style="margin-top:18px">
-      <span style="font-size:20px">👀</span>
+      <span style="font-size:20px"><span data-ikon="kaca"></span></span>
       <span><b>Mau lihat contoh jadi?</b> Laporan kakak tingkat ada di <a href="project.html#contoh" style="color:var(--iris);font-weight:700">halaman Project</a>. Buka, lihat susunannya, terus bikin yang lebih bagus.</span>
     </div>
   </div>
@@ -370,13 +370,13 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
+<script src="assets/course.js?v=42ab9177"></script>
 <script src="assets/kelompok.js?v=cb227a37"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 /* daftar kelompok */
@@ -411,7 +411,7 @@
                data: (window.IKON ? IKON('data') : '') };
   wrap.innerHTML = pakai.map(function (t) {
     return '<a class="file" href="' + encodeURI(BASE + t.path) + '" target="_blank" rel="noopener">' +
-      '<span class="ic">' + (ikon[t.tipe] || '📎') + '</span><span>' + t.label + '</span>' +
+      '<span class="ic">' + (ikon[t.tipe] || (window.IKON ? IKON(IKON_TIPE[t.tipe] || 'berkas') : '')) + '</span><span>' + t.label + '</span>' +
       '<span class="ext">' + t.path.split('.').pop() + '</span></a>';
   }).join('');
 })();

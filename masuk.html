@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/masuk.html">
@@ -138,10 +138,10 @@
             <div><h3>Sertifikat apa yang dihitung</h3><span>Panduan singkat</span></div>
           </div>
           <ul class="checklist">
-            <li><span class="ck">✓</span><span>Kursus analisis data, statistik, atau visualisasi, dari mana pun asalnya.</span></li>
-            <li><span class="ck">✓</span><span>Pelatihan Orange, Tableau, Power BI, Excel lanjutan, SQL, atau Python.</span></li>
-            <li><span class="ck">✓</span><span>Lomba analisis data atau hackathon, ikut serta maupun menang.</span></li>
-            <li><span class="ck">✓</span><span>Sertifikat magang yang tugasnya berkaitan dengan pengolahan data.</span></li>
+            <li><span class="ck"><span data-ikon="centang"></span></span><span>Kursus analisis data, statistik, atau visualisasi, dari mana pun asalnya.</span></li>
+            <li><span class="ck"><span data-ikon="centang"></span></span><span>Pelatihan Orange, Tableau, Power BI, Excel lanjutan, SQL, atau Python.</span></li>
+            <li><span class="ck"><span data-ikon="centang"></span></span><span>Lomba analisis data atau hackathon, ikut serta maupun menang.</span></li>
+            <li><span class="ck"><span data-ikon="centang"></span></span><span>Sertifikat magang yang tugasnya berkaitan dengan pengolahan data.</span></li>
           </ul>
           <div class="tile note info-inline" style="margin-top:18px">
             <span data-ikon="lampu"></span>
@@ -183,14 +183,14 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
+<script src="assets/course.js?v=42ab9177"></script>
 <script src="assets/kelompok.js?v=cb227a37"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/backend.js?v=4832d384"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
@@ -431,7 +431,7 @@
     wadah.innerHTML = ITEM.map(function (it) {
       return '<label class="ceklis-item' + (keadaan[it.id] ? ' on' : '') + '">' +
         '<input type="checkbox" data-id="' + it.id + '"' + (keadaan[it.id] ? ' checked' : '') + '>' +
-        '<span class="kotak">✓</span>' +
+        '<span class="kotak"><span data-ikon="centang"></span></span>' +
         '<span class="isi"><b>' + it.teks + '</b><i>' + it.kapan + '</i></span></label>';
     }).join('');
     hitungCeklis();

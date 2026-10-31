@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/sumber-data.html">
@@ -49,9 +49,9 @@
         dan cara memeriksa satu dataset layak atau tidak.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#sumber">📂 Daftar Sumber</a>
-        <a class="btn btn-lime" href="#syarat">✅ Syarat Dataset</a>
-        <a class="btn btn-ghost" href="#nilai">🔍 Cara Menilai</a>
+        <a class="btn btn-primary" href="#sumber"><span data-ikon="rak"></span> Daftar Sumber</a>
+        <a class="btn btn-lime" href="#syarat"><span data-ikon="centang"></span> Syarat Dataset</a>
+        <a class="btn btn-ghost" href="#nilai"><span data-ikon="kaca"></span> Cara Menilai</a>
       </div>
     </div>
 
@@ -85,31 +85,31 @@
     <div class="bento">
       <div class="tile tile-half reveal" style="border-color:color-mix(in srgb, var(--mint) 34%, transparent)">
         <div class="proj-head">
-          <div class="proj-ikon p2">✅</div>
+          <div class="proj-ikon p2"><span data-ikon="centang"></span></div>
           <div><h3>Wajib ada</h3><span>Kurang satu, cari dataset lain</span></div>
         </div>
         <ul class="checklist">
-          <li><span class="ck">✓</span><span>Diambil dari Kaggle, tautannya publik dan aktif, lisensinya terbuka.</span></li>
-          <li><span class="ck">✓</span><span>Format CSV, Excel, atau TSV supaya langsung terbaca Orange.</span></li>
-          <li><span class="ck">✓</span><span>Jumlah baris antara 200 sampai 100.000.</span></li>
-          <li><span class="ck">✓</span><span>Minimal 1 kolom kategori untuk target klasifikasi, maksimal 5 kelas.</span></li>
-          <li><span class="ck">✓</span><span>Minimal 1 kolom angka menerus untuk target regresi.</span></li>
-          <li><span class="ck">✓</span><span>Minimal 4 kolom angka untuk bahan klaster, total minimal 5 kolom prediktor.</span></li>
-          <li><span class="ck">✓</span><span>Ada penjelasan tiap kolom di halaman Kaggle-nya.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Diambil dari Kaggle, tautannya publik dan aktif, lisensinya terbuka.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Format CSV, Excel, atau TSV supaya langsung terbaca Orange.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Jumlah baris antara 200 sampai 100.000.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Minimal 1 kolom kategori untuk target klasifikasi, maksimal 5 kelas.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Minimal 1 kolom angka menerus untuk target regresi.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Minimal 4 kolom angka untuk bahan klaster, total minimal 5 kolom prediktor.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span>Ada penjelasan tiap kolom di halaman Kaggle-nya.</span></li>
         </ul>
       </div>
 
       <div class="tile tile-half reveal" style="border-color:color-mix(in srgb, var(--pink) 34%, transparent)">
         <div class="proj-head">
-          <div class="proj-ikon p1">🚫</div>
+          <div class="proj-ikon p1"><span data-ikon="silang"></span></div>
           <div><h3>Dilarang</h3><span>Langsung diminta ganti</span></div>
         </div>
         <ul class="checklist">
-          <li><span class="ck">✕</span><span>Dataset yang sudah terlalu sering dipakai: Titanic, Iris, Boston Housing, MNIST, Wine Quality, dan Diamonds.</span></li>
-          <li><span class="ck">✕</span><span>Dataset bawaan Orange.</span></li>
-          <li><span class="ck">✕</span><span>Dataset yang sama dengan kelompok lain di kelas yang sama.</span></li>
-          <li><span class="ck">✕</span><span>Dataset tanpa penjelasan kolom yang jelas.</span></li>
-          <li><span class="ck">✕</span><span>Data asli yang memuat nama orang, NIK, nomor rekening, atau nomor telepon.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span>Dataset yang sudah terlalu sering dipakai: Titanic, Iris, Boston Housing, MNIST, Wine Quality, dan Diamonds.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span>Dataset bawaan Orange.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span>Dataset yang sama dengan kelompok lain di kelas yang sama.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span>Dataset tanpa penjelasan kolom yang jelas.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span>Data asli yang memuat nama orang, NIK, nomor rekening, atau nomor telepon.</span></li>
         </ul>
       </div>
     </div>
@@ -176,7 +176,7 @@
     </ol>
 
     <div class="tile note info-inline reveal" style="margin-top:18px">
-      <span style="font-size:20px">🧭</span>
+      <span style="font-size:20px"><span data-ikon="peta"></span></span>
       <span><b>Tema per kelompok sudah dibagi.</b> Lihat pembagiannya di <a href="orange.html#kelompok" style="color:var(--iris);font-weight:700">halaman Orange</a> supaya dataset antar kelompok tidak bertabrakan.</span>
     </div>
   </div>
@@ -184,17 +184,26 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
-<script src="assets/belajar.js?v=4baefb4a"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/course.js?v=42ab9177"></script>
+<script src="assets/belajar.js?v=02c3b59b"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
   'use strict';
+
+  /* Nilai ikon di berkas data berupa nama ikon SVG. Kalau isinya sudah
+     berupa tag gambar, misalnya lambang Orange atau Tableau, dipakai
+     apa adanya. */
+  function ik(nama) {
+    if (!nama) return '';
+    if (nama.charAt(0) === '<') return nama;
+    return window.IKON ? IKON(nama) : '';
+  }
 
   function aman(t) {
     return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -222,7 +231,7 @@
 
     return '<section class="sc-tema reveal" style="--c:' + k.warna + '">' +
       '<header class="sc-tema-kepala">' +
-        '<span class="sc-tema-ikon">' + k.ikon + '</span>' +
+        '<span class="sc-tema-ikon">' + ik(k.ikon) + '</span>' +
         '<div class="sc-tema-teks"><h3>' + aman(k.kelompok) + '</h3>' +
         '<p>' + aman(k.catatan) + '</p></div>' +
         '<span class="sc-tema-jml">' + k.isi.length + ' sumber</span>' +

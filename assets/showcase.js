@@ -16,47 +16,47 @@
 
 var SHOWCASE_TEMA = [
   {
-    id: 'pelanggan', nama: 'Pelanggan dan Retensi', ikon: '🛍️', warna: 'var(--iris)',
+    id: 'pelanggan', nama: 'Pelanggan dan Retensi', ikon: 'toko', warna: 'var(--iris)',
     ringkas: 'Menebak pelanggan yang bakal kabur, dan mengelompokkan pelanggan berdasarkan perilaku belanjanya.',
     dipakai: 'Paling laku dipakai e-commerce, telko, dan perbankan.'
   },
   {
-    id: 'kredit', nama: 'Kredit dan Risiko Gagal Bayar', ikon: '💳', warna: 'var(--pink)',
+    id: 'kredit', nama: 'Kredit dan Risiko Gagal Bayar', ikon: 'kartu', warna: 'var(--pink)',
     ringkas: 'Menilai calon peminjam layak dikasih pinjaman atau berisiko macet.',
     dipakai: 'Bank, multifinance, dan fintech pinjaman.'
   },
   {
-    id: 'sdm', nama: 'Karyawan dan SDM', ikon: '👥', warna: 'var(--mint)',
+    id: 'sdm', nama: 'Karyawan dan SDM', ikon: 'orang', warna: 'var(--mint)',
     ringkas: 'Menebak karyawan yang berpotensi resign, plus mengelompokkan profil karyawan.',
     dipakai: 'Divisi SDM di perusahaan mana pun.'
   },
   {
-    id: 'kesehatan', nama: 'Asuransi dan Kesehatan', ikon: '🏥', warna: 'var(--cyan)',
+    id: 'kesehatan', nama: 'Asuransi dan Kesehatan', ikon: 'jantung', warna: 'var(--cyan)',
     ringkas: 'Memperkirakan besaran biaya klaim dan mengenali pola pemegang polis.',
     dipakai: 'Asuransi, rumah sakit, dan BPJS.'
   },
   {
-    id: 'properti', nama: 'Properti', ikon: '🏠', warna: 'var(--amber)',
+    id: 'properti', nama: 'Properti', ikon: 'rumah', warna: 'var(--amber)',
     ringkas: 'Memperkirakan harga wajar rumah dan mengelompokkan karakter wilayah.',
     dipakai: 'Agen properti, bank untuk penilaian agunan, dan pengembang.'
   },
   {
-    id: 'pemasaran', nama: 'Pemasaran', ikon: '📣', warna: 'var(--violet)',
+    id: 'pemasaran', nama: 'Pemasaran', ikon: 'obrolan', warna: 'var(--violet)',
     ringkas: 'Menebak siapa yang bakal merespons kampanye promosi, biar anggaran nggak terbuang.',
     dipakai: 'Tim pemasaran bank dan ritel.'
   },
   {
-    id: 'fraud', nama: 'Fraud dan Anomali', ikon: '🔎', warna: 'var(--fase-2)',
+    id: 'fraud', nama: 'Fraud dan Anomali', ikon: 'kaca', warna: 'var(--fase-2)',
     ringkas: 'Mencari transaksi janggal di tengah tumpukan data yang kelihatan normal.',
     dipakai: 'Audit internal, kantor akuntan publik, dan tim antifraud.'
   },
   {
-    id: 'pendidikan', nama: 'Pendidikan', ikon: '🎓', warna: 'var(--fase-1)',
+    id: 'pendidikan', nama: 'Pendidikan', ikon: 'topi', warna: 'var(--fase-1)',
     ringkas: 'Menebak mahasiswa yang berisiko nilainya jatuh dan mengelompokkan pola belajar.',
     dipakai: 'Sekolah, kampus, dan lembaga bimbingan belajar.'
   },
   {
-    id: 'penjualan', nama: 'Penjualan dan Pendapatan', ikon: '📈', warna: 'var(--mint)',
+    id: 'penjualan', nama: 'Penjualan dan Pendapatan', ikon: 'grafik', warna: 'var(--mint)',
     ringkas: 'Memperkirakan penjualan periode berikutnya dan membaca pola pendapatan.',
     dipakai: 'Ritel, supermarket, dan distributor.'
   }
@@ -172,32 +172,32 @@ var SHOWCASE = [
 
 var TABLEAU_TEMA = [
   {
-    id: 'profit', nama: 'Profit dan Margin', ikon: '💰', warna: 'var(--mint)',
+    id: 'profit', nama: 'Profit dan Margin', ikon: 'nota', warna: 'var(--mint)',
     ringkas: 'Menelusuri dari mana profit datang dan bagian mana yang justru menggerus margin.',
     dipakai: 'Tim keuangan dan pengendalian biaya di perusahaan ritel.'
   },
   {
-    id: 'operasi', nama: 'Operasi dan Pengiriman', ikon: '🚚', warna: 'var(--cyan)',
+    id: 'operasi', nama: 'Operasi dan Pengiriman', ikon: 'peta', warna: 'var(--cyan)',
     ringkas: 'Membaca mode pengiriman, keterlambatan, dan ongkos kirim sebagai satu rantai.',
     dipakai: 'Bagian logistik, rantai pasok, dan operasi gudang.'
   },
   {
-    id: 'pertumbuhan', nama: 'Pertumbuhan Kategori', ikon: '📈', warna: 'var(--amber)',
+    id: 'pertumbuhan', nama: 'Pertumbuhan Kategori', ikon: 'grafik', warna: 'var(--amber)',
     ringkas: 'Menguji kategori produk mana yang benar benar jadi mesin pertumbuhan.',
     dipakai: 'Manajer kategori dan tim perencanaan produk.'
   },
   {
-    id: 'risiko', nama: 'Risiko dan Kerugian', ikon: '⚠️', warna: 'var(--pink)',
+    id: 'risiko', nama: 'Risiko dan Kerugian', ikon: 'peringatan', warna: 'var(--pink)',
     ringkas: 'Mencari transaksi yang merugi dan sebab yang paling sering ada di baliknya.',
     dipakai: 'Audit internal, pengendalian risiko, dan kantor akuntan publik.'
   },
   {
-    id: 'eksekutif', nama: 'Ringkasan Eksekutif', ikon: '🧭', warna: 'var(--iris)',
+    id: 'eksekutif', nama: 'Ringkasan Eksekutif', ikon: 'dashboard', warna: 'var(--iris)',
     ringkas: 'Satu layar yang harus terbaca sekali lihat oleh pembaca tingkat pimpinan.',
     dipakai: 'Rapat direksi dan laporan kinerja bulanan.'
   },
   {
-    id: 'pelanggan', nama: 'Segmen Pelanggan', ikon: '🛍️', warna: 'var(--violet)',
+    id: 'pelanggan', nama: 'Segmen Pelanggan', ikon: 'toko', warna: 'var(--violet)',
     ringkas: 'Membaca tiap segmen pelanggan dari sisi profit dan pertumbuhannya sekaligus.',
     dipakai: 'Tim pemasaran dan pengelola hubungan pelanggan.'
   }

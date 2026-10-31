@@ -2294,3 +2294,46 @@ html[data-theme="dark"] .tahap.kunci .tahap-widget {
 }
 
 .tips-no { font-family: var(--fmono); font-size: 12px; font-weight: 600; color: var(--ink); }
+
+/* ============================================================
+   Ukuran ikon di dalam kotak ikon
+   ------------------------------------------------------------
+   Emoji punya ruang kosong bawaan di sekelilingnya, ikon garis
+   tidak. Kalau ukurannya disamakan begitu saja, ikon garis terlihat
+   terlalu besar dan sesak di kotaknya. Nilai di bawah ini menyetel
+   tiap kotak supaya ikonnya kembali seimbang.
+   ============================================================ */
+.proj-ikon .ikon  { width: 26px; height: 26px; }
+.uc-ikon .ikon    { width: 23px; height: 23px; }
+.jalan-ikon .ikon { width: 26px; height: 26px; }
+.pintas-ikon .ikon { width: 26px; height: 26px; }
+.sc-tema-ikon .ikon { width: 22px; height: 22px; }
+.situs-ikon .ikon { width: 22px; height: 22px; }
+
+/* Kotak ikon mewarisi warna aksen kartunya, jadi ikon garis ikut
+   berubah warna waktu tema diganti. */
+.uc-ikon, .jalan-ikon, .pintas-ikon, .sc-tema-ikon { color: var(--c, var(--iris)); }
+.proj-ikon.p1 { color: color-mix(in srgb, var(--amber) 88%, var(--ink)); }
+.proj-ikon.p2 { color: color-mix(in srgb, var(--mint) 88%, var(--ink)); }
+.situs-ikon { color: var(--iris); }
+
+/* Tanda centang dan silang pada daftar periksa */
+.checklist .ck .ikon { width: 12px; height: 12px; }
+.ceklis-item .kotak .ikon { width: 12px; height: 12px; }
+
+/* Ikon yang berdiri sendiri di kotak catatan */
+.note.info-inline > .ikon,
+.note.info-inline > span:first-child > .ikon { width: 19px; height: 19px; flex: none; }
+.info-inline > span[data-ikon] .ikon { width: 19px; height: 19px; }
+
+/* Ikon di dalam tombol diberi jarak dari tulisannya */
+.btn .ikon { width: 16px; height: 16px; }
+.btn > span[data-ikon] + * { margin-left: 2px; }
+
+/* Panah di akhir tautan */
+.uc-links a .ikon, .sorot-buka .ikon, .vd-tonton .ikon { width: 14px; height: 14px; }
+
+/* Tombol ganti tema sekarang memakai ikon garis, bukan emoji, jadi
+   isinya perlu dipusatkan dan diberi ukuran sendiri. */
+.theme-btn { display: inline-flex; align-items: center; justify-content: center; }
+.theme-btn .ikon { width: 17px; height: 17px; }

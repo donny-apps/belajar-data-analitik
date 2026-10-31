@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/belajar.html">
@@ -49,7 +49,7 @@
         dan semuanya gratis.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#jalur">🚦 Mulai dari Mana</a>
+        <a class="btn btn-primary" href="#jalur"><span data-ikon="peta"></span> Mulai dari Mana</a>
         <a class="btn btn-ghost" href="#orange"><img class="logo-app" src="assets/img/lambang-orange.png" alt="Orange Data Mining"> Video Orange</a>
         <a class="btn btn-ghost" href="#tableau"><img class="logo-app" src="assets/img/lambang-tableau.png" alt="Tableau"> Video Tableau</a>
       </div>
@@ -155,26 +155,26 @@
     <div class="bento">
       <div class="tile tile-half reveal">
         <div class="proj-head">
-          <div class="proj-ikon p2">✅</div>
+          <div class="proj-ikon p2"><span data-ikon="centang"></span></div>
           <div><h3>Lakukan ini</h3><span>Terbukti bikin nempel</span></div>
         </div>
         <ul class="checklist">
-          <li><span class="ck">✓</span><span><b>Buka aplikasinya sambil nonton.</b> Jeda videonya tiap satu langkah, kerjakan di aplikasi, baru lanjut.</span></li>
-          <li><span class="ck">✓</span><span><b>Pakai data sendiri setelah video selesai.</b> Ulangi langkah yang sama dengan dataset berbeda. Di situ baru ketahuan sudah paham atau belum.</span></li>
-          <li><span class="ck">✓</span><span><b>Catat menit yang bikin bingung,</b> lalu tanyakan di kelas. Pertanyaan spesifik jauh lebih cepat dijawab.</span></li>
-          <li><span class="ck">✓</span><span><b>Cukup satu video per topik.</b> Selesaikan dulu sebelum pindah ke yang lain.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Buka aplikasinya sambil nonton.</b> Jeda videonya tiap satu langkah, kerjakan di aplikasi, baru lanjut.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Pakai data sendiri setelah video selesai.</b> Ulangi langkah yang sama dengan dataset berbeda. Di situ baru ketahuan sudah paham atau belum.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Catat menit yang bikin bingung,</b> lalu tanyakan di kelas. Pertanyaan spesifik jauh lebih cepat dijawab.</span></li>
+          <li><span class="ck"><span data-ikon="centang"></span></span><span><b>Cukup satu video per topik.</b> Selesaikan dulu sebelum pindah ke yang lain.</span></li>
         </ul>
       </div>
       <div class="tile tile-half reveal">
         <div class="proj-head">
-          <div class="proj-ikon p1">🚫</div>
+          <div class="proj-ikon p1"><span data-ikon="silang"></span></div>
           <div><h3>Hindari ini</h3><span>Kelihatan belajar, padahal tidak</span></div>
         </div>
         <ul class="checklist">
-          <li><span class="ck">✕</span><span><b>Menonton berjam-jam tanpa membuka aplikasi.</b> Rasanya paham, besoknya hilang.</span></li>
-          <li><span class="ck">✕</span><span><b>Mengumpulkan banyak tautan tanpa membuka satu pun.</b> Simpan tiga, tuntaskan tiga.</span></li>
-          <li><span class="ck">✕</span><span><b>Langsung meniru dashboard rumit.</b> Mulai dari satu grafik yang benar.</span></li>
-          <li><span class="ck">✕</span><span><b>Menunda sampai minggu ujian.</b> Aplikasinya perlu waktu untuk terbiasa di tangan.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span><b>Menonton berjam-jam tanpa membuka aplikasi.</b> Rasanya paham, besoknya hilang.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span><b>Mengumpulkan banyak tautan tanpa membuka satu pun.</b> Simpan tiga, tuntaskan tiga.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span><b>Langsung meniru dashboard rumit.</b> Mulai dari satu grafik yang benar.</span></li>
+          <li><span class="ck"><span data-ikon="silang"></span></span><span><b>Menunda sampai minggu ujian.</b> Aplikasinya perlu waktu untuk terbiasa di tangan.</span></li>
         </ul>
       </div>
     </div>
@@ -183,17 +183,26 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
-<script src="assets/belajar.js?v=4baefb4a"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/course.js?v=42ab9177"></script>
+<script src="assets/belajar.js?v=02c3b59b"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
   'use strict';
+
+  /* Nilai ikon di berkas data berupa nama ikon SVG. Kalau isinya sudah
+     berupa tag gambar, misalnya lambang Orange atau Tableau, dipakai
+     apa adanya. */
+  function ik(nama) {
+    if (!nama) return '';
+    if (nama.charAt(0) === '<') return nama;
+    return window.IKON ? IKON(nama) : '';
+  }
 
   function aman(t) {
     return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -209,7 +218,7 @@
     var url = tautan(v);
     var gambar = v.jenis === 'video'
       ? '<img src="https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg" alt="Cuplikan video ' + aman(v.judul) + '" loading="lazy">'
-      : '<span class="vd-daftar">▶ Daftar putar</span>';
+      : '<span class="vd-daftar"><span data-ikon="putar"></span> Daftar putar</span>';
     return '<article class="tile vd-kartu reveal">' +
       '<a class="vd-gambar' + (v.jenis === 'playlist' ? ' vd-playlist' : '') + '" href="' + url + '" target="_blank" rel="noopener">' +
         gambar +
@@ -221,7 +230,7 @@
         '<span class="vd-kanal">' + aman(v.kanal) + '</span>' +
         '<p>' + aman(v.guna) + '</p>' +
         '<div class="vd-kaki"><span class="vd-untuk">' + aman(v.untuk) + '</span>' +
-        '<a class="vd-tonton" href="' + url + '" target="_blank" rel="noopener">Tonton →</a></div>' +
+        '<a class="vd-tonton" href="' + url + '" target="_blank" rel="noopener">Tonton <span data-ikon="panah"></span></a></div>' +
       '</div></article>';
   }
 
@@ -232,7 +241,7 @@
     return '<a class="tile situs reveal" href="' + s.url + '" target="_blank" rel="noopener">' +
       (s.lambang
         ? '<span class="situs-ikon punya-lambang"><img src="' + s.lambang + '" alt="Lambang ' + aman(s.nama) + '" loading="lazy"></span>'
-        : '<span class="situs-ikon">' + s.ikon + '</span>') +
+        : '<span class="situs-ikon">' + ik(s.ikon) + '</span>') +
       '<div class="situs-teks">' +
         '<h3>' + aman(s.nama) + '</h3>' +
         '<p>' + aman(s.guna) + '</p>' +

@@ -87,7 +87,8 @@
             '<button class="theme-btn cari-btn" id="cariBtn" type="button" ' +
               'aria-label="Cari isi situs" title="Cari isi situs, tekan garis miring">' +
               (window.IKON ? IKON('cari') : '🔍') + '</button>' +
-            '<button class="theme-btn" id="themeBtn" aria-label="Ganti tema">🌙</button>' +
+            '<button class="theme-btn" id="themeBtn" type="button" aria-label="Ganti tema terang atau gelap" '
+              + 'title="Ganti tema terang atau gelap"></button>' +
             tombolMasuk +
           '</div>' +
         '</div>' +
@@ -245,7 +246,8 @@
     root.setAttribute('data-theme', t);
     try { localStorage.setItem('bda-theme', t); } catch (e) {}
     if (btn) {
-      btn.textContent = t === 'dark' ? '☀️' : '🌙';
+      /* bulan berarti klik untuk menggelapkan, matahari untuk menerangkan */
+      btn.innerHTML = window.IKON ? IKON(t === 'dark' ? 'matahari' : 'bulan') : '';
       btn.title = t === 'dark' ? 'Ganti ke mode terang' : 'Ganti ke mode gelap';
     }
   }

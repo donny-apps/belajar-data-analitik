@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d5df6">
-<link rel="stylesheet" href="assets/site.css?v=96b5b4b1">
+<link rel="stylesheet" href="assets/site.css?v=c29da294">
 <script>(function(){try{var t=localStorage.getItem('bda-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 
 <link rel="canonical" href="https://donny-apps.github.io/belajar-data-analitik/showcase.html">
@@ -123,7 +123,7 @@
 
     <div id="isiKatalog"></div>
     <div class="tile note info-inline reveal" id="kosongPesan" style="display:none">
-      <span style="font-size:20px">🔍</span>
+      <span style="font-size:20px"><span data-ikon="kaca"></span></span>
       <span>Nggak ada project yang cocok dengan pencarian itu. Coba kata lain, atau klik Semua tema.</span>
     </div>
   </div>
@@ -138,17 +138,17 @@
     </div>
     <div class="bento">
       <div class="tile tile-third reveal">
-        <div class="proj-ikon p1" style="margin-bottom:14px">🔍</div>
+        <div class="proj-ikon p1" style="margin-bottom:14px"><span data-ikon="kaca"></span></div>
         <h3 style="font-size:17px;margin-bottom:8px">Cari tema yang kalian minati</h3>
         <p style="font-size:13.5px;color:var(--ink-2)">Minat audit, buka tema Fraud atau Risiko. Minat perbankan, buka Kredit. Dari situ kelihatan bentuk datanya seperti apa.</p>
       </div>
       <div class="tile tile-third reveal">
-        <div class="proj-ikon p2" style="margin-bottom:14px">📐</div>
+        <div class="proj-ikon p2" style="margin-bottom:14px"><span data-ikon="target"></span></div>
         <h3 style="font-size:17px;margin-bottom:8px">Pelajari susunannya</h3>
         <p style="font-size:13.5px;color:var(--ink-2)">Perhatikan urutan slide mereka: masalah, data, tiga analisis, sintesis, rekomendasi. Itu kerangka yang diminta di soal.</p>
       </div>
       <div class="tile tile-third reveal">
-        <div class="proj-ikon p1" style="margin-bottom:14px">🚀</div>
+        <div class="proj-ikon p1" style="margin-bottom:14px"><span data-ikon="kilat"></span></div>
         <h3 style="font-size:17px;margin-bottom:8px">Ambil tema, ganti sudutnya</h3>
         <p style="font-size:13.5px;color:var(--ink-2)">Tema boleh mirip, tapi dataset wajib beda dan pertanyaannya harus punya kalian sendiri.</p>
       </div>
@@ -158,7 +158,7 @@
         <p style="font-size:13.5px;color:var(--ink-2)">Project Tableau punya tautan ke Tableau Public. Klik, lalu saring sendiri isinya biar kelihatan cara kerjanya.</p>
       </div>
       <div class="tile tile-wide note info-inline reveal">
-        <span style="font-size:20px">⚠️</span>
+        <span style="font-size:20px"><span data-ikon="peringatan"></span></span>
         <span><b>Jangan disalin.</b> Menyalin laporan angkatan sebelumnya lalu mengganti nama masuk kategori nilai nol, seperti tertulis di <a href="aturan.html#jujur" style="color:var(--iris);font-weight:700">Rule Perkuliahan</a>.</span>
       </div>
     </div>
@@ -167,17 +167,26 @@
 
 <div id="foot"></div>
 
-<script src="assets/course.js?v=1f91a1cf"></script>
-<script src="assets/showcase.js?v=1849d080"></script>
-<script src="assets/ikon.js?v=56710d72"></script>
+<script src="assets/course.js?v=42ab9177"></script>
+<script src="assets/showcase.js?v=74c03664"></script>
+<script src="assets/ikon.js?v=6d2e57cd"></script>
 <script src="assets/kelas-daring.js?v=fe8948ba"></script>
 <script src="assets/indeks-cari.js?v=b284417a"></script>
 <script src="assets/cari.js?v=d5a9569b"></script>
-<script src="assets/shell.js?v=a9920dc3"></script>
+<script src="assets/shell.js?v=6f7709bd"></script>
 <script src="assets/site.js?v=e7fe9354"></script>
 <script>
 (function () {
   'use strict';
+
+  /* Nilai ikon di berkas data berupa nama ikon SVG. Kalau isinya sudah
+     berupa tag gambar, misalnya lambang Orange atau Tableau, dipakai
+     apa adanya. */
+  function ik(nama) {
+    if (!nama) return '';
+    if (nama.charAt(0) === '<') return nama;
+    return window.IKON ? IKON(nama) : '';
+  }
 
   var filterTema = '';
   var kataCari = '';
@@ -279,7 +288,7 @@
           '<div class="sorot-kaki">' +
             '<span class="sc-kode">' + p.klp + ' · Kelas ' + p.kelas + '</span>' +
             '<span class="sc-slide">' + p.slide + ' slide</span>' +
-            '<a class="sorot-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca →</a>' +
+            '<a class="sorot-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca <span data-ikon="panah"></span></a>' +
           '</div>' +
         '</div></article>';
     }).join('');
@@ -294,7 +303,7 @@
       temaTampil().map(function (t) {
         var n = d.filter(function (p) { return p.tema === t.id; }).length;
         return '<button class="chip' + (filterTema === t.id ? ' on' : '') + '" data-tema="' + t.id + '">' +
-          t.ikon + ' ' + t.nama + ' <b>' + n + '</b></button>';
+          ik(t.ikon) + ' ' + t.nama + ' <b>' + n + '</b></button>';
       }).join('');
   }
 
@@ -306,7 +315,7 @@
       papan = '<div class="sc-papan">' +
         '<span class="sc-papan-judul"><img src="assets/img/lambang-tableau.png" alt="Tableau"> Dashboard hidup</span>' +
         p.papan.map(function (b) {
-          return '<a class="sc-papan-tautan" href="' + b.url + '" target="_blank" rel="noopener">' + aman(b.label) + ' ↗</a>';
+          return '<a class="sc-papan-tautan" href="' + b.url + '" target="_blank" rel="noopener">' + aman(b.label) + ' <span data-ikon="buka"></span></a>';
         }).join('') + '</div>';
     }
     return '<article class="tile sc-kartu reveal" style="--c:' + t.warna + '">' +
@@ -314,15 +323,15 @@
         '<img src="assets/img/showcase/' + p.kode + '.jpg" alt="Sampul presentasi ' + p.klp + ' kelas ' + p.kelas + '" loading="lazy">' +
         '<span class="sc-tanda kiri">' + p.klp + ' · Kelas ' + p.kelas + '</span>' +
         '<span class="sc-tanda kanan">' + p.slide + ' slide</span>' +
-        '<span class="sc-tema-cap">' + t.ikon + ' ' + t.nama + '</span>' +
+        '<span class="sc-tema-cap">' + ik(t.ikon) + ' ' + t.nama + '</span>' +
       '</a>' +
       '<div class="sc-isi">' +
         '<h3>' + aman(p.judul) + '</h3>' +
         '<p>' + aman(p.catatan) + '</p>' +
         papan +
         '<div class="sc-aksi">' +
-          '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online →</a>' +
-          '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download>⬇ Unduh PDF</a>' +
+          '<a class="sc-buka" href="' + encodeURI(p.berkas) + '" target="_blank" rel="noopener">Baca online <span data-ikon="panah"></span></a>' +
+          '<a class="sc-unduh" href="' + encodeURI(p.berkas) + '" download><span data-ikon="unduh"></span> Unduh PDF</a>' +
         '</div>' +
       '</div></article>';
   }
@@ -361,7 +370,7 @@
         var isi = hasil.filter(function (p) { return p.tema === t.id; });
         return '<section class="sc-tema reveal" style="--c:' + t.warna + '">' +
           '<header class="sc-tema-kepala">' +
-            '<span class="sc-tema-ikon">' + t.ikon + '</span>' +
+            '<span class="sc-tema-ikon">' + ik(t.ikon) + '</span>' +
             '<div class="sc-tema-teks">' +
               '<h3>' + t.nama + '</h3>' +
               '<p>' + t.ringkas + '</p>' +
