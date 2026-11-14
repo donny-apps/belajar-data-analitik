@@ -145,11 +145,14 @@ var COURSE = [
     tautan: []
   },
   {
-    tm: 13, fase: 3, status: 'rencana',
-    judul: 'Storytelling dengan Data',
-    ringkas: 'Nyusun urutan cerita biar temuan kalian nyantol di kepala yang dengerin.',
-    tujuan: 'Bisa ngubah temuan jadi cerita yang meyakinkan.',
-    tautan: []
+    tm: 13, fase: 3, status: 'siap',
+    judul: 'Donut Chart dan Viz Extension',
+    ringkas: 'Bangun donut sendiri pakai teknik dua sumbu, lalu pasang viz extension buat Sankey, Waterfall, Radar, dan Line chart. Ditutup cara memilih grafik yang pas untuk tiap pertanyaan.',
+    tujuan: 'Bisa menilai kapan grafik komposisi layak dipakai dan kapan justru menyesatkan, lalu membangun enam bentuk visual dari satu dataset yang sama.',
+    tautan: [
+      { label: 'Modul TM13 Donut dan Viz Extension', path: 'TM13_Donut_dan_Viz_Extension.pdf', tipe: 'pdf' },
+      { label: 'Slide TM13 Donut dan Viz Extension', path: 'TM13_Donut_dan_Viz_Extension.pptx', tipe: 'pptx' }
+    ]
   },
   {
     tm: 14, fase: 3, status: 'rencana',

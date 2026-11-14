@@ -20,6 +20,21 @@
 var KABAR = [
   {
     label: 'Materi Baru',
+    judul: 'Pertemuan 13: Donut Chart dan Viz Extension',
+    isi: 'Tableau tidak punya tipe grafik donut, jadi donut dibangun sendiri dengan menumpuk dua ' +
+         'lingkaran pada satu titik, dua belas langkah. Setelah itu baru masuk viz extension: ' +
+         'Sankey, Waterfall, Radar, dan Line chart, yang dulu butuh tiga puluh langkah manual ' +
+         'sekarang selesai dalam hitungan menit. Ditutup kerangka memilih grafik sesuai ' +
+         'pertanyaan analisis, lengkap dengan hal yang perlu diwaspadai dari tiap bentuk.',
+    aksi: 'Buka daftar materi',
+    href: 'bahan.html#tm13',
+    hari: '14',
+    bulan: 'November',
+    ket: 'Pertemuan 13',
+    sorot: '47 slide, 6 bentuk visual'
+  },
+  {
+    label: 'Materi Baru',
     judul: 'Pertemuan 11: Dari Angka Jadi Keputusan',
     isi: 'Satu garis tren penjualan dibongkar jadi empat langkah. Lihat polanya dengan memindahkan ' +
          'tahun ke shelf Color, ukur dengan SUM atau AVG lalu hitung pertumbuhan antar tahun, ' +
