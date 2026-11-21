@@ -20,6 +20,21 @@
 var KABAR = [
   {
     label: 'Materi Baru',
+    judul: 'Pertemuan 14: Membuat Dashboard di Tableau',
+    isi: 'Dashboard bukan kumpulan grafik yang ditempel jadi satu. Ada tiga syarat yang harus ' +
+         'terpenuhi bersamaan, dan kalau satu saja gugur yang tersisa cuma tumpukan grafik. ' +
+         'Materi ini membawa sebelas worksheet dari dua pertemuan sebelumnya jadi satu dashboard ' +
+         'yang pesannya tertangkap dalam lima detik: enam prinsip desain, lima kesalahan tersering, ' +
+         'lalu delapan langkah praktik sampai diperiksa di layar tablet dan telepon.',
+    aksi: 'Buka daftar materi',
+    href: 'bahan.html#tm14',
+    hari: '21',
+    bulan: 'November',
+    ket: 'Pertemuan 14',
+    sorot: '32 slide, modul dan PPT'
+  },
+  {
+    label: 'Materi Baru',
     judul: 'Pertemuan 13: Donut Chart dan Viz Extension',
     isi: 'Tableau tidak punya tipe grafik donut, jadi donut dibangun sendiri dengan menumpuk dua ' +
          'lingkaran pada satu titik, dua belas langkah. Setelah itu baru masuk viz extension: ' +

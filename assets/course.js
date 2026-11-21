@@ -155,11 +155,14 @@ var COURSE = [
     ]
   },
   {
-    tm: 14, fase: 3, status: 'rencana',
-    judul: 'Studi Kasus Akuntansi dan KPI Keuangan',
-    ringkas: 'Latihan kasus akuntansi beneran: untung rugi, arus kas, piutang, dan anggaran.',
-    tujuan: 'Bisa milih angka yang penting buat kasus akuntansi.',
-    tautan: []
+    tm: 14, fase: 3, status: 'siap',
+    judul: 'Membuat Dashboard di Tableau',
+    ringkas: 'Sebelas worksheet disatukan jadi satu dashboard yang bisa ditindaklanjuti. Konsep dan syaratnya dulu, tipe dan anatomi kanvasnya, enam prinsip desain, lalu delapan langkah praktik sampai diperiksa lewat device preview.',
+    tujuan: 'Bisa membedakan dashboard dari sekadar kumpulan grafik, lalu membangun satu dashboard yang pesannya tertangkap dalam lima detik.',
+    tautan: [
+      { label: 'Modul TM14 Membuat Dashboard di Tableau', path: 'TM14_Membuat_Dashboard_Tableau.pdf', tipe: 'pdf' },
+      { label: 'Slide TM14 Membuat Dashboard di Tableau', path: 'TM14_Membuat_Dashboard_Tableau.pptx', tipe: 'pptx' }
+    ]
   },
   {
     tm: 15, fase: 3, status: 'rencana',
